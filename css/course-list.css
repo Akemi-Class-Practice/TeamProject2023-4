@@ -64,7 +64,7 @@ li {
     font-weight:bold;
 }
 
-/*---下線を引くため---*/
+/*----下線を引くため----*/
 .border-line{
     color:transparent;
     border-bottom: solid 1px #007c2f;
