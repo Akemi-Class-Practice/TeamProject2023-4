@@ -15,6 +15,47 @@ header {
     right: 0; /* 设置按钮距离右侧的位置为0 */
 }
 
+
+button {
+    /* 变量 */
+    --button_radius: 30px; /* 按钮的圆角半径 */
+    --button_color: #e8e8e8; /* 按钮的背景颜色 */
+    --button_outline_color: #000000; /* 按钮的边框颜色 */
+    font-size: 17px; /* 按钮的字体大小 */
+    font-weight: bold; /* 按钮的字体粗细 */
+    border: none; /* 去除按钮边框 */
+    border-radius: var(--button_radius); /* 设置按钮的圆角半径 */
+    background: var(--button_outline_color); /* 设置按钮的背景颜色 */
+    box-shadow: 0 2px 4px rgba(201, 16, 16, 0.2); /* 添加阴影效果 */
+}
+
+.button_top {
+    display: block; /* 将按钮元素设置为块级元素 */
+    box-sizing: border-box; /* 设置盒模型为 border-box */
+    border: 2px solid var(--button_outline_color); /* 设置按钮的边框样式和颜色 */
+    border-radius: var(--button_radius); /* 设置按钮的圆角半径 */
+    padding: 0.75em 1.5em; /* 设置按钮的内边距 */
+    background: var(--button_color); /* 设置按钮的背景颜色 */
+    color: var(--button_outline_color); /* 设置按钮的文本颜色 */
+    transform: translateY(-0.2em); /* 设置按钮向上移动的初始位置 */
+    transition: transform 0.1s ease; /* 添加按钮动画效果 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+}
+
+button:hover .button_top {
+    /* 鼠标悬停时向上移动按钮 */
+    transform: translateY(-0.33em);
+}
+
+button:active .button_top {
+    /* 按下按钮时向下移动按钮 */
+    transform: translateY(0);
+}
+
+
+
+
+
 .lesson-list {
     margin: 20px; /* 设置讲座列表的外边距为20px */
 }
@@ -35,7 +76,9 @@ header {
     width: 500px; /* 设置图片的宽度为500px */
     height: 300px; /* 设置图片的高度为300px */
     object-fit: cover; /* 控制图片的缩放方式，保持宽高比并填充容器 */
-    border-radius: 5px; /* 设置圆角效果为5px */
+    margin-top: 30px;
+    margin-left:30px ;
+    margin-bottom: 30px;
 }
 
 .lesson-details {
@@ -45,6 +88,7 @@ header {
 .lesson-details h2 {
     font-size: 20px; /* 设置标题的字体大小为20px */
     margin-bottom: 10px; /* 设置下边距为10px */
+
 }
 
 .lesson-actions {
@@ -54,10 +98,10 @@ header {
 .lesson-actions button {
     padding: 5px 10px; /* 设置按钮的内边距为5px上下，10px左右 */
     margin-right: 10px; /* 设置右外边距为10px */
-    background-color: #333; /* 设置背景颜色为深灰色 */
-    color: #fff; /* 设置文本颜色为白色 */
-    border: none; /* 去除边框 */
-    border-radius: 3px; /* 设置圆角效果为3px */
+    background-color: transparent; /* 设置背景颜色为透明 */
+    color: #000; /* 设置文本颜色为黑色 */
+    border: 2px solid #007c2f; /* 设置边框样式为1px实线绿色 */
+    border-radius: 30px; /* 设置圆角效果为3px */
     cursor: pointer; /* 设置鼠标悬停样式为手型 */
 }
 
