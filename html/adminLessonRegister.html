@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>管理者講座登録画面</title>
+	<link rel="stylesheet" href="adminLessonRegister.css">
+</head>
+
+<body>
+	<!--ページヘッダー-->
+	<header>
+		<h1>新規講座登録画面</h1>
+	</header>
+
+	<!--画像の挿入-->
+	<form>
+		<section class="main-section"><!--画像、ブログ内容、コメントは同じセクション内にあります-->
+			<div class="file-input">
+				<input type="file" id="upload-input" name="imageName">
+				<label for="upload-input" id="upload-label">
+					<div id="preview-container">
+						<span id="placeholder-text">画像を追加するにはクリックしてください</span>
+						<img id="preview-image" class="image-preview">
+					</div>
+				</label>
+			</div>
+
+			<!--内容の挿入-->
+			<div class="lesson-content">
+				<input class="title-input" type="text" placeholder="講座タイトルを入力" name="blogTitle">
+				<textarea class="content-text" placeholder="講座内容を入力" name="content"></textarea>
+				
+				<button class="submitButton" type="submit">送信</button>
+			</div>
+		</section>
+	</form>
+	<script src="adminLessonRegister.js"></script>
+</body>
+
+</html>

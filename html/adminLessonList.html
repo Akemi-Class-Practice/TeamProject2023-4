@@ -8,8 +8,19 @@
 <body>
     <header>
         <h1>管理者講座一覧</h1>
-        <button class="login-button">ログイン</button>
+        <div class="header-buttons">
+            <div class="header-buttons-top">
+                <a href="signup.html" class="header-button">Sign Up</a>
+            </div>
+            <div class="header-buttons-bottom">
+                <a href="mypage.html" class="header-button">MY PAGE</a>
+            </div>
+            <button>
+                <span class="button_top">LOGIN</span>
+            </button>
+        </div>
     </header>
+    
     
     <div class="lesson-list">
        
@@ -19,11 +30,11 @@
                 <img src="/EC/image/city.jpg" alt="講座画像">
             </div>
             <div class="lesson-details">
-                <h2>講座A</h2> <!-- 讲座标题 -->
-                <p>講座の詳細情報がここに表示されます。</p> <!-- 讲座内容 -->
+                <h2>講座A</h2> <!-- 講座のタイトル -->
+                <p>講座の詳細内容がここに表示されます。</p> <!-- 講座の内容 -->
                 <div class="lesson-actions">
-                    <button>more</button> <!-- 更多按钮 -->
-                    <span class="lesson-amount">￥21,000</span> <!-- 讲座金额 -->
+                    <button class="more">more</button> <!-- もっと見るボタン -->
+                    <span class="lesson-cost">￥21,000</span> <!-- 講座の金額 -->
                 </div>
             </div>
         </div>
@@ -35,18 +46,18 @@
                 <img src="/EC/image/evening.jpg" alt="講座画像">
             </div>
             <div class="lesson-details">
-                <h2>講座B</h2> <!-- 讲座标题 -->
-                <p>講座の詳細情報がここに表示されます。</p> <!-- 讲座内容 -->
+                <h2>講座B</h2> <!-- 講座のタイトル -->
+                <p>講座の詳細内容がここに表示されます。</p> <!-- 講座の内容 -->
                 <div class="lesson-actions">
-                    <button>more</button> <!-- 更多按钮 -->
-                    <span class="lesson-amount">￥15,000</span> <!-- 讲座金额 -->
+                    <button class="more">more</button> <!-- もっと見るボタン -->
+                    <span class="lesson-cost">￥15,000</span> <!-- 講座の金額 -->
                 </div>
             </div>
         </div>
         
        
         
-        <!-- 其他講座的显示 -->
+        <!-- その他講座の表示 -->
     </div>
 
     <footer>
@@ -54,4 +65,3 @@
     </footer>
 </body>
 </html>
-
