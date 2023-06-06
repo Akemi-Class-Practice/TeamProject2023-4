@@ -10,12 +10,36 @@ header {
     color: #ffff; /* 设置文本颜色为白色 */
 }
 
-.login-button {
-    top: 100px; /* 设置按钮距离顶部的位置为100px */
-    right: 0; /* 设置按钮距离右侧的位置为0 */
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-buttons-top,
+.header-buttons-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-button {
+    margin-right: 10px;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #007c2f;
+    color: #fff;
+    border-radius: 4px;
 }
 
 
+
+
+
+
+
+
+/*页头的login按钮*/
 button {
     /* 变量 */
     --button_radius: 30px; /* 按钮的圆角半径 */
@@ -27,6 +51,8 @@ button {
     border-radius: var(--button_radius); /* 设置按钮的圆角半径 */
     background: var(--button_outline_color); /* 设置按钮的背景颜色 */
     box-shadow: 0 2px 4px rgba(201, 16, 16, 0.2); /* 添加阴影效果 */
+    text-align: center;
+    
 }
 
 .button_top {
@@ -63,7 +89,9 @@ button:active .button_top {
 .lesson {
     display: flex; /* 使用弹性盒子布局 */
     align-items: center; /* 垂直居中对齐 */
-    border-top: 1px solid #ccc; /* 设置顶部边框为1px实线灰色 */
+
+/*分割线*/
+    border-top: 2px solid #007c2f; /* 设置顶部边框为1px实线灰色 */
     padding: 20px 0; /* 设置上下内边距为20px，左右内边距为0 */
 }
 
@@ -76,39 +104,40 @@ button:active .button_top {
     width: 500px; /* 设置图片的宽度为500px */
     height: 300px; /* 设置图片的高度为300px */
     object-fit: cover; /* 控制图片的缩放方式，保持宽高比并填充容器 */
-    margin-top: 30px;
-    margin-left:30px ;
-    margin-bottom: 30px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   margin-left: 20px;
 }
 
 .lesson-details {
     flex: 1; /* 剩余空间全部占据 */
+    margin-left: 50px;
 }
 
 .lesson-details h2 {
     font-size: 20px; /* 设置标题的字体大小为20px */
     margin-bottom: 10px; /* 设置下边距为10px */
-
 }
 
 .lesson-actions {
     margin-top: 10px; /* 设置上外边距为10px */
 }
 
-.lesson-actions button {
+.more{
     padding: 5px 10px; /* 设置按钮的内边距为5px上下，10px左右 */
     margin-right: 10px; /* 设置右外边距为10px */
     background-color: transparent; /* 设置背景颜色为透明 */
-    color: #000; /* 设置文本颜色为黑色 */
+    color: #007c2f; /* 设置文本颜色为黑色 */
     border: 2px solid #007c2f; /* 设置边框样式为1px实线绿色 */
     border-radius: 30px; /* 设置圆角效果为3px */
     cursor: pointer; /* 设置鼠标悬停样式为手型 */
 }
 
-.lesson-amount {
+.lesson-cost {
     font-size: 18px; /* 设置金额字体大小为18px */
     font-weight: bold; /* 设置金额字体粗细为粗体 */
     color: #d06161; /* 设置金额文本颜色为红色 */
+    margin-left: 100px;
 }
 
 footer {
