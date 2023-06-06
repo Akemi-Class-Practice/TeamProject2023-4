@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/blog-register.css}">
+    <title>Document</title>
+</head>
+<body>
+        
+    <header>
+        <ul>
+            <li><a th:href="@{/top}">Home</a></li>
+            <li><a th:href="@{#}">Blog Register</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </header>
+
+    <main>
+
+        <form method="post" th:actioon="@{/blog-register}">
+
+            <div class="title">
+                <input type="text" name="blogTitle" placeholder="タイトル" required>
+            </div>
+
+
+            <div class="text">
+                <textarea  name="blogText" placeholder="ここに記入してください" required></textarea>
+            </div>
+           
+            <button>投  稿</button>
+
+        </form>
+    </main>
+
+    <footer>
+        <p class="copyright">Copyright &copy; 2022 Learner All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

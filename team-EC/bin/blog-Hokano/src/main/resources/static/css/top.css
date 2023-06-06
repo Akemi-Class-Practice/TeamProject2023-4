@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+@import url('https://fonts.googleapis.com/css?family=Kosugi');
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    margin:0 auto;
+    background-image: url(../img/p0495_l.jpg);
+}
+
+header{
+    height: 200px;
+    background-image: url(../img/p0325_m.jpg);
+}
+
+ul{
+    display:flex;
+
+    font-size: 40px;
+
+}
+
+li{
+
+    font-family: 'Sacramento', cursive;    
+    margin: 130px 0 0 auto;
+    padding-right: 30px;
+}
+
+
+main{
+    background-color: rgb(255, 244, 237);
+    width: 80%;
+    margin:0 auto;
+    height: 900px;
+}
+
+footer{
+    margin-bottom:0;
+    background-image: url(../../img/p0325_m.jpg);
+}
+
+a{
+    color: black;
+}
