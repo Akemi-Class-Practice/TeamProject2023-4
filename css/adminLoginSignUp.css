@@ -1,0 +1,392 @@
+/* base css */
+html {
+    font-size: 100%;
+    font-family:'Noto Sans JP' , sans-serif;
+}
+
+body {
+    min-width: 800px !important;
+    cursor:cell;
+
+}
+
+::selection {
+    background: #ff516e;
+}
+::-moz-selection {
+    background: #ff516e;
+}
+p {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+/* ---------- */
+
+/* -----左上のLOGO-------- */
+.logo-triangle {
+    z-index: 1;
+    top: -10px;
+    left: -10px;
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 210px 210px 0 0;
+    border-color: #fbeedd transparent transparent transparent;
+
+}
+.logo-triangle-black{
+    z-index: 1;
+    top: -10px;
+    left: -10px;
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 210px 210px 0 0;
+    border-color: #1c1c1c transparent transparent transparent;
+}
+.admin_logo {
+    z-index: 2;
+    width: 150px;
+    transform: rotate(-45deg);
+    transform-origin: left center;
+    position: fixed;
+    top: 100px;
+    left: 12px;
+}
+/* ------------------- */
+
+
+/* ------background-image------------------------ */
+.bg_pic_container {
+    position: relative;
+    top: 0;
+    bottom: 0;
+}
+.background_green{
+    min-width: 1200px !important;
+    content: "";
+    position: fixed;
+    background-color: #007c30;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.background_cream{
+    min-width: 1200px !important;
+    content: "";
+    position: fixed;
+    background-color: #fbeedd;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.background_green_over{
+    background-color: #007c30;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    z-index: -9;
+}
+
+.green_triangle_bg{
+    position: fixed;
+    z-index: -90;
+    top: -10px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1200px 1700px 0 0;
+    border-color: #007c30 transparent transparent transparent;
+}
+.grid_background{
+    min-width: 1200px;
+    content: "";
+    position: fixed;
+    z-index:-80;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+}
+
+
+/* -----------over the background-------------- */
+.smile-sticker{
+    display: inline-block;
+    position: fixed;
+    top: 14%;
+    right: 6%;
+    width:7%;
+    min-width: 100px;
+    cursor: grab;
+}
+.smile-sticker:active{
+    cursor:grabbing;
+}
+
+.title_container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 5vw;
+    font-family:'Noto Sans JP' , sans-serif;
+    font-weight: 800;
+}
+.title_container #login_text{
+    position: fixed;
+    bottom:10px;
+    min-width: 600px;
+}
+
+
+/* ----------*/
+
+/* button and input area */
+form{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.form_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+}
+.login-form .space-between{
+    height: 60px;
+}
+.register-form .space-between{
+    height: 30px;
+}
+
+
+.input-bar{
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Noto Sans JP' , sans-serif;
+    /* color:#262626; */
+    font-weight: 500;
+}
+.input-bar::placeholder{
+    font-family: 'Noto Sans JP' , sans-serif;
+    color:#0d621e;
+    opacity: 0.5;
+}
+.input-radius {
+    width: 40vw;
+    height: 70px;
+    border: #000000 solid 4px;
+    border-radius: 30em;
+}
+.circle-radius{
+    border-radius: 30em;
+}
+.green-background{
+    background-color: #0f8524;
+}
+.cream-background{
+    background-color: #fbeedd;
+}
+.submit-button{
+    border: 4px solid #000000;
+    font-size: 2.3em;
+    font-family: 'Noto Sans JP',sans-serif;
+    font-weight: 800;
+}
+.submit-button:hover{
+    background-color: #ff6128;
+    transition: all 0.3s;                           
+    cursor:default;
+
+}
+
+.return_container{
+    display: inline-block;
+    position: fixed;
+    top: 65%;
+    right: 6%;
+    width:10%;
+    min-width: 110px;
+}
+.sign_up_container{
+    display: inline-block;
+    position: fixed;
+    top: 65%;
+    left: 6%;
+    width:10%;
+    min-width: 110px;
+}
+button {
+    min-width: 110px;
+    --glow-color: rgb(9, 177, 73);              
+    --glow-spread-color: rgba(0, 124, 48, 0.781); 
+    --enhanced-glow-color: rgb(153, 254, 44);       
+    --btn-color: rgb(0, 124, 48);                  
+    border: 4px solid #000000;          
+    padding: 0.2em;                             
+    color: #fbeedd;                       
+    font-size: 3vw;                                
+    font-weight: bold;                              
+    background-color: var(--btn-color);             
+    border-radius: 0em;                             
+    outline: none;                                   
+    box-shadow: 0 0 1em .2em var(--glow-color),     
+                0 0 4em 1em var(--glow-spread-color);
+    text-shadow: 0 0 .1em #fbeedd;         
+    position: relative;                              
+    transition: all 0.3s;                           
+}
+
+button::after {
+    pointer-events: none;                            
+    content: "";                                    /* 设置伪元素的内容为空 */
+    position: absolute;                             
+    top: 120%;                                      
+    left: 0;                                       
+    height: 100%;                                   
+    width: 100%;                                    
+    background-color: var(--glow-spread-color);     
+    filter: blur(2em);                              
+    opacity: .7;                                    
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6); /* 设置伪元素的 3D 变换效果 */
+}
+
+button:hover {
+    color:  #fbeedd;                        
+    background-color:  #ff6128;            
+    box-shadow: 0 0 1em .25em var(--glow-color),     
+                0 0 4em 2em var(--glow-spread-color),
+                inset 0 0 .75em .25em var(--glow-color);
+}
+
+button:active {
+    background-color: #0f8524;            
+    box-shadow: 0 0 0.6em .25em var(--glow-color),   
+                0 0 2.5em 2em var(--glow-spread-color),
+                inset 0 0 .5em .25em var(--glow-color);
+}
+
+footer {
+    position: fixed;
+    bottom:10px;
+    left:10px;
+}
+
+/* --------userLogin Page -------- */
+.untransparent_window_container {
+    background-color: rgba(251, 238, 221, 0.2); 
+    border: solid 4px #000000;
+    width: 43%;
+    min-width: 400px;
+    height: 40%;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+}
+/* .user-login-form{
+    width: 8vw;
+} */
+.user-login-form .space-between{
+    height: 50px;
+}
+.user-login-input-bar{
+    height: 70px;
+    width: 75%;
+    border: #000000 solid 4px;
+}
+.user-lg-btn{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-left: #000000 4px solid;
+    border-top:#000000 4px solid;
+    height: 22%;
+    width: 60%;
+    font-size: 29pt;
+    color: #fbeedd;
+    font-family:'Noto Sans JP' , sans-serif;
+    font-weight: 800;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
+}
+.user-lg-btn:hover{
+    background-color: #ff6128;
+    transition: all 0.3s;                           
+    cursor:pointer;
+}
+.user-login-fgtpsw{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 16%;
+    height: auto;
+    border-right: #000000 4px solid;
+    border-top: #000000 4px solid;
+    font-size: 6pt;
+    padding: 5px;
+    font-family:'Noto Sans JP' , sans-serif;
+    font-weight: 500;
+    color: #007c30;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+}
+.user-login-fgtpsw:hover {
+    color:#ff516e;
+    cursor:pointer;
+   
+}
+.none-display {
+    display: none;
+}
+.new-acc-door {
+    position: fixed;
+    bottom: -10px;
+    right: 100px;
+    cursor:grabbing;
+}
+.new-acc-door:hover ~ .door-handle{
+    transform-origin: left center;
+    transform: rotate(45deg);
+    cursor:grabbing;
+}
+
+.door-handle{
+    position: fixed;
+    bottom: 140px;
+    right: 230px;
+    transition: transform 0.3s ease-in-out;
+    cursor:grabbing;
+}
+

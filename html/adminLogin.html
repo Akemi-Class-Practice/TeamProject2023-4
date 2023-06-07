@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-     <style>
-    /* CSS */
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="/css/adminLoginSignUp.css">
+  <!-- fontlink -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
+    rel="stylesheet">
+  <!-- fontlink^ -->
+
+
 </head>
+
 <body>
 
- <!-- HEADER BANNER -->
+  <!-- HEADER BANNER -->
   <header>
-    <a  href="">サイトトップへ</a>
-
-    <img src="logo.png" alt="logo">
-    <nav>
-      <!-- OTHERS -->
-    </nav>
+    <!-- HEADER BANNER  before -->
+    <header>
+      <a href="">
+        <div class="logo-triangle"></div>
+        <div class="admin_logo">
+          <img src="/sourceImg/admin_web_logo.svg">
+        </div>
+      </a>
+    </header>
+    <!----HEADER BANNER after -->
   </header>
+
+  <div class="bg_pic_container">
+    <div class="background_cream">
+    </div>
+    <div class="green_triangle_bg"></div>
+    <div class="grid_background">
+      <img src="/sourceImg/bg_grid_gray.svg" alt="some gray grid over the cream and green background image">
+    </div>
+    <div class="smile-sticker" id="smile_draggableElement" draggable="true">
+      <img src="/sourceImg/smile.svg" alt="a smile sticker on the wall">
+    </div>
+    <div class="title_container">
+      <p id="admin_text">管理者</p>
+      <p id="login_text">ログイン</p>
+    </div>
+  </div>
 
   <!-- INPUT FORM -->
   <form>
-    <h2>ADMIN LOGIN</h2>
-    <label for="email">email</label>
-    <input type="email" id="adminEmail" name="email" required>
-
-    <label for="password">password</label>
-    <input type="password" id="adminPassword" name="password" required>
-
-    <!-- ここで遷移先を入力 -->
-    <input type="submit" value="ログイン">
-    
-
+    <div class="form_container login-form">
+      <input class="input-bar input-radius circle-radius green-background " type="email" id="adminEmail" name="email" placeholder="メールアドレスを入力" required>
+      <div class="space-between"></div>
+      <input class="input-bar input-radius circle-radius cream-background " type="password" id="adminPassword" name="password" placeholder="パスワード"  required>
+      <!-- ここで遷移先を入力 -->
+      <div class="space-between"></div>
+      <input class="green-background circle-radius submit-button " type="submit" value="＞">
+    </div>
   </form>
 
-      <!-- 新規登録のアクションはここに入力 -->
-      <a href=""　id="">新規登録はこちら</a>
+  <!-- 新規登録のアクションはここに入力 -->
+  <div class="sign_up_container" id="button">
+    <a href="">
+      <button>
+        <p>新規<br>登録</p>
+      </button>
+    </a>
+  </div>
 
   <!-- copyright -->
   <footer>
@@ -46,6 +78,52 @@
 
 
 
-    
+  <script>
+    //Make the DIV element draggagle:
+    dragElement(document.getElementById("smile_draggableElement"));
+
+    function dragElement(elmnt) {
+      var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+      if (document.getElementById(elmnt.id + "header")) {
+        /* if present, the header is where you move the DIV from:*/
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+      } else {
+        /* otherwise, move the DIV from anywhere inside the DIV:*/
+        elmnt.onmousedown = dragMouseDown;
+      }
+
+      function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+      }
+
+      function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      }
+
+      function closeDragElement() {
+        /* stop moving when mouse button is released:*/
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+    }
+  </script>
 </body>
+
+
 </html>

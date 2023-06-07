@@ -22,6 +22,8 @@ p {
     margin-inline-end: 0px;
 }
 
+/* ---------- */
+
 .bg_pic{
     position: relative;
     top: 0;
@@ -182,22 +184,31 @@ p {
     left: 50%;
     transform: translate(-50%,-50%);
 }
+.to_list_container{
+    position: absolute;
+    right:0;
+    bottom:0;
+    width: auto;
+    height: 20%;
+    background-color: transparent;
+}
 .to_list_text{
-    color: rgb(234, 255, 242); /* 使用不透明度为 1 的 rgba 值来设置字体颜色 */
+    color: rgb(234, 255, 242,1); 
     font-size: 12pt;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 500;
     position: absolute;
-    right:20%;
-    bottom: 9%;
+    right:30%;
+    bottom: 40%;
+    width: 170px;
 }
 .to_list_button{
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 5%;
-    right: 5%;
+    bottom: 20%;
+    right: 15px;
     width: 40px;
     height: 40px;
     border-radius: 40px;
