@@ -1,0 +1,40 @@
+/* 仮置き */
+header{
+  background-color: rgb(160, 228, 160);
+  height: 60px;
+}
+
+
+h1{
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+/* tableのスタイル */
+table{
+    width: 90%;
+    margin:  0 auto;
+    letter-spacing: 1px;
+  }
+  table th{
+    background-color: #007c2f;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #FFFFFF;
+  }
+  table th,table td{
+    text-align: center;
+    width: 25%;
+    padding: 20px 0;
+  }
+  
+/* 交互に色を変える */
+  tr:nth-child(even) {
+    background-color: #FFFFFF;
+  }
+  tr:nth-child(odd) {
+    background-color: #fff8e6;
+  }   
