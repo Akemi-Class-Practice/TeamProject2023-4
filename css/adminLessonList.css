@@ -2,16 +2,18 @@ body {
     font-family: Arial, sans-serif; /* 设置字体样式 */
     margin: 0; /* 设置页面边距为0 */
     padding: 0; /* 设置页面内边距为0 */
-}
-
-header {
-    height: 500px; /* 设置页头高度为500px */
-    background-color: #007c2f; /* 设置背景颜色为深绿色 */
-    color: #ffff; /* 设置文本颜色为白色 */
-}
-
-
-.header-buttons {
+    background: rgb(242, 154, 118);
+    background: radial-gradient(circle, rgba(242, 154, 118, 1) 0%, rgba(253, 238, 232, 1) 57%, rgba(255, 255, 255, 1) 83%);
+    background-position: 500px 0;
+    background-repeat: no-repeat;
+  }
+  
+  header {
+    height: 400px;
+    background: linear-gradient(to right, #007c2f 60%, transparent 50%, #50615d 40%);
+  }
+  
+  .header-buttons {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -27,13 +29,10 @@ header {
     margin-right: 10px;
     text-decoration: none;
     padding: 8px 16px;
-    background-color: #007c2f;
+   
     color: #fff;
     border-radius: 4px;
 }
-
-
-
 
 
 
