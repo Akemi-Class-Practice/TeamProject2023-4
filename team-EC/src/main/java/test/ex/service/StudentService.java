@@ -65,7 +65,7 @@ public class StudentService {
 	}
 	// 内容をupdate-----------------------------------------------------------
 	public void update(Long studentId,String studentName, String studentPassword,String keyword,String studentEmail,int point) {
-		StudentEntity studentEntity = studentDao.findByStudentId(studentId);
+		
 		studentDao.save(new StudentEntity(studentId,studentName, studentPassword, keyword,studentEmail,point));
 	}
 
