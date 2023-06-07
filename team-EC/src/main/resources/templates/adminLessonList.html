@@ -11,6 +11,7 @@
         <div class="header-buttons">
             <div class="header-buttons-top">
                 <a href="signup.html" class="header-button">Sign Up</a>
+
             </div>
             <div class="header-buttons-bottom">
                 <a href="mypage.html" class="header-button">MY PAGE</a>
@@ -18,7 +19,9 @@
             <button>
                 <span class="button_top">LOGIN</span>
             </button>
+
         </div>
+     <a th:href="@{/admin/logout}">ログアウト</a><!--テスト用ログアウトリンク。消してもよし-->
     </header>
     
     
@@ -33,7 +36,7 @@
                 <h2 th:text="${lesson.lessonName}"></h2> <!-- 講座のタイトル -->
                 <p th:text="${lesson.lessonDetail}"></p> <!-- 講座の内容 -->
                 <div class="lesson-actions">
-                    <button class="more">more</button> <!-- もっと見るボタン -->
+                    <a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a> <!-- もっと見るボタン -->
                     <p>￥</p><span class="lesson-cost" th:text="${lesson.lessonFee}"></span> <!-- 講座の金額 -->
                 </div>
             </div>
