@@ -1,0 +1,221 @@
+/* adminLessonEditUpdate.css */
+
+html {
+    font-size: 75%;
+}
+
+body {
+    min-width: 800px !important;
+}
+
+::selection {
+    background: #ff516e;
+}
+::-moz-selection {
+    background: #ff516e;
+}
+p {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.bg_pic{
+    position: relative;
+    top: 0;
+    bottom: 0;
+}
+.background_pic{
+    min-width: 1200px !important;
+    content: "";
+    position: fixed;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.background_pic_green {
+    width: 100%;
+    height: 50%;
+    background-color: #007c2f;
+    border-top: #000000 4px solid;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -99;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+}
+
+/* -----左上のLOGO-------- */
+.logo-triangle {
+    z-index: 1;
+    top: -10px;
+    left: -10px;
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 210px 210px 0 0;
+    border-color: #fbeedd transparent transparent transparent;
+
+}
+.admin_logo {
+    z-index: 2;
+    width: 150px;
+    transform: rotate(-45deg);
+    transform-origin: left center;
+    position: fixed;
+    top: 100px;
+    left: 12px;
+}
+/* ------------------- */
+
+/* -------------------paper CSS------------------- */
+
+/* .paper_on_wall{
+    here for smart phone fix dedign
+} */
+
+#paper1 {
+    width: 8%;
+    min-width: 86px;
+    position: fixed;
+    top:16%;
+    left: 13%;
+    z-index: -40;
+}
+#paper2 {
+    width: 4%;
+    min-width: 50px;
+    position: fixed;
+    top:32.3%;
+    left: 27%;
+    z-index: -39;
+}
+#paper3{
+    width: 10%;
+    min-width: 100px;
+    position: fixed;
+    top:12.5%;
+    left: 38%;
+    z-index: -50;
+}
+#paper4{
+    width:10.4%;
+    min-width: 100px;
+    position: fixed;
+    top:33.5%;
+    left: 61.8%;
+    z-index: -60;
+}
+/* ------------------- */
+
+/* --------lamp------ */
+.lamp {
+    z-index: -10;
+    width: 8%;
+    min-width: 100px;
+    position: fixed;
+    bottom: 40%;
+    right: 12%;
+}
+/* --------trash bin------ */
+.trash_bin{
+    z-index: 10;
+    width: 6%;
+    min-width: 100px;
+    position:fixed;
+    bottom: 10%;
+    left: 20%;
+}
+
+
+/* -------------登録完了window-------*/
+.updated_window {
+    background-color: rgba(251, 238, 221, 0.2); 
+    border: solid 4px #000000;
+    width: 43%;
+    min-width: 400px;
+    height: 30%;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
+        -webkit-box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
+}
+.window_bar{
+    background-color: rgba(251, 202, 90, 1); 
+    border-bottom: solid 4px #000000;
+    position: absolute;
+    top: 0;
+    height: 51px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    
+}
+.updated_text{
+    color: rgba(26, 26, 26, 1); /* 使用不透明度为 1 的 rgba 值来设置字体颜色 */
+    width: 80%;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    font-size: 22pt;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.to_list_text{
+    color: rgb(234, 255, 242); /* 使用不透明度为 1 的 rgba 值来设置字体颜色 */
+    font-size: 12pt;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    position: absolute;
+    right:20%;
+    bottom: 9%;
+}
+.to_list_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background-color:#007c2f;
+    border: #000000 3px solid;
+    font-size: 15pt;
+
+}
+.to_list_button:hover{
+    background-color: #d0256c;
+}
+.to_list_button a {
+    text-decoration: none;
+    color: #fbeedd;
+}
+a:hover{
+    color:#ff516e;
+}
+a:visited{
+    color: #fbeedd;
+}
