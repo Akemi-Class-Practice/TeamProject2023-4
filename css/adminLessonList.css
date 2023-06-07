@@ -8,6 +8,7 @@ body {
     background-repeat: no-repeat;
   }
   
+<<<<<<< Updated upstream
   header {
     height: 400px;
     background: linear-gradient(to right, #007c2f 60%, transparent 50%, #50615d 40%);
@@ -80,6 +81,29 @@ button:active .button_top {
 
 
 
+=======
+header{
+    height: 200px;
+    background-color: #007c2f;
+}
+
+a.add {
+    position: absolute;
+     font-size: 80px;
+     text-decoration: none; /* 去掉下划线 */
+     margin-top: 100px;
+     margin-left:80%;
+     color: #fff;
+}
+
+.svg-logo {
+    position: absolute; /* 将SVG图像设置为绝对定位 */
+    top: 0; /* 将SVG图像置于顶部 */
+    left: 0; /* 将SVG图像置于左侧 */
+    width: 200px; /* 设置SVG图像的宽度 */
+    height: 200px; /* 设置SVG图像的高度 */
+  }
+>>>>>>> Stashed changes
 
 .lesson-list {
     margin: 20px; /* 设置讲座列表的外边距为20px */

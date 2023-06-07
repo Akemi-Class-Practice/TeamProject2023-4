@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif; /* 设置字体样式 */
     margin: 0; /* 设置页面边距为0 */
     padding: 0; /* 设置页面内边距为0 */
+    background-color:#fbeedd ;
 }
 
 header {
@@ -48,17 +49,30 @@ header {
 
 
 
-/* 设置送信按钮的颜色 */
+.returnButton,
 .submitButton {
-    padding: 5px 10px; /* 设置按钮的内边距为5px上下，10px左右 */
-    margin-right: 10px; /* 设置右外边距为10px */
-    background-color: transparent; /* 设置背景颜色为透明 */
-    color: #007c2f; /* 设置文本颜色为黑色 */
-    border: 2px solid #007c2f; /* 设置边框样式为1px实线绿色 */
-    border-radius: 30px; /* 设置圆角效果为3px */
+    padding: 10px 20px; /* 设置内边距为5px上下，10px左右 */
+    margin-top: 20px; /* 设置顶部外边距为10px */
+    margin-right: 60px;
+    margin-left: 30px;
+    background-color: #007c2f;
+    color:#ffff; /* 设置文字颜色为 #007c2f */
+    font-weight: bold;/* 字体加粗 */
+    font-size: 20px;
+    border: 3px solid #000000; /* 设置边框样式为2px实线，颜色为 #007c2f */
+    border-radius: 30px;
     cursor: pointer; /* 设置鼠标悬停样式为手型 */
 }
 
+.submitButton:hover{
+    background-color:#fbca5a;
+    color:  #007c2f; /* 设置文字颜色为 #007c2f */
+}
+
+.returnButton:hover{
+    background-color:#ffffff;
+    color: #007c2f; /* 设置文字颜色为 #007c2f */
+}
 
 /* 画像と入力するformを横並びにする */
 .main-section {
@@ -114,7 +128,7 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #888;
+    color: #007c2f;
     font-size: 18px;
 }
 
