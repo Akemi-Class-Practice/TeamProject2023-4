@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>管理者講座一覧</title>
+    <link rel="stylesheet" type="text/css" href="adminLessonList.css">
+</head>
+<body>
+    <header>
+        <h1>管理者講座一覧</h1>
+        <div class="header-buttons">
+            <div class="header-buttons-top">
+                <a href="signup.html" class="header-button">Sign Up</a>
+            </div>
+            <div class="header-buttons-bottom">
+                <a href="mypage.html" class="header-button">MY PAGE</a>
+            </div>
+            <button>
+                <span class="button_top">LOGIN</span>
+            </button>
+        </div>
+    </header>
+    
+    
+    <div class="lesson-list">
+       
+      <article class="lesson-article" th:each="lesson:${lessonList}">  
+        <div class="lesson">
+            <div class="lesson-image">
+                <img th:src="@{'/images/' + ${lesson.imageName}}" alt="講座画像">
+            </div>
+            <div class="lesson-details">
+                <h2 th:text="${lesson.lessonName}"></h2> <!-- 講座のタイトル -->
+                <p th:text="${lesson.lessonDetail}"></p> <!-- 講座の内容 -->
+                <div class="lesson-actions">
+                    <button class="more">more</button> <!-- もっと見るボタン -->
+                    <p>￥</p><span class="lesson-cost" th:text="${lesson.lessonFee}"></span> <!-- 講座の金額 -->
+                </div>
+            </div>
+        </div>
+        
+       </article>
+
+       
+        
+        <!-- その他講座の表示 -->
+    </div>
+
+    <footer>
+        <p>版权所有 © 2023 管理者講座一覧</p>
+    </footer>
+</body>
+</html>
