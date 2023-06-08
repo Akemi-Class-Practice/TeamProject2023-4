@@ -108,7 +108,8 @@ footer {
     width: 100%;
     z-index: -9;
 }
-.background_over1{
+
+.background_over1 {
     min-width: 1200px;
     content: "";
     position: fixed;
@@ -120,6 +121,15 @@ footer {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.multiple_background {
+    background-image: url("/sourceImg/grid_line_white.svg"), url("/sourceImg/user_signup_finish_bgpic.svg");
+    background-position: center center, center center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    background-blend-mode: normal, normal;
+    z-index: -1;
 }
 
 /* ------------共通css----------- */
@@ -500,16 +510,80 @@ footer {
     background-color: #dbb4ba;
 }
 
-.lesson-edit-finish{
-    font-size: 40pt;
+/* ----------講座登録完了画面------ */
+.lesson-edit-finish {
+    font-size: 70pt;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 500;
 }
-.just-msg{
+
+.just-msg {
     position: fixed;
     bottom: 10%;
     text-align: center;
 }
-.right-center-a{
+
+.right-center-a {
     right: 0;
+}
+.return_container{
+    display: inline-block;
+    position: fixed;
+    top: 65%;
+    right: 6%;
+    width:10%;
+    min-width: 110px;
+}
+.light-box-position{
+    position:fixed;
+    top:10%;
+}
+.light-box {
+    min-width: 110px;
+    --glow-color: rgb(9, 177, 73);              
+    --glow-spread-color: rgba(0, 124, 48, 0.781); 
+    --enhanced-glow-color: rgb(153, 254, 44);       
+    --btn-color: rgb(0, 124, 48);                  
+    border: 4px solid #000000;          
+    padding: 0.2em;                             
+    color: #fbeedd;                       
+    font-size: 3vw;                                
+    font-weight: bold;                              
+    background-color: var(--btn-color);             
+    border-radius: 0em;                             
+    outline: none;                                   
+    box-shadow: 0 0 1em .2em var(--glow-color),     
+                0 0 4em 1em var(--glow-spread-color);
+    text-shadow: 0 0 .1em #fbeedd;         
+    position: relative;                              
+    transition: all 0.3s;                           
+}
+
+.light-box::after {
+    pointer-events: none;                            
+    content: "";                                    /* 设置伪元素的内容为空 */
+    position: absolute;                             
+    top: 120%;                                      
+    left: 0;                                       
+    height: 100%;                                   
+    width: 100%;                                    
+    background-color: var(--glow-spread-color);     
+    filter: blur(2em);                              
+    opacity: .7;                                    
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6); /* 设置伪元素的 3D 变换效果 */
+}
+
+.light-box:hover {
+    color:  #fbeedd;                        
+    background-color:  #ff6128;            
+    box-shadow: 0 0 1em .25em var(--glow-color),     
+                0 0 4em 2em var(--glow-spread-color),
+                inset 0 0 .75em .25em var(--glow-color);
+}
+
+.light-box:active {
+    background-color: #0f8524;            
+    box-shadow: 0 0 0.6em .25em var(--glow-color),   
+                0 0 2.5em 2em var(--glow-spread-color),
+                inset 0 0 .5em .25em var(--glow-color);
 }
