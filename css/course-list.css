@@ -1,3 +1,6 @@
+/*-------------------------------------------
+                    基礎設定
+-------------------------------------------*/
 html {
     font-size: 100%;
 }
@@ -20,6 +23,7 @@ li {
     list-style: none;
 }
 
+/*全体的な調整*/
 .wrapper {
     max-width: 960px;
     margin: 0 auto 100px auto;
@@ -46,6 +50,9 @@ li {
     margin: 10px 0;
 }
 
+/*--------------------------------
+            ボタン関連
+---------------------------------*/
 /*---詳細画面遷移ボタン---*/
 .text button{
     width:150px;
@@ -64,33 +71,25 @@ li {
     font-weight:bold;
 }
 
-/*----下線を引くため----*/
-.border-line{
-    color:transparent;
-    border-bottom: solid 1px #007c2f;
-    border-width: 3px;
-    margin-bottom:40px;
-}
-
-
 /*-------------------------------------------
-                    About
+                    course
 -------------------------------------------*/
-#about .content{
+#course .content{
     display: flex;
     justify-content: center;
 }
 
-#about img {
+#course img {
     width: 400px;
     height: 247.21878862793574px;
     margin-right: 100px;
 }
 
-#about .text {
+#course .text {
     text-align: left;
 }
 
+/*----下線の挿入の為----*/
 hr{
     width:100%;
     height:3px;

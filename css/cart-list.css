@@ -1,3 +1,6 @@
+/*-------------------------------------------
+                    基礎設定
+-------------------------------------------*/
 html {
     font-size: 100%;
 }
@@ -42,7 +45,7 @@ li {
     font-size: 20px;
 
 }
-
+/*---合計金額の要素---*/
 .subtotal {
     font-size: 20px;
     margin-bottom: 10px;
@@ -66,6 +69,9 @@ li {
     margin: 10px 0;
 }
 
+/*--------------------------------
+            ボタン関連
+---------------------------------*/
 /*---詳細画面遷移ボタン---*/
 .text button{
     width:150px;
@@ -84,16 +90,6 @@ li {
     font-weight:bold;
 }
 
-.set-price input{
-    width:150px;
-    height:44px;
-    background: linear-gradient(90deg, #fff, #f29a76);
-    border-radius:22px;
-    margin-left: 250px;
-    background: transparent;
-    border-color: #007c2f !important;
-}
-
 /*----下線を引くため----*/
 .border-line{
     color:transparent;
@@ -103,20 +99,20 @@ li {
 }
 
 /*-------------------------------------------
-                    About
+                    cart
 -------------------------------------------*/
-#about .content{
+#cart .content{
     display: flex;
 }
 
-#about img {
+#cart img {
     width: 250px;
     height: 154px;
     margin-right: 100px;
     margin-bottom:50px;
 }
 
-#about .text {
+#cart .text {
     text-align: left;
 }
 
@@ -132,7 +128,6 @@ li {
 a.btn_1 {
 	display: block;
 	text-align: center;
-	vertical-align: middle;
 	text-decoration: none;
 	width: 120px;
 	padding: 1rem 4rem;
@@ -180,7 +175,6 @@ a.btn_1:hover:after {
 a.btn_2 {
 	display: block;
 	text-align: center;
-	vertical-align: middle;
 	text-decoration: none;
 	width: 120px;
 	margin-left: auto;
