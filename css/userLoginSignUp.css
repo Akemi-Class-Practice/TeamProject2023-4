@@ -129,7 +129,7 @@ footer {
     background-repeat: no-repeat, no-repeat;
     background-size: cover, cover;
     background-blend-mode: normal, normal;
-    z-index: -1;
+    z-index: -100;
 }
 
 /* ------------共通css----------- */
@@ -178,6 +178,14 @@ footer {
     width: auto;
     cursor: url(sourceImg/pointer.svg), auto;
 
+}
+
+.justify-align-center-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .justify-content-center {
@@ -229,6 +237,14 @@ footer {
 
 .border4px {
     border: #000000 4px solid;
+}
+
+.zindex1 {
+    z-index: 1;
+}
+
+.zindex2 {
+    z-index: 2;
 }
 
 /* --------userLogin Page -------- */
@@ -343,12 +359,12 @@ footer {
 }
 
 .name-icon {
-    width: 90px;
+    width: 70px;
     transform: translateX(-30px);
 }
 
 .name-icon img {
-    height: 38px;
+    height: 30px;
 }
 
 .psw-icon {
@@ -510,80 +526,154 @@ footer {
     background-color: #dbb4ba;
 }
 
-/* ----------講座登録完了画面------ */
-.lesson-edit-finish {
-    font-size: 70pt;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 500;
+/* ---------UserRegisterFinish------ */
+
+#border-cream-cross-star1 {
+    position: absolute;
+    width: 8%;
+    left: 4.2%;
+    bottom: 8.1%;
+    min-width: 80px;
 }
 
-.just-msg {
-    position: fixed;
-    bottom: 10%;
-    text-align: center;
-}
-
-.right-center-a {
-    right: 0;
-}
-.return_container{
-    display: inline-block;
-    position: fixed;
-    top: 65%;
+#border-cream-cross-star2 {
+    position: absolute;
     right: 6%;
-    width:10%;
-    min-width: 110px;
-}
-.light-box-position{
-    position:fixed;
-    top:10%;
-}
-.light-box {
-    min-width: 110px;
-    --glow-color: rgb(9, 177, 73);              
-    --glow-spread-color: rgba(0, 124, 48, 0.781); 
-    --enhanced-glow-color: rgb(153, 254, 44);       
-    --btn-color: rgb(0, 124, 48);                  
-    border: 4px solid #000000;          
-    padding: 0.2em;                             
-    color: #fbeedd;                       
-    font-size: 3vw;                                
-    font-weight: bold;                              
-    background-color: var(--btn-color);             
-    border-radius: 0em;                             
-    outline: none;                                   
-    box-shadow: 0 0 1em .2em var(--glow-color),     
-                0 0 4em 1em var(--glow-spread-color);
-    text-shadow: 0 0 .1em #fbeedd;         
-    position: relative;                              
-    transition: all 0.3s;                           
+    top: 10%;
+    width: 4%;
+    min-width: 40px;
 }
 
-.light-box::after {
-    pointer-events: none;                            
-    content: "";                                    /* 设置伪元素的内容为空 */
-    position: absolute;                             
-    top: 120%;                                      
-    left: 0;                                       
-    height: 100%;                                   
-    width: 100%;                                    
-    background-color: var(--glow-spread-color);     
-    filter: blur(2em);                              
-    opacity: .7;                                    
-    transform: perspective(1.5em) rotateX(35deg) scale(1, .6); /* 设置伪元素的 3D 变换效果 */
+.opened-mail {
+    position: fixed;
+    top: 22%;
+    left: 33.3%;
+    width: 33%;
+    height: auto;
+    min-width: 360px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center;  */
+    /* position: relative; */
 }
 
-.light-box:hover {
-    color:  #fbeedd;                        
-    background-color:  #ff6128;            
-    box-shadow: 0 0 1em .25em var(--glow-color),     
-                0 0 4em 2em var(--glow-spread-color),
-                inset 0 0 .75em .25em var(--glow-color);
+.absolute-top0 {
+    position: absolute;
+    top: 10px;
+    left: 5.5%;
 }
 
-.light-box:active {
-    background-color: #0f8524;            
-    box-shadow: 0 0 0.6em .25em var(--glow-color),   
-                0 0 2.5em 2em var(--glow-spread-color),
-                inset 0 0 .5em .25em var(--glow-color);
+.scroll-text {
+    width: 89%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.scroll-text p {
+    animation: scroll 5s linear infinite;
+    white-space: nowrap;
+}
+
+.thank-regi-msg p {
+    font-size: 30pt;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.rotate-animation {
+    animation: rotate 5s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
+/* ---to login button styles---- */
+.cta {
+    position: absolute;
+    top:30%;
+    left: 39%;
+    border: none;
+    background: none;
+}
+
+.cta span {
+    padding-bottom: 7px;
+    /* letter-spacing: 4px; */
+    font-size: 5em;
+    font-family: 'Antonio';
+    color: #fbeedd;
+    padding-right: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.cta span:active {
+    color:#ff516e
+}
+#arrow-horizontal1{
+    fill:#fbeedd;
+}
+.cta svg {
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active svg {
+    transform: scale(0.9);
+}
+
+.hover-underline-animation {
+    position: relative;
+    color: #fbeedd;
+    padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: #fbeedd;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
