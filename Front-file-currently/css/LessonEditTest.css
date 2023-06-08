@@ -22,6 +22,8 @@ li {
     list-style: none;
 }
 
+
+/*全体的な調整*/
 .wrapper {
     max-width: 960px;
     margin: 0 auto 100px auto;
