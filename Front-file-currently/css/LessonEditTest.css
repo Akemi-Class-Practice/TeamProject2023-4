@@ -1,0 +1,166 @@
+/*-------------------------------------------
+                    基礎設定
+-------------------------------------------*/
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #24292e;
+    background: linear-gradient(90deg, #fff, #f29a76);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+
+/*全体的な調整*/
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto 100px auto;
+    padding: 0 4%;
+    text-align: center;
+}
+
+.section-title {
+    display: inline-block;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0px;
+    border-bottom: solid 3px #007c2f;
+}
+
+/*-------------------------------------------
+                    ヘッダー
+-------------------------------------------*/
+.header{
+    max-width: 960px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.header li a {
+    color: #24292e;
+}
+
+.header li a:hover{
+    color: #827676;
+}
+
+
+.header ul {
+    display: flex;
+    padding: 10px 0;
+}
+
+.header li {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+}
+
+
+/*-------------------------------------------
+                記事作成エリア
+-------------------------------------------*/
+#edit-lesson dl {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#edit-lesson dt {
+    width: 10%;
+}
+
+#edit-lesson dd {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#edit-lesson dd input,
+#edit-lesson dd textarea {
+  width: 100%;
+  border: solid 1px #c8c8c8;
+  padding: 10px;
+}
+
+#edit-lesson dd textarea {
+    height: 14rem;
+}
+
+/*--------------------------------
+            ボタン関連
+---------------------------------*/
+
+#set-button{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+#edit-lesson .update-button input {
+    width: 200px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 0;
+    border: solid 1px #000;
+}
+
+#edit-lesson .update-button input:hover {
+    background: #fff;
+    color: #24292e;
+}
+
+#edit-lesson .delete-button input {
+    width: 200px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 0;
+    border: solid 1px #000;
+}
+
+#edit-lesson .delete-button input:hover {
+    background: #fff;
+    color: #f29a76;
+}
+
+
+/*-------------------------------------------
+                  記事の枠線
+-------------------------------------------*/
+.box {
+    background: white;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #007c2f;
+}
+.box p {
+    margin: 0; 
+    padding: 0;
+}
+
+/*-------------------------------------------
+                    フッター
+-------------------------------------------*/
+#footer {
+    background-color: #000;
+    color: #fff;
+    font-size: 0.5rem;
+    padding: 10px 20px;
+    text-align: center;
+}
