@@ -29,7 +29,7 @@ public class AdminLoginController {
 
 	// ログイン処理-----------------------------------------------------------------------------------
 
-	@PostMapping("/admin/login")
+	@PostMapping("/admin/login/process")
 	public String login(@RequestParam String email, @RequestParam String password, Model model) {
 		// adminServiceクラスのfindByEmailAndPasswordメソッドを使用して、該当するユーザー情報を取得する。
 		AdminEntity adminEntity = adminService.selectByEmailAndPassword(email, password);

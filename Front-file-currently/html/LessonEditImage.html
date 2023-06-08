@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="LessonEditImage.css">
+
+	<title>TeamProject</title>
+</head>
+
+<body>
+    <header>
+        <!--ナビゲーションバー(数によって<li>の増減はお願いします。)-->
+        <nav>
+            <ul  class = "header">
+                <!--リンクはテスト用のものを挿入しています-->
+                <!--アラートウィンドウを出したい場合は、onclick = から > までを入れてください。(処理分岐はjs参考)-->
+                <li><a href = "https://www.google.com/?hl=ja" onclick = "return MoveCheck();">講座一覧に戻る</a></li>
+                <li><a href = "#">マイページ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id = "edit-lesson" class = "wrapper">
+            <h2 th:text = "${editImageMessage}"></h2>
+            <h2 class = "section-title">講座画像編集</h2>
+            <form th:action = "@{ここのパスは記載お願いします}" enctype = "multipart/form-data" method = "post">
+                <div class="box">
+                    <dl>
+                        <dt>Title</dt>
+                        <dd><input type="text" name="lessonName" placeholder="タイトル" th:value="${lessonList.lessonName}" readonly></dd>
+						<dt>Detail</dt>
+                        <dd><textarea name="content" placeholder="ここに記入してください" th:text="${lessonList.lessonDetail}" readonly></textarea></dd>
+                        <dt>Image</dt>
+                        <dd><input type = "file" id = "image" name = "lessonImage" accept=".jpg, .jpeg, .png, .gif"></dd>
+                        <img id = "show-image">
+                        <div class = "space"></div>
+        				<dt>Fee</dt>
+                        <dd><input class="content-fee" type="number" pattern="^[0-9]+$" placeholder="講座金額を入力" name="fee" th:value="${lessonList.lessonFee}" readonly></dd>
+                    </dl>
+                    <input type="hidden" name="lessonId" th:value="${lessonList.lessonId}" required>
+                </div>
+                <div class = "button"><input type = "submit" value = "講座画像の更新"></div>
+            </form>
+        </section>
+	</main>
+
+	<footer id = "footer">
+		<p class="copyright">Copyright &copy; 2023 Learner All Rights Reserved.</p>
+	</footer>
+
+    <script src = "https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src = "LessonEditImage.js"></script>
+</body>
+
+</html>

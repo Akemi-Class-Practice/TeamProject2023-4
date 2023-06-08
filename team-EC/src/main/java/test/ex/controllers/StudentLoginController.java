@@ -28,7 +28,7 @@ public class StudentLoginController {
 
 	// ログイン処理-----------------------------------------------------------------------------------
 
-	@PostMapping("/student/login")
+	@PostMapping("/student/login/process")
 	public String login(@RequestParam String email, @RequestParam String password, Model model) {
 		// studentServiceクラスのfindByEmailAndPasswordメソッドを使用して、該当するユーザー情報を取得する。
 		StudentEntity studentEntity = studentService.selectByEmailAndPassword(email, password);
