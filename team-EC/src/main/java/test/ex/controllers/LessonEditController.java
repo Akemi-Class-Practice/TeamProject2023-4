@@ -32,7 +32,7 @@ public class LessonEditController {
 	public String getlessonEditPage(@PathVariable Long lessonId, Model model) {
 		// lessonIdから編集を行いたい講座情報を取得（HTML内で使用）
 		model.addAttribute("lessonList", lessonService.selectByLessonId(lessonId));
-		return "lessonEditTest.html";
+		return "lessonEdit.html";
 	}
 
 	// lesson内容の更新---------------------------------------------------------------------
