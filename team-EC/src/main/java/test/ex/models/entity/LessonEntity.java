@@ -54,6 +54,7 @@ public class LessonEntity {
 		this.adminId = adminId;
 	}
 
+
 	public Long getLessonId() {
 		return lessonId;
 	}

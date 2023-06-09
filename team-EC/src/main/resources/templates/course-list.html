@@ -30,6 +30,7 @@
 		
 		<h2 class="section-title">講座</h2>
 		<section id="about" class="wrapper" th:each="lesson:${lessonList}">
+
 			<hr>
 			<div class="content">
 				<img th:src="@{'/images/' + ${lesson.imageName}}" alt="講座画像">
@@ -45,6 +46,7 @@
 					</p>
 				</div>
 			</div>
+
 		</section>
 	</main>
 

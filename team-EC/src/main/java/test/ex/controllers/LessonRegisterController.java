@@ -26,14 +26,14 @@ public class LessonRegisterController {
 
 	//講座登録画面の表示--------------------------------------------
 	@GetMapping("/lesson/register")
-	public String getBlogRegisterPage() {
+	public String getLessonRegisterPage() {
 		return "adminLessonRegister.html";
 	}
 
 	// 講座の投稿---------------------------------------------------------------------------
 	
 	@PostMapping("/lesson/register")
-	public String blogRegister(@RequestParam String lessonTitle,
+	public String LessonRegister(@RequestParam String lessonTitle,
 							   @RequestParam String content,
 							   @RequestParam int fee,
 							   @RequestParam("imageName") MultipartFile imageName, Model model) {

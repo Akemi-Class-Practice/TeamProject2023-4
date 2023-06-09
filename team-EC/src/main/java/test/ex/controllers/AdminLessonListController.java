@@ -23,6 +23,7 @@ public class AdminLessonListController {
 		// 登録されているすべての記事の情報を取得（HTML内で使用）
 		model.addAttribute("lessonList", lessonService.selectFindAll());
 		return "course-list.html";	// デザインの変更により、ユーザーの講座一覧が管理者のものになります。
+
 	}
 
 

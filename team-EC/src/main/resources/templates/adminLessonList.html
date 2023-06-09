@@ -37,6 +37,7 @@
                 <p th:text="${lesson.lessonDetail}"></p> <!-- 講座の内容 -->
                 <div class="lesson-actions">
                     <a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a> <!-- もっと見るボタン -->
+                    <a class="more" th:href="@{'/lesson/image/edit/' +${lesson.lessonId}}">画像編集</a> <!-- 仮置き変えてよし -->                    
                     <p>￥</p><span class="lesson-cost" th:text="${lesson.lessonFee}"></span> <!-- 講座の金額 -->
                 </div>
             </div>

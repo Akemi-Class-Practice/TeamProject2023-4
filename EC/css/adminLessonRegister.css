@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif; /* 设置字体样式 */
+    margin: 0; /* 设置页面边距为0 */
+    padding: 0; /* 设置页面内边距为0 */
+    background-color:#fbeedd ;
+}
+
+header {
+    height: 200px; /* 设置页头高度为500px */
+    background-color: #007c2f; /* 设置背景颜色为深绿色 */
+    color: #ffff; /* 设置文本颜色为白色 */
+}
+
+
+
+/* 设置文本内容的div在图片右侧 */
+.lesson-content {
+    margin-left: 60px;
+}
+
+/* 设置标题颜色 */
+.title-input {
+    margin-top: 10px;
+    outline: none;
+    padding: 5px;
+    border: 1px solid #ffffff;
+
+    position: relative;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100px;
+    border-radius: 20px;
+    
+}
+
+/* 设置文本内容 */
+.content-text {
+    margin-top: 10px;
+    outline: none;
+    padding: 5px;
+    border: 1px solid #ffffff;
+    position: relative;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100px;
+    border-radius: 20px;
+}
+
+
+
+
+.returnButton,
+.submitButton {
+    padding: 10px 20px; /* 设置内边距为5px上下，10px左右 */
+    margin-top: 20px; /* 设置顶部外边距为10px */
+    margin-right: 60px;
+    margin-left: 30px;
+    background-color: #007c2f;
+    color:#ffff; /* 设置文字颜色为 #007c2f */
+    font-weight: bold;/* 字体加粗 */
+    font-size: 20px;
+    border: 3px solid #000000; /* 设置边框样式为2px实线，颜色为 #007c2f */
+    border-radius: 30px;
+    cursor: pointer; /* 设置鼠标悬停样式为手型 */
+}
+
+.submitButton:hover{
+    background-color:#fbca5a;
+    color:  #007c2f; /* 设置文字颜色为 #007c2f */
+}
+
+.returnButton:hover{
+    background-color:#ffffff;
+    color: #007c2f; /* 设置文字颜色为 #007c2f */
+}
+
+/* 画像と入力するformを横並びにする */
+.main-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#name,
+#comment {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: #f2fdfc;
+    display: block;
+    outline: none;
+    border: 2px solid rgb(193, 211, 228);
+}
+
+/* 添加大的虚线框样式 */
+.file-input {
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box; /* 添加盒模型属性 */
+    width: 600px;
+    height: 400px;
+    /*设置图片的最大宽度*/
+    max-width: 80%;
+    float: left;  /*设置图片浮动到左边*/ 
+    margin: 40px; /*设置图片和旁边的内容的间隔*/ 
+}
+
+
+/* 隐藏上传按钮 */
+#upload-input {
+    display: none;
+}
+
+/* 设置预览容器样式 */
+#preview-container {
+    position: relative;
+    width: 600px; /* 设置容器宽度为虚线框的宽度 */
+    height: 400px; /* 设置容器高度为虚线框的高度 */
+    margin-left: 20px;
+    float: left;
+    overflow: hidden; /* 隐藏溢出部分 */
+    box-sizing: border-box; /* 添加盒模型属性 */
+}
+
+/* 设置占位文本样式 */
+#placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #007c2f;
+    font-size: 18px;
+}
+
+/* 设置预览图片样式 */
+#preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
