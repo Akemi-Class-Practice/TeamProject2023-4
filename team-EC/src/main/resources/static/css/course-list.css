@@ -1,0 +1,121 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #383e45;
+    font-size: 0.9rem;
+    background: linear-gradient(90deg, #fff, #f29a76);
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto 20px auto;
+    padding: 0 4%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 60px;
+}
+/*---下線を引くため---*/
+.section-title div{
+    border-bottom: solid 1px #007c2f;
+    border-width: 3px;
+}
+
+.content-title {
+    font-size: 2rem;
+    margin: 0px 0;
+}
+
+.text{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+/*---詳細画面遷移ボタン---*/
+.text button{
+    width:150px;
+    height:44px;
+    background: linear-gradient(90deg, #fff, #f29a76);
+    border-radius:22px;
+    margin-right: 150px;
+    background: transparent;
+    border-color: #007c2f !important;
+}
+
+.set-price {
+    color: #007c2f !important;
+    font-size: 20px;
+    font-weight:bold;
+}
+
+/*---下線を引くため---*/
+.border-line{
+    color:transparent;
+    border-bottom: solid 1px #007c2f;
+    border-width: 3px;
+    margin-bottom:40px;
+}
+
+.adjustment{
+}
+
+/*-------------------------------------------
+                    About
+-------------------------------------------*/
+#about .content{
+    display: flex;
+}
+
+#about .set-price{
+	display: flex;
+	align-items: flex-end;
+}
+
+#about img {
+    width: 400px;
+    height: 247.21878862793574px;
+    margin-right: 100px;
+    min-width: 400px;
+}
+
+#about .text {
+    text-align: left;
+}
+
+/*----下線の挿入の為----*/
+hr{
+    width:100%;
+    height:3px;
+    color:#007c2f;
+    background-color: #007c2f;
+    border:none;
+    margin-bottom: 40px;
+}
+
+.normal {
+	overflow-wrap: normal;
+}
