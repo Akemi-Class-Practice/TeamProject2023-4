@@ -27,9 +27,14 @@
 			</div>
 			<input class="content-fee" type="number" pattern="^[0-9]+$" placeholder="講座金額を入力" name="fee" th:value="${lessonList.lessonFee}" required>
 
-			<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}" required>
+			<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
 			<button>更 新</button>
 
+		</form>
+		
+		<form method="post" th:action="@{/lesson/delete}">
+			<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
+			<button>削除</button>
 		</form>
 	</main>
 
