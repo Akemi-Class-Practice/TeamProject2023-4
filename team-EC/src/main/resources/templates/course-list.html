@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="course-list.css">
+	<link rel="stylesheet" th:href="@{/css/course-list.css}">
 	<title>Document</title>
 </head>
 
@@ -28,21 +28,25 @@
 
 	<main>
 		
+		<h2 class="section-title">講座</h2>
 		<section id="about" class="wrapper" th:each="lesson:${lessonList}">
-			<h2 class="section-title">講座</h2>
+
 			<hr>
 			<div class="content">
 				<img th:src="@{'/images/' + ${lesson.imageName}}" alt="講座画像">
 				<div class="text">
-					<h1 class="content-title"　th:text="${lesson.lessonName}"></h1>
-					</p>
+					<h1 class = "content-title" th:text="${lesson.lessonName}"></h1>
+					<dib class="normal">
+		                <p class = "adjustment" th:text="${lesson.lessonDetail}"></p>
+					</dib>
 					<p class="set-price">
-						<a class="more" th:href="@{'/lesson/detail/' +${lesson.lessonId}}">>MORE</a>
+						<button><a th:href="@{'/lesson/detail/' +${lesson.lessonId}}">MORE</a></button>
 						<!--<button class="more" th:attr="onClick='location.href=\''+${'/lesson/detail/' +${lesson.lessonId}}+'\''">MORE</button>ボタンめんどい後で-->
-						<p>￥</p><span class="lesson-cost" th:text="${lesson.lessonFee}"></span>
+						<span class="lesson-cost" th:text="'￥' + ${lesson.lessonFee}"></span>
 					</p>
 				</div>
-				<hr>
+			</div>
+
 		</section>
 	</main>
 

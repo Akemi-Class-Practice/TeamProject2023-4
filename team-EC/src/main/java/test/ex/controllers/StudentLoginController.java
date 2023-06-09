@@ -43,7 +43,8 @@ public class StudentLoginController {
 			session.setAttribute("admin", studentEntity);
 			// errorをfalseにする（HTML側でエラーメッセージを出力させないため）
 			model.addAttribute("error", false);
-			return "redirect:/point";//暫定的にレジスターに飛ばす後で変更
+			return "redirect:/student/lesson/list";//暫定的にレジスターに飛ばす後で変更
+//			return "redirect:/point";//暫定的にレジスターに飛ばす後で変更
 		}
 
 	}
