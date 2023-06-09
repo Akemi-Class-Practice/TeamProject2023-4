@@ -3,7 +3,7 @@ body {
     margin: 0; /* 设置页面外边距为0 */
     padding: 0; /* 设置页面内边距为0 */
     height: 100vh; /* 设置页面高度为视窗高度 */
-    background-image: url("/EC/svg-image/there-clolor-svg.svg");
+    background-image: url("/EC/svg-image/bg_gradient.svg");
     background-repeat: no-repeat; /* 防止图像重复 */
     background-size: cover; /* 按比例缩放图像以填充容器 */
 }
