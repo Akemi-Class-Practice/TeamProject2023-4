@@ -8,16 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.http.HttpSession;
-
+import test.ex.models.entity.LessonEntity;
 import test.ex.service.LessonService;
 
 @Controller
-public class LessonRegisterController {
+public class LessonImageEditController {
 	@Autowired
 	private LessonService lessonService;
 
@@ -25,25 +26,20 @@ public class LessonRegisterController {
 	HttpSession session;
 
 	//講座登録画面の表示--------------------------------------------
-	@GetMapping("/lesson/register")
-	public String getLessonRegisterPage() {
-		return "adminLessonRegister.html";
+	@GetMapping("/lesson/image/edit/{lessonId}")
+	public String getImageEditPage(@PathVariable Long lessonId, Model model) {
+		LessonEntity lessonEntity = lessonService.selectByLessonId(lessonId);
+		model.addAttribute("lessonList",lessonEntity);
+		return "LessonEditImage.html";
 	}
 
 	// 講座の投稿---------------------------------------------------------------------------
 	
-	@PostMapping("/lesson/register")
-	public String LessonRegister(@RequestParam String lessonTitle,
-							   @RequestParam String content,
-							   @RequestParam int fee,
-							   @RequestParam("imageName") MultipartFile imageName, Model model) {
+	@PostMapping("/lesson/image/edit")
+	public String ImageEdit(@RequestParam Long lessonId,@RequestParam("imageName") MultipartFile imageName, Model model) {
 
-		// ログイン中のユーザ情報を取得
-//		AdminEntity userList = (AdminEntity) session.getAttribute("admin");
-//		Long admin_id = userList.getAdminId();
-		
-		Long admin_id = (long) 1;  //test用後で消して上記コードのコメントアウト解除
-
+		LessonEntity lessonEntity = lessonService.selectByLessonId(lessonId);
+		model.addAttribute("lessonList",lessonEntity);
 		// 画像ファイル名を取得
 		String fileName = imageName.getOriginalFilename();
 
@@ -62,9 +58,9 @@ public class LessonRegisterController {
 			e.printStackTrace();
 		}
 
-		// 保存処理
-		lessonService.insert(lessonTitle,content,fee,fileName, admin_id);
-		return "redirect:/lesson/register";//暫定的に自分にリダイレクト後で修正
+		// 更新処理
+		lessonService.update(lessonEntity.getLessonId(),lessonEntity.getLessonName(),lessonEntity.getLessonDetail(),lessonEntity.getLessonFee(),fileName, lessonEntity.getAdminId());
+		return "redirect:/admin/lesson/list";//後で変更完了画面に変更する
 
 	}
 
