@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="course-details.css">
+
+</head>
+
+<body>
+
+    <!--idやclassはご自由にお付けください。
+    コメントは該当する作業が終わった際に消してくださると助かります。-->
+    <header>
+        <!--ナビゲーションバー(数によって<li>の増減はお願いします。)-->
+        <nav>
+            <!--cssでlist-style:noneを使用して(・)は消してください。-->
+            <ul class = "header">
+                <li class = "c1"><a th:href = "@{/student/lesson/list}">講座一覧に戻る</a></li>
+                <li class = "c2"><a href = "#">マイページ</a></li>
+            </ul>
+        </nav>
+    </header>    
+
+    <main>
+        <section id = "about" class = "wrapper">
+            <h2 class = "section-title">講座情報詳細</h2>
+            <h2 class = "course-title"　th:text="${lessonList.lessonName}"><div></div></h2>
+
+                <li><img th:src="@{'/images/' + ${lessonList.imageName}}" alt="講座画像"></li>
+
+            <p　th:text="${lessonList.lessonDetail}"></p>
+
+            <form class = "set-price" method="post" th:action="@{/add/cart}">
+				
+				<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
+                <input type = "submit" value = "Add to cart">
+            </form>    
+            <p>￥</p><span class="lesson-cost" th:text="${lessonList.lessonFee}"></span>
+
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <script src="course-details.js"></script>
+        </section>
+    </main>
+</body>
+</html>
