@@ -241,3 +241,28 @@ body {
     font-size: 10px;
     padding-left: 6%;
   }
+
+  @keyframes floating {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .svg-pink-circle {
+    animation: floating 2s ease-in-out infinite;
+  }
+  
+  .svg-orange-circle {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  .svg-small-square {
+    animation: floating 1.5s ease-in-out infinite;
+  }
+  
