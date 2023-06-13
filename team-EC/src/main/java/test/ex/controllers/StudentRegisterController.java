@@ -22,6 +22,15 @@ public class StudentRegisterController {
 	public String getRegisterPage() {
 		return "userRegister.html";
 	}
+	
+	// 新規登録完了画面の表示------------------------------------------
+	@GetMapping("/student/register/finish")
+	public String getRegisterFinishPage() {
+		return "userRegisterFinish.html";
+	}
+	
+	
+	
 
 	// 保存処理------------------------------------------------------
 
@@ -34,7 +43,7 @@ public class StudentRegisterController {
 			//エラー表示フラグをfalse
 			model.addAttribute("error", false);
 			studentService.insert(username, password,keypassword,email);
-			return "redirect:/student/login";
+			return "redirect:/student/register/finish";
 		}else {
 			//あった場合エラーメッセージを出力
 			model.addAttribute("error", true);
