@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マイページ</title>
-    <!-- <link rel="stylesheet" th:href="@{/css/userMypage.css}">
-    <link rel="stylesheet" th:href="@{/css/point-reset.css}"> -->
-
-    <link rel="stylesheet" href="/css/userMypageAndPoint.css">
+    <title>pointcharge</title>
+    	<!-- <link rel="stylesheet" th:href="@{/css/point.css}">
+    	<link rel="stylesheet" th:href="@{/css/point-reset.css}"> -->
+        <link rel="stylesheet" href="/css/userMypageAndPoint.css">
     <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +16,10 @@
         href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
         rel="stylesheet">
     <!-- fontlink^ -->
-
 </head>
 
 <body>
+
     <header>
         <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
@@ -96,137 +95,61 @@
              背景画像は
                 multiple_background-cream-grid属性↓の入っております -->
         <div class="multiple_background-cream-grid background_pic background_cream" id="gradient">
-            <!-- 背景の飾り物 -->
-            <div id="mypage-bg-decorate">
-                <div id="MyPage-label">
-                    <p>My</p>
-                    <p>Page</p>
-                </div>
-                <svg class="floating "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275.44 275.44">
-                    <defs>
-                        <style>
-                            .cls-fbca5a {
-                                fill: #fbca5a;
-                            }
-                        </style>
-                    </defs>
-                    <g>
-                        <circle class="cls-fbca5a" cx="137.72" cy="137.72" r="137.72" />
-                    </g>
-                </svg>
-            </div>
             <div class="green-background" id="mypage-back-green">
 
             </div>
         </div>
     </div>
-
-    <main class="flex-direction-column  align-items-center">
-        <!-- ユーザー個人情報ボックス -->
+    <main>
         <section>
-            <div class="cream-background border4px flex-direction-row align-items-center justify-content-space-around"
-                id="userBox">
-                <div>
-                    <!-- leftpart -->
-                    <div class="flex-direction-column justify-content-center align-items-flex-end"
-                        id="my-page-username-box">
-                        <!-- for the name -->
-                        <!-- flex-direction-column　 -->
-                        <p id="nameLabel">お名前</p>
-                        <!-- BACKEND MESSAGE: -->
-                        <!-- ここでユーザー名を獲得する↓ -->
-                        <p id="userName" name="userName">星野愛</p>
-
-                    </div>
-                </div>
-                <div id="vertical-line-block">
-                    <!-- vertical line (rectangle)-->
-
-                </div>
-                <div id="my-page-username-rightbox">
-                    <!-- rightpart -->
-                    <div class="flex-direction-column">
-                        <!-- password  flex-direction-column -->
-                        <p id="passwordLabel">パスワード</p>
-                        <div>
-                            <!-- BACKEND MESSAGE: -->
-                            <!-- ここでパスワードを獲得する↓ -->
-                            <span class="userMyPagePassword" type="password" id="userMyPagePassword"
-                                name="password">1234567</span>
-                            <ion-icon name="eye-outline" id="eye-outline" width="1.2em"></ion-icon>
-                            <ion-icon name="eye-off-outline" id="eye-off-outline" class="hidden"
-                                width="1.2em"></ion-icon>
-                            <div>
-                                <a href="" class="font-color-green text-decoration-none"
-                                    id="password-change">パスワードを変更する</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="point-box">
-                        <!-- point flex-direction-column -->
-                        <p>保有ポイント</p>
-                        <!-- BACKEND MESSAGE: -->
-                        <!-- ここでポイントを獲得する↓ -->
-                        <span id="point" name="point">3000</span>
-
-                        <span>pt</span>
-                    </div>
-                </div>
+            <div>
+                <!-- 現在、保有しているポイントを表示 -->
+    			<p class="pointnow">現在のポイント: <span th:text="${point}">0</span></p>
             </div>
-        </section>
-        <!-- ユーザー講座購入履歴ボックス -->
-        <section id="courses-purchase-history-container">
-            <div class="history-container  flex-direction-column align-items-center">
-                <div>
-                    <h2>講座購入履歴</h2>
-                </div>
+            <div>
+                <h1 class="title">ポイント追加</h1>
+            </div>
 
-                <!-- 一覧リストはここから -->
-                <div class="flex-direction-column" th:each="lesson:${listbuy}">
-                    <!-- just a black line ↓ -->
-                    <div class="horizontal-line-block"></div>
 
-                    <div class="flex-direction-row justify-content-space-around align-items-center">
-                        <div class="img-preview">
-                            <!-- BACKEND MESSAGE:
-                                    この下の一行目はただの効果を見る仮置き、コメントアウトして、二行目に変換してください -->
-                            <img src="https://i.pinimg.com/564x/bf/58/93/bf5893db0ede755dcd1ff33d278334ab.jpg">
-                            <!-- <img  th:src="@{/images/{items}(items=${lesson.imageName})}"> -->
+                <!-- ポイント追加 -->
+                <div class="point-wrapper">
+                    <div class="point-outer">
+                        <div class="point-image">
+                            <img src="/img/point-1.png">
+                            <p class="point-pt">500Pt</p>
+      							<form action="/point" method="post">
+  									<button type="submit" name="pointAmount" value="500"  class="point-button">追加</button>
+								</form>
                         </div>
-                        <!-- BACKEND MESSAGE:
-                                    この下の一行目の中身はただの効果を見る仮置き -->
-                        <p class="font-color-black lessonName" th:text="${lesson.lessonName}">仮置き講座タイトル</p>
-
-                        <div class="flex-direction-column align-items-flex-end justify-content-space-between day-point">
-                            <div>
-                                <span class="label">購入日時:</span>
-                                <!-- BACKEND MESSAGE:
-                                    この下の一行目の中身はただの効果を見る仮置き -->
-                                <span class="purchase-value-daytime">
-                                    2023/06/13
-                                    <!-- <p>[[${#temporals.format(lesson.transactionDate, 'yyyy/MM/dd')}]]</p> -->
-                                </span>
-                            </div>
-                            <div class="space-holder"></div>
-                            <div class="">
-                                <span class="label">決済ポイント:</span>
-                                <!-- BACKEND MESSAGE:
-                                    この下の一行目の中身はただの効果を見る仮置き -->
-                                <span class="purchase-value-point"
-                                    th:text="${lesson.lessonFee}">3000</span><span>pt</span>
-                            </div>
-                        </div>
-
                     </div>
 
+                    <div class="point-outer">
+                        <div class="point-image">
+                            <img src="/img/point-2.png">
+                            <p class="point-pt">1000Pt</p>
+      							<form action="/point" method="post">
+  									<button type="submit" name="pointAmount" value="1000"  class="point-button">追加</button>
+								</form>
+                        </div>
+                    </div>
+                    
+                    <div class="point-outer">
+                        <div class="point-image">
+                            <img src="/img/point-3.png">
+                            <p class="point-pt">3000Pt</p>
+      							<form action="/point" method="post">
+  									<button type="submit" name="pointAmount" value="3000"  class="point-button">追加</button>
+								</form>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
         </section>
-
-
     </main>
 
-    <!-- フッター-->
+
+
+
     <footer class="green-background" id="footerFrame">
         <div class="footer-container  justify-content-space-between">
 
@@ -295,28 +218,6 @@
 
     <p class="copyright">@ 2023 Enskill. copyright</p>
 
-    <!-- passwordを見えないようにする -->
-    <script>
-
-        const password = document.getElementById('userMyPagePassword');
-        const eyeBtn = document.getElementById('eye-outline');
-        const eyeOffBtn = document.getElementById('eye-off-outline');
-
-        eyeBtn.addEventListener('click', () => {
-            eyeBtn.classList.toggle('hidden');
-            eyeOffBtn.classList.toggle('hidden');
-            password.classList.toggle('visible');
-        });
-
-        eyeOffBtn.addEventListener('click', () => {
-            eyeBtn.classList.toggle('hidden');
-            eyeOffBtn.classList.toggle('hidden');
-            password.classList.toggle('visible');
-        });
-    </script>
-    <!-- ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
