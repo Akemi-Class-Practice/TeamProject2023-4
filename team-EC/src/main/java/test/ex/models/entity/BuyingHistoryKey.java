@@ -1,11 +1,18 @@
 package test.ex.models.entity;
 
-import java.io.Serializable;
+/*************************************************************************************************************************/
+/*                                                                                                                       */
+/*                                         			複合キーを扱うために用意したクラス											 */
+/*                                                                                                                       */
+/*                                                                                                                       */
+/*************************************************************************************************************************/
 
+// インポート ------------------------------------------------------------------------------------------------------------
+import java.io.Serializable;
 import lombok.Data;
 
-@Data
+@Data	// クラスに対して、Getter,Setter,toString,equals,hashCodeメソッドを自動生成する
 public class BuyingHistoryKey implements Serializable {
 
-	private Long lessonId;
+	private Long lessonId;	// ユーザーが購入したブログのID
 }
