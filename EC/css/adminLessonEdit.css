@@ -280,12 +280,14 @@ header {
 
   }
   
-  .ok {
+  .delete, .ok {
     text-decoration: none;
     color: #fff;
   }
   
-
+ #delete{
+    background-color: #e84367;
+ }
 
  #ok{
    float: right;
