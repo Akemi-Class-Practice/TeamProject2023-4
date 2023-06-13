@@ -1,62 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" th:href="@{/css/course-list.css}">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>管理者講座一覧</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/adminLessonList.css}">
 </head>
-
 <body>
-	<!--idやclassはご自由にお付けください。
-        コメントは該当する作業が終わった際に消してくださると助かります。-->
-	<header>
-		<h1>講座一覧</h1>
-		<!--ナビゲーションバー(数によって<li>の増減はお願いします。)-->
-		<nav>
-			<!--cssでlist-style:noneを使用して(・)は消してください。-->
-			<ul>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-			</ul>
-		</nav>
-	</header>
+    <header>
+        <h1>管理者講座一覧</h1>
+        <button class="login-button">ログイン</button>
+    </header>
+    
+    <div class="lesson-list">
+       
+        
+        <div class="lesson"th:each="lesson:${lessonList}">
+            <div class="lesson-image">
+                <img th:src="@{'/images/' + ${lesson.imageName}}" alt="講座画像">
+            </div>
+            <div class="lesson-details">
+                <h2 class = "content-title" th:text="${lesson.lessonName}"></h2> <!-- 讲座标题 -->
+                <p class = "adjustment" th:text="${lesson.lessonDetail}"></p><!-- 讲座内容 -->
+                <div class="lesson-actions">
+                    <button><a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a></button> <!-- もっと見るボタン -->
+                    <button><a class="more" th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}">購入者一覧</a></button>
+                    <span class="lesson-cost" th:text="'￥' + ${lesson.lessonFee}"></span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- 其他講座的显示 -->
+    </div>
 
-	<main>
-		
-		<h2 class="section-title">講座</h2>
-		<section id="about" class="wrapper" th:each="lesson:${lessonList}">
-
-			<hr>
-			<div class="content">
-				<img th:src="@{'/images/' + ${lesson.imageName}}" alt="講座画像">
-				<div class="text">
-					<h1 class = "content-title" th:text="${lesson.lessonName}"></h1>
-					<dib class="normal">
-		                <p class = "adjustment" th:text="${lesson.lessonDetail}"></p>
-					</dib>
-					<p class="set-price">
-
-						<button><a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a></button> <!-- もっと見るボタン -->
-                    	<button><a class="more" th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}">購入者一覧</a></button> <!-- 仮置き変えてよし -->                    	           
-						<span class="lesson-cost" th:text="'￥' + ${lesson.lessonFee}"></span>
-
-					</p>
-				</div>
-			</div>
-
-		</section>
-	</main>
-
-
-	<footer>
-		<!--コピーライトの表記が決まり次第記入お願いします。-->
-		<p>&copy;</p>
-	</footer>
+    <footer>
+        <p>版权所有 © 2023 管理者講座一覧</p>
+    </footer>
 </body>
-
 </html>
+

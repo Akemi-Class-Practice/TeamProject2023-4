@@ -34,7 +34,7 @@ public class AdminRegisterController {
 			//エラー表示フラグをfalse
 			model.addAttribute("error", false);
 			adminService.insert(username, password,email);
-			return "redirect:/admin/login";
+			return "adminRegisterFinish.html";
 		}else {
 			//あった場合エラーメッセージを出力
 			model.addAttribute("error", true);
