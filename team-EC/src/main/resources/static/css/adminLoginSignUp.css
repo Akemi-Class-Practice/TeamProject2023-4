@@ -444,3 +444,12 @@ footer {
     display: flex; 
     justify-content: space-around;
 }
+
+/**エラーメッセージ用　後ほど修正お願い致します。　外野**/
+.error-msg{
+    color:red;
+    width:40%;
+    padding-top:150px;
+    font-size:50px;
+    margin:0 auto;
+}
