@@ -33,6 +33,8 @@
 						<dd><input type="text" name="lessonName" placeholder="タイトル" th:value="${lessonList.lessonName}" required></dd>
 						<dt>Detail</dt>
 						<dd><textarea name="content" placeholder="ここに記入してください" th:text="${lessonList.lessonDetail}" required></textarea></dd>
+						<dt>Image</dt>
+						 <dd><input type="file" id="upload-input" name="imageName" accept="image/png,image/jpeg,image/gif" required></dd>
 						<dt>Fee</dt>
 						<dd><input class="content-fee" type="number" min="0" placeholder="講座金額を入力" name="fee" th:value="${lessonList.lessonFee}" required></dd>
 						<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}" required>
