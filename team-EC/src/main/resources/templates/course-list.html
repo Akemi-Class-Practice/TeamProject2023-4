@@ -37,9 +37,11 @@
 					<h1 class="content-title"　th:text="${lesson.lessonName}"></h1>
 					</p>
 					<p class="set-price">
-						<a class="more" th:href="@{'/lesson/detail/' +${lesson.lessonId}}">>MORE</a>
-						<!--<button class="more" th:attr="onClick='location.href=\''+${'/lesson/detail/' +${lesson.lessonId}}+'\''">MORE</button>ボタンめんどい後で-->
-						<p>￥</p><span class="lesson-cost" th:text="${lesson.lessonFee}"></span>
+
+						<button><a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a></button> <!-- もっと見るボタン -->
+                    	<button><a class="more" th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}">購入者一覧</a></button> <!-- 仮置き変えてよし -->                    	           
+						<span class="lesson-cost" th:text="'￥' + ${lesson.lessonFee}"></span>
+
 					</p>
 				</div>
 				<hr>

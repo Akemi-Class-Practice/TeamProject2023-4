@@ -18,11 +18,11 @@ public class AdminLessonListController {
 	HttpSession session;
 
 	// トップ画面の表示及びログインユーザー・すべてのブログ記事の情報を取得------------------------------------
-	@GetMapping("admin/lesson/list")
+	@GetMapping("/admin/lesson/list")
 	public String getList(Model model) {
 		// 登録されているすべての記事の情報を取得（HTML内で使用）
 		model.addAttribute("lessonList", lessonService.selectFindAll());
-		return "adminLessonList.html";
+		return "course-list.html";
 	}
 
 

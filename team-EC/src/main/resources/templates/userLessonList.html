@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>管理者講座一覧</title>
+    <title>講座一覧</title>
     <link rel="stylesheet" type="text/css" href="adminLessonList.css">
 </head>
 <body>
     <header>
-        <h1>管理者講座一覧</h1>
+        <h1>講座一覧</h1>
         <div class="header-buttons">
             <div class="header-buttons-top">
                 <a href="signup.html" class="header-button">Sign Up</a>
@@ -36,8 +36,7 @@
                 <h2 th:text="${lesson.lessonName}"></h2> <!-- 講座のタイトル -->
                 <p th:text="${lesson.lessonDetail}"></p> <!-- 講座の内容 -->
                 <div class="lesson-actions">
-                    <a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a> <!-- もっと見るボタン -->
-                    <a class="more" th:href="@{'/lesson/image/edit/' +${lesson.lessonId}}">画像編集</a> <!-- 仮置き変えてよし -->                    
+					<button><a th:href="@{'/lesson/detail/' +${lesson.lessonId}}">MORE</a></button>
                     <p>￥</p><span class="lesson-cost" th:text="${lesson.lessonFee}"></span> <!-- 講座の金額 -->
                 </div>
             </div>
