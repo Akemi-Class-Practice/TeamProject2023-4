@@ -69,7 +69,7 @@ public class LessonEditController {
 		lessonService.update(lessonId,lessonName,content,fee,fileName,lessonEntity.getAdminId());
 
 
-		return "redirect:/admin/lesson/list";//暫定後で変える
+		return "adminLessonEditFinish.html";
 
 	}
 	@Transactional
@@ -77,8 +77,11 @@ public class LessonEditController {
 	public String lessonDelete(@RequestParam Long lessonId) {
 		
 		// 削除処理
+		//1.transaction_itemテーブルの該当講座履歴を削除
+		//2.transaction_historyテーブルの該当講座履歴を削除
+		//3.lessonテーブルの該当講座履歴を削除
 		lessonService.delete(lessonId);
-		return "redirect:/admin/lesson/list";//暫定後で削除完了画面に変える
+		return "adminLessonDeleted.html";
 		
 	}
 

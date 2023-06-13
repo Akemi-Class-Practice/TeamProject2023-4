@@ -64,7 +64,7 @@ public class LessonRegisterController {
 
 		// 保存処理
 		lessonService.insert(lessonTitle,content,fee,fileName, admin_id);
-		return "redirect:/lesson/register";//暫定的に自分にリダイレクト後で修正
+		return "adminLessonRegisterFinish.html";
 
 	}
 
