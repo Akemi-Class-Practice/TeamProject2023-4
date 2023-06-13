@@ -65,7 +65,10 @@ public class LessonEditController {
 		}
 
 		// 保存処理
+
 		lessonService.update(lessonId,lessonName,content,fee,fileName,lessonEntity.getAdminId());
+
+
 		return "redirect:/admin/lesson/list";//暫定後で変える
 
 	}

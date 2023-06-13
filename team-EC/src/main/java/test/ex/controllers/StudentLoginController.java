@@ -40,10 +40,10 @@ public class StudentLoginController {
 		} else {
 			// 入力されたメールアドレスまたはパスワードが存在した場合
 			// studentEntityの内容をsessionに保存する
-			session.setAttribute("admin", studentEntity);
+			session.setAttribute("student", studentEntity);
 			// errorをfalseにする（HTML側でエラーメッセージを出力させないため）
 			model.addAttribute("error", false);
-			return "redirect:/point";//暫定的にレジスターに飛ばす後で変更
+			return "redirect:/student/lesson/list";//暫定的にレジスターに飛ばす後で変更
 		}
 
 	}

@@ -22,7 +22,9 @@ public class AdminLessonListController {
 	public String getList(Model model) {
 		// 登録されているすべての記事の情報を取得（HTML内で使用）
 		model.addAttribute("lessonList", lessonService.selectFindAll());
+
 		return "course-list.html";
+
 	}
 
 
