@@ -5,7 +5,7 @@ body {
     min-height: 600px;
     background-color: #fbeedd;
     min-height: 100vh;
-    background-image: url(/EC/sourceImg/grid_shallow_gray.svg);
+    background-image: url(../sourceImg/grid_shallow_gray.svg);
 }
 
  
@@ -127,8 +127,7 @@ header {
     float: left;
     /*设置图片浮动到左边*/
     margin-top: 5%;
-    margin-left: -20px;
-    width: 60%;
+    width: 45%;
     display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -210,7 +209,7 @@ header {
 
 .input-title {
     color: #007c2f;
-    width: 41.7%;
+    width: 40%;
     font-weight: bold;
     font-size: 0.5cm;
     background-color: transparent;
@@ -292,18 +291,19 @@ header {
 
   }
   
-  .ok {
+  .delete, .ok {
     text-decoration: none;
     color: #fff;
   }
   
-
+ #delete{
+    background-color: #e84367;
+ }
 
  #ok{
    float: right;
    
  }
-  
 
 
 
