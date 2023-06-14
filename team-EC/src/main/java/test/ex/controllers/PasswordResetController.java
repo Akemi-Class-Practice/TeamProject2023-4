@@ -22,31 +22,42 @@ public class PasswordResetController {
 
 	// リセット画面の表示-----------------------------------------------------
 	@GetMapping("/password/reset")
-	public String getResetPage() {
+	public String getResetPage(Model model) {
+		model.addAttribute("error", false);
 		return "userAccountReset.html";
+	}
+	
+	// パスワード変更完了画面の表示-----------------------------------------------------
+	@GetMapping("/password/completed")
+	public String getpasswordcompleted(Model model) {
+		return "userPasswordCompleted.html";
 	}
 
 	// パスワードリセット処理-----------------------------------------------------------------------------------
 
 	@PostMapping("/password/reset")
-	public String passwordReset(@RequestParam String email, @RequestParam String keyword,@RequestParam String password, Model model) {
+	public String passwordReset(@RequestParam String keyword,@RequestParam String email, @RequestParam String password,@RequestParam String password2, Model model) {
 		// studentServiceクラスのfindByEmailAndkeywordメソッドを使用して、該当するユーザー情報を取得する。
 		StudentEntity studentEntity = studentService.selectByEmailAndKeyword(email, keyword);
 		if (studentEntity == null) {
-			// 入力されたメールアドレスが存在しないまたはキーワードが間違っていた場合
-			//// errorをtrueにする（HTML側でエラーメッセージを出力するため）
-			model.addAttribute("error", true);
+            model.addAttribute("error", true);
+            model.addAttribute("errorMessage", "入力していない内容があります");
 			return "userAccountReset.html";
 		} else {
-			// 入力されたメールアドレスとパスワードが存在した場合
-			// studentEntityの内容をsessionに保存する
-			session.setAttribute("admin", studentEntity);
-			// errorをfalseにする（HTML側でエラーメッセージを出力させないため）
-			model.addAttribute("error", false);
-			//studentEntity内のdataと入力値で上書き
-			studentService.update(studentEntity.getStudentId(),studentEntity.getStudentName(),password,keyword,email,studentEntity.getPoint());
-			return "redirect:/student/login";
-		}
+	        if (!password.equals(password2)) {
+	            // パスワードとパスワード確認が一致しない場合
+	            model.addAttribute("error", true);
+	            model.addAttribute("errorMessage", "パスワードが一致していません");
+	            return "userAccountReset.html";
+	        }
+
+	        // 入力されたメールアドレスとパスワードが存在した場合
+	        // studentEntityの内容をsessionに保存する
+	        session.setAttribute("admin", studentEntity);
+	        //studentEntity内のdataと入力値で上書き
+	        studentService.update(studentEntity.getStudentId(), studentEntity.getStudentName(), password, keyword, email, studentEntity.getPoint());
+	        return "redirect:/password/completed";
+	    }
 
 	}
 
