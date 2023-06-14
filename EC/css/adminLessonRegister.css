@@ -8,6 +8,7 @@ body {
     background-image: url(/EC/sourceImg/grid_shallow_gray.svg);
 }
 
+ 
 
 html,
 body {
@@ -47,6 +48,10 @@ header {
     margin-right: 30px;
 }
 
+
+.container{
+    overflow-x: hidden;
+}
 
 .head-sign-out {
     background-color: #007c2f;
