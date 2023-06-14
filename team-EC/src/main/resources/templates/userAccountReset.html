@@ -23,7 +23,7 @@
 <form method="post" th:action="@{/password/reset}" id="passwordResetForm">
     <div class="text-container">
       <p class="key">パスワードを忘れた際の提示キーワード
-        <input  class="forget" type="password" id="studentKeyPassword" name="keyword"  required>
+        <input  class="forget" type="text" id="studentKeyPassword" name="keyword" required>
       </p>
 
       <div class="text">
@@ -34,9 +34,9 @@
 
       
       <div class="inputs">
-        <input type="email" class="input-field" id="input1" name="email" >
-        <input type="password" class="input-field" id="input2" name="keyword">
-        <input type="password" class="input-field" id="input3" name="keyword">
+        <input type="email" class="input-field" id="input1" name="email" required>
+        <input type="password" class="input-field" id="input2" name="password"required>
+        <input type="password" class="input-field" id="input3" name="password2"autocomplete="off" required>
       </div>
 
   </div>
@@ -47,14 +47,15 @@
   
   </form> 
   <!-- 通知用ボックス -->
-  <div id="notification" class="notification" style="display: none;">
+      <section th:if="${error}">
+  		<div id="notification" class="notification" style="display: none;">
     <!-- コンテンツ -->
-    <p id="notification-message" class="notification-message"></p>
-    <button id="notification-close-button" class="notification-close-button">X</button>
-  </div>
-  <div id="error-notification" class="error-notification" style="display: none;">
-    <p>入力内容間違いあります！</p>
-  </div>
+    		<p id="notification-message" class="notification-message"></p>
+    		<button id="notification-close-button" class="notification-close-button">X</button>
+  		</div>
+ 	 	<div id="error-notification" class="error-notification" style="display: none;">
+  		</div>
+      </section>
 
 
   <script src="/js/passwordChange.js"></script>

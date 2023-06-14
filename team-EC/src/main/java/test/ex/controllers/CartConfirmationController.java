@@ -88,7 +88,24 @@ public class CartConfirmationController {
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 		model.addAttribute("cartList",cartList);
 		 //StudentEntity student = (StudentEntity) session.getAttribute("user");
-		
+
+
+	    
+//		// カート内の講座をチェックして重複や購入済みの講座を検証
+//		for (LessonEntity lesson : cartList) {
+//		    // 同じ講座がカート内に存在する場合
+//		    if (isDuplicateLesson(lesson, cartList)) {
+//		        model.addAttribute("error", "同じ講座がカートに複数存在します。");
+//		        return "userApplication.html";
+//		    }
+//		    
+//		    // 購入済みの講座をカートに追加しようとしている場合
+//		    if (isLessonAlreadyPurchased(lesson, loggedInUserId)) {
+//		        model.addAttribute("error", "既に購入済みの講座が含まれています。");
+//		        return "userApplication.html";
+//		    }
+//		}
+	    
 		//カートの合計ポイントを取得   
         int totalPoint = 0;
 		for(int i = 0;i<cartList.size();i++) {		
