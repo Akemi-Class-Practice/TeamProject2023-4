@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>マイページ</title>
-    <!-- <link rel="stylesheet" th:href="@{/css/userMypage.css}">
-    <link rel="stylesheet" th:href="@{/css/point-reset.css}"> -->
 
+    <!-- BACKEND MESSAGE:
+    CSSファイルはこの二つ行です。両方もコメントインにしてください。 -->
+    <!-- <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
+    <link rel="stylesheet" th:href="@{/css/footerHeader.css}"> -->
+    
     <link rel="stylesheet" href="/css/userMypageAndPoint.css">
+    <!-- <link rel="stylesheet" href="/css/userFooterHeader.css"> -->
     <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,8 +87,8 @@
                         </svg>
                     </a>
                 </div>
-                <div class="Sign-button">
-                    <button class="green-background circle-radius submit-button font-color-cream "
+                <div class="Sign-button-header">
+                    <button class="green-background circle-radius submit-button-header font-color-cream "
                         id="SignButton"><span>SIGN OUT</span></button>
                 </div>
             </div>
@@ -220,6 +224,7 @@
                     </div>
 
                 </div>
+                
             </div>
         </section>
 
@@ -227,7 +232,7 @@
     </main>
 
     <!-- フッター-->
-    <footer class="green-background" id="footerFrame">
+    <footer class="green-background" id="userFooterFrame">
         <div class="footer-container  justify-content-space-between">
 
             <div class="justify-content-space-between flex-direction-column" id="footerLeftContainer">
@@ -294,6 +299,8 @@
     </footer>
 
     <p class="copyright">@ 2023 Enskill. copyright</p>
+
+    <!-- フッターはここまでコピーする↑ -->
 
     <!-- passwordを見えないようにする -->
     <script>

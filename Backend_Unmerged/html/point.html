@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pointcharge</title>
-    	<!-- <link rel="stylesheet" th:href="@{/css/point.css}">
+    <!-- <link rel="stylesheet" th:href="@{/css/point.css}">
     	<link rel="stylesheet" th:href="@{/css/point-reset.css}"> -->
+        
         <link rel="stylesheet" href="/css/userMypageAndPoint.css">
-    <!-- fontlink -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
-        rel="stylesheet">
-    <!-- fontlink^ -->
+        <link rel="stylesheet" href="/css/footerHeader.css">
+        <!-- fontlink -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
+            rel="stylesheet">
+        <!-- fontlink^ -->
 </head>
 
 <body>
@@ -101,48 +103,92 @@
         </div>
     </div>
     <main>
+        <div>
+            <!-- 真ん中、垂直のcontainer -->
+            <div>
+                <!-- ポイントチャージタイトル -->
+            </div>
+            <div>
+                <!-- 現在所有ポイント -->
+            </div>
+            <div>
+                <!-- 三つのポイントチャージ図とボタン -->
+                <!-- flex-direction-row justify-content-space-around -->
+                <div> 1
+                    <div>画像と枠</div>
+                    <button></button>
+                </div>
+                <div>
+                    <div>画像と枠</div>
+                    <button></button>
+
+                </div>
+                <div>
+                    <div>画像と枠</div>
+                    <button></button>
+                </div>
+            </div>
+            <div>
+                <!-- 確認ボタン -->
+            </div>
+        </div>
+
+        <!-- チャージ完了画面 -->
+        <div class="updated_window">
+            <div class="window_bar">
+                <div>X</div>
+            </div>
+            <div class="updated_text">
+                <p>講座変更完了しました。</p>
+            </div>
+        </div>
+
+
+
+
+        <!-- 野口のコード -->
         <section>
             <div>
                 <!-- 現在、保有しているポイントを表示 -->
-    			<p class="pointnow">現在のポイント: <span th:text="${point}">0</span></p>
+                <p class="pointnow">現在のポイント: <span th:text="${point}">0</span></p>
             </div>
             <div>
                 <h1 class="title">ポイント追加</h1>
             </div>
 
 
-                <!-- ポイント追加 -->
-                <div class="point-wrapper">
-                    <div class="point-outer">
-                        <div class="point-image">
-                            <img src="/img/point-1.png">
-                            <p class="point-pt">500Pt</p>
-      							<form action="/point" method="post">
-  									<button type="submit" name="pointAmount" value="500"  class="point-button">追加</button>
-								</form>
-                        </div>
-                    </div>
-
-                    <div class="point-outer">
-                        <div class="point-image">
-                            <img src="/img/point-2.png">
-                            <p class="point-pt">1000Pt</p>
-      							<form action="/point" method="post">
-  									<button type="submit" name="pointAmount" value="1000"  class="point-button">追加</button>
-								</form>
-                        </div>
-                    </div>
-                    
-                    <div class="point-outer">
-                        <div class="point-image">
-                            <img src="/img/point-3.png">
-                            <p class="point-pt">3000Pt</p>
-      							<form action="/point" method="post">
-  									<button type="submit" name="pointAmount" value="3000"  class="point-button">追加</button>
-								</form>
-                        </div>
+            <!-- ポイント追加 -->
+            <div class="point-wrapper">
+                <div class="point-outer">
+                    <div class="point-image">
+                        <img src="/img/point-1.png">
+                        <p class="point-pt">500Pt</p>
+                        <form action="/point" method="post">
+                            <button type="submit" name="pointAmount" value="500" class="point-button">追加</button>
+                        </form>
                     </div>
                 </div>
+
+                <div class="point-outer">
+                    <div class="point-image">
+                        <img src="/img/point-2.png">
+                        <p class="point-pt">1000Pt</p>
+                        <form action="/point" method="post">
+                            <button type="submit" name="pointAmount" value="1000" class="point-button">追加</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="point-outer">
+                    <div class="point-image">
+                        <img src="/img/point-3.png">
+                        <p class="point-pt">3000Pt</p>
+                        <form action="/point" method="post">
+                            <button type="submit" name="pointAmount" value="3000" class="point-button">追加</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
         </section>
     </main>
@@ -217,7 +263,9 @@
     </footer>
 
     <p class="copyright">@ 2023 Enskill. copyright</p>
-
+<script>
+    // 完了窓の動作
+</script>
 </body>
 
 </html>
