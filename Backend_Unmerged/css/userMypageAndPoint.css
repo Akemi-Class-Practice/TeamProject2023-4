@@ -385,18 +385,14 @@ p {
 }
 
 
+/* ぐるぐる */
 
-
-
-
-
-
-
-
-.updated_window {
+.charge_window {
+    display: none;
     background-color: rgba(251, 238, 221, 0.2); 
     border: solid 4px #000000;
-    width: 43%;
+    padding: 7em;
+    width: 30%;
     min-width: 400px;
     height: 30%;
     position: fixed;
@@ -405,34 +401,49 @@ p {
     transform: translate(-50%,-50%);
     backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-    box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
-        -webkit-box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
+    /* box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
+        -webkit-box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px; */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
          box-sizing: border-box;
 
 }
-.window_bar{
-    background-color: rgba(251, 202, 90, 1); 
-    border-bottom: solid 4px #000000;
+
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
     position: absolute;
-    top: 0;
-    height: 51px;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-         box-sizing: border-box;
-    
-}
-.updated_text{
-    color: rgba(26, 26, 26, 1); /* 使用不透明度为 1 的 rgba 值来设置字体颜色 */
-    width: 80%;
-    text-align: center;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 500;
-    font-size: 22pt;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
