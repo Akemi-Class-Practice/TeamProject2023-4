@@ -27,7 +27,7 @@
 	</header>
 
 	<main>
-		<button>講座登録</button>
+		<button><a th:href="@{/lesson/register}">講座登録</a></button>
 		<h2 class="section-title">講座</h2>
 		<section id="about" class="wrapper" th:each="lesson:${lessonList}">
 			
