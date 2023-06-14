@@ -10,7 +10,7 @@
     <!-- BACKEND MESSAGE:
     CSSファイルはこの二つ行です。両方もコメントインにしてください。 -->
     <!-- <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
-    <link rel="stylesheet" th:href="@{/css/footerHeader.css}"> -->
+    <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}"> -->
     
     <link rel="stylesheet" href="/css/userMypageAndPoint.css">
     <link rel="stylesheet" href="/css/userFooterHeader.css">
@@ -161,6 +161,8 @@
                             <ion-icon name="eye-off-outline" id="eye-off-outline" class="hidden"
                                 width="1.2em"></ion-icon>
                             <div>
+                                <!-- BACKEND MESSAGE: -->
+                                <!-- ここでパスワードを変更画面にする↓ -->
                                 <a href="" class="font-color-green text-decoration-none"
                                     id="password-change">パスワードを変更する</a>
                             </div>
@@ -174,6 +176,12 @@
                         <span id="point" name="point">3000</span>
 
                         <span>pt</span>
+                        <div>
+                            <!-- BACKEND MESSAGE: -->
+                            <!-- ここでポイントをチャージ画面に遷移する↓ -->
+                            <a href="" class="font-color-green text-decoration-none"
+                                id="point-charge">ポイントをチャージする</a>
+                        </div>
                     </div>
                 </div>
             </div>

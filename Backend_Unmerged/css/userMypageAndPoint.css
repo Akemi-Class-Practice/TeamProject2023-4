@@ -9,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
     /* cursor: cell; */
+    width: 100%;
 
 }
 
@@ -87,6 +88,9 @@ p {
 .cream-background {
     background-color: #fbeedd;
 }
+.orange-background{
+    background-color: #ff6128;
+}
 
 .circle-radius {
     border-radius: 30em;
@@ -99,7 +103,9 @@ p {
 .font-color-green {
     color: #007c30;
 }
-
+.font-color-shallow-gray{
+    color:#bdbdbd
+}
 .font-color-black {
     color: #000000;
 }
@@ -178,7 +184,11 @@ p {
     z-index: -100;
 }
 
-
+/* main container 真ん中に置く用*/
+.main-container{
+    width: 100%;
+    text-align: center;
+}
 
 /*/////////////// userMypage ////////////*/
 
@@ -255,6 +265,10 @@ p {
 
 #password-change:hover {
     color: #ff6128;
+}
+#point-charge:hover {
+    color: #ff6128;
+
 }
 
 .horizontal-line-block {
@@ -336,6 +350,49 @@ p {
 }
 
 /* ------chargePage------ */
+#point-charge-title h1{
+    font-size: 30px;
+}
+#currently-point{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: baseline;
+    margin:2em;
+}
+#point-currently-value{
+    font-size: 30px;
+    font-weight: 600;
+}
+.point-charge-select-button{
+    width: 100px;
+    height: 30px;
+    font-weight: 600;
+    color: #fbeedd;
+    border: #000000 2px solid;
+    margin-top: 2em;
+}
+.point-charge-select-button:hover{
+    background-color: #fbeedd;
+    color:#ff6128;
+}
+.point-charge-select-button:active{
+    background-color:#007c30;
+    color:#ff6128;
+}
+.main-container .space-holder{
+    height: 10em;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
 .updated_window {
     background-color: rgba(251, 238, 221, 0.2); 
     border: solid 4px #000000;
