@@ -1,14 +1,10 @@
-<<<<<<< Updated upstream
-=======
 
-
-
->>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="/EC/css/adminLessonRegister.css">
+  <!--<link rel="stylesheet" th:href="@{/css/adminLessonRegister.css}">-->  
+	<link rel="stylesheet" href="/EC/css/adminLessonRegister.css">
     <title>adminLessonRegister</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,10 +16,11 @@
 </head>
 
 <body>
+	<div class="container">
     <!-- SVG追加-->
     <div class="svg">
         <div class="svg-logo">
-            <img class="svg-image" src="/EC/sourceImg/admin_web_logo.svg" alt="SVG Image">
+            <img class="svg-image" th:src="@{/sourceImg/admin_web_logo.svg}" alt="SVG Image">
         </div>
 
 
@@ -32,28 +29,28 @@
     <!-- ヘッダーのボダン-->
     <header>
         <div class="buttons">
-            <a href="userCourseList.html" class="head-course">Courses</a>
-            <a href="#" class="head-sign-out">Sign Out</a>
+            <a th:href="@{/admin/lesson/list}" class="head-course">Courses</a>
+            <a th:href="@{/admin/logout}" class="head-sign-out"><span>Sign Out</span></a>
 
         </div>
     </header>
 
     <!--内容-->
 
-	<a href="#" class="return">＜戻る</a>
+	<a th:href="@{/admin/lesson/list}" class="return">＜戻る</a>
 
     <div class="main">
     
     <div class="content">
 		<div class="content-title">
-		<h1 class="main-title">講座編集</h1>
+		<h1 class="main-title">講座登録</h1>
 	    </div>
 	</div>
 
 <div class="form-container">
-   <form>
+   <form method="post" enctype="multipart/form-data" th:action="@{/lesson/register}">
 	<div class="file-input">
-		<input type="file" id="upload-input" name="imageName">
+		<input type="file" id="upload-input" name="imageName" accept="image/png,image/jpeg,image/gif" required>
 		<label for="upload-input" id="upload-label">
 			<div id="preview-container">
 				<span id="placeholder-text">クリックしてアップロード</span>
@@ -61,21 +58,19 @@
 			</div>
 		</label>
 	</div>
-</form>
 
-<form>
     <div class="lesson-content">
 		<div class="lesson-title">
 			<div class="icon"></div>
 			<h2 class="title">講座タイトル</h2>
 			<br>
-			<input type="text" class="input-title">
+			<input class="input-title" type="text" placeholder="講座タイトルを入力" name="lessonTitle" required>
         
 			<div class="lesson-cost">
 			<div class="icon"></div>
 			<h2 class="cost">講座金額</h2>
 			<br>
-			<input type="cost-input" class="input-cost">
+			<input type="number" min="0" class="input-cost"placeholder="講座金額を入力" name="fee" required>
 			<h3 class="cost-last">円</h3>
 		</div>
 
@@ -84,7 +79,7 @@
 		<div class="lesson-details">
 			<h2>講座詳細</h2>
 			<div class="decor-div"></div>
-			<textarea type="text" class="details" placeholder="講座内容テキスト"></textarea>
+			<textarea class="details" placeholder="講座内容テキスト" name="content"　required></textarea>
 			<br>
 		</div>
 		
@@ -93,13 +88,13 @@
 
 		<div class="last-button">
 			<button class="button" id="ok"> 
-				<a href="#" class="ok">登録</a>  
+				登録
 			</button>
 	   </div>
 	   
 		
-	</div>
-</form>	
+		</div>
+	</form>	
 </div>
 
 
@@ -113,7 +108,7 @@
     <!-- フッター-->
     <footer>
         <div class="footer-logo">
-            <img class="svg-image" src="/EC/sourceImg/user_web_logo.svg" alt="SVG Image">
+            <img class="svg-image" th:src="@{/sourceImg/user_web_logo.svg}" alt="SVG Image">
         </div>
         <p class="footer-p">未経験からプロまでのITとビジネスを学び、成長させよう。</p>
       
@@ -122,9 +117,10 @@
     <!-- 著作権情報-->
     <p class="last">@ 2023 Enskill. copyright</p>
 	
+	</div>
 </body>
 
 
-<script src="/EC/js/adminLessonRegister.js"></script>
+<script th:src="@{/js/adminLessonRegister.js}"></script>
 
 </html>
