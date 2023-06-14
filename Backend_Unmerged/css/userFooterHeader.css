@@ -157,27 +157,27 @@ header {
 #headerBarRightPart {
     width: 20%;
 }
+button{
+    cursor: pointer;
+}
 #SignButton {
     border: none;
     font-size: 10px;
     font-weight: 400;
     padding: 5px 10px 6px 10px;
-    cursor: pointer;
-
 }
+#SignButton:hover {
+    background-color: #ff6128;
+    transition: all 0.3s;
+}
+
 .submit-button-header {
-    border: 4px solid #000000;
     font-size: 2.3em;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 800;
 }
 
-.submit-button-header :hover {
-    background-color: #ff6128;
-    transition: all 0.3s;
-    cursor: default;
 
-}
 /* ----- footerBar ----- */
 main{
     position:relative;
