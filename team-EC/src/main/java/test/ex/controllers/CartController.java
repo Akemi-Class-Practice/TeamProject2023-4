@@ -29,7 +29,7 @@ public class CartController {
 	@Autowired
 	HttpSession session;
 
-	// 講座詳細画面の表示--------------------------------------------------------------
+	// カートリスト画面の表示--------------------------------------------------------------
 
 	@GetMapping("/student/cart")
 	public String getlessondetailPage(Model model) {
