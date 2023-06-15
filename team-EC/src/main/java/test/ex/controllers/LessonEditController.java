@@ -73,7 +73,11 @@ public class LessonEditController {
 		lessonService.update(lessonId,lessonName,content,fee,fileName,lessonEntity.getAdminId());
 
 
+<<<<<<< HEAD
 		return "adminLessonEditFinish.html";
+=======
+		return "redirect:/admin/lesson/list";//暫定後で変える
+>>>>>>> 83060e619750ba9b2fac99f592f4c968d3756525
 
 	}
 	@Transactional
