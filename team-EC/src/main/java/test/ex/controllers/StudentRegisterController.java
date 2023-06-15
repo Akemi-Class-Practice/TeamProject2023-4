@@ -42,6 +42,7 @@ public class StudentRegisterController {
 			//ない場合DBに登録
 			//エラー表示フラグをfalse
 			model.addAttribute("error", false);
+
 			studentService.insert(userName, password,keypassword,email);
 			return "redirect:/student/register/finish";
 		}else {

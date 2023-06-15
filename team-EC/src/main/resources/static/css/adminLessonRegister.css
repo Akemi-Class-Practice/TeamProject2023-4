@@ -341,7 +341,6 @@ footer{
 }
 
 
-
 .button {
     text-decoration: none;
     display: inline-block;
@@ -357,19 +356,17 @@ footer{
     margin-top: 15px;
     font-family: 'Noto Sans', sans-serif;
     font-weight: 600;
-
-  }
+}
   
-  .delete, .ok {
+.delete, .ok {
     text-decoration: none;
     color: #fff;
-  }
+}
   
- #delete{
+#delete{
     background-color: #e84367;
- }
+}
 
- #ok{
-   float: right;
-   
- }
+#ok{
+   float: right;   
+}
