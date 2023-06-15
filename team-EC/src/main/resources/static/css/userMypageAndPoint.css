@@ -1,0 +1,438 @@
+/* base css */
+html {
+    font-size: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    min-width: 800px !important;
+    margin: 0;
+    padding: 0;
+    /* cursor: cell; */
+    width: 100%;
+
+}
+
+::selection {
+    background: #ff516e;
+}
+
+::-moz-selection {
+    background: #ff516e;
+}
+
+p {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/* ---------- */
+
+
+/* ---- 共通css ----- */
+.border4px {
+    border: #000000 4px solid;
+}
+
+.justify-content-space-around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.justify-content-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.justify-content-center {
+    display: flex;
+    justify-content: center;
+}
+
+.align-items-center {
+    display: flex;
+    align-items: center;
+}
+
+.align-items-flex-end {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-direction-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.green-background {
+    background-color: #0f8524;
+}
+
+.cream-background {
+    background-color: #fbeedd;
+}
+.orange-background{
+    background-color: #ff6128;
+}
+
+.circle-radius {
+    border-radius: 30em;
+}
+
+.font-color-cream {
+    color: #fbeedd;
+}
+
+.font-color-green {
+    color: #007c30;
+}
+.font-color-shallow-gray{
+    color:#bdbdbd
+}
+.font-color-black {
+    color: #000000;
+}
+
+.submit-button {
+    border: 4px solid #000000;
+    font-size: 2.3em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 800;
+}
+
+.submit-button:hover {
+    background-color: #ff6128;
+    transition: all 0.3s;
+    cursor: default;
+
+}
+
+.label {
+    font-weight: 600;
+}
+
+.floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
+/* Background Picture */
+.background_pic {
+    min-width: 1200px;
+    content: "";
+    position: fixed;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.background_cream {
+    min-width: 1200px t;
+    content: "";
+    position: fixed;
+    background-color: #fbeedd;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.multiple_background-cream-grid {
+    background-image: url("/sourceImg/grid_shallow_gray.svg");
+    background-color: #fbeedd;
+    background-position: center center, center center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    background-blend-mode: normal, normal;
+    z-index: -100;
+}
+
+/* main container 真ん中に置く用*/
+.main-container{
+    width: 100%;
+    text-align: center;
+}
+
+/*/////////////// userMypage ////////////*/
+
+
+
+#userBox {
+    height: auto;
+    width: 28em;
+    padding: 3em;
+    margin: 60px;
+}
+
+#vertical-line-block {
+    width: 4px;
+    height: 11.2em;
+    background-color: #000000;
+}
+
+#my-page-username-box {
+    margin-right: 1em;
+}
+
+#my-page-username-box {
+    font-weight: 500;
+}
+
+#my-page-username-box #userName {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+#my-page-username-rightbox {
+    margin-left: 1em;
+}
+
+#my-page-username-rightbox p {
+    font-weight: 500;
+}
+
+#userMyPagePassword {
+    font-size: 15px;
+    font-weight: 500;
+    color: #007c30;
+}
+
+/* パスワードの隠すと見せる */
+.userMyPagePassword {
+    -webkit-text-security: disc;
+    text-security: disc;
+}
+
+
+.visible {
+    -webkit-text-security: none !important;
+    text-security: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#point-box {
+    margin-top: 3em;
+}
+
+#point-box #point {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+#point-box span {
+    color: #007c30;
+}
+
+#password-change:hover {
+    color: #ff6128;
+}
+#point-charge:hover {
+    color: #ff6128;
+
+}
+
+.horizontal-line-block {
+    background-color: #000000;
+    width: 60rem;
+    height: 2px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.lessonName {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.img-preview {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+}
+
+.img-preview img {
+    height: 100px;
+    object-fit: cover;
+}
+
+.purchase-value-daytime {
+    margin-left: 12px;
+}
+
+.purchase-value-point {
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.day-point .space-holder {
+    height: 20px;
+}
+
+#mypage-bg-decorate {
+    position: relative;
+    width: 20%;
+    top: 8.1%;
+    right: -80%;
+    transform: translateY(-10%);
+}
+
+#MyPage-label {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    z-index: -98;
+    font-size: 80px;
+}
+#MyPage-label p{
+    line-height: 0.9; 
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 700;
+    font-style: italic;
+    color:#007c30;
+}
+
+
+#mypage-bg-decorate svg {
+    z-index: -99;
+    position: absolute;
+    width: 300px;
+    top: 75%;
+    /* right: -80%;
+    transform: translateY(-10%); */
+    min-width: 80px;
+}
+#mypage-back-green{
+    position: relative;
+    z-index: -90;
+    height: 100%;
+    top:33%;
+    width: 100%;
+}
+
+/* ------chargePage------ */
+#point-charge-title h1{
+    font-size: 30px;
+}
+#currently-point{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: baseline;
+    margin:2em;
+}
+#point-currently-value{
+    font-size: 30px;
+    font-weight: 600;
+}
+.point-charge-select-button{
+    width: 100px;
+    height: 30px;
+    font-weight: 600;
+    color: #fbeedd;
+    border: #000000 2px solid;
+    margin-top: 2em;
+}
+.point-charge-select-button:hover{
+    background-color: #fbeedd;
+    color:#ff6128;
+}
+.point-charge-select-button:active{
+    background-color:#007c30;
+    color:#ff6128;
+}
+.main-container .space-holder{
+    height: 10em;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+.updated_window {
+    background-color: rgba(251, 238, 221, 0.2); 
+    border: solid 4px #000000;
+    width: 43%;
+    min-width: 400px;
+    height: 30%;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
+        -webkit-box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
+}
+.window_bar{
+    background-color: rgba(251, 202, 90, 1); 
+    border-bottom: solid 4px #000000;
+    position: absolute;
+    top: 0;
+    height: 51px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    
+}
+.updated_text{
+    color: rgba(26, 26, 26, 1); /* 使用不透明度为 1 的 rgba 值来设置字体颜色 */
+    width: 80%;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    font-size: 22pt;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
