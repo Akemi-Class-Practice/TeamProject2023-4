@@ -35,14 +35,15 @@ public class StudentRegisterController {
 	// 保存処理------------------------------------------------------
 
 	@PostMapping("/student/register")
-	public String studentRegister(@RequestParam String username,@RequestParam String password,@RequestParam String keypassword,@RequestParam String email,Model model) {
+	public String studentRegister(@RequestParam String userName,@RequestParam String password,@RequestParam String keypassword,@RequestParam String email,Model model) {
 		//重複したE-mailがないか探す
 		boolean studentEntity = studentService.FindDuplicateEmail(email);
 		if (studentEntity == true) {
 			//ない場合DBに登録
 			//エラー表示フラグをfalse
 			model.addAttribute("error", false);
-			studentService.insert(username, password,keypassword,email);
+
+			studentService.insert(userName, password,keypassword,email);
 			return "redirect:/student/register/finish";
 		}else {
 			//あった場合エラーメッセージを出力

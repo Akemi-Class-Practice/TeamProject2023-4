@@ -3,14 +3,12 @@ body {
     margin: 0;
     padding: 0;
     min-height: 600px;
-    /* 设置最小高度为 500 像素 */
-    min-width: 100%;
-    /* 设置最小宽度为 800 像素 */
     background-color: #fbeedd;
     min-height: 100vh;
     background-image: url(/EC/sourceImg/grid_shallow_gray.svg);
 }
 
+ 
 
 html,
 body {
@@ -50,6 +48,10 @@ header {
     margin-right: 30px;
 }
 
+
+.container{
+    overflow-x: hidden;
+}
 
 .head-sign-out {
     background-color: #007c2f;
@@ -109,6 +111,7 @@ header {
 
 .form-container{
     overflow: auto;
+    
 }
 
 
@@ -126,7 +129,9 @@ header {
     margin-top: 5%;
     margin-left: -20px;
     width: 60%;
-
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 
@@ -226,35 +231,42 @@ header {
     text-align: right;
     font-weight: bold;
 }
-
-.lesson-details{
-    margin-top: 12%;
+.lesson-details {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	width: 100%;
+	min-height: 400px;
 }
 
-.decor-div{
-   width: 99.3%;
-   height: 20px;
-   border:3px solid #007c2f;
-   background-color:#fbeedd;
-   border-bottom: none;
+.decor-div {
+	width: 100%; /* 将宽度调整为 20px */
+	height: 20px;
+	border: 3px solid #007c2f;
+	background-color: #fbeedd;
+	border-bottom: none;
+	box-sizing: border-box;
 }
 
-.details{
-    font-family: 'Noto Sans', sans-serif;
-    background-color:#fbeedd;
-    width: 95%;
-    height: 250px;
-    border:3px solid #007c2f;
-    resize: vertical;
-    overflow: auto;
-    word-wrap: break-word;
-    direction: ltr;
-    text-align: left;
-    resize: none;
-    outline: none;;
-    font-size: 0.6cm;
-    color: #007c2f;
-    padding: 20px;
+.details {
+	flex: 1;
+	font-family: 'Noto Sans', sans-serif;
+	background-color: #fbeedd;
+	width: 100%;
+	height: 250px;
+	border: 3px solid #007c2f;
+	resize: vertical;
+	overflow: auto;
+	word-wrap: break-word;
+	direction: ltr;
+	text-align: left;
+	resize: none;
+	outline: none;
+	font-size: 0.6cm;
+	color: #007c2f;
+	padding: 20px;
+	box-sizing: border-box;
 }
 
 

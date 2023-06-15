@@ -1,135 +1,110 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" th:href="@{/css/adminLessonRegister.css}">
-    <title>adminLessonEdit</title>
+	<link rel="stylesheet" th:href="@{/css/adminLessonRegister.css}">
+	<title>adminLessonEdit</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
-        rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
+		rel="stylesheet">
 
 </head>
 
 <body>
-    <!-- SVG追加-->
-    <div class="svg">
-        <div class="svg-logo">
-            <img class="svg-image" th:src="@{/sourceImg/admin_web_logo.svg}" alt="SVG Image">
-            
-        </div>
+	<!-- SVG追加-->
+	<div class="svg">
+		<div class="svg-logo">
+			<img class="svg-image" th:src="@{/sourceImg/admin_web_logo.svg}" alt="SVG Image">
+
+		</div>
 
 
-    </div>
+	</div>
 
-    <!-- ヘッダーのボダン-->
-    <header>
-        <div class="buttons">
-            <a th:href="@{/admin/lesson/list}" class="head-course">Courses</a>
-            <a th:href="@{/admin/logout}" class="head-sign-out">Sign Out</a>
+	<!-- ヘッダーのボダン-->
+	<header>
+		<div class="buttons">
+			<a th:href="@{/admin/lesson/list}" class="head-course">Courses</a>
+			<a th:href="@{/admin/logout}" class="head-sign-out">Sign Out</a>
 
-        </div>
-    </header>
+		</div>
+	</header>
 
-<<<<<<< HEAD
-    <!--内容-->
+	<!--内容-->
 
 	<a th:href="@{/admin/lesson/list}" class="return">＜戻る</a>
 
-    <div class="main">
-    
-    <div class="content">
-		<div class="content-title">
-		<h1 class="main-title">講座編集</h1>
-	    </div>
-	</div>
+	<div class="main">
 
-<div class="form-container">
-	<form method="post" enctype="multipart/form-data" th:action="@{/lesson/update}">
-	<div class="file-input">
-		<input type="file" id="upload-input" name="imageName" accept="image/png,image/jpeg,image/gif" required>
-		<label for="upload-input" id="upload-label">
-			<div id="preview-container">
-				<span id="placeholder-text">クリックしてアップロード</span>
-				<img id="preview-image" class="image-preview">
+		<div class="content">
+			<div class="content-title">
+				<h1 class="main-title">講座編集</h1>
 			</div>
-		</label>
-	</div>
-
-    <div class="lesson-content">
-		<div class="lesson-title">
-			<div class="icon"></div>
-			<h2 class="title">講座タイトル</h2>
-			<br>
-			<input type="text" class="input-title" name="lessonName" placeholder="タイトル" th:value="${lessonList.lessonName}" required>
-        
-			<div class="lesson-cost">
-			<div class="icon"></div>
-			<h2 class="cost">講座金額</h2>
-			<br>
-			<input class="input-cost" type="number" min="0" placeholder="講座金額を入力" name="fee" th:value="${lessonList.lessonFee}" required>
-			<h3 class="cost-last">円</h3>
 		</div>
 
-		</div>
-
-		<div class="lesson-details">
-			<h2>講座詳細</h2>
-			<div class="decor-div"></div>
-			<textarea name="content" class="details" placeholder="講座内容テキスト" th:text="${lessonList.lessonDetail}" required></textarea>
-			<br>
-		</div>
-		<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}" required>
-		<br>
-
-
-		<div class="last-button">
-			
-			<button class="button" id="ok"> 
-				編集  
-			</button>
-	   </div>
-	   
-		
-	</div>
-</form>		
-			<form method="post" th:action="@{/lesson/delete}">
-				<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">				
-				<button class="button" id="delete">
-					講座削除  
-				</button>
-=======
-	<main>
-		<section id = "edit-lesson" class = "wrapper">
-			<h2 class = "section-title">講座編集</h2>
+		<div class="form-container">
 			<form method="post" enctype="multipart/form-data" th:action="@{/lesson/update}">
-				<div class="box">
-					<dl>
-						<dt>Title</dt>
-						<dd><input type="text" name="lessonName" placeholder="タイトル" th:value="${lessonList.lessonName}" required></dd>
-						<dt>Detail</dt>
-						<dd><textarea name="content" placeholder="ここに記入してください" th:text="${lessonList.lessonDetail}" required></textarea></dd>
-						<dt>Image</dt>
-						 <dd><input type="file" id="upload-input" name="imageName" accept="image/png,image/jpeg,image/gif" required></dd>
-						<dt>Fee</dt>
-						<dd><input class="content-fee" type="number" min="0" placeholder="講座金額を入力" name="fee" th:value="${lessonList.lessonFee}" required></dd>
-						<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}" required>
-					</dl>
+				<div class="file-input">
+					<input type="file" id="upload-input" name="imageName" accept="image/png,image/jpeg,image/gif"
+						required>
+					<label for="upload-input" id="upload-label">
+						<div id="preview-container">
+							<span id="placeholder-text">クリックしてアップロード</span>
+							<img id="preview-image" class="image-preview">
+						</div>
+					</label>
 				</div>
-                <div id = "set-button">
-                    <div class = "update-button"><input type = "submit" value = "講座の更新"></div>
-                    
-                </div>
-            </form>
-            <form method="post" th:action="@{/lesson/delete}">
-				<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
-				<div class = "delete-button"><input type = "submit" value = "講座の削除" onclick = "return DeleteCheck();"></div>
->>>>>>> 83060e619750ba9b2fac99f592f4c968d3756525
+
+				<div class="lesson-content">
+					<div class="lesson-title">
+						<div class="icon"></div>
+						<h2 class="title">講座タイトル</h2>
+						<br>
+						<input type="text" class="input-title" name="lessonName" placeholder="タイトル"
+							th:value="${lessonList.lessonName}" required>
+
+						<div class="lesson-cost">
+							<div class="icon"></div>
+							<h2 class="cost">講座金額</h2>
+							<br>
+							<input class="input-cost" type="number" min="0" placeholder="講座金額を入力" name="fee"
+								th:value="${lessonList.lessonFee}" required>
+							<h3 class="cost-last">円</h3>
+						</div>
+
+					</div>
+
+					<div class="lesson-details">
+						<h2>講座詳細</h2>
+						<div class="decor-div"></div>
+						<textarea name="content" class="details" placeholder="講座内容テキスト"
+							th:text="${lessonList.lessonDetail}" required></textarea>
+						<br>
+					</div>
+					<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}" required>
+					<br>
+
+
+					<div class="last-button">
+
+						<button class="button" id="ok">
+							編集
+						</button>
+					</div>
+
+
+				</div>
 			</form>
-</div>
+			<form method="post" th:action="@{/lesson/delete}">
+				<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
+				<button class="button" id="delete">
+					講座削除
+				</button>
+			</form>
+		</div>
 
 
 
@@ -139,18 +114,18 @@
 	</div>
 
 
-    <!-- フッター-->
-    <footer>
-        <div class="footer-logo">
-            <img class="svg-image" th:src="@{/sourceImg/user_web_logo.svg}" alt="SVG Image">
-        </div>
-        <p class="footer-p">未経験からプロまでのITとビジネスを学び、成長させよう。</p>
-      
-    </footer>
+	<!-- フッター-->
+	<footer>
+		<div class="footer-logo">
+			<img class="svg-image" th:src="@{/sourceImg/user_web_logo.svg}" alt="SVG Image">
+		</div>
+		<p class="footer-p">未経験からプロまでのITとビジネスを学び、成長させよう。</p>
 
-    <!-- 著作権情報-->
-    <p class="last">@ 2023 Enskill. copyright</p>
-	
+	</footer>
+
+	<!-- 著作権情報-->
+	<p class="last">@ 2023 Enskill. copyright</p>
+
 </body>
 
 

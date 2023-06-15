@@ -77,11 +77,8 @@ public class CartConfirmationController {
     public String completedcart(Model model) {
         
         //ログインしているユーザーを取得
-<<<<<<< HEAD
-    	StudentEntity userList = (StudentEntity) session.getAttribute("student");
-=======
+
         StudentEntity userList = (StudentEntity) session.getAttribute("student");
->>>>>>> 83060e619750ba9b2fac99f592f4c968d3756525
         
         //ログインしているユーザーidを格納
     	Long loggedInUserId = userList.getStudentId();
@@ -92,7 +89,6 @@ public class CartConfirmationController {
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 		model.addAttribute("cartList",cartList);
 		 //StudentEntity student = (StudentEntity) session.getAttribute("user");
-<<<<<<< HEAD
 
 
 	    
@@ -111,9 +107,6 @@ public class CartConfirmationController {
 //		    }
 //		}
 	    
-=======
-		
->>>>>>> 83060e619750ba9b2fac99f592f4c968d3756525
 		//カートの合計ポイントを取得   
         int totalPoint = 0;
 		for(int i = 0;i<cartList.size();i++) {		

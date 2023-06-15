@@ -27,7 +27,7 @@
 	</header>
 
 	<main>
-		<button>講座登録</button>
+		<button><a th:href="@{/lesson/register}">講座登録</a></button>
 		<h2 class="section-title">講座</h2>
 		<section id="about" class="wrapper" th:each="lesson:${lessonList}">
 			
@@ -40,17 +40,9 @@
 		                <p class = "adjustment" th:text="${lesson.lessonDetail}"></p>
 					</dib>
 					<p class="set-price">
-<<<<<<< HEAD
 						<button><a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a></button> <!-- もっと見るボタン -->
-                   	    <button><a class="more" th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}">購入者一覧</a></button>
-						
-=======
-
-						<button><a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a></button> <!-- もっと見るボタン -->
-                    	<button><a class="more" th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}">購入者一覧</a></button> <!-- 仮置き変えてよし -->                    	           
->>>>>>> 83060e619750ba9b2fac99f592f4c968d3756525
+                   	    <button><a class="more" th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}">購入者一覧</a></button>												
 						<span class="lesson-cost" th:text="'￥' + ${lesson.lessonFee}"></span>
-
 					</p>
 				</div>
 			</div>
