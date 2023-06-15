@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
 
 import test.ex.models.entity.LessonEntity;
-
+import test.ex.models.entity.StudentEntity;
 import test.ex.service.LessonService;
 
 @Controller
@@ -43,23 +43,29 @@ public class StudentLessonDetailsController {
 		
 		LessonEntity lessonEntity = lessonService.selectByLessonId(lessonId);
 		
-		//
-		@SuppressWarnings("unchecked")
-		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
+		//ログインしているユーザーを取得
+    	StudentEntity userList = (StudentEntity) session.getAttribute("student");
+        
+    	if(userList != null) {
+			//
+			@SuppressWarnings("unchecked")
+			ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
+			
+			if(cartList == null) {							//一つ目のカート登録
+				cartList = new ArrayList<LessonEntity>(); //ArrayListのオブジェクトを生成（入れ物）
+				LessonEntity cart = lessonEntity;
+				cartList.add(cart);	//Listにdataの追加
+			}else {
+				LessonEntity cart = lessonEntity;	//二つ目以降
+				cartList.add(cart);
+			}
+			
+			session.setAttribute("cart", cartList); //sessionに格納
 		
-		if(cartList == null) {							//一つ目のカート登録
-			cartList = new ArrayList<LessonEntity>(); //ArrayListのオブジェクトを生成（入れ物）
-			LessonEntity cart = lessonEntity;
-			cartList.add(cart);	//Listにdataの追加
-		}else {
-			LessonEntity cart = lessonEntity;	//二つ目以降
-			cartList.add(cart);
-		}
-		
-		session.setAttribute("cart", cartList); //sessionに格納
-	
-		return "redirect:/student/cart";
-
+			return "redirect:/student/cart";
+    	}else {
+    		return "redirect:/student/login";
+    	}
 
 	}
 

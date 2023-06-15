@@ -36,7 +36,7 @@ public class CartController {
 
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 		model.addAttribute("cartList",cartList);
-		return "cart-list.html";
+		return "userCartList.html";
 	}
 
 	// カート内の講座を削除---------------------------------------------------------------------
