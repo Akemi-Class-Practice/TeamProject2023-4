@@ -77,7 +77,8 @@ public class CartConfirmationController {
     public String completedcart(Model model) {
         
         //ログインしているユーザーを取得
-    	StudentEntity userList = (StudentEntity) session.getAttribute("student");
+
+        StudentEntity userList = (StudentEntity) session.getAttribute("student");
         
         //ログインしているユーザーidを格納
     	Long loggedInUserId = userList.getStudentId();

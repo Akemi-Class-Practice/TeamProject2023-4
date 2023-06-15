@@ -49,6 +49,7 @@ public class StudentMypageController {
 			List<BuyingHistoryEntity> listbuy = buyingHistoryService.getBuyingHistory(studentId);
 
 			// コントローラーからビューに渡すためのデータを格納している
+			model.addAttribute("student", student);
 			model.addAttribute("listbuy", listbuy);
 			return "userMypage.html";
 		}

@@ -73,7 +73,9 @@ public class LessonEditController {
 		lessonService.update(lessonId,lessonName,content,fee,fileName,lessonEntity.getAdminId());
 
 
+
 		return "adminLessonEditFinish.html";
+
 
 	}
 	@Transactional

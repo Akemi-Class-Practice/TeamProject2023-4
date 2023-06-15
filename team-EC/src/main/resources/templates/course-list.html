@@ -41,8 +41,7 @@
 					</dib>
 					<p class="set-price">
 						<button><a class="more" th:href="@{'/lesson/edit/' +${lesson.lessonId}}">more</a></button> <!-- もっと見るボタン -->
-                   	    <button><a class="more" th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}">購入者一覧</a></button>
-						
+                   	    <button><a class="more" th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}">購入者一覧</a></button>												
 						<span class="lesson-cost" th:text="'￥' + ${lesson.lessonFee}"></span>
 					</p>
 				</div>
