@@ -5,13 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マイページ</title>
+    <title>ポイントチャージ画面</title>
 
     <!-- BACKEND MESSAGE:
-    CSSファイルはこの二つ行です。両方もコメントインにしてください。 -->
-    <!-- <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
-    <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}"> -->
-    
+        CSSファイルはこの二つ行です。 -->
     <link rel="stylesheet" href="/css/userMypageAndPoint.css">
     <link rel="stylesheet" href="/css/userFooterHeader.css">
     <!-- fontlink -->
@@ -21,13 +18,13 @@
         href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
         rel="stylesheet">
     <!-- fontlink^ -->
-
 </head>
 
 <body>
+
     <header>
+        <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
-            <!-- logo -->
             <a href="">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
@@ -100,144 +97,32 @@
              背景画像は
                 multiple_background-cream-grid属性↓の入っております -->
         <div class="multiple_background-cream-grid background_pic background_cream" id="gradient">
-            <!-- 背景の飾り物 -->
-            <div id="mypage-bg-decorate">
-                <div id="MyPage-label">
-                    <p>My</p>
-                    <p>Page</p>
-                </div>
-                <svg class="floating "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275.44 275.44">
-                    <defs>
-                        <style>
-                            .cls-fbca5a {
-                                fill: #fbca5a;
-                            }
-                        </style>
-                    </defs>
-                    <g>
-                        <circle class="cls-fbca5a" cx="137.72" cy="137.72" r="137.72" />
-                    </g>
-                </svg>
-            </div>
+
             <div class="green-background" id="mypage-back-green">
 
             </div>
         </div>
     </div>
 
-    <main class="flex-direction-column  align-items-center">
-        <!-- ユーザー個人情報ボックス -->
-        <section>
-            <div class="cream-background border4px flex-direction-row align-items-center justify-content-space-around"
-                id="userBox">
-                <div>
-                    <!-- leftpart -->
-                    <div class="flex-direction-column justify-content-center align-items-flex-end"
-                        id="my-page-username-box">
-                        <!-- for the name -->
-                        <!-- flex-direction-column　 -->
-                        <p id="nameLabel">お名前</p>
-                        <!-- BACKEND MESSAGE: -->
-                        <!-- ここでユーザー名を獲得する↓ -->
-                        <p id="userName" name="userName">星野愛</p>
-
-                    </div>
-                </div>
-                <div id="vertical-line-block">
-                    <!-- vertical line (rectangle)-->
-
-                </div>
-                <div id="my-page-username-rightbox">
-                    <!-- rightpart -->
-                    <div class="flex-direction-column">
-                        <!-- password  flex-direction-column -->
-                        <p id="passwordLabel">パスワード</p>
-                        <div>
-                            <!-- BACKEND MESSAGE: -->
-                            <!-- ここでパスワードを獲得する↓ -->
-                            <span class="userMyPagePassword" type="password" id="userMyPagePassword"
-                                name="password">1234567</span>
-                            <ion-icon name="eye-outline" id="eye-outline" width="1.2em"></ion-icon>
-                            <ion-icon name="eye-off-outline" id="eye-off-outline" class="hidden"
-                                width="1.2em"></ion-icon>
-                            <div>
-                                <!-- BACKEND MESSAGE: -->
-                                <!-- ここでパスワードを変更画面にする↓ -->
-                                <a href="" class="font-color-green text-decoration-none"
-                                    id="password-change">パスワードを変更する</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="point-box">
-                        <!-- point flex-direction-column -->
-                        <p>保有ポイント</p>
-                        <!-- BACKEND MESSAGE: -->
-                        <!-- ここでポイントを獲得する↓ -->
-                        <span id="point" name="point">3000</span>
-
-                        <span>pt</span>
-                        <div>
-                            <!-- BACKEND MESSAGE: -->
-                            <!-- ここでポイントをチャージ画面に遷移する↓ -->
-                            <a href="" class="font-color-green text-decoration-none"
-                                id="point-charge">ポイントをチャージする</a>
-                        </div>
-                    </div>
-                </div>
+    <main class="main-container">
+        <div class="flex-direction-column justify-content-center">
+            <!-- 真ん中、垂直のcontainer -->
+            <div id="point-charge-title">
+                <!-- ポイントチャージタイトル -->
+                <h1 class="font-color-green">ポイントチャージ完了しました</h1>
             </div>
-        </section>
-        <!-- ユーザー講座購入履歴ボックス -->
-        <section id="courses-purchase-history-container">
-            <div class="history-container  flex-direction-column align-items-center">
-                <div>
-                    <h2>講座購入履歴</h2>
-                </div>
-
-                <!-- 一覧リストはここから -->
-                <div class="flex-direction-column" th:each="lesson:${listbuy}">
-                    <!-- just a black line ↓ -->
-                    <div class="horizontal-line-block"></div>
-
-                    <div class="flex-direction-row justify-content-space-around align-items-center">
-                        <div class="img-preview">
-                            <!-- BACKEND MESSAGE:
-                                    この下の一行目はただの効果を見る仮置き、コメントアウトして、二行目に変換してください -->
-                            <img src="https://i.pinimg.com/564x/bf/58/93/bf5893db0ede755dcd1ff33d278334ab.jpg">
-                            <!-- <img  th:src="@{/images/{items}(items=${lesson.imageName})}"> -->
-                        </div>
-                        <!-- BACKEND MESSAGE:
-                                    この下の一行目の中身はただの効果を見る仮置き -->
-                        <p class="font-color-black lessonName" th:text="${lesson.lessonName}">仮置き講座タイトル</p>
-
-                        <div class="flex-direction-column align-items-flex-end justify-content-space-between day-point">
-                            <div>
-                                <span class="label">購入日時:</span>
-                                <!-- BACKEND MESSAGE:
-                                    この下の一行目の中身はただの効果を見る仮置き -->
-                                <span class="purchase-value-daytime">
-                                    2023/06/13
-                                    <!-- <p>[[${#temporals.format(lesson.transactionDate, 'yyyy/MM/dd')}]]</p> -->
-                                </span>
-                            </div>
-                            <div class="space-holder"></div>
-                            <div class="">
-                                <span class="label">決済ポイント:</span>
-                                <!-- BACKEND MESSAGE:
-                                    この下の一行目の中身はただの効果を見る仮置き -->
-                                <span class="purchase-value-point"
-                                    th:text="${lesson.lessonFee}">3000</span><span>pt</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                
+            
+            
+            <div>
+                <a href="" class="font-color-green" style="font-size: 20px; font-weight: 500;" >マイページへ</a>
             </div>
-        </section>
-
-
+        </div>
+        <!-- footerとの空間を作る -->
+        <div class="space-holder" style="height: 35em;"></div>
     </main>
+
+
+
 
     <!-- フッター-->
     <footer class="green-background" id="userFooterFrame">
@@ -284,16 +169,16 @@
             <div class="justify-content-space-around " id="footerRightContainer">
 
                 <div>
-                    <h3 style="color: #fbeedd;">ACADEMY</h3>
-                    <div class="justify-content-space-between  flex-direction-column" id="academy" style="color: #fbeedd;">
-                        <p>マイページ</p>
-                        <p>講座一覧</p>
+                    <h3>ACADEMY</h3>
+                    <div class="justify-content-space-between  flex-direction-column" id="academy">
+                        <a href="">ダッシュボード</a>
+                        <a href="">講座一覧</a>
                     </div>
                 </div>
 
                 <div>
-                    <h3 style="color: #fbeedd;">ABOUT</h3>
-                    <div class="justify-content-space-between flex-direction-column" id="about" style="color: #fbeedd;">
+                    <h3>ABOUT</h3>
+                    <div class="justify-content-space-between flex-direction-column" id="about">
                         <p>運営会社</p>
                         <p>採用情報</p>
                         <p>お問い合わせ</p>
@@ -305,33 +190,47 @@
         <!-- 著作権情報-->
 
     </footer>
-
     <p class="copyright">@ 2023 Enskill. copyright</p>
 
     <!-- フッターはここまでコピーする↑ -->
-
-    <!-- passwordを見えないようにする -->
     <script>
+    // ぐるぐる動作
+    // BACKEND MESSAGE:
+    //2秒のあどに自動で消えますが、どうやって自動で遷移のがわかりません
+    const button500pt = document.getElementById('button-500pt');
+    const button1500pt = document.getElementById('button-1500pt');
+    const button3000pt = document.getElementById('button-3000pt');
 
-        const password = document.getElementById('userMyPagePassword');
-        const eyeBtn = document.getElementById('eye-outline');
-        const eyeOffBtn = document.getElementById('eye-off-outline');
+    const chargeWindow = document.querySelector('.charge_window');
 
-        eyeBtn.addEventListener('click', () => {
-            eyeBtn.classList.toggle('hidden');
-            eyeOffBtn.classList.toggle('hidden');
-            password.classList.toggle('visible');
-        });
+    button500pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block';  
 
-        eyeOffBtn.addEventListener('click', () => {
-            eyeBtn.classList.toggle('hidden');
-            eyeOffBtn.classList.toggle('hidden');
-            password.classList.toggle('visible');
-        });
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+button1500pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block'; 
+
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+
+button3000pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block'; 
+
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+
+
     </script>
-    <!-- ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
