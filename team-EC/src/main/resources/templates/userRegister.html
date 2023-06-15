@@ -38,17 +38,18 @@
 				alt="a gradient background with green an pink and yellow">
 		</div>
 		<div class="bg-decorate">
-			<img  class="rotate-animation" id="yellow-cross-star1" src="/sourceImg/kira2.svg" alt="a yellow cross star">
+			<img class="rotate-animation" id="yellow-cross-star1" src="/sourceImg/kira2.svg" alt="a yellow cross star">
 			<img class="rotate-animation" id="yellow-cross-star2" src="/sourceImg/kira2.svg" alt="a yellow cross star">
-			<img class="floating" id="spiral-cross-star3" src="/sourceImg/kira1.svg" alt="a yellow spiral with a yellow circle">
+			<img class="floating" id="spiral-cross-star3" src="/sourceImg/kira1.svg"
+				alt="a yellow spiral with a yellow circle">
 		</div>
 
 	</div>
+	<form method="post" th:action="@{/student/register}">
+		<div class="container">
+			<div class="user-signup-form ">
+				<!-- input form -->
 
-	<div class="container">
-		<div class="user-signup-form ">
-			<!-- input form -->
-			<form method="post" th:action="@{/student/register}">
 				<div class="form_container">
 					<div class="flex-row pxh80">
 						<div class="label-img-holder mail-icon">
@@ -71,7 +72,10 @@
 							<img src="/sourceImg/name.svg" alt="a name icon">
 						</div>
 
+
+
 						<input class="input-transparent border-bottom pt17 pxh75" type="text" id="studentName" name="userName" required>
+
 					</div>
 
 				</div>
@@ -85,27 +89,27 @@
 
 				<!-- ここで遷移先を入力 -->
 				<input class="float circle-radius cream-background pxh75  border4px " id="UserSignUpButton" value=" 登録">
-			
-		</div>
-	</div>
 
-	<p th:if="${error == true}" class="error-msg none-display">そのE-mailは既に使用されています</p>
-
-	<div id="confirmation-box"
-		class="green-background container confirmation-box border4px justify-content-space-around ">
-		<div>
-			<p>入力した内容間違いないでしょか？</p>
+			</div>
 		</div>
 
-		<div class="button-container">
-			<input class="cream-background border4px" type="submit" value="はい">
-		</div>
-		</form>
-		<div>
-			<input class="cream-background border4px" id="closeButton" type="submit" value="いいえ、修正します">
-		</div>
-	</div>
+		<p th:if="${error == true}" class="error-msg none-display">そのE-mailは既に使用されています</p>
 
+		<div id="confirmation-box"
+			class="green-background container confirmation-box border4px justify-content-space-around ">
+			<div>
+				<p>入力した内容間違いないでしょか？</p>
+			</div>
+
+			<div class="button-container">
+				<input class="cream-background border4px" type="submit" value="はい">
+			</div>
+
+			<div>
+				<input class="cream-background border4px" id="closeButton" type="button" value="いいえ、修正します">
+			</div>
+		</div>
+	</form>
 
 	<!-- copyright -->
 	<footer>
