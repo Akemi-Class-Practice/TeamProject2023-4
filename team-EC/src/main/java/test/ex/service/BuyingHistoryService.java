@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import test.ex.models.dao.BuyingHistoryDao;
 import test.ex.models.entity.BuyingHistoryEntity;
 
-// ブログ履歴処理 --------------------------------------------------------------------------------------------------------
+// 購入履歴処理 --------------------------------------------------------------------------------------------------------
 @Service				// カプセル化された状態でモデル内に単独で存在するインターフェースとして提供される操作として最初に定義されたことを示す
 public class BuyingHistoryService {
 

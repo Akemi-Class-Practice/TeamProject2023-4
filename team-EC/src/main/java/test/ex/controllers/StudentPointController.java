@@ -27,7 +27,7 @@ public class StudentPointController {
 	//階層へ遷移用 今現在のポイント取得
     @GetMapping("/pointsuccess")
     public String fix(Model model) {
-        StudentEntity userList = (StudentEntity) session.getAttribute("admin");
+        StudentEntity userList = (StudentEntity) session.getAttribute("student");
         Long student_id = userList.getStudentId();
         StudentEntity student = studentDao.findByStudentId(student_id);
         model.addAttribute("point", student.getPoint());
@@ -37,7 +37,7 @@ public class StudentPointController {
 	//階層へ遷移用 今現在のポイント取得
     @GetMapping("/point")
     public String point(Model model) {
-        StudentEntity userList = (StudentEntity) session.getAttribute("admin");
+        StudentEntity userList = (StudentEntity) session.getAttribute("student");
         Long student_id = userList.getStudentId();
         StudentEntity student = studentDao.findByStudentId(student_id);
         model.addAttribute("point", student.getPoint());
@@ -52,7 +52,7 @@ public class StudentPointController {
     public String addPoint(@RequestParam("pointAmount") int pointAmount,Model model) {
         
         //ログインしているユーザーを取得
-        StudentEntity userList = (StudentEntity) session.getAttribute("admin");
+        StudentEntity userList = (StudentEntity) session.getAttribute("student");
 		Long student_id = userList.getStudentId();
 
         // ユーザの情報をデータベースから取得  後ほど修正かも

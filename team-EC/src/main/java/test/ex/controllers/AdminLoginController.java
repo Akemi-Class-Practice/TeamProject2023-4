@@ -44,7 +44,8 @@ public class AdminLoginController {
 			session.setAttribute("admin", adminEntity);
 			// errorをfalseにする（HTML側でエラーメッセージを出力させないため）
 			model.addAttribute("error", false);
-			return "redirect:/admin/register";//暫定的にレジスターに飛ばす後で変更
+			return "redirect:/admin/lesson/list";
+
 		}
 
 	}

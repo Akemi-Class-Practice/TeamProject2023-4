@@ -21,7 +21,7 @@
         </section>
 			<!-- ビューの修正 -->
 <p>Total Point: <span th:text="${totalPoint}"></span>Pt</p>
-        
+        <p th:if="${insufficientPoints}">ポイントが不足しています後ほどポップアップで表示予定</p>
             <div class = "select-button">
                 <a th:href="@{/student/cart}" class="btn_1">戻る</a>
                 

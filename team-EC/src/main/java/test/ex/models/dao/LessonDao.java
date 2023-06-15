@@ -19,6 +19,7 @@ public interface LessonDao extends JpaRepository<LessonEntity, Long> {
 	// idを見つける
 	LessonEntity findByLessonId(Long lessonId);
 
+	//削除処理
 	List<LessonEntity> deleteByLessonId(Long lessonId);
 	
 }

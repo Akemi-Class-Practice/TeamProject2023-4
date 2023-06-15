@@ -2,6 +2,10 @@ package test.ex.controllers;
 
 
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,18 +14,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.http.HttpSession;
 
 import test.ex.models.entity.LessonEntity;
 
 import test.ex.service.LessonService;
+import test.ex.service.TransactionItemService;
 
 @Controller
 public class LessonEditController {
 	@Autowired
 	private LessonService lessonService;
+
+	@Autowired
+	private TransactionItemService transactionItemService;
 
 	@Autowired
 	HttpSession session;
@@ -39,16 +47,33 @@ public class LessonEditController {
 
 	@PostMapping("/lesson/update")
 	public String lessonEdit(@RequestParam String lessonName, @RequestParam String content,
-			@RequestParam int fee,@RequestParam Long lessonId) {
+			@RequestParam int fee,@RequestParam("imageName") MultipartFile imageName,@RequestParam Long lessonId) {
 
 		LessonEntity lessonEntity = lessonService.selectByLessonId(lessonId);
 
+		String fileName = imageName.getOriginalFilename();
+
+		try {
+			// 保存先の指定
+			File lessonFile = new File("./images/" + fileName);
+			// バイナリデータの取得
+			byte[] bytes = imageName.getBytes();
+			// 画像を保存するためのバッファを用意
+			BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(lessonFile));
+			// ファイルの書き出し
+			out.write(bytes);
+			// バッファを閉じることで書き出しを正常終了
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		// 保存処理
-		lessonService.update(lessonEntity.getLessonId(),lessonName,content,fee,lessonEntity.getImageName(),lessonEntity.getAdminId());
 
-//		lessonService.update(lessonId,lessonName,content,fee,lessonEntity.getImageName(),lessonEntity.getAdminId());
-		return "redirect:/admin/lesson/list";//暫定後で変える
+		lessonService.update(lessonId,lessonName,content,fee,fileName,lessonEntity.getAdminId());
+
+
+		return "adminLessonEditFinish.html";
 
 	}
 	@Transactional
@@ -56,8 +81,12 @@ public class LessonEditController {
 	public String lessonDelete(@RequestParam Long lessonId) {
 		
 		// 削除処理
+		//1.transaction_itemテーブルの該当講座履歴を削除(lessonIdを外部参照しているため先に削除)
+		transactionItemService.delete(lessonId);
+		
+		//2.lessonテーブルの該当講座履歴を削除
 		lessonService.delete(lessonId);
-		return "redirect:/admin/lesson/list";//暫定後で削除完了画面に変える
+		return "adminLessonDeleted.html";
 		
 	}
 
