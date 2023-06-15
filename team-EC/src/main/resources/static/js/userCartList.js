@@ -1,0 +1,20 @@
+function calculateTotal() {
+    var prices = document.getElementsByClassName('lecture-price');
+    var total = 0;
+
+    for (var i = 0; i < prices.length; i++) {
+        var price = parseFloat(prices[i].textContent.replace(',', '').replace('円', ''));
+        total += price;
+    }
+
+    return total;
+}
+
+var totalAmountElement = document.getElementById('total-amount');
+var totalAmount = calculateTotal();
+totalAmountElement.textContent =  formatAmount(totalAmount) + '円';
+
+function formatAmount(amount) {
+    return amount.toLocaleString();
+}
+
