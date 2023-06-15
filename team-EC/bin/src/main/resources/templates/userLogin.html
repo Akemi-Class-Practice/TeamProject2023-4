@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Login</title>
+	<style>
+		/* CSS */
+	</style>
+</head>
+
+<body>
+
+	<!-- HEADER BANNER -->
+	<header>
+		<a href="">サイトトップへ</a>
+		<img src="logo.png" alt="logo">
+		<nav>
+			<!-- OTHERS -->
+		</nav>
+	</header>
+
+	<!-- INPUT FORM -->
+	<form method="post" th:action="@{/student/login}">
+		<h2>Login</h2>
+		<label for="email">メール</label>
+		<input type="email" id="studentEmail" name="email" required>
+
+		<label for="password">パスワード</label>
+		<input type="password" id="studentPassword" name="password" required>
+
+		<!-- ここで遷移先を入力 -->
+		<input type="submit" value="ログイン">
+
+	</form>
+
+	<a th:href="@{/password/reset}">パスワードをお忘れの方はこちら</a>
+	<p th:if="${error == true}" class="error-msg">E-mailまたはパスワードが間違っています</p>
+
+	<!-- copyright -->
+	<footer>
+		<p>copyright &copy; 2023 - ENSkill</p>
+	</footer>
+
+
+
+
+</body>
+
+</html>
