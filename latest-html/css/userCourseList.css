@@ -1,0 +1,401 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #fbeedd;
+  background-image: url(/EC/sourceImg/grid_shallow_gray.svg);
+}
+
+html {
+  font-size: 100%;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.svg-pink-circle{
+  padding-top: 80%;
+  padding-left: -10%;
+  left:2%;
+  width:12%;
+  height:12%;
+  position: absolute;
+  right: 0;
+  margin-top: -35%;
+  z-index: -1;
+
+}
+
+.svg-orange-circle{
+  padding-top: 2%;
+  padding-left: 2%;
+  width:10%;
+  height:10%;
+  position: absolute;
+  right: -4%;
+  top: 20%;
+  z-index: -1;
+
+
+}
+.svg-small-square{
+  width:3%;
+  height:3%;
+  z-index: -1;
+  position: absolute;
+  right: 3%;
+  top: 140%;
+  transform: translateY(-50%);
+
+
+}
+
+
+
+
+/*---------------------------------------------------------------------------------------------------
+/* ---- 共通css ----- */
+.border4px {
+  border: #000000 4px solid;
+}
+
+.justify-content-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.justify-content-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.align-items-flex-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-direction-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.font-weight-600 {
+  font-weight: 600;
+}
+
+.green-background {
+  background-color: #0f8524;
+}
+
+.cream-background {
+  background-color: #fbeedd;
+}
+
+.circle-radius {
+  border-radius: 30em;
+}
+
+.font-color-cream {
+  color: #fbeedd;
+}
+
+.font-color-green {
+  color: #007c30;
+}
+
+.font-color-black {
+  color: #000000;
+}
+
+.submit-button {
+  border: 4px solid #000000;
+  font-size: 2.3em;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 800;
+}
+
+.submit-button:hover {
+  background-color: #ff6128;
+  transition: all 0.3s;
+  cursor: default;
+
+}
+
+.label {
+  font-weight: 600;
+}
+
+.floating { 
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
+}
+
+/* ----- header Bar------- */
+header {
+  margin: 10px;
+}
+
+.logo-horizontal-black {
+  z-index: 2;
+  width: 150px;
+  position: fixed;
+  top: 10px;
+  left: 12px;
+}
+
+.cart-icon .svg_element {
+  fill: #007c30;
+  width: 30px;
+}
+
+.cart-icon .svg_element :hover {
+  fill: #ff6128;
+}
+
+.cart-icon .svg_element :active {
+  fill: #fbeedd;
+}
+
+
+#SignButton {
+  border: none;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 5px 10px 6px 10px;
+  cursor: pointer;
+
+}
+
+#coursesButton:hover {
+  color: #ff516e;
+}
+
+#headerBar {
+  width: 100%;
+}
+
+#headerBarRightPart {
+  width: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main {
+  margin-top: 80px;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: #007c2f;
+  font-family: 'Noto Sans JP', sans-serif;
+
+
+}
+
+.title{
+  margin-left:3% ;
+  font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+#title-p{
+  margin-left:3% ;
+  margin-top: -1%;
+}
+
+.lecture-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.lecture {
+  z-index: 999;
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  
+}
+
+.lecture-duration,.lecture-episodes{
+  color: #007c2f;
+}
+
+.lecture img {
+  width: 100%;
+  height: 50%;
+  border-radius: 5px;
+}
+
+.lecture-title {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.lecture-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -8%;
+}
+
+.lecture-episodes {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.svg-icon {
+  position: absolute;
+  left: -38px; /* 根据需要调整图标距离左侧的距离 */
+  top: 7px;
+  height: 20px; /* 根据需要调整图标的高度 */
+  width: 20px; /* 根据需要调整图标的宽度 */
+}
+
+
+.lecture-amount {
+  color:#eb6106;
+  text-align: right;
+}
+
+
+
+/* ----- footerBar ----- */
+.logo-horizontal-cream {
+  width: 150px;
+}
+
+#footerFrame {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.academy-container {
+  display: block;
+}
+
+#academy {
+  height: 50px;
+}
+
+#academy a {
+  text-decoration: none;
+  color: #fbeedd;
+  cursor: pointer;
+}
+
+#about {
+  height: 75px;
+  color: #fbeedd;
+}
+
+#footerLeftContainer {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#footerLeftContainer p {
+  margin-top: 5px;
+  color: #fbeedd;
+}
+
+#footerRightContainer {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 20%;
+  width: 45em;
+  right: 10px;
+}
+
+#footerRightContainer h3 {
+  color: #fbeedd;
+  font-family: 'Noto sans JP';
+  font-style: italic;
+}
+
+.copyright {
+  color: #007c30;
+  margin-left: 1%;
+}
+
+
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.svg-pink-circle {
+  animation: floating 2s ease-in-out infinite;
+}
+
+.svg-orange-circle {
+  animation: floating 3s ease-in-out infinite;
+}
+
+.svg-small-square {
+  animation: floating 1.5s ease-in-out infinite;
+}
