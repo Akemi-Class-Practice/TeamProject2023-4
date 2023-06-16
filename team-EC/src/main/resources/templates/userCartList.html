@@ -45,8 +45,9 @@
                 <h4 th:text="${cart.lessonName}"></h4>
             </div>
 
-            <div class="lecture-price" th:text="${cart.lessonFee} + '円'"></div>
-            <div class="lecture-delete">
+            <div class="lecture-price" th:text="${cart.lessonFee} + 'Pt'" ></div>
+
+          <div class="lecture-delete">
 				<form method="post" th:action="@{/delete/cart}">
 					<input type="hidden" name="lessonName" th:value="${cart.lessonName}">
 					<input type="image" th:src="@{/sourceImg/trashbin_icon.svg}" alt="SVG image" class="list-trashbin">
