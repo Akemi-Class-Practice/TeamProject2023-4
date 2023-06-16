@@ -219,3 +219,7 @@ footer {
   padding-left: 6%;
   padding-bottom: 4px;
 }
+
+.nothing{
+	border-bottom: 2px solid #007c2f;
+}

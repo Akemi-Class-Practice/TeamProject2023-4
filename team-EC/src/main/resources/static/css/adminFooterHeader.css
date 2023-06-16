@@ -1,35 +1,3 @@
-/* base css */
-html {
-    font-size: 100%;
-    font-family: 'Noto Sans JP', sans-serif;
-}
-
-body {
-    min-width: 800px !important;
-    margin: 0;
-    padding: 0;
-    /* cursor: cell; */
-
-}
-
-::selection {
-    background: #ff516e;
-}
-
-::-moz-selection {
-    background: #ff516e;
-}
-
-p {
-    display: block;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-/* ---------- */
-
 
 /* ---- 共通css ----- */
 .border4px {
@@ -81,7 +49,7 @@ p {
 }
 
 .green-background {
-    background-color: #007c30;
+    background-color: #007c2f;
 }
 
 .cream-background {
@@ -103,9 +71,7 @@ p {
 .font-color-black {
     color: #000000;
 }
-#coursesButton:hover {
-    color: #ff6128;
-}
+
 .submit-button {
     border: 4px solid #000000;
     font-size: 2.3em;
@@ -129,7 +95,10 @@ p {
 
 /* ----- header Bar------- */
 header {
-    margin: 10px;
+    position: absolute;
+    width: 100%;
+    top:2%;
+    z-index: 999;
 }
 
 .logo-horizontal-black {
@@ -152,53 +121,56 @@ header {
 .cart-icon .svg_element :active {
     fill: #fbeedd;
 }
-#headerBar {
-    width: 100%;
+.header-courses{
+    color:#fbeedd;
+   
+}
+.header-courses a{
+    text-shadow: 0 1px 4px #007c30;
 }
 
 #headerBarRightPart {
     width: 20%;
 }
-button{
-    cursor: pointer;
-}
-#MyPageButton{
-    border: none;
-    font-size: 10px;
-    font-weight: 400;
-    padding: 5px 10px 6px 10px;
-}
-#MyPageButton:hover{
-    background-color: #ff6128;
-    transition: all 0.3s;
+
+#coursesButton:hover {
+    color: #ff6128;
 }
 #SignButton {
     border: none;
     font-size: 10px;
     font-weight: 400;
     padding: 5px 10px 6px 10px;
+    cursor: pointer;
+
 }
 #SignButton:hover {
     background-color: #ff6128;
     transition: all 0.3s;
 }
-
 .submit-button-header {
+    border: 4px solid #000000;
     font-size: 2.3em;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 800;
+    cursor: pointer;
+
 }
 
+.submit-button-header :hover {
+    background-color: #ff6128;
+    transition: all 0.3s;
+    cursor: pointer;
 
+}
 /* ----- footerBar ----- */
+
 footer {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100px;
-    top:0;
-    /* bottom:0;     */
+    bottom:0;    
     left: 0;
-    align-self: flex-end;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -210,7 +182,6 @@ main{
 .logo-horizontal-cream {
     width: 150px;
 }
-
 
 .academy-container {
     display: block;
@@ -230,25 +201,15 @@ main{
     height: 75px;
     color: #fbeedd;
 }
-#userFooterLeftContainer {
+
+#adminFooterLeftContainer {
     position: absolute;
     right: 3%;
     margin-left: 20px;
     margin-top: 20px;
 }
 
-#userFooterLeftContainer p {
-    margin-top: 5px;
-    color: #fbeedd;
-}
-
-/* #footerLeftContainer {
-    position: absolute;
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-#footerLeftContainer p {
+#adminFooterLeftContainer p {
     margin-top: 5px;
     color: #fbeedd;
 }
@@ -266,7 +227,7 @@ main{
     color: #fbeedd;
     font-family: 'Noto sans JP';
     font-style: italic;
-} */
+}
 
 .copyright {
     position: absolute;
@@ -275,10 +236,3 @@ main{
     margin-left: 1%;
     opacity: 50%;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    justify-content: space-between;
-  }
- 

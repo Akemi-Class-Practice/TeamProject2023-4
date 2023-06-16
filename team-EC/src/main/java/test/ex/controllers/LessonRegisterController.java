@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.http.HttpSession;
-
+import test.ex.models.entity.AdminEntity;
 import test.ex.service.LessonService;
 
 @Controller
@@ -39,10 +39,10 @@ public class LessonRegisterController {
 							   @RequestParam("imageName") MultipartFile imageName, Model model) {
 
 		// ログイン中のユーザ情報を取得
-//		AdminEntity userList = (AdminEntity) session.getAttribute("admin");
-//		Long admin_id = userList.getAdminId();
+		AdminEntity userList = (AdminEntity) session.getAttribute("admin");
+		Long admin_id = userList.getAdminId();
 		
-		Long admin_id = (long) 1;  //test用後で消して上記コードのコメントアウト解除
+//		Long admin_id = (long) 1;  //test用後で消して上記コードのコメントアウト解除
 
 		// 画像ファイル名を取得
 		String fileName = imageName.getOriginalFilename();

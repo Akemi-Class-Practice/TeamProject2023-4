@@ -24,7 +24,6 @@ public class AdminRegisterController {
 	}
 
 	// 保存処理------------------------------------------------------
-
 	@PostMapping("/admin/register")
 	public String studentRegister(@RequestParam String username,@RequestParam String password,@RequestParam String email,Model model) {
 		//重複したE-mailがないか探す
@@ -40,6 +39,5 @@ public class AdminRegisterController {
 			model.addAttribute("error", true);
 			return "adminRegister.html";
 		}
-
 	}
 }

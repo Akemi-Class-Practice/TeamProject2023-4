@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
+import test.ex.models.dao.BuyingHistoryDao2;
 //import lesson.com.model.entity.TransactionHistoryEntity;
 import test.ex.models.dao.StudentDao;
 import test.ex.models.dao.TransactionHistoryDao;
@@ -42,6 +43,11 @@ public class CartConfirmationController {
 	
 	@Autowired
 	private TransactionItemDao transactionItemDao;
+
+	
+    @Autowired
+    private BuyingHistoryDao2 buyingHistoryDao2;
+
 	@Autowired
 	HttpSession session;
 	
@@ -77,7 +83,6 @@ public class CartConfirmationController {
     public String completedcart(Model model) {
         
         //ログインしているユーザーを取得
-
         StudentEntity userList = (StudentEntity) session.getAttribute("student");
         
         //ログインしているユーザーidを格納

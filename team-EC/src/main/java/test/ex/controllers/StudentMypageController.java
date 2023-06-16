@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpSession;
 import test.ex.models.entity.BuyingHistoryEntity;
 import test.ex.models.entity.StudentEntity;
 import test.ex.service.BuyingHistoryService;
+import test.ex.service.StudentService;
 
 //ユーザーからの入力を View から受け取り、それをもとに Model に指示を伝える処理 -------------------------------------------------------
 @Controller														// 画面遷移用のコントローラーに付与する
@@ -25,10 +26,13 @@ public class StudentMypageController {
 
 	@Autowired													// 自動でインスタンスの紐づけを行う
 	HttpSession session;										/* 同一のWebブラウザからの複数回のリクエストを、
-																	同一のWebブラウザからのアクセスとして処理するため*/
+																同一のWebブラウザからのアクセスとして処理するため*/
 
 	@Autowired													// 自動でインスタンスの紐づけを行う
 	BuyingHistoryService buyingHistoryService;					// 購入履歴に必要な処理を実行するため呼び出す
+	
+	@Autowired 
+	StudentService studentService;
 	
 	// マイページ画面の表示 -----------------------------------------------------------------------------------------------
 	@GetMapping("/student/lesson/mypage")						// HTTP GETリクエストに対する紐づけ
@@ -45,10 +49,14 @@ public class StudentMypageController {
 			// studentIdに取得したstudentIdを格納している
 			Long studentId = student.getStudentId();
 			
+			//stuentIdを使用してテーブルから最新のお金の情報を取得する
+			StudentEntity studentEntity = studentService.selectByStudentId(studentId);
+			
 			// リストにユーザーが購入した講座の情報を格納する
 			List<BuyingHistoryEntity> listbuy = buyingHistoryService.getBuyingHistory(studentId);
 
 			// コントローラーからビューに渡すためのデータを格納している
+			model.addAttribute("point", studentEntity.getPoint());
 			model.addAttribute("student", student);
 			model.addAttribute("listbuy", listbuy);
 			return "userMypage.html";
