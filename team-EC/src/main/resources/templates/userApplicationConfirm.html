@@ -57,6 +57,10 @@
             <span class="total-label">合計：</span>
             <span id="total-amount"></span>
         </h2>
+        
+        <div th:if="${purchasedLessonIds}">
+			<p th:text="${message}"></p>
+		</div>
 
         <div class="finally-button">
             <a th:href="@{/student/cart}" class="continue">修正する</a>
