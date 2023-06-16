@@ -51,10 +51,8 @@ public class CartConfirmationController {
     private BuyingHistoryDao2 buyingHistoryDao2;
 
     
-
     @Autowired
     private StudentService StudentService;
-
 
 	@Autowired
 	HttpSession session;
