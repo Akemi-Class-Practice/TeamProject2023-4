@@ -36,11 +36,12 @@
 
     <!-- リスト（内容）-->
     <div class="main">
+
 		<div th:if="${cartList == null or cartList.size() == 0}" class="nothing">
 	        	<p>現在カートが空いています。</p>
 	    </div>
+
         <div class="list" th:each="cart:${cartList}">
-			
             <img class="lecture-image" th:src="@{'/images/' + ${cart.imageName}}" alt="Lecture Image">
 
             <div class="lecture-title">
@@ -48,7 +49,8 @@
             </div>
 
             <div class="lecture-price" th:text="${cart.lessonFee} + 'Pt'" ></div>
-            <div class="lecture-delete">
+
+          <div class="lecture-delete">
 				<form method="post" th:action="@{/delete/cart}">
 					<input type="hidden" name="lessonName" th:value="${cart.lessonName}">
 					<input type="image" th:src="@{/sourceImg/trashbin_icon.svg}" alt="SVG image" class="list-trashbin">
@@ -66,7 +68,9 @@
 
         <div class="finally-button">
             <a th:href="@{/student/lesson/list}" class="continue">＜買い物を続ける</a>
+
             <a th:href="@{/student/confirmation}" th:if="${cartList == null or cartList.size() != 0}" class="into">購入手続き</a>
+
         </div>
 
     </div>
