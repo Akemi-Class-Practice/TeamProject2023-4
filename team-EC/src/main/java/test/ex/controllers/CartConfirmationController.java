@@ -93,7 +93,7 @@ public class CartConfirmationController {
 		//カートの中身を取得
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 		model.addAttribute("cartList",cartList);
-<<<<<<< HEAD
+
 
 		// 学生のIDと講座のIDのペアを取得
 		List<BuyingCartCheckEntity> studentIdAndLessonIds = buyingHistoryDao2.findStudentIdAndLessonIdByStudentId(loggedInUserId);
@@ -112,28 +112,7 @@ public class CartConfirmationController {
     		}
     	}
 	}
- 
-=======
-		 //StudentEntity student = (StudentEntity) session.getAttribute("user");
 
-
-	    
-//		// カート内の講座をチェックして重複や購入済みの講座を検証
-//		for (LessonEntity lesson : cartList) {
-//		    // 同じ講座がカート内に存在する場合
-//		    if (isDuplicateLesson(lesson, cartList)) {
-//		        model.addAttribute("error", "同じ講座がカートに複数存在します。");
-//		        return "userApplication.html";
-//		    }
-//		    
-//		    // 購入済みの講座をカートに追加しようとしている場合
-//		    if (isLessonAlreadyPurchased(lesson, loggedInUserId)) {
-//		        model.addAttribute("error", "既に購入済みの講座が含まれています。");
-//		        return "userApplication.html";
-//		    }
-//		}
-	    
->>>>>>> 1d34dc9e79d9735924a5a8099e9f63817c7defe8
 		//カートの合計ポイントを取得   
         int totalPoint = 0;
 		for(int i = 0;i<cartList.size();i++) {		
@@ -150,10 +129,7 @@ public class CartConfirmationController {
 			//自分が持っているポイントからカートの合計金額を引く
 			studentPoint -= totalPoint;
 	    }
-<<<<<<< HEAD
-    
-=======
->>>>>>> 1d34dc9e79d9735924a5a8099e9f63817c7defe8
+
 		//講座購入後のポイントをstudentデータベースに保存
 		userList.setPoint(studentPoint);
 		studentService.update(userList.getStudentId(), userList.getStudentName(), userList.getStudentPassword(), userList.getKeyword(), userList.getStudentEmail(), studentPoint);
