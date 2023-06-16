@@ -35,7 +35,18 @@ public class StudentLessonDetailsController {
 		model.addAttribute("lessonList", lessonService.selectByLessonId(lessonId));
 		return "course-details.html";
 	}
-
+	//カート重複処理メソッド
+		public boolean isLessonExist(Long lessonId,ArrayList<LessonEntity> list) {
+			for(LessonEntity lesson : list ) {
+				if(lesson.getLessonId().equals(lessonId)) {
+				return true;	
+				}
+			}
+			return false;
+			
+			
+		}
+		
 	// カートに入れる---------------------------------------------------------------------
 
 	@PostMapping("/add/cart")
@@ -56,8 +67,11 @@ public class StudentLessonDetailsController {
 				LessonEntity cart = lessonEntity;
 				cartList.add(cart);	//Listにdataの追加
 			}else {
-				LessonEntity cart = lessonEntity;	//二つ目以降
-				cartList.add(cart);
+				if(isLessonExist(lessonId,cartList)) {
+				}else {
+					LessonEntity cart = lessonEntity;	//二つ目以降
+					cartList.add(cart);
+				}
 			}
 			
 			session.setAttribute("cart", cartList); //sessionに格納

@@ -21,6 +21,8 @@ import test.ex.models.dao.BuyingHistoryDao2;
 //import lesson.com.model.entity.TransactionHistoryEntity;
 import test.ex.models.dao.StudentDao;
 import test.ex.models.dao.TransactionHistoryDao;
+import test.ex.models.entity.BuyingCartCheckEntity;
+import test.ex.models.entity.BuyingHistoryEntity;
 import test.ex.models.entity.LessonEntity;
 import test.ex.models.entity.StudentEntity;
 import test.ex.service.LessonService;
@@ -76,8 +78,6 @@ public class CartConfirmationController {
         return "userApplicationCompleted.html";
     }
     
-    
-    
     //講座購入処理
     @PostMapping("/student/completed")
     public String completedcart(Model model) {
@@ -93,41 +93,25 @@ public class CartConfirmationController {
 		//カートの中身を取得
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 		model.addAttribute("cartList",cartList);
-		
-		
-		
-		
-		
-		
-		
-
 
 		// 学生のIDと講座のIDのペアを取得
-		List<Object[]> studentIdAndLessonIds = buyingHistoryDao2.findStudentIdAndLessonIdByStudentId(loggedInUserId);
+		List<BuyingCartCheckEntity> studentIdAndLessonIds = buyingHistoryDao2.findStudentIdAndLessonIdByStudentId(loggedInUserId);
 
-		// 購入済みの講座のIDをチェック
-		List<Long> purchasedLessonIds = new ArrayList<>();
-		for (Object[] pair : studentIdAndLessonIds) {
-		    Long lessonId = (Long) pair[1];
-		    purchasedLessonIds.add(lessonId);
-		}
-
-		// 購入済みの講座のIDが存在する場合は適切に処理する
-		if (!purchasedLessonIds.isEmpty()) {
-		    // 購入済みの講座が存在する場合の処理
-		    model.addAttribute("purchasedLessonIds", true);
-
-		    // 購入済みの講座のIDリストをクリア
-		    purchasedLessonIds.clear();
-
-		    return "userApplication.html"; // 購入処理を停止して現在のページにとどまる
-		}
-	    
-	    
-	    
-	    
-	    
-
+		//カート側の取得   //コメントアウトは複数購入済みが含まれた場合
+	//List<String>exist = new ArrayList<>();
+	for(LessonEntity lessons :cartList ) {
+    	Long lessonId = lessons.getLessonId();
+    	for(BuyingCartCheckEntity pair : studentIdAndLessonIds) {
+    		Long pairLessonId = pair.getLessonId();
+    		if(lessonId.equals(pairLessonId) ) {
+    			//exist.add(lessons.getLessonName());
+    			 model.addAttribute("purchasedLessonIds", true);
+    			 model.addAttribute("message", lessons.getLessonName()+"は既に購入済みです");
+    			 return "userApplication.html"; 
+    		}
+    	}
+	}
+ 
 		//カートの合計ポイントを取得   
         int totalPoint = 0;
 		for(int i = 0;i<cartList.size();i++) {		
@@ -144,16 +128,7 @@ public class CartConfirmationController {
 			//自分が持っているポイントからカートの合計金額を引く
 			studentPoint -= totalPoint;
 	    }
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-
-	    
-	    
+    
 		//講座購入後のポイントをstudentデータベースに保存
 		userList.setPoint(studentPoint);
 		studentService.update(userList.getStudentId(), userList.getStudentName(), userList.getStudentPassword(), userList.getKeyword(), userList.getStudentEmail(), studentPoint);
