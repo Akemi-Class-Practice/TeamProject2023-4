@@ -31,7 +31,7 @@ public class StudentPointController {
         Long student_id = userList.getStudentId();
         StudentEntity student = studentDao.findByStudentId(student_id);
         model.addAttribute("point", student.getPoint());
-        return "point-fix.html";
+        return "userPointChargeFinish.html";
     }
 
 	//階層へ遷移用 今現在のポイント取得
