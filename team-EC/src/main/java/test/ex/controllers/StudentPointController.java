@@ -41,7 +41,7 @@ public class StudentPointController {
         Long student_id = userList.getStudentId();
         StudentEntity student = studentDao.findByStudentId(student_id);
         model.addAttribute("point", student.getPoint());
-        return "point.html";
+        return "userPoint.html";
     }
     
     

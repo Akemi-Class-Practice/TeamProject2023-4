@@ -21,7 +21,7 @@
  <header>
     <!-- logo -->
     <div class="justify-content-space-between" id="headerBar">
-        <a th:href="@{/student/lesson/list}" >
+        <a href="">
             <div class="logo-horizontal-black">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
                     <defs>
@@ -107,7 +107,7 @@
             </div>
 
             <div class="cost-button">
-                <span class="cost"　th:text="${lessonList.lessonFee + 'Pt'}"></span>   <!--講座の値段 -->
+                <span class="cost"　th:text="${lessonList.lessonFee}">Pt</span>   <!--講座の値段 -->
                 <br>
               
                 <form class = "set-price" method="post" th:action="@{/add/cart}">
@@ -127,10 +127,12 @@
             </div>
 
             <div class="content">
-                <span>【講座についての説明】</span>
+                <span>1. 講座説明テキスト</span>
                 <br>
                 <p th:text="${lessonList.lessonDetail}"></p>
-
+                <span>2. 講座説明テキスト</span>
+                <br>
+                <p></p>
             </div>
         </form>
     </div>
