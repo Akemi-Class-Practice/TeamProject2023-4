@@ -49,17 +49,10 @@ public class CartConfirmationController {
 	
     @Autowired
     private BuyingHistoryDao2 buyingHistoryDao2;
-<<<<<<< Updated upstream
-    
-    @Autowired
-    private StudentService StudentService;
-=======
 
     
     @Autowired
     private StudentService StudentService;
-
->>>>>>> Stashed changes
 
 	@Autowired
 	HttpSession session;
