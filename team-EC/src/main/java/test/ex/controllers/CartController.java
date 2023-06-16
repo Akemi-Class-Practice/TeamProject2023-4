@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import jakarta.servlet.http.HttpSession;
 
 import test.ex.models.entity.LessonEntity;
-
+import test.ex.models.entity.StudentEntity;
 import test.ex.service.LessonService;
 
 @Controller
@@ -33,10 +33,15 @@ public class CartController {
 
 	@GetMapping("/student/cart")
 	public String getlessondetailPage(Model model) {
-
-		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
-		model.addAttribute("cartList",cartList);
-		return "userCartList.html";
+		StudentEntity userList = (StudentEntity) session.getAttribute("student");
+        
+    	if(userList != null) {
+			ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
+			model.addAttribute("cartList",cartList);
+			return "userCartList.html";
+    	}else {
+    		return "redirect:/student/login";
+    	} 
 	}
 
 	// カート内の講座を削除---------------------------------------------------------------------

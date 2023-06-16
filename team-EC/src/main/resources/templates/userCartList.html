@@ -36,7 +36,7 @@
 
     <!-- リスト（内容）-->
     <div class="main">
-		<div th:if="${cartList.size == 0}" class="nothing">
+		<div th:if="${cartList == null or cartList.size() == 0}" class="nothing">
 	        	<p>現在カートが空いています。</p>
 	    </div>
         <div class="list" th:each="cart:${cartList}">
@@ -60,13 +60,13 @@
 
         <!-- 合計金額や買い物を続く、戻るボダン-->
         <h2 class="total">
-            <span class="total-label" th:if="${cartList.size != 0}" >合計：</span>
-            <span id="total-amount" th:if="${cartList.size != 0}"></span>
+            <span class="total-label" th:if="${cartList == null or cartList.size() != 0}" >合計：</span>
+            <span id="total-amount" th:if="${cartList == null or cartList.size() != 0}"></span>
         </h2>
 
         <div class="finally-button">
             <a th:href="@{/student/lesson/list}" class="continue">＜買い物を続ける</a>
-            <a th:href="@{/student/confirmation}" th:if="${cartList.size != 0}" class="into">購入手続き</a>
+            <a th:href="@{/student/confirmation}" th:if="${cartList == null or cartList.size() != 0}" class="into">購入手続き</a>
         </div>
 
     </div>
