@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
+import test.ex.models.dao.BuyingHistoryDao2;
 //import lesson.com.model.entity.TransactionHistoryEntity;
 import test.ex.models.dao.StudentDao;
 import test.ex.models.dao.TransactionHistoryDao;
+import test.ex.models.entity.BuyingCartCheckEntity;
+import test.ex.models.entity.BuyingHistoryEntity;
 import test.ex.models.entity.LessonEntity;
 import test.ex.models.entity.StudentEntity;
 import test.ex.service.LessonService;
@@ -42,6 +45,11 @@ public class CartConfirmationController {
 	
 	@Autowired
 	private TransactionItemDao transactionItemDao;
+
+	
+    @Autowired
+    private BuyingHistoryDao2 buyingHistoryDao2;
+
 	@Autowired
 	HttpSession session;
 	
@@ -70,14 +78,11 @@ public class CartConfirmationController {
         return "userApplicationCompleted.html";
     }
     
-    
-    
     //講座購入処理
     @PostMapping("/student/completed")
     public String completedcart(Model model) {
         
         //ログインしているユーザーを取得
-
         StudentEntity userList = (StudentEntity) session.getAttribute("student");
         
         //ログインしているユーザーidを格納
@@ -88,27 +93,9 @@ public class CartConfirmationController {
 		//カートの中身を取得
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 		model.addAttribute("cartList",cartList);
-		 //StudentEntity student = (StudentEntity) session.getAttribute("user");
 
 
-<<<<<<< Updated upstream
-	    
-//		// カート内の講座をチェックして重複や購入済みの講座を検証
-//		for (LessonEntity lesson : cartList) {
-//		    // 同じ講座がカート内に存在する場合
-//		    if (isDuplicateLesson(lesson, cartList)) {
-//		        model.addAttribute("error", "同じ講座がカートに複数存在します。");
-//		        return "userApplication.html";
-//		    }
-//		    
-//		    // 購入済みの講座をカートに追加しようとしている場合
-//		    if (isLessonAlreadyPurchased(lesson, loggedInUserId)) {
-//		        model.addAttribute("error", "既に購入済みの講座が含まれています。");
-//		        return "userApplication.html";
-//		    }
-//		}
-	    
-=======
+
 		// 学生のIDと講座のIDのペアを取得
 		List<BuyingCartCheckEntity> studentIdAndLessonIds = buyingHistoryDao2.findStudentIdAndLessonIdByStudentId(loggedInUserId);
 
@@ -122,12 +109,14 @@ public class CartConfirmationController {
     			//exist.add(lessons.getLessonName());
     			 model.addAttribute("purchasedLessonIds", true);
     			 model.addAttribute("message", lessons.getLessonName()+"は既に購入済みです");
+
     			 return "userApplicationConfirm.html"; 
+
     		}
     	}
 	}
 
->>>>>>> Stashed changes
+
 		//カートの合計ポイントを取得   
         int totalPoint = 0;
 		for(int i = 0;i<cartList.size();i++) {		
@@ -144,6 +133,7 @@ public class CartConfirmationController {
 			//自分が持っているポイントからカートの合計金額を引く
 			studentPoint -= totalPoint;
 	    }
+
 		//講座購入後のポイントをstudentデータベースに保存
 		userList.setPoint(studentPoint);
 		studentService.update(userList.getStudentId(), userList.getStudentName(), userList.getStudentPassword(), userList.getKeyword(), userList.getStudentEmail(), studentPoint);

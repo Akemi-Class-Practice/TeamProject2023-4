@@ -8,7 +8,7 @@ html {
 
 body {
     min-width: 800px !important;
-
+    
 }
 
 ::selection {
@@ -66,6 +66,7 @@ footer {
     position: relative;
     top: 0;
     bottom: 0;
+    height: 100vh;
 
 }
 
@@ -101,7 +102,7 @@ footer {
 
 .background_green_over {
     background-color: #007c30;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     height: 50%;
@@ -123,6 +124,7 @@ footer {
     box-sizing: border-box;
 }
 
+/* user-login-finish.html */
 .multiple_background {
     background-image: url("/sourceImg/grid_line_white.svg"), url("/sourceImg/user_signup_finish_bgpic.svg");
     background-position: center center, center center;
@@ -164,21 +166,11 @@ footer {
     display: none;
 }
 
-.container {
+.form-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
-.form_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    width: auto;
-    cursor: url(sourceImg/pointer.svg), auto;
-
-}
 
 .justify-align-center-main {
     display: flex;
@@ -194,18 +186,20 @@ footer {
 }
 
 .justify-content-space-around {
+    display: flex;
     justify-content: space-around;
 }
 
-.flex-row {
-    justify-content: space-between;
+.justify-content-space-between {
     display: flex;
-    flex-direction: row;
-    width: 75%;
-    /* border: #000000 solid 1px; */
-    /* 大きさお確認のため */
-    align-items: center;
+    justify-content: space-between;
 }
+
+.flex-direction-row{
+    display: flex;
+    flex-direction:row ;
+}
+
 
 .input-transparent {
     background-color: transparent;
@@ -231,9 +225,6 @@ footer {
     height: 75px;
 }
 
-.float {
-    float: right;
-}
 
 .border4px {
     border: #000000 4px solid;
@@ -331,71 +322,77 @@ footer {
     display: none;
 }
 
-.new-acc-door {
-    position: fixed;
-    bottom: -10px;
-    right: 100px;
-    cursor: grabbing;
-}
-
-.new-acc-door:hover~.door-handle {
+.new-acc-door:hover .door-handle {
     transform-origin: left center;
     transform: rotate(45deg);
     cursor: grabbing;
 }
 
+.new-acc-door {
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    cursor: grabbing;
+    width: 10%;
+}
+.new-acc-door img{
+    z-index: 49;
+}
+
 .door-handle {
-    position: fixed;
-    bottom: 140px;
-    right: 230px;
+    position: absolute;
+    width: 30%;
+    left:8%;
+    bottom: 45%; 
     transition: transform 0.3s ease-in-out;
     cursor: grabbing;
+    z-index: 50;
 }
 
 
 /* ------user SignUp page-------------------------------- */
 .mail-icon {
-    width: 40px;
+    width:4em;
 }
 
 .name-icon {
-    width: 70px;
-    transform: translateX(-30px);
-}
-
-.name-icon img {
-    height: 30px;
+    width: 80px;
+    transform: translateY(30px);
 }
 
 .psw-icon {
-    width: 30px;
+    width: 3em;
 }
 
-.label-img-holder {
+/* .label-img-holder {
     height: 20px;
-}
+} */
 
 .user-signup-form {
-    padding-top: 3%;
-
+    padding: 4% 4% 2% 4%;
     background-color: rgb(255, 238, 215);
     border: solid 4px #191919;
     width: 43%;
     min-width: 400px;
-    height: 40%;
-    position: fixed;
+    height: auto;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    flex-direction: column;
+    justify-content: space-around;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
+
 #UserSignUpButton {
+    position: absolute;
+    right: 1%;
     width: 110px;
     height: 60px;
     color: #007c30;
@@ -425,10 +422,7 @@ footer {
 }
 
 .psw-forget {
-    position: absolute;
-    width: 80%;
-    left: 8%;
-    bottom: 6%;
+    padding-top: 5%;
 }
 
 .psw-forget label {
@@ -451,9 +445,9 @@ footer {
     font-family: 'Noto Sans', 'Noto Sans JP', sans-serif;
     font-style: italic;
     font-weight: 600;
+    width: 60%;
 
 }
-
 .bg-decorate {
     position: fixed;
     height: 100%;
@@ -463,10 +457,10 @@ footer {
 
 #yellow-cross-star1 {
     position: absolute;
-    width: 18%;
+    width: 14%;
     left: 4.2%;
-    bottom: 8.1%;
-    min-width: 150px;
+    bottom: 10%;
+    min-width: 90px;
 }
 
 #yellow-cross-star2 {
@@ -480,9 +474,9 @@ footer {
 #spiral-cross-star3 {
     position: absolute;
     right: 3.4%;
-    bottom: 6%;
-    width: 20%;
-    min-width: 214px;
+    bottom:15%;
+    width: 15%;
+    min-width: 100px;
 }
 
 /* ----- confirm-box  -----*/
@@ -527,7 +521,9 @@ footer {
 }
 
 /* ---------UserRegisterFinish------ */
-
+#user-rgs-container{
+    height: 100vh;
+}
 #border-cream-cross-star1 {
     position: absolute;
     width: 8%;
