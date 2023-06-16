@@ -62,7 +62,7 @@ public class CartConfirmationController {
 	    model.addAttribute("totalPoint", totalPoint);
         model.addAttribute("cartList", cartList);
         
-        return "userApplication.html";
+        return "userApplicationConfirm.html";
     }
 	//階層へ遷移用
     @GetMapping("/student/completed")
@@ -91,6 +91,7 @@ public class CartConfirmationController {
 		 //StudentEntity student = (StudentEntity) session.getAttribute("user");
 
 
+<<<<<<< Updated upstream
 	    
 //		// カート内の講座をチェックして重複や購入済みの講座を検証
 //		for (LessonEntity lesson : cartList) {
@@ -107,6 +108,26 @@ public class CartConfirmationController {
 //		    }
 //		}
 	    
+=======
+		// 学生のIDと講座のIDのペアを取得
+		List<BuyingCartCheckEntity> studentIdAndLessonIds = buyingHistoryDao2.findStudentIdAndLessonIdByStudentId(loggedInUserId);
+
+		//カート側の取得   //コメントアウトは複数購入済みが含まれた場合
+	//List<String>exist = new ArrayList<>();
+	for(LessonEntity lessons :cartList ) {
+    	Long lessonId = lessons.getLessonId();
+    	for(BuyingCartCheckEntity pair : studentIdAndLessonIds) {
+    		Long pairLessonId = pair.getLessonId();
+    		if(lessonId.equals(pairLessonId) ) {
+    			//exist.add(lessons.getLessonName());
+    			 model.addAttribute("purchasedLessonIds", true);
+    			 model.addAttribute("message", lessons.getLessonName()+"は既に購入済みです");
+    			 return "userApplicationConfirm.html"; 
+    		}
+    	}
+	}
+
+>>>>>>> Stashed changes
 		//カートの合計ポイントを取得   
         int totalPoint = 0;
 		for(int i = 0;i<cartList.size();i++) {		
@@ -118,7 +139,7 @@ public class CartConfirmationController {
 	    if (studentPoint < totalPoint) {
 	    	//insufficientPointsのポップアップは後ほど制作
 	        model.addAttribute("insufficientPoints", true);
-	        return "userApplication.html"; // とりあえず今の画面にとどまる
+	        return "userApplicationConfirm.html"; // とりあえず今の画面にとどまる
 	    }else {
 			//自分が持っているポイントからカートの合計金額を引く
 			studentPoint -= totalPoint;
@@ -126,7 +147,8 @@ public class CartConfirmationController {
 		//講座購入後のポイントをstudentデータベースに保存
 		userList.setPoint(studentPoint);
 		studentService.update(userList.getStudentId(), userList.getStudentName(), userList.getStudentPassword(), userList.getKeyword(), userList.getStudentEmail(), studentPoint);
-		
+		//カートの中身をリセット
+		session.removeAttribute("cart");
 		
 		/////////////transaction_historyへの保存処理//////////////////////////////	
 		//購入日付を取得
