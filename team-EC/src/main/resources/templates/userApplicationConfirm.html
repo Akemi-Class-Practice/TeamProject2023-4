@@ -57,6 +57,15 @@
             <span class="total-label">合計：</span>
             <span id="total-amount"></span>
         </h2>
+<<<<<<< HEAD
+=======
+        <!--pointが不足している場合のエラーメッセージ-->
+        <p th:if="${insufficientPoints}">ポイントが不足しています</p>
+        <!--既に購入済みの商品が混入していた場合のエラーメッセージ-->
+        <div th:if="${purchasedLessonIds}">
+			<p th:text="${message}"></p>
+		</div>
+>>>>>>> d0ac03d18c02951988f34cbdb474ff0e360ce185
 
         <div class="finally-button">
             <a th:href="@{/student/cart}" class="continue">修正する</a>

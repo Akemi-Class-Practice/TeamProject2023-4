@@ -10,6 +10,7 @@ body {
     padding: 0;
     /* cursor: cell; */
     width: 100%;
+    height: 100vh;
 
 }
 
@@ -345,7 +346,7 @@ p {
     position: relative;
     z-index: -90;
     height: 100%;
-    top:33%;
+    top:60%;
     width: 100%;
 }
 

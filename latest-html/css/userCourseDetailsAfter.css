@@ -195,27 +195,29 @@ header {
   
   }
   
+
+  .finally-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  } 
   
-  .return {
-    text-decoration: none;
-    color: #eb6106;
-    display: inline-block;
-    padding-top: 3%;
-    padding-left: 7%;
-    margin-bottom: 5px;
-    position: relative;
-  
+  .finally-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
-  .return::after {
-    content: '';
-    position: absolute;
-    margin-left: -23%;
-    bottom: -5px;
-    /* 下划线的位置调整为文本下方一定距离 */
-    width: 23%;
-    height: 2px;
-    background-color: #eb6106;
+  .return {
+    margin-left: 10%;
+    margin-top: 2%;
+    text-decoration: none;
+    color: #eb6106;
+    padding-bottom: 1px;
+    border-bottom: 2px solid #eb6106;
+  
   }
   
   .main-image {

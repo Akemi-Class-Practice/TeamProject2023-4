@@ -1,31 +1,49 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>userCourseDetails</title>
+	<link rel="stylesheet" href="/EC/css/adminLessonList.css">
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/userCourseDetails.css">
-    <link rel="stylesheet" href="/css/userFooterHeader.css">
-
-    
    
-    <!-- fontlink -->
+    <title>adminLessonList</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
         rel="stylesheet">
-   
-</head>
 
-<body class="flex-direction-column justify-content-space-between">
+</head>
+<body>
+    
+   
+
+    <!-- SVG -->
+
+   
+    <div class="svg-green-circle">
+      <img class="svg-image" src="/EC/sourceImg/ball_green.svg" alt="SVG Image">
+    </div>
+
+    <div class="svg-green-spiral">
+        <img class="svg-image" src="/EC/sourceImg/spiral_green.svg" alt="SVG Image">
+      </div>
+  
+  
+  <div class="svg-yellow-circle">
+    <img class="svg-image" src="/EC/sourceImg/ball_yellow.svg" alt="SVG Image">
+  </div>
+  
+  <div class="svg-orange-circle">
+    <img class="svg-image" src="/EC/sourceImg/ball_orange.svg" alt="SVG Image">
+  </div>
+      
+
+  
     <header>
+        <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
-            <!-- logo -->
             <a href="">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
@@ -59,7 +77,7 @@
                     </svg>
                 </div>
             </a>
-    
+
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
@@ -72,7 +90,7 @@
                         <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
                             <defs>
                                 <style>
-    
+
                                 </style>
                             </defs>
                             <g id="_講座一覧画面">
@@ -85,74 +103,117 @@
                         </svg>
                     </a>
                 </div>
-                <div class="My-page-header">
-                    <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="MyPageButton"><span>MY PAGE</span></button>
-                </div>
-                <div class="Sign-button-header">
-                    <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="SignButton"><span>SIGN OUT</span></button>
+                <div class="Sign-button">
+                    <button class="green-background circle-radius submit-button font-color-cream "
+                        id="SignButton" type="button"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
     </header>
+
+<!--新規講座追加ボタン-->
+    <a href="/EC/html/adminLessonRegister.html" class="add"><button class="add-button" type="button">+</button></a>
+
+<!-- リスト（内容）-->
+   <!-- リスト（サンプル）-->
+   <form action="">
+<main>
     
+    <h1 class="list-title">講座一覧</h1>
 
-
-
-
-    <div class="finally-button">
-    <a href="#" class="return">＜戻る</a>
-    </div>
-
-
-    <div class="main">
-
-       
-        <form action="">
-            <div class="main-image">
-                <div class="image" src="image"></div>
-                <h1 class="image-title">講座タイトル、Creating Custom Course --ssssssssssssss-</h1>
-            </div>
-
-            <div class="cost-button">
-                <span class="cost">29,000円</span>
-                <br>
-                <button class="buy"><a href="">購入</a></button>
-            </div>
-
-            
-            <div class="name">
-            <div class="svg-pink">
-                <img class="svg-image" src="/EC/sourceImg/ball_pink.svg" alt="SVG Image">
-              </div>
+    <div class="lesson-list">
+        <div class="border-line-top">
+        <div class="image-area">
+        <img class="picture" src="/EC/image/flowers.jpg" alt="Lesson Image">
+        </div>
+        <div class="lesson-content">
+            <h1 class="lesson-title" >講座タイトル</h1>
+            <p class="lesson-text">
+                講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+                講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+                講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+                講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+                講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+                講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
               
-                <p class="teacher">講師：</p>
-                <p id="name">ノリノリ</p>
-            </div>
-
-            <div class="content">
-                <span>1. 講座説明テキスト</span>
-                <br>
-                <p>
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                </p>
-                <span>2. 講座説明テキスト</span>
-                <br>
-                <p></p>
-            </div>
-        </form>
+            </p>
+        <div class="cost-and-button">
+            <div class="lesson-price">60,000円</div>
+            <a href="" class="buyers"><button class="buyers-button" type="button">購入者一覧</button></a>
+            <a href="" class="more"><button class="more-button" type="button">More</button></a>
+        </div>
+        </div>
     </div>
+</div>
 
- <!-- フッター-->
- <footer class="green-background userFooter " id="userFooterFrame" >
+
+<div class="lesson-list">
+    <div class="border-line-top">
+    <div class="image-area">
+    <img class="picture" src="/EC/image/flowers.jpg" alt="Lesson Image">
+    </div>
+    <div class="lesson-content">
+        <h1 class="lesson-title" >講座タイトル</h1>
+        <p class="lesson-text">
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+          
+        </p>
+    <div class="cost-and-button">
+        <div class="lesson-price">60,000円</div>
+        <a href="" class="buyers"><button class="buyers-button" type="button">購入者一覧</button></a>
+        <a href="" class="more"><button class="more-button" type="button">More</button></a>
+    </div>
+    </div>
+</div>
+</div>
+
+
+<div class="lesson-list">
+    <div class="border-line-top">
+    <div class="image-area">
+    <img class="picture" src="/EC/image/flowers.jpg" alt="Lesson Image">
+    </div>
+    <div class="lesson-content">
+        <h1 class="lesson-title" >講座タイトル</h1>
+        <p class="lesson-text">
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
+          
+        </p>
+    <div class="cost-and-button">
+        <div class="lesson-price">60,000円</div>
+        <a href="" class="buyers"><button class="buyers-button" type="button">購入者一覧</button></a>
+        <a href="" class="more"><button class="more-button" type="button">More</button></a>
+    </div>
+    </div>
+</div>
+</div>
+
+
+
+
+</main>
+
+
+
+
+
+
+    </form>
+  <!-- フッター-->
+  <footer class="green-background" id="footerFrame">
     <div class="footer-container  justify-content-space-between">
-        <div class="justify-content-space-between flex-direction-column align-items-flex-end" id="userFooterLeftContainer">
+
+        <div class="justify-content-space-between flex-direction-column" id="footerLeftContainer">
             <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 212.03 44.23">
                 <defs>
@@ -166,7 +227,7 @@
                         }
                     </style>
                 </defs>
-                <g >
+                <g id="_ユーザーログイン画面">
                     <path class="cls-cream"
                         d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64C7.55.26,7.81,0,8.13,0h28.25C36.76,0,36.96.26,36.89.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
                     <path class="cls-cream"
@@ -189,15 +250,32 @@
             </svg>
             <p>未経験からプロまでのITとビジネスを学び、成長させよう。</p>
         </div>
+
+        <div class="justify-content-space-around " id="footerRightContainer">
+
+            <div>
+                <h3>ACADEMY</h3>
+                <div class="justify-content-space-between  flex-direction-column" id="academy">
+                    <a href="">ダッシュボード</a>
+                    <a href="">講座一覧</a>
+                </div>
+            </div>
+
+            <div>
+                <h3>ABOUT</h3>
+                <div class="justify-content-space-between flex-direction-column" id="about">
+                    <p>運営会社</p>
+                    <p>採用情報</p>
+                    <p>お問い合わせ</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- 著作権情報-->
-    <p class="copyright">@ 2023 Enskill. copyright</p>
+
 </footer>
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+    <!-- 著作権情報-->
+    <p class="last">@ 2023 Enskill. copyright</p>
+
 </body>
-
-</html>
