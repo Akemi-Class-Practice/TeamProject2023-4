@@ -22,6 +22,7 @@
 			<!-- ビューの修正 -->
 <p>Total Point: <span th:text="${totalPoint}"></span>Pt</p>
         <p th:if="${insufficientPoints}">ポイントが不足しています後ほどポップアップで表示予定</p>
+         <p th:if="${purchasedLessonIds}">既に購入済みの講座が含まれています</p>	<!-- 既に講座を購入していたときのメッセージ -->
             <div class = "select-button">
                 <a th:href="@{/student/cart}" class="btn_1">戻る</a>
                 

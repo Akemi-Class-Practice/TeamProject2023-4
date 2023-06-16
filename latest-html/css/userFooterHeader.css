@@ -82,7 +82,7 @@ p {
 
 .green-background {
     background-color: #007c30;
-}
+
 
 .cream-background {
     background-color: #fbeedd;
@@ -194,13 +194,13 @@ footer {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 main{
     position:relative;
 }
 .logo-horizontal-cream {
     width: 150px;
 }
-
 
 .academy-container {
     display: block;
@@ -256,6 +256,7 @@ main{
     color: #fbeedd;
     font-family: 'Noto sans JP';
     font-style: italic;
+<<<<<<< HEAD
 } */
 
 .copyright {
@@ -272,3 +273,9 @@ main{
     justify-content: space-between;
   }
  
+}
+
+.copyright {
+    color: #000000;
+    margin-left: 1%;
+}

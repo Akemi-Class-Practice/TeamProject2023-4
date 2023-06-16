@@ -8,7 +8,9 @@ html {
 
 body {
     min-width: 800px !important;
-    
+
+
+
 }
 
 ::selection {
@@ -68,6 +70,7 @@ footer {
     bottom: 0;
     height: 100vh;
 
+
 }
 
 .background_pic {
@@ -125,6 +128,7 @@ footer {
 }
 
 /* user-login-finish.html */
+
 .multiple_background {
     background-image: url("/sourceImg/grid_line_white.svg"), url("/sourceImg/user_signup_finish_bgpic.svg");
     background-position: center center, center center;
@@ -172,6 +176,7 @@ footer {
 }
 
 
+
 .justify-align-center-main {
     display: flex;
     justify-content: center;
@@ -201,6 +206,7 @@ footer {
 }
 
 
+
 .input-transparent {
     background-color: transparent;
     border: none;
@@ -224,6 +230,7 @@ footer {
 .pxh75 {
     height: 75px;
 }
+
 
 
 .border4px {
@@ -323,6 +330,7 @@ footer {
 }
 
 .new-acc-door:hover .door-handle {
+
     transform-origin: left center;
     transform: rotate(45deg);
     cursor: grabbing;
@@ -347,7 +355,7 @@ footer {
     transition: transform 0.3s ease-in-out;
     cursor: grabbing;
     z-index: 50;
-}
+
 
 
 /* ------user SignUp page-------------------------------- */
@@ -370,12 +378,14 @@ footer {
 
 .user-signup-form {
     padding: 4% 4% 2% 4%;
+
     background-color: rgb(255, 238, 215);
     border: solid 4px #191919;
     width: 43%;
     min-width: 400px;
     height: auto;
     position: absolute;
+ 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -383,6 +393,7 @@ footer {
     -webkit-backdrop-filter: blur(16px);
     flex-direction: column;
     justify-content: space-around;
+
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -423,6 +434,7 @@ footer {
 
 .psw-forget {
     padding-top: 5%;
+
 }
 
 .psw-forget label {
@@ -446,6 +458,7 @@ footer {
     font-style: italic;
     font-weight: 600;
     width: 60%;
+
 
 }
 
@@ -525,6 +538,7 @@ footer {
 #user-rgs-container{
     height: 100vh;
 }
+
 #border-cream-cross-star1 {
     position: absolute;
     width: 8%;

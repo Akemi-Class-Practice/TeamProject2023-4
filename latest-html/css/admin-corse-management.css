@@ -1,0 +1,34 @@
+ h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+  
+/* tableのスタイル */
+table{
+    width: 70%;
+    margin:  0 auto;
+    letter-spacing: 1px;
+    background-color: rgba(255,248,230,0.7);
+    border: 3px black solid; 
+}
+table th{
+    font-weight: bolder;
+    font-size: 20px;
+    color: #007c2f;
+}
+table th,table td{
+    text-align: center;
+    width: 25%;
+    padding: 20px 0;
+}
+
+/* 交互に色を変える */
+tr:nth-child(even) {
+    border-color: rgba(255,248,230,0.7);
+}
+tr:nth-child(odd) {
+    border-color: rgba(255,248,230,0.7);
+}   

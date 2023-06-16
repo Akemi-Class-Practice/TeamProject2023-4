@@ -37,7 +37,7 @@
   <header>
     <!-- logo -->
     <div class="justify-content-space-between" id="headerBar">
-        <a href="">
+        <a  th:href="@{/student/lesson/list}" >
             <div class="logo-horizontal-black">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
                     <defs>
@@ -120,13 +120,13 @@
                 <img  class="lecture-img" th:src="@{'/images/' + ${lesson.imageName}}" alt="lecture-image">
                 <h3 class="lecture-title"th:text="${lesson.lessonName}"></h3>  <!--講座タイトル  -->
                 <div class="lecture-info">
-                    <p class="lecture-duration">108 hours</p>
+                    <p class="lecture-duration">108 hours</p><!--未実装（時間が余ったら制作）-->
                     <p class="lecture-episodes">
-                        <img  src="/sourceImg/stack_palegreen.svg" alt="SVG Icon" class="svg-icon">
+                        <img  src="/sourceImg/stack_palegreen.svg" alt="SVG Icon" class="svg-icon"><!--未実装（時間が余ったら制作）-->
                         6 video
                     </p>
 
-                    <p class="lecture-amount"　 th:text="${lesson.lessonFee}"></p>　　<!--講座の金額-->
+                    <p class="lecture-amount"　 th:text="${lesson.lessonFee + 'Pt'}"></p>　　<!--講座の金額-->
                 </div>
             </a>
             </div>
@@ -136,7 +136,6 @@
 
     </main>
 
-   
 <!-- フッター-->
 <footer class="green-background" id="footerFrame">
    <!-- <div class="svg-left-right">
