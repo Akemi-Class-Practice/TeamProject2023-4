@@ -5,15 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin-corse-management</title>
-    <link rel="stylesheet" th:href="@{/css/admin-corse-management.css}">
-    <link rel="stylesheet" th:href="@{/css/point-reset.css}">
-    <link rel = "stylesheet" th:href="@{/css/bg-svg.css}">   
-    <link rel = "stylesheet" th:href="@{/css/adminFooterHeader.css}">
+    <title>ポイントチャージ画面</title>
 
+    <!-- BACKEND MESSAGE:
+        CSSファイルはこの二つ行です。 -->
+    <link rel="stylesheet" href="/css/userMypageAndPoint.css">
+    <link rel="stylesheet" href="/css/userFooterHeader.css">
+    <!-- fontlink -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
+        rel="stylesheet">
+    <!-- fontlink^ -->
 </head>
 
 <body>
+
     <header>
         <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
@@ -54,7 +62,7 @@
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
-                    <a th:href="@{/admin/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
+                    <a href="" class="text-decoration-none font-color-green font-weight-600"
                         id="coursesButton">COURSES</a>
                 </div>
                 <div class="cart-icon">
@@ -77,64 +85,44 @@
                     </a>
                 </div>
                 <div class="Sign-button-header">
-                    <a th:href="@{/admin/logout}" class="green-background circle-radius submit-button-header font-color-cream" id="SignButton"><span>SIGN OUT</span></a>
+                    <button class="green-background circle-radius submit-button-header font-color-cream "
+                        id="SignButton"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
     </header>
+    <!-- 背景画像 -->
+    <div class="bg_pic_container">
+        <!-- BACKEND MESSAGE: 
+             背景画像は
+                multiple_background-cream-grid属性↓の入っております -->
+        <div class="multiple_background-cream-grid background_pic background_cream" id="gradient">
 
-    <!-- 背景にの画像、背景の壁に貼ってある紙など。 -->
-    <div class="bg_pic">
-        <div class="background_pic" id="graduation">
-            <img th:src="@{/sourceImg/bgpic__lesson_update.svg}" alt="graduation picture" />
-        </div>
-        <div class="background_pic_green" id="green_half_x">
-        </div>
-        <div class="paper_on_wall">
-            <div id="paper1">
-                <img th:src="@{/sourceImg/paper1.svg}" alt="a paper looks like tags on the wall">
+            <div class="green-background" id="mypage-back-green">
+
             </div>
-            <div id="paper2">
-                <img th:src="@{/sourceImg/paper2.svg}" alt="a paper looks like tags on the wall">
-            </div>
-            <div id="paper3">
-                <img th:src="@{/sourceImg/paper3.svg}" alt="a paper looks like tags on the wall">
-            </div>
-            <div id="paper4">
-                <img th:src="@{/sourceImg/paper4.svg}" alt="a paper looks like tags on the wall">
-            </div>
-        </div>
-        <div class="lamp">
-            <img th:src="@{/sourceImg/lamp.svg}" alt="a lamp on the green table">
         </div>
     </div>
 
-
-    <main>
-        <section>
-            <div>
-                <h1>講座購入者一覧</h1>
+    <main class="main-container">
+        <div class="flex-direction-column justify-content-center">
+            <!-- 真ん中、垂直のcontainer -->
+            <div id="point-charge-title">
+                <!-- ポイントチャージタイトル -->
+                <h1 class="font-color-green">ポイントチャージ完了しました</h1>
             </div>
+            
+            
             <div>
-                <table>
-                    <tr>
-
-                        <th>名前</th>
-                        <th>メールアドレス</th>
-                        <th>購入日時</th>
-                    </tr>
-
-                    <tr th:each="purchaserList:${purchaserList}">
-
-                        <td th:text="${purchaserList.studentName}"></td>
-                        <td th:text="${purchaserList.studentEmail}"></td>
-                        <td th:text="${purchaserList.transactionDate}"></td>
-                    </tr>
-                   
-                </table>
+                <a href="" class="font-color-green" style="font-size: 20px; font-weight: 500;" >マイページへ</a>
             </div>
-        </section>
+        </div>
+        <!-- footerとの空間を作る -->
+        <div class="space-holder" style="height: 35em;"></div>
     </main>
+
+
+
 
     <!-- フッター-->
     <footer class="green-background" id="userFooterFrame">
@@ -177,17 +165,72 @@
                 </svg>
                 <p>未経験からプロまでのITとビジネスを学び、成長させよう。</p>
             </div>
+
+            <div class="justify-content-space-around " id="footerRightContainer">
+
+                <div>
+                    <h3>ACADEMY</h3>
+                    <div class="justify-content-space-between  flex-direction-column" id="academy">
+                        <a href="">ダッシュボード</a>
+                        <a href="">講座一覧</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>ABOUT</h3>
+                    <div class="justify-content-space-between flex-direction-column" id="about">
+                        <p>運営会社</p>
+                        <p>採用情報</p>
+                        <p>お問い合わせ</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 著作権情報-->
 
     </footer>
-
     <p class="copyright">@ 2023 Enskill. copyright</p>
 
+    <!-- フッターはここまでコピーする↑ -->
+    <script>
+    // ぐるぐる動作
+    // BACKEND MESSAGE:
+    //2秒のあどに自動で消えますが、どうやって自動で遷移のがわかりません
+    const button500pt = document.getElementById('button-500pt');
+    const button1500pt = document.getElementById('button-1500pt');
+    const button3000pt = document.getElementById('button-3000pt');
+
+    const chargeWindow = document.querySelector('.charge_window');
+
+    button500pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block';  
+
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+button1500pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block'; 
+
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+
+button3000pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block'; 
+
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+
+
+    </script>
 </body>
 
 </html>
-
-
-
