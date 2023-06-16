@@ -82,7 +82,7 @@ p {
 
 .green-background {
     background-color: #007c30;
-
+}
 
 .cream-background {
     background-color: #fbeedd;
@@ -162,6 +162,16 @@ header {
 button{
     cursor: pointer;
 }
+#MyPageButton{
+    border: none;
+    font-size: 10px;
+    font-weight: 400;
+    padding: 5px 10px 6px 10px;
+}
+#MyPageButton:hover{
+    background-color: #ff6128;
+    transition: all 0.3s;
+}
 #SignButton {
     border: none;
     font-size: 10px;
@@ -194,13 +204,13 @@ footer {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 main{
     position:relative;
 }
 .logo-horizontal-cream {
     width: 150px;
 }
+
 
 .academy-container {
     display: block;
@@ -256,7 +266,6 @@ main{
     color: #fbeedd;
     font-family: 'Noto sans JP';
     font-style: italic;
-<<<<<<< HEAD
 } */
 
 .copyright {
@@ -273,9 +282,3 @@ main{
     justify-content: space-between;
   }
  
-}
-
-.copyright {
-    color: #000000;
-    margin-left: 1%;
-}

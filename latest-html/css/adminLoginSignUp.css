@@ -236,7 +236,8 @@ form {
 .input-bar::placeholder {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.7em;
-
+    color: #0d621e;
+    opacity: 0.5;
 }
 
 .input-radius {
@@ -282,7 +283,9 @@ form {
     display: inline-block;
     position: fixed;
     top: 50%;
-
+    right: 6%;
+    width: 10%;
+    min-width: 110px;
 }
 
 .sign_up_container {
@@ -373,7 +376,6 @@ footer {
 .card:hover .img-top {
     display: inline;
 }
-
 
 
 .regist-finish {
