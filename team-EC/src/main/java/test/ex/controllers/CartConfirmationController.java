@@ -49,6 +49,9 @@ public class CartConfirmationController {
 	
     @Autowired
     private BuyingHistoryDao2 buyingHistoryDao2;
+    
+    @Autowired
+    private StudentService StudentService;
 
 	@Autowired
 	HttpSession session;
@@ -87,8 +90,13 @@ public class CartConfirmationController {
         
         //ログインしているユーザーidを格納
     	Long loggedInUserId = userList.getStudentId();
+    	
+    	//データベースから最新のユーザー情報を取得
+    	StudentEntity studentEntity = StudentService.selectByStudentId(loggedInUserId);
+
+    	
     	//持っているポイントを格納
-		int studentPoint = userList.getPoint();
+		int studentPoint = studentEntity.getPoint();
 		
 		//カートの中身を取得
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
