@@ -1,28 +1,30 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポイントチャージ画面</title>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/userApplicationConfirm.css">
-    <link rel="stylesheet" href="/css/userFooterHeader.css">
-    <title>userApplicationConfirm</title>
-
+    <!-- BACKEND MESSAGE:
+        CSSファイルはこの二つ行です。 -->
+    <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
+    <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}">
+    <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
         rel="stylesheet">
-
+    <!-- fontlink^ -->
 </head>
 
 <body class="flex-direction-column justify-content-space-between">
 
-    <!-- ヘッダーのボダン-->
     <header>
+        <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
-            <!-- logo -->
             <a href="">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
@@ -56,20 +58,20 @@
                     </svg>
                 </div>
             </a>
-    
+
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
-                    <a href="" class="text-decoration-none font-color-green font-weight-600"
+                    <a th:href="@{/student/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
                         id="coursesButton">COURSES</a>
                 </div>
                 <div class="cart-icon">
                     <!-- ↓ここでカート一覧画面（購入前）を入力 -->
-                    <a href="">
+                    <a th:href="@{/student/cart}">
                         <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
                             <defs>
                                 <style>
-    
+
                                 </style>
                             </defs>
                             <g id="_講座一覧画面">
@@ -88,68 +90,43 @@
                 </div>
                 <div class="Sign-button-header">
                     <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="SignButton"><span>SIGN OUT</span></button>
+                        id="SignButton" onclick="location.href = '/student/logout'"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
     </header>
+    <!-- 背景画像 -->
+    <div class="bg_pic_container">
+        <!-- BACKEND MESSAGE: 
+             背景画像は
+                multiple_background-cream-grid属性↓の入っております -->
+        <div class="multiple_background-cream-grid background_pic background_cream" id="gradient">
 
-    <!-- リスト（内容）-->
-    <div class="main">
-        <h1 class="application-title">申し込み内容確認</h1>
-        <!-- リスト（サンプル）-->
-        <form action="">
-        <div class="list">
-            <img class="lecture-image" src="/EC/image/city.jpg" alt="Lecture Image">
+            <div class="green-background" id="mypage-back-green">
 
-            <div class="lecture-title">
-                <h4>商品タイトル</h4>
-            </div>
-
-            <div class="lecture-price">8,000円</div>
-            <div class="lecture-delete">
-                <a href="#" class="delete"><img src="/EC/sourceImg/trashbin_icon.svg" alt="SVG image"
-                        class="list-trashbin"></a>
             </div>
         </div>
-        <!-- リスト（サンプル）-->
-        <div class="list">
-            <img class="lecture-image" src="/EC/image/city.jpg" alt="Lecture Image">
-
-            <div class="lecture-title">
-                <h4>商品タイトル</h4>
-            </div>
-
-            <div class="lecture-price">21,000円</div>
-            <div class="lecture-delete">
-                <a href="#" class="delete"><img src="/EC/sourceImg/trashbin_icon.svg" alt="SVG image"
-                        class="list-trashbin"></a>
-            </div>
-        </div>
-        <!-- リスト（サンプル）-->
-        <div class="list">
-            <img class="lecture-image" src="/EC/image/city.jpg" alt="Lecture Image">
-
-            <div class="lecture-title">
-                <h4>商品タイトル</h4>
-            </div>
-
-            <div class="lecture-price">3,000円</div>
-        </div>
-        </form>
-
-        <!-- 合計金額や買い物を続く、戻るボダン-->
-        <h2 class="total">
-            <span class="total-label">合計：</span>
-            <span id="total-amount"></span>
-        </h2>
-
-        <div class="finally-button">
-            <a href="userCartList.html" class="continue">修正する</a>
-            <a href="#" class="into">購入確認</a>
-        </div>
-    
     </div>
+
+    <main class="main-container">
+        <div class="flex-direction-column justify-content-center">
+            <!-- 真ん中、垂直のcontainer -->
+            <div id="point-charge-title">
+                <!-- ポイントチャージタイトル -->
+                <h1 class="font-color-green">ポイントチャージ完了しました</h1>
+            </div>
+            
+            
+            <div>
+                <a th:href="@{/student/lesson/mypage}" class="font-color-green" style="font-size: 20px; font-weight: 500;" >マイページへ</a>
+            </div>
+        </div>
+        <!-- footerとの空間を作る -->
+        <div class="space-holder" style="height: 35em;"></div>
+    </main>
+
+
+
 
     <!-- フッター-->
     <footer class="green-background userFooter " id="userFooterFrame" >
@@ -196,15 +173,46 @@
         <!-- 著作権情報-->
         <p class="copyright">@ 2023 Enskill. copyright</p>
     </footer>
-    
-    
 
-    <!-- 著作権情報-->
-    <p class="last">@ 2023 Enskill. copyright</p>
-<!-- Code injected by live-server -->
+    <!-- フッターはここまでコピーする↑ -->
+    <script>
+    // ぐるぐる動作
+    // BACKEND MESSAGE:
+    //2秒のあどに自動で消えますが、どうやって自動で遷移のがわかりません
+    const button500pt = document.getElementById('button-500pt');
+    const button1500pt = document.getElementById('button-1500pt');
+    const button3000pt = document.getElementById('button-3000pt');
+
+    const chargeWindow = document.querySelector('.charge_window');
+
+    button500pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block';  
+
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+button1500pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block'; 
+
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+
+button3000pt.addEventListener('click', function() {
+    chargeWindow.style.display = 'block'; 
+
+    setTimeout(function() {
+        chargeWindow.style.display = 'none'; 
+    }, 2000);
+});
+
+
+
+    </script>
 </body>
-
-
-<script src="/EC/js/userCartList.js"></script>
 
 </html>
