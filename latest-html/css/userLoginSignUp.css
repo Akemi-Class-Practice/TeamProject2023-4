@@ -8,7 +8,7 @@ html {
 
 body {
     min-width: 800px !important;
-    
+
 }
 
 ::selection {
@@ -162,6 +162,14 @@ footer {
     background-color: #fbeedd;
 }
 
+.orange-background {
+    background-color: #ff6128;
+}
+
+.yellow-background {
+    background-color: #fbca5a;
+}
+
 .none-display {
     display: none;
 }
@@ -195,9 +203,9 @@ footer {
     justify-content: space-between;
 }
 
-.flex-direction-row{
+.flex-direction-row {
     display: flex;
-    flex-direction:row ;
+    flex-direction: row;
 }
 
 
@@ -335,15 +343,16 @@ footer {
     cursor: grabbing;
     width: 10%;
 }
-.new-acc-door img{
+
+.new-acc-door img {
     z-index: 49;
 }
 
 .door-handle {
     position: absolute;
     width: 30%;
-    left:8%;
-    bottom: 45%; 
+    left: 8%;
+    bottom: 45%;
     transition: transform 0.3s ease-in-out;
     cursor: grabbing;
     z-index: 50;
@@ -352,7 +361,7 @@ footer {
 
 /* ------user SignUp page-------------------------------- */
 .mail-icon {
-    width:4em;
+    width: 4em;
 }
 
 .name-icon {
@@ -440,7 +449,7 @@ footer {
     text-align: center;
 }
 
-#studentEmail, #studentPassword, #studentName, #studentKeyPassword {
+#studentEmail, #studentPassword, #studentName, #studentKeyPassword, #studentPassword2 {
     text-align: center;
     font-family: 'Noto Sans', 'Noto Sans JP', sans-serif;
     font-style: italic;
@@ -448,6 +457,73 @@ footer {
     width: 60%;
 
 }
+
+#psw-reset-page-window {
+    position: absolute;
+    top: calc(50% - 18vh);
+    left: 50%;
+    transform: translateX(-36%);
+    width: 70vw;
+    min-width: 800px;
+    z-index: 1;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    align-items: center;
+}
+
+#psw-reset-page-window svg {
+    height: 100%;
+    width: 70%;
+    z-index: 1;
+}
+
+#passwordResetForm {
+    position: absolute;
+    top: 10%;
+    width: 53%;
+    height: 100%;
+    transform: translateX(15%);
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#passwordResetForm label {
+    font-size: 13pt;
+    font-weight: 500;
+    color: #007c30;
+}
+#passwordResetForm #studentKeyPassword{
+    background-color: #007c30;
+    border-radius: 50px;
+    border: #000000 2px solid;
+    color: #fbeedd;
+}
+#passwordResetForm input {
+    background-color: transparent;
+    color: #e64f5e;
+    font-family:'Roboto Mono', monospace;
+    border: none;
+    border-bottom: #000000 2px solid;
+}
+#passwordResetForm input::placeholder{
+    opacity: 40%;
+}
+
+#passwordResetForm button {
+    transform: translateY(50px) translateX(330px);
+    width: 50%;
+    font-weight: 600;
+}
+
+#passwordResetForm button:hover {
+    background-color: #e64f5e;
+}
+
+#passwordResetForm button:active {
+    background-color: #fbca5a;
+}
+
+
 .bg-decorate {
     position: fixed;
     height: 100%;
@@ -474,7 +550,7 @@ footer {
 #spiral-cross-star3 {
     position: absolute;
     right: 3.4%;
-    bottom:15%;
+    bottom: 15%;
     width: 15%;
     min-width: 100px;
 }
@@ -521,9 +597,10 @@ footer {
 }
 
 /* ---------UserRegisterFinish------ */
-#user-rgs-container{
+#user-rgs-container {
     height: 100vh;
 }
+
 #border-cream-cross-star1 {
     position: absolute;
     width: 8%;
@@ -586,18 +663,19 @@ footer {
 
 .rotate-animation {
     animation: rotate 5s linear infinite;
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotate(0);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+}
 
-  .floating { 
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.floating {
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -605,17 +683,25 @@ footer {
     margin-left: 30px;
     margin-top: 5px;
 }
- 
+
 @keyframes floating {
-    0% { transform: translate(0,  0px); }
-    50%  { transform: translate(0, 15px); }
-    100%   { transform: translate(0, -0px); }   
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    50% {
+        transform: translate(0, 15px);
+    }
+
+    100% {
+        transform: translate(0, -0px);
+    }
 }
 
 /* ---to login button styles---- */
 .cta {
     position: absolute;
-    top:30%;
+    top: 30%;
     left: 39%;
     border: none;
     background: none;
@@ -631,12 +717,15 @@ footer {
     text-transform: uppercase;
     cursor: pointer;
 }
+
 .cta span:active {
-    color:#ff516e
+    color: #ff516e
 }
-#arrow-horizontal1{
-    fill:#fbeedd;
+
+#arrow-horizontal1 {
+    fill: #fbeedd;
 }
+
 .cta svg {
     transform: translateX(-10px);
     transition: all 0.3s ease;
@@ -672,4 +761,48 @@ footer {
 .cta:hover .hover-underline-animation:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+/* ---------password reset completed page */
+#reset-window {
+    position: absolute;
+    top: calc(50% - 18vh);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+}
+
+#reset-finish-window-bar {
+    position: absolute;
+    height: 5vh;
+    width: 100%;
+    z-index: 1;
+}
+
+#reset-finish-window {
+    position: absolute;
+    text-align: center;
+    height: 30vh;
+    width: 80%;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#reset-page-to-login-btn {
+    position: absolute;
+    bottom: 18vh;
+    right: 24vw;
+    width: 18vw;
+    height: 5vh;
+    border: black 3px solid;
+    background-color: #fbca5a;
+}
+
+#reset-page-to-login-btn a {
+    text-decoration: none;
+    font-size: 2em;
+    color: #1a1f1c;
+    font-weight: 600;
 }

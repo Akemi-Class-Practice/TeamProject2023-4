@@ -1,15 +1,3 @@
-/* base css */
-html {
-    font-size: 100%;
-    font-family: 'Noto Sans JP', sans-serif;
-}
-::selection {
-    background: #ff516e;
-}
-
-::-moz-selection {
-    background: #ff516e;
-}
 
 /* ---- 共通css ----- */
 .border4px {

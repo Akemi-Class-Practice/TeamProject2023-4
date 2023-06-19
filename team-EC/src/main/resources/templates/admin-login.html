@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +6,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Register</title>
-  <link rel="stylesheet" th:href="@{/css/adminLoginSignUp.css}">
+  <title>Admin Login</title>
+  <link rel="stylesheet" th:href="@{/css/reset.css}">
+  <link rel="stylesheet" th:href="@{/css/admin-login-sign-up.css}">
+  <link rel="stylesheet" th:href="@{/css/admin-footer-header.css}">
   <!-- fontlink -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +17,8 @@
     href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
     rel="stylesheet">
   <!-- fontlink^ -->
+
+
 </head>
 
 <body>
@@ -25,7 +30,7 @@
       <a href="">
         <div class="logo-triangle"></div>
         <div class="admin_logo">
-          <img src="/sourceImg/admin_web_logo.svg">
+      }   <img th:src="@{/sourceImg/admin_web_logo.svg}">
         </div>
       </a>
     </header>
@@ -33,42 +38,43 @@
   </header>
 
   <div class="bg_pic_container">
-    <div class="background_green"></div>
+    <div class="background_cream">
+    </div>
+    <div class="green_triangle_bg"></div>
     <div class="grid_background">
       <img src="/sourceImg/bg_grid_gray.svg" alt="some gray grid over the cream and green background image">
     </div>
-    <!-- <div class="draggable star-s"></div> 最後にやる-->
-  
+    <div class="smile-sticker" id="smile_draggableElement" draggable="true">
+      <img th:src="@{/sourceImg/smile.svg}" alt="a smile sticker on the wall">
+    </div>
     <div class="title_container">
       <p id="admin_text">管理者</p>
+      <p id="login_text">ログイン</p>
     </div>
   </div>
-  <div class="return_container" id="button">
-    <a th:href="@{/admin/login}">
-      <button >
-        <p>戻<br>る<br>&#8636</p>
-      </button>
-    </a>
-  </div>
 
-  <!-- input form -->
-  <form method="post" th:action="@{/admin/register}">
-    <div class="form_container register-form">
-      <input class="input-radius cream-background input-bar " type="text" id="adminName" name="username" placeholder="管理者名前" required>
+  <!-- INPUT FORM -->
+
+	<form method = "post" th:action="@{/admin/login}">
+      <input class="input-bar input-radius circle-radius green-background " type="email" id="adminEmail" name="email" placeholder="メールアドレスを入力" required>
       <div class="space-between"></div>
-
-      <input class="input-radius cream-background input-bar " type="password" id="adminPassword" name="password" placeholder="パスワード" required>
-      <div class="space-between"></div>
-
-      <input class="input-radius cream-background input-bar " type="email" id="adminEmail" name="email" placeholder="メールアドレス" required>
-      <div class="space-between"></div>
-
+      <input class="input-bar input-radius circle-radius cream-background " type="password" id="adminPassword" name="password" placeholder="パスワード"  required>
       <!-- ここで遷移先を入力 -->
-      <input class=" green-background circle-radius submit-button " type="submit" value="SIGN UP">
-
-      </div>
+      <div class="space-between"></div>
+      <input class="green-background circle-radius submit-button " type="submit" value=">">
+    </div>
   </form>
-	<p th:if="${error == true}" class="error-msg">そのE-mailは既に使用されています</p>
+	<p th:if="${error == true}" class="error-msg">E-mailまたはパスワードが間違っています</p>
+  <!-- 新規登録のアクションはここに入力 -->
+  
+	<div class="sign_up_container" id="button">
+      	<a th:href="@{/admin/register}">
+	      	<button>
+	        	<p>新規<br>登録</p>
+	      	</button>
+	    </a>
+	</div>
+
   <!-- copyright -->
   <footer>
     <p>copyright &copy; 2023 - ENSkill</p>
@@ -78,7 +84,7 @@
 
   <script>
     //Make the DIV element draggagle:
-    dragElement(document.getElementByClass("draggable"));
+    dragElement(document.getElementById("smile_draggableElement"));
 
     function dragElement(elmnt) {
       var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -123,4 +129,9 @@
   </script>
 </body>
 
+
 </html>
+
+
+
+

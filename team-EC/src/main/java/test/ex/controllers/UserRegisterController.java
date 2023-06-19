@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import test.ex.service.StudentService;
 
 @Controller
-public class StudentRegisterController {
+public class UserRegisterController {
 	@Autowired
 	private StudentService studentService;
 
 	// 新規登録画面の表示------------------------------------------
-	@GetMapping("/student/register")
+	@GetMapping("/user/register")
 	public String getRegisterPage() {
-		return "userRegister.html";
+		return "user-register.html";
 	}
 	
 	// 新規登録完了画面の表示------------------------------------------
-	@GetMapping("/student/register/finish")
+	@GetMapping("/user/register/finish")
 	public String getRegisterFinishPage() {
-		return "userRegisterFinish.html";
+		return "user-register-finish.html";
 	}
 	
 	
@@ -34,7 +34,7 @@ public class StudentRegisterController {
 
 	// 保存処理------------------------------------------------------
 
-	@PostMapping("/student/register")
+	@PostMapping("/user/register")
 	public String studentRegister(@RequestParam String userName,@RequestParam String password,@RequestParam String keypassword,@RequestParam String email,Model model) {
 		//重複したE-mailがないか探す
 		boolean studentEntity = studentService.FindDuplicateEmail(email);
@@ -44,11 +44,11 @@ public class StudentRegisterController {
 			model.addAttribute("error", false);
 
 			studentService.insert(userName, password,keypassword,email);
-			return "redirect:/student/register/finish";
+			return "redirect:/user/register/finish";
 		}else {
 			//あった場合エラーメッセージを出力
 			model.addAttribute("error", true);
-			return "userRegister.html";
+			return "user-register.html";
 		}
 
 	}

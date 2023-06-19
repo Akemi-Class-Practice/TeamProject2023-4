@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" th:href="@{/css/adminLessonList.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-lesson-list.css}">
 
    
     <title>adminLessonList</title>
@@ -92,14 +92,16 @@
                 	</a>
             	</div>
 	            <div class="Sign-button">
-	                <button class="green-background circle-radius submit-button font-color-cream" id="SignButton" type="button"><span>SIGN OUT</span></button>
+
+	                <a th:href="@{/admin/logout}" class="green-background circle-radius submit-button font-color-cream" id="SignButton" type="button"><span>SIGN OUT</span></a>
+	                
 	            </div>
         	</div>
         </div>
     </header>
 
 <!--新規講座追加ボタン-->
-    <a th:href="@{/lesson/register}" class="add"><button class="add-button" type="button">+</button></a>
+    <a th:href="@{/admin/lesson/register}" class="add"><button class="add-button" type="button">+</button></a>
 
 <!-- リスト（内容）-->
    <!-- リスト（サンプル）-->

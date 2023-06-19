@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" th:href="@{/css/adminLessonRegister.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-lesson-register.css}">
     <title>adminLessonRegister</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +47,7 @@
 	</div>
 
 <div class="form-container">
-   <form method="post" enctype="multipart/form-data" th:action="@{/lesson/register}">
+   <form method="post" enctype="multipart/form-data" th:action="@{/admin/lesson/register}">
 	<div class="file-input">
 		<input type="file" id="upload-input" name="imageName" accept="image/png,image/jpeg,image/gif" required>
 		<label for="upload-input" id="upload-label">

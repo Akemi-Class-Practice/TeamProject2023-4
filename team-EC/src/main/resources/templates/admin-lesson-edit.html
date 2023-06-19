@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" th:href="@{/css/adminLessonRegister.css}">
+	<link rel="stylesheet" th:href="@{/css/admin-lesson-register.css}">
 	<title>adminLessonEdit</title>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +46,7 @@
 		</div>
 
 		<div class="form-container">
-			<form method="post" enctype="multipart/form-data" th:action="@{/lesson/update}">
+			<form method="post" enctype="multipart/form-data" th:action="@{/admin/lesson/edit}">
 				<div class="file-input">
 					<input type="file" id="upload-input" name="imageName" accept="image/png,image/jpeg,image/gif"
 						required>
@@ -98,7 +98,7 @@
 
 				</div>
 			</form>
-			<form method="post" th:action="@{/lesson/delete}">
+			<form method="post" th:action="@{/admin/lesson/delete}">
 				<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
 				<button class="button" id="delete">
 					講座削除

@@ -22,7 +22,7 @@ import test.ex.models.entity.StudentEntity;
 import test.ex.service.LessonService;
 
 @Controller
-public class CartController {
+public class UserCartController {
 	@Autowired
 	private LessonService lessonService;
 
@@ -34,22 +34,22 @@ public class CartController {
 	
 	// カートリスト画面の表示--------------------------------------------------------------
 
-	@GetMapping("/student/cart")
-	public String getlessondetailPage(Model model) {
+	@GetMapping("/user/cart/list")
+	public String getCartPage(Model model) {
 		StudentEntity userList = (StudentEntity) session.getAttribute("student");
         
     	if(userList != null) {
 			ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 			model.addAttribute("cartList",cartList);
-			return "userCartList.html";
+			return "user-cart-list.html";
     	}else {
-    		return "redirect:/student/login";
+    		return "redirect:/user/login";
     	} 
 	}
 
 	// カート内の講座を削除---------------------------------------------------------------------
 
-	@PostMapping("/delete/cart")
+	@PostMapping("/user/cart/delete")
 	public String deleteCart(@RequestParam String lessonName) {
 		
 		//配列内の該当箇所を削除
@@ -79,7 +79,7 @@ public class CartController {
 		if(idx>=0) {			//削除対象見つかった場合すなわちidxがー１ではなかったとき
 			cartList.remove(foundEntity);	//削除
 		}
-		return "redirect:/student/cart";
+		return "redirect:/user/cart/list";
 
 
 	}
