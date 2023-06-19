@@ -2,9 +2,11 @@
 <html>
 
 <head>
-    <link rel="stylesheet" th:href="@{/css/userApplicationConfirm.css}">
-    <title>userApplicationConfirm</title>
 
+    <title>userCartList</title>
+    <link rel="stylesheet" th:href="@{/css/user-cart-list.css}">
+    <link rel="stylesheet" th:href="@{/css/user-footer-header.css}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -26,51 +28,53 @@
     <!-- ヘッダーのボダン-->
     <header>
         <div class="buttons">
-            <a th:href="@{/student/lesson/list}" class="head-course">Courses</a>
+            <a th:href="@{/user/lesson/list}" class="head-course">Courses</a>
 
-            <a th:href="@{/student/cart}" class="head-cart"><img th:src="@{/sourceImg/cart_logo.svg}" alt="SVG Icon" class="svg-cart"> </a>
-            <a th:href="@{/student/login}" class="head-login"><span>Login</span></a>
+            <a th:href="@{/user/cart}" class="head-cart"><img th:src="@{/sourceImg/cart_logo.svg}" alt="SVG Icon" class="svg-cart"> </a>
+            <a th:href="@{/user/login}" class="head-login"><span>Login</span></a>
 
         </div>
     </header>
 
     <!-- リスト（内容）-->
     <div class="main">
-        <h1 class="application-title">申し込み内容確認</h1>
-        <!-- リスト（サンプル）-->
 
-        <div class="list" th:each="lesson:${cartList}">
-            <img class="lecture-image" th:src="@{'/images/' + ${lesson.imageName}}" alt="Lecture Image">
+		<div th:if="${cartList == null or cartList.size() == 0}" class="nothing">
+	        	<p>現在カートが空いています。</p>
+	    </div>
+
+        <div class="list" th:each="cart:${cartList}">
+            <img class="lecture-image" th:src="@{'/images/' + ${cart.imageName}}" alt="Lecture Image">
 
             <div class="lecture-title">
-                <h4 th:text="${lesson.lessonName}"></h4>
+                <h4 th:text="${cart.lessonName}"></h4>
             </div>
 
-            <div class="lecture-price" th:text="${lesson.lessonFee} + '円'"></div>
+            <div class="lecture-price" th:text="${cart.lessonFee} + 'Pt'" ></div>
 
+          <div class="lecture-delete">
+				<form method="post" th:action="@{/user/cart/delete}">
+					<input type="hidden" name="lessonName" th:value="${cart.lessonName}">
+					<input type="image" th:src="@{/sourceImg/trashbin_icon.svg}" alt="SVG image" class="list-trashbin">
+                </form>
+            </div>
         </div>
- 
 
+        
 
         <!-- 合計金額や買い物を続く、戻るボダン-->
         <h2 class="total">
-            <span class="total-label">合計：</span>
-            <span id="total-amount"></span>
+            <span class="total-label" th:if="${cartList == null or cartList.size() != 0}" >合計：</span>
+            <span id="total-amount" th:if="${cartList == null or cartList.size() != 0}"></span>
         </h2>
 
-        <!--pointが不足している場合のエラーメッセージ-->
-        <p th:if="${insufficientPoints}">ポイントが不足しています</p>
-        <!--既に購入済みの商品が混入していた場合のエラーメッセージ-->
-        <div th:if="${purchasedLessonIds}">
-			<p th:text="${message}"></p>
-		</div>
         <div class="finally-button">
-            <a th:href="@{/student/cart}" class="continue">修正する</a>
-            <form th:action="@{/student/completed}" method="post">
-  				<button type="submit" name="purchase" class="into">購入</button>
-			</form>	
+            <a th:href="@{/user/lesson/list}" class="continue">＜買い物を続ける</a>
+
+            <a th:href="@{/user/confirmation}" th:if="${cartList == null or cartList.size() != 0}" class="into">購入手続き</a>
+
         </div>
-    
+
     </div>
 
     <!-- フッター-->

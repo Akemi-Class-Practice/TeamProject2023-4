@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" th:href="@{/css/userCourseList.css}">
-    <title>userCourseList</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userCourseDetails</title>
+    <link rel="stylesheet" th:href="@{/css/user-course-details.css}">
+    <link rel="stylesheet" th:href="@{/css/user-footer-header.css}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
 
     
+   
     <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,24 +21,7 @@
 </head>
 
 <body>
-<!-- SVG -->
-<div class="svg">
-   
-    <div class="svg-pink-circle">
-      <img class="svg-image" src="/sourceImg/ball_pink.svg" alt="SVG Image">
-    </div>
-  </div>
-  
-  <div class="svg-orange-circle">
-    <img class="svg-image" src="/sourceImg/ball_orange.svg" alt="SVG Image">
-  </div>
-  
-  <div class="svg-small-square">
-    <img class="svg-image" src="/sourceImg/rectangle_orange1.svg" alt="SVG Image">
-  </div>
-  
-
-  <header>
+ <header>
     <!-- logo -->
     <div class="justify-content-space-between" id="headerBar">
         <a href="">
@@ -74,12 +61,12 @@
         <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
             <div class="header-courses">
                 <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
-                <a th:href="@{/student/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
+                <a th:href="@{/user/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
                     id="coursesButton">COURSES</a>
             </div>
             <div class="cart-icon">
                 <!-- ↓ここでカート一覧画面（購入前）を入力 -->
-                <a th:href="@{/student/cart}">
+                <a th:href="@{/user/cart}">
                     <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
                         <defs>
                             <style>
@@ -97,7 +84,7 @@
                 </a>
             </div>
             <div class="Sign-button">
-                <a th:href="@{/student/logout}" class="green-background circle-radius submit-button font-color-cream "
+                <a th:href="@{/user/logout}" class="green-background circle-radius submit-button font-color-cream "
                     id="SignButton"><span>SIGN OUT</span></a>
             </div>
         </div>
@@ -108,41 +95,53 @@
 
 
 
-    <main>
 
-        <h1 class="title">講座一覧</h1>
-        <p id="title-p">業界のプロによるオンライントレーニングで、ITスキルを磨きながらビジネスを成長させましょう。</p>
-        <div class="lecture-container">
-			
-      		<article  th:each="lesson:${lessonList}"> 
-            <div class="lecture">
-			<a th:href="@{'/lesson/detail/' +${lesson.lessonId}}">
-                <img  class="lecture-img" th:src="@{'/images/' + ${lesson.imageName}}" alt="lecture-image">
-                <h3 class="lecture-title"th:text="${lesson.lessonName}"></h3>  <!--講座タイトル  -->
-                <div class="lecture-info">
-                    <p class="lecture-duration">108 hours</p>
-                    <p class="lecture-episodes">
-                        <img  src="/sourceImg/stack_palegreen.svg" alt="SVG Icon" class="svg-icon">
-                        6 video
-                    </p>
+    <a th:href="@{/user/lesson/list}" class="return">＜戻る</a>
 
-                    <p class="lecture-amount"　 th:text="${lesson.lessonFee}"></p>　　<!--講座の金額-->
-                </div>
-            </a>
+
+
+    <div class="main">
+
+            <div class="main-image">
+                <div src="image">
+					 <img th:src="@{'/images/' + ${lessonList.imageName}}"  alt="SVG Image" class="image">
+				</div>
+                <h1 class="image-title" 　th:text="${lessonList.lessonName}"></h1> <!-- 講座タイトル -->
             </div>
-       		</article> 
-       		 
-        </div>
 
-    </main>
+            <div class="cost-button">
+                <span class="cost"　th:text="${lessonList.lessonFee}">Pt</span>   <!--講座の値段 -->
+                <br>
+              
+                <form class = "set-price" method="post" th:action="@{/user/cart/add}">
+					<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
+                	<button  type = "submit" class="buy">購入</button>
+                </form>    
+            </div>
 
-<!-- フッター-->
-<footer class="green-background" id="footerFrame">
-   <!-- <div class="svg-left-right">
-        <img class="svg-image" src="/EC/sourceImg/rectangle_set.svg" alt="SVG Image">
+          
+            <div class="name">
+            <div class="svg-pink">
+                <img class="svg-image" src="/sourceImg/ball_pink.svg" alt="SVG Image">
+              </div>
+              
+                <p class="teacher">講師：</p>
+                <p id="name" th:text="${lessonList.lessonName}"></p>
+            </div>
+
+            <div class="content">
+                <span>1. 講座説明テキスト</span>
+                <br>
+                <p th:text="${lessonList.lessonDetail}"></p>
+                <span>2. 講座説明テキスト</span>
+                <br>
+                <p></p>
+            </div>
+        </form>
     </div>
-    -->
 
+  <!-- フッター-->
+  <footer class="green-background" id="footerFrame">
     <div class="footer-container  justify-content-space-between">
 
         <div class="justify-content-space-between flex-direction-column" id="footerLeftContainer">
@@ -204,9 +203,11 @@
         </div>
     </div>
 
-  
+
 </footer>
-   
+
+
+    <!-- 著作権情報-->
     <p class="last">@ 2023 Enskill. copyright</p>
 </body>
 

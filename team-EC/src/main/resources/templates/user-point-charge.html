@@ -9,8 +9,11 @@
 
     <!-- BACKEND MESSAGE:
         CSSファイルはこの二つ行です。 -->
-    <link rel="stylesheet" href="/css/userMypageAndPoint.css">
-    <link rel="stylesheet" href="/css/userFooterHeader.css">
+
+    <link rel="stylesheet" href="/css/user-mypage-and-point.css">
+    <link rel="stylesheet" href="/css/user-footer-header.css">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+
     <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,12 +65,12 @@
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
-                    <a href="" class="text-decoration-none font-color-green font-weight-600"
+                    <a th:href="@{/user/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
                         id="coursesButton">COURSES</a>
                 </div>
                 <div class="cart-icon">
                     <!-- ↓ここでカート一覧画面（購入前）を入力 -->
-                    <a href="">
+                    <a th:href="@{/user/cart}">
                         <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
                             <defs>
                                 <style>
@@ -151,9 +154,10 @@
                     </div>
                     <!-- BACKEND MESSAGE: -->
                     <!-- この下のボタンにポイント追加機能とまっちをお願いします -->
-					<form action="/point" method="post">
+					<form action="user/point/charge" method="post">
 	                    <button class="orange-background circle-radius point-charge-select-button " id="button-500pt" name="pointAmount" value="500">500pt</button>
 					</form>
+
                 </div>
                 <div>
                     <div class="border4px flex-direction-column cream-background justify-content-center align-items-center"
@@ -190,7 +194,7 @@
                     </div>
                     <!-- BACKEND MESSAGE: -->
                     <!-- この下のボタンにポイント追加機能とまっちをお願いします -->
-					<form action="/point" method="post">
+					<form action="user/point/charge" method="post">
 	                    <button class="orange-background circle-radius point-charge-select-button" id="button-1500pt" name="pointAmount" value="1500">1500pt</button>
 					</form>
                 </div> 
@@ -220,7 +224,7 @@
                     </div>
                      <!-- BACKEND MESSAGE: -->
                     <!-- この下のボタンにポイント追加機能とまっちをお願いします -->
-					<form action="/point" method="post">
+					<form action="user/point/charge" method="post">
 	                    <button class="orange-background circle-radius point-charge-select-button" id="button-3000pt" name="pointAmount" value="3000">3000pt</button>
 					</form>
                 </div>
