@@ -35,7 +35,7 @@ import test.ex.models.dao.TransactionItemDao;
 
 
 @Controller
-public class CartConfirmationController {
+public class UserCartConfirmationController {
 	
 	@Autowired
 	private TransactionHistoryDao transactionHistoryDao;
@@ -59,7 +59,7 @@ public class CartConfirmationController {
 	
  
 	//階層へ遷移用   合計ポイントの表示
-    @GetMapping("/student/confirmation")
+    @GetMapping("/user/confirmation")
     public String cartConfim(Model model){
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");		
 		
@@ -74,16 +74,16 @@ public class CartConfirmationController {
 	    model.addAttribute("totalPoint", totalPoint);
         model.addAttribute("cartList", cartList);
         
-        return "userApplicationConfirm.html";
+        return "user-application-confirm.html";
     }
 	//階層へ遷移用
-    @GetMapping("/student/completed")
+    @GetMapping("/user/completed")
     public String completed(){
-        return "userApplicationCompleted.html";
+        return "user-application-completed.html　";
     }
     
     //講座購入処理
-    @PostMapping("/student/completed")
+    @PostMapping("/user/completed")
     public String completedcart(Model model) {
         
         //ログインしているユーザーを取得
@@ -119,7 +119,7 @@ public class CartConfirmationController {
     			 model.addAttribute("purchasedLessonIds", true);
     			 model.addAttribute("message", lessons.getLessonName()+"は既に購入済みです");
 
-    			 return "userApplicationConfirm.html"; 
+    			 return "user-application-confirm.html"; 
 
     		}
     	}
@@ -137,7 +137,7 @@ public class CartConfirmationController {
 	    if (studentPoint < totalPoint) {
 	    	//insufficientPointsのポップアップは後ほど制作
 	        model.addAttribute("insufficientPoints", true);
-	        return "userApplicationConfirm.html"; // とりあえず今の画面にとどまる
+	        return "user-application-confirm.html"; // とりあえず今の画面にとどまる
 	    }else {
 			//自分が持っているポイントからカートの合計金額を引く
 			studentPoint -= totalPoint;
@@ -182,7 +182,7 @@ public class CartConfirmationController {
 			transactionItemDao.save(transactionItem);
 		}			
 	// 成功した場合
-    return "redirect:/student/completed";
+    return "redirect:/user/completed";
     }
 
 

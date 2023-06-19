@@ -12,7 +12,7 @@ import test.ex.models.entity.StudentEntity;
 import test.ex.service.StudentService;
 
 @Controller
-public class StudentLoginController {
+public class UserLoginController {
 
 	@Autowired
 	private StudentService studentService;
@@ -21,14 +21,14 @@ public class StudentLoginController {
 	HttpSession session;
 
 	// ログイン画面の表示-----------------------------------------------------
-	@GetMapping("/student/login")
+	@GetMapping("/user/login")
 	public String getLoginPage() {
-		return "userLogin.html";
+		return "user-login.html";
 	}
 
 	// ログイン処理-----------------------------------------------------------------------------------
 
-	@PostMapping("/student/login/process")
+	@PostMapping("/user/login")
 	public String login(@RequestParam String email, @RequestParam String password, Model model) {
 		// studentServiceクラスのfindByEmailAndPasswordメソッドを使用して、該当するユーザー情報を取得する。
 		StudentEntity studentEntity = studentService.selectByEmailAndPassword(email, password);
@@ -36,14 +36,14 @@ public class StudentLoginController {
 			// 入力されたメールアドレスまたはパスワードが存在しなかった場合
 			//// errorをtrueにする（HTML側でエラーメッセージを出力するため）
 			model.addAttribute("error", true);
-			return "userLogin.html";
+			return "user-login.html";
 		} else {
 			// 入力されたメールアドレスまたはパスワードが存在した場合
 			// studentEntityの内容をsessionに保存する
 			session.setAttribute("student", studentEntity);
 			// errorをfalseにする（HTML側でエラーメッセージを出力させないため）
 			model.addAttribute("error", false);
-			return "redirect:/student/lesson/list";//暫定的にレジスターに飛ばす後で変更
+			return "redirect:/user/lesson/list";//暫定的にレジスターに飛ばす後で変更
 		}
 
 	}

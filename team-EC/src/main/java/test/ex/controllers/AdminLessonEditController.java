@@ -24,7 +24,7 @@ import test.ex.service.LessonService;
 import test.ex.service.TransactionItemService;
 
 @Controller
-public class LessonEditController {
+public class AdminLessonEditController {
 	@Autowired
 	private LessonService lessonService;
 
@@ -36,16 +36,16 @@ public class LessonEditController {
 
 	// エディット画面の表示及び編集を行う記事情報の取得--------------------------------------------------------------
 
-	@GetMapping("/lesson/edit/{lessonId}")
+	@GetMapping("/admin/lesson/edit/{lessonId}")
 	public String getlessonEditPage(@PathVariable Long lessonId, Model model) {
 		// lessonIdから編集を行いたい講座情報を取得（HTML内で使用）
 		model.addAttribute("lessonList", lessonService.selectByLessonId(lessonId));
-		return "lessonEdit.html";
+		return "admin-lesson-edit.html";
 	}
 
 	// lesson内容の更新---------------------------------------------------------------------
 
-	@PostMapping("/lesson/update")
+	@PostMapping("/admin/lesson/edit")
 	public String lessonEdit(@RequestParam String lessonName, @RequestParam String content,
 			@RequestParam int fee,@RequestParam("imageName") MultipartFile imageName,@RequestParam Long lessonId) {
 
@@ -74,12 +74,12 @@ public class LessonEditController {
 
 
 
-		return "adminLessonEditFinish.html";
+		return "admin-lesson-edit-finish.html";
 
 
 	}
 	@Transactional
-	@PostMapping("/lesson/delete")
+	@PostMapping("/admin/lesson/delete")
 	public String lessonDelete(@RequestParam Long lessonId) {
 		
 		// 削除処理
@@ -88,7 +88,7 @@ public class LessonEditController {
 		
 		//2.lessonテーブルの該当講座履歴を削除
 		lessonService.delete(lessonId);
-		return "adminLessonDeleted.html";
+		return "admin-lesson-deleted.html";
 		
 	}
 
