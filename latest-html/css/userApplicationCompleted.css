@@ -95,8 +95,6 @@ body {
     box-shadow: 0 2px 4px #005320(0, 0, 0, 0.1);
     margin-bottom: -160px;
     z-index: 2; /* 设置更高的 z-index 值 */
-
-
 }
 
 
@@ -127,7 +125,8 @@ button {
     background: var(--button_outline_color); /* 设置按钮的背景颜色 */
     box-shadow: 0 2px 4px rgba(201, 16, 16, 0.2); /* 添加阴影效果 */
     text-align: center;
-    margin-top: 70px;
+    margin-left: 660px;
+    margin-bottom: 300px;
     
     
 }
@@ -160,18 +159,6 @@ button a{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   
 footer {
     background-color: #007c2f;
@@ -181,7 +168,6 @@ footer {
     bottom: 0;
     /* 将页脚固定在底部 */
     width: 100%;
-    margin-top: 300px;
   }
   
   

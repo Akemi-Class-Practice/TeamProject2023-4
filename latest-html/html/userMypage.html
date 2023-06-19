@@ -11,7 +11,8 @@
     CSSファイルはこの二つ行です。両方もコメントインにしてください。 -->
     <!-- <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
     <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}"> -->
-    
+
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/userMypageAndPoint.css">
     <link rel="stylesheet" href="/css/userFooterHeader.css">
     <!-- fontlink -->
@@ -106,7 +107,7 @@
                     <p>My</p>
                     <p>Page</p>
                 </div>
-                <svg class="floating "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275.44 275.44">
+                <svg class="floating " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275.44 275.44">
                     <defs>
                         <style>
                             .cls-fbca5a {
@@ -120,7 +121,6 @@
                 </svg>
             </div>
             <div class="green-background" id="mypage-back-green">
-
             </div>
         </div>
     </div>
@@ -196,10 +196,10 @@
                 <!-- 一覧リストはここから -->
                 <div class="flex-direction-column" th:each="lesson:${listbuy}">
                     <!-- just a black line ↓ -->
-                    <div class="horizontal-line-block"></div>
+                    <div id="horizontal-line-block"></div>
 
                     <div class="flex-direction-row justify-content-space-around align-items-center">
-                        <div class="img-preview">
+                        <div id="img-preview">
                             <!-- BACKEND MESSAGE:
                                     この下の一行目はただの効果を見る仮置き、コメントアウトして、二行目に変換してください -->
                             <img src="https://i.pinimg.com/564x/bf/58/93/bf5893db0ede755dcd1ff33d278334ab.jpg">
@@ -207,14 +207,14 @@
                         </div>
                         <!-- BACKEND MESSAGE:
                                     この下の一行目の中身はただの効果を見る仮置き -->
-                        <p class="font-color-black lessonName" th:text="${lesson.lessonName}">仮置き講座タイトル</p>
+                        <p class="font-color-black" id="lessonName" th:text="${lesson.lessonName}">仮置き講座タイトル</p>
 
-                        <div class="flex-direction-column align-items-flex-end justify-content-space-between day-point">
+                        <div class="flex-direction-column align-items-flex-end justify-content-space-between " id="day-point">
                             <div>
                                 <span class="label">購入日時:</span>
                                 <!-- BACKEND MESSAGE:
                                     この下の一行目の中身はただの効果を見る仮置き -->
-                                <span class="purchase-value-daytime">
+                                <span id="purchase-value-daytime">
                                     2023/06/13
                                     <!-- <p>[[${#temporals.format(lesson.transactionDate, 'yyyy/MM/dd')}]]</p> -->
                                 </span>
@@ -224,7 +224,7 @@
                                 <span class="label">決済ポイント:</span>
                                 <!-- BACKEND MESSAGE:
                                     この下の一行目の中身はただの効果を見る仮置き -->
-                                <span class="purchase-value-point"
+                                <span id="purchase-value-point"
                                     th:text="${lesson.lessonFee}">3000</span><span>pt</span>
                             </div>
                         </div>
