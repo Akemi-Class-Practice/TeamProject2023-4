@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/cart-list.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--idやclassはご自由にお付けください。
+    コメントは該当する作業が終わった際に消してくださると助かります。-->
+    <header>
+        <h1>カート一覧</h1>
+        <!--ナビゲーションバー(数によって<li>の増減はお願いします。)-->
+        <nav>
+            <!--cssでlist-style:noneを使用して(・)は消してください。-->
+            <ul>
+                <li><a href = "#"></a></li>
+                <li><a href = "#"></a></li>
+                <li><a href = "#"></a></li>
+                <li><a href = "#"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--あくまで、見栄えの作成の為に簡易的に作りました。
+        th,listへの置き換えの際は該当箇所を適宜変更してください-->
+    <main>
+        <section id = "about" class = "wrapper" th:each="cart:${cartList}"> 
+            <h2 class = "section-title"><div>講座</div></h2>
+            <div class = "content">
+                <img th:src="@{'/images/' + ${cart.imageName}}" alt loading = "lazy" width = "150" height = "150">
+                <div class = "text">
+                    <p class = "course-title">
+                        講座ID : 00000000
+                    </p>
+                    <h1 th:text="${cart.lessonName}"></h1>
+                    <p class = "set-price" th:text="${cart.lessonFee}">
+					</p>
+					<form method="post" th:action="@{/delete/cart}">
+                        <button>
+							<input type="hidden" name="lessonName" th:value="${cart.lessonName}">
+                            <i class="fa-solid fa-trash" style="font-size: 2em;"></i>
+                        </button>
+                    </form>
+                </div>
+        </section>
+            <div class="select-button">
+    			<a th:href="@{/student/lesson/list}" class="btn_1">買い物を続ける</a>
+				<a th:href="@{/student/confirmation}" class="btn_2">ご購入手続きへ</a>
+			</div>
+
+    </main>
+
+
+    <footer>
+        <!--コピーライトの表記が決まり次第記入お願いします。-->
+        <p>&copy;</p>
+    </footer>
+</body>
+</html>
