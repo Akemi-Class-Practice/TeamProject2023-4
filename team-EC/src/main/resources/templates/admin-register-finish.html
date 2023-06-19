@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者登録完了</title>
+    <style>
+         .card {
+        width: 172px;
+        height: 254px;
+        position: fixed;
+        right: 10%;
+        bottom: 20%;
+        display: inline-block;
+        margin: 50px;
+    }
+    .card .img-top {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+    .card:hover .img-top {
+        display: inline;
+    }
+    </style>
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-login-sign-up.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-footer-header.css}">
+    <!-- fontlink UPdated -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
+        rel="stylesheet">
+    <!-- fontlink^ -->
+</head>
+
+<body>
+
+    <!-- HEADER BANNER -->
+    <header>
+        <!-- HEADER BANNER  before -->
+        <header>
+            <a href="">
+                <div class="logo-triangle"></div>
+                <div class="admin_logo">
+                    <img src="/sourceImg/admin_web_logo.svg">
+                </div>
+            </a>
+        </header>
+        <!----HEADER BANNER after -->
+    </header>
+
+    <div class="bg_pic_container">
+        <div class="background_green">
+        </div>
+        <div class="grid_background">
+            <img th:src="@{/sourceImg/bg_grid_gray.svg}" alt="some gray grid over the cream and green background image">
+        </div>
+        <div class="card">
+            <a th:href="@{/admin/login}"><img th:src="@{/sourceImg/login_door.svg}" alt="Card Back">
+            <img th:src="@{/sourceImg/login_door_opened.svg}" class="img-top" alt="Card Front"></a>
+        </div>
+        
+        <div class=" justify-content-space-around border-bottom" height="100vh">
+            <p class="regist-finish" >管理者登録完成。</p>
+        </div>
+    </div>
+</body>
+
+</html>
