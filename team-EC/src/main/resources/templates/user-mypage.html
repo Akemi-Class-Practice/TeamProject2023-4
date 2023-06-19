@@ -12,8 +12,10 @@
     <!-- <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
     <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}"> -->
     
-    <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
-    <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}">
+    <link rel="stylesheet" th:href="@{/css/user-mypage-and-point.css}">
+    <link rel="stylesheet" th:href="@{/css/user-footer-header.css}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+
     <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,12 +67,12 @@
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
-                    <a th:href="@{/student/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
+                    <a th:href="@{/user/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
                         id="coursesButton">COURSES</a>
                 </div>
                 <div class="cart-icon">
                     <!-- ↓ここでカート一覧画面（購入前）を入力 -->
-                    <a th:href="@{/student/cart}">
+                    <a th:href="@{/user/cart}">
                         <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
                             <defs>
                                 <style>
@@ -89,7 +91,7 @@
                 </div>
                 <div class="Sign-button-header">
                     <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="SignButton" onclick="location.href = '/student/logout'"><span>SIGN OUT</span></button>
+                        id="SignButton" onclick="location.href = '/user/logout'"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
@@ -163,7 +165,7 @@
                             <div>
                                 <!-- BACKEND MESSAGE: -->
                                 <!-- ここでパスワードを変更画面にする↓ -->
-                                <a th:href="@{/password/reset}" class="font-color-green text-decoration-none"
+                                <a th:href="@{/user/password/reset}" class="font-color-green text-decoration-none"
                                     id="password-change">パスワードを変更する</a>
                             </div>
                         </div>
@@ -179,7 +181,7 @@
                         <div>
                             <!-- BACKEND MESSAGE: -->
                             <!-- ここでポイントをチャージ画面に遷移する↓ -->
-                            <a th:href="@{/point}" class="font-color-green text-decoration-none"
+                            <a th:href="@{/user/point}" class="font-color-green text-decoration-none"
                                 id="point-charge">ポイントをチャージする</a>
                         </div>
                     </div>

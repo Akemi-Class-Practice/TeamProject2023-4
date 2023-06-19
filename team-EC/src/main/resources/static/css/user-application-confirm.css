@@ -95,13 +95,15 @@ body {
     border-top: 2px solid #007c2f;
   }
   
-  .list .lecture-image {
-    width: 70px;
-    height: 70px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 4%;
-    cursor: pointer;
+  #img-preview {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+  }
+  
+  #img-preview img {
+    height: 100px;
+    object-fit: cover;
   }
   
   .lecture-title {

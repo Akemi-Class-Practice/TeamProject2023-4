@@ -4,7 +4,7 @@ body {
   padding: 0;
   font-family: 'Noto Sans', sans-serif;
   background-color: #fbeedd;
-  background-image: url("/sourceImg/grid_shallow_gray.svg");
+  background-image: url(/EC/sourceImg/grid_shallow_gray.svg);
 }
 
 html {
@@ -17,11 +17,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-a{
-	  text-decoration: none;
-	    color: #007c30;
-	  
 }
 
 
@@ -273,13 +268,11 @@ main {
 }
 
 .lecture img {
-
+  width: 100%;
+  height: 50%;
   border-radius: 5px;
 }
-.lecture-img{
-	width: 320px;
-  	height: 180px;
-}
+
 .lecture-title {
   font-size: 18px;
   margin-top: 10px;
