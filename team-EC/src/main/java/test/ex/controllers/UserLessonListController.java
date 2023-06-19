@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpSession;
 import test.ex.service.LessonService;
 
 @Controller
-public class StudentLessonListController {
+public class UserLessonListController {
 	@Autowired
 	private LessonService lessonService;
 
@@ -18,11 +18,11 @@ public class StudentLessonListController {
 	HttpSession session;
 
 	// トップ画面の表示及びログインユーザー・すべてのブログ記事の情報を取得------------------------------------
-	@GetMapping("/student/lesson/list")
+	@GetMapping("/user/lesson/list")
 	public String getList(Model model) {
 		// 登録されているすべての記事の情報を取得（HTML内で使用）
 		model.addAttribute("lessonList", lessonService.selectFindAll());
-		return "userLessonList.html";
+		return "user-lesson-list.html";
 	}
 	
 

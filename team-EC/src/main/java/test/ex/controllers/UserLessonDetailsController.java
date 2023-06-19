@@ -20,7 +20,7 @@ import test.ex.models.entity.StudentEntity;
 import test.ex.service.LessonService;
 
 @Controller
-public class StudentLessonDetailsController {
+public class UserLessonDetailsController {
 	@Autowired
 	private LessonService lessonService;
 
@@ -29,11 +29,11 @@ public class StudentLessonDetailsController {
 
 	// 講座詳細画面の表示--------------------------------------------------------------
 
-	@GetMapping("/lesson/detail/{lessonId}")
+	@GetMapping("/user/lesson/detail/{lessonId}")
 	public String getlessondetailPage(@PathVariable Long lessonId, Model model) {
 
 		model.addAttribute("lessonList", lessonService.selectByLessonId(lessonId));
-		return "course-details.html";
+		return "user-lesson-details.html";
 	}
 	//カート重複処理メソッド
 		public boolean isLessonExist(Long lessonId,ArrayList<LessonEntity> list) {
@@ -49,7 +49,7 @@ public class StudentLessonDetailsController {
 		
 	// カートに入れる---------------------------------------------------------------------
 
-	@PostMapping("/add/cart")
+	@PostMapping("/user/cart/add")
 	public String addcart(@RequestParam Long lessonId, Model model) {
 		
 		LessonEntity lessonEntity = lessonService.selectByLessonId(lessonId);
@@ -76,9 +76,9 @@ public class StudentLessonDetailsController {
 			
 			session.setAttribute("cart", cartList); //sessionに格納
 		
-			return "redirect:/student/cart";
+			return "redirect:/user/cart/list";
     	}else {
-    		return "redirect:/student/login";
+    		return "redirect:/user/login";
     	}
 
 	}

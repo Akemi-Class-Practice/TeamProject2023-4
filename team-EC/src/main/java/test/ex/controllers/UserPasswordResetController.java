@@ -12,7 +12,7 @@ import test.ex.models.entity.StudentEntity;
 import test.ex.service.StudentService;
 
 @Controller
-public class PasswordResetController {
+public class UserPasswordResetController {
 
 	@Autowired
 	private StudentService studentService;
@@ -21,34 +21,34 @@ public class PasswordResetController {
 	HttpSession session;
 
 	// リセット画面の表示-----------------------------------------------------
-	@GetMapping("/password/reset")
+	@GetMapping("/user/password/reset")
 	public String getResetPage(Model model) {
 		model.addAttribute("error", false);
 		return "userAccountReset.html";
 	}
 	
 	// パスワード変更完了画面の表示-----------------------------------------------------
-	@GetMapping("/password/completed")
+	@GetMapping("/user/password/completed")
 	public String getpasswordcompleted(Model model) {
-		return "userPasswordCompleted.html";
+		return "user-password-completed.html";
 	}
 
 	// パスワードリセット処理-----------------------------------------------------------------------------------
 
-	@PostMapping("/password/reset")
+	@PostMapping("/user/password/reset")
 	public String passwordReset(@RequestParam String keyword,@RequestParam String email, @RequestParam String password,@RequestParam String password2, Model model) {
 		// studentServiceクラスのfindByEmailAndkeywordメソッドを使用して、該当するユーザー情報を取得する。
 		StudentEntity studentEntity = studentService.selectByEmailAndKeyword(email, keyword);
 		if (studentEntity == null) {
             model.addAttribute("error", true);
             model.addAttribute("errorMessage", "入力していない内容があります");
-			return "userAccountReset.html";
+			return "user-password-reset.html";
 		} else {
 	        if (!password.equals(password2)) {
 	            // パスワードとパスワード確認が一致しない場合
 	            model.addAttribute("error", true);
 	            model.addAttribute("errorMessage", "パスワードが一致していません");
-	            return "userAccountReset.html";
+	            return "user-password-reset.html";
 	        }
 
 	        // 入力されたメールアドレスとパスワードが存在した場合
@@ -56,7 +56,7 @@ public class PasswordResetController {
 	        session.setAttribute("admin", studentEntity);
 	        //studentEntity内のdataと入力値で上書き
 	        studentService.update(studentEntity.getStudentId(), studentEntity.getStudentName(), password, keyword, email, studentEntity.getPoint());
-	        return "redirect:/password/completed";
+	        return "redirect:/user/password/completed";
 	    }
 
 	}

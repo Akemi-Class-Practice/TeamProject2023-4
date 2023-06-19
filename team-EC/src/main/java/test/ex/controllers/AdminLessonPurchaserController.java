@@ -12,7 +12,7 @@ import test.ex.models.dao.CoursePurchaserDao;
 import test.ex.service.LessonService;
 
 @Controller
-public class LessonPurchaserController {
+public class AdminLessonPurchaserController {
 
 	
 	@Autowired
@@ -22,8 +22,9 @@ public class LessonPurchaserController {
 	HttpSession session;
 
 
-	@GetMapping("/lesson/purchaser/list/{lessonId}")
+	@GetMapping("/admin/lesson/purchaser/list/{lessonId}")
 	public String getPurchaserList(@PathVariable Long lessonId,Model model) {
+		//該当講座の購入者一覧を取得
 		model.addAttribute("purchaserList",coursePurchaserDao.findByLessonId(lessonId));
 		
 		return "admin-course-management.html";

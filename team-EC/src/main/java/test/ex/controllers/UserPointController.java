@@ -12,7 +12,7 @@ import test.ex.models.entity.StudentEntity;
 
 
 @Controller
-public class StudentPointController {
+public class UserPointController {
     private final StudentDao studentDao;
     
     @Autowired
@@ -20,35 +20,32 @@ public class StudentPointController {
     
 
     @Autowired
-    public StudentPointController(StudentDao studentDao){ 
+    public UserPointController(StudentDao studentDao){ 
         this.studentDao = studentDao;
     }
 
-	//階層へ遷移用 今現在のポイント取得
-    @GetMapping("/pointsuccess")
+	//階層へ遷移用 
+    @GetMapping("/user/pointsuccess")
     public String fix(Model model) {
         StudentEntity userList = (StudentEntity) session.getAttribute("student");
         Long student_id = userList.getStudentId();
         StudentEntity student = studentDao.findByStudentId(student_id);
         model.addAttribute("point", student.getPoint());
-        return "userPointChargeFinish.html";
+        return "user-point-charge-finish.html";
     }
-
-	//階層へ遷移用 今現在のポイント取得
-    @GetMapping("/point")
+    
+    //階層へ遷移用 今現在のポイント取得
+    @GetMapping("/user/point")
     public String point(Model model) {
         StudentEntity userList = (StudentEntity) session.getAttribute("student");
         Long student_id = userList.getStudentId();
         StudentEntity student = studentDao.findByStudentId(student_id);
         model.addAttribute("point", student.getPoint());
-        return "userPoint.html";
+        return "user-point-charge.html";
     }
-    
-    
-    
-    
+
     //ポイント追加処理
-    @PostMapping("/point")
+    @PostMapping("/user/point/charge")
     public String addPoint(@RequestParam("pointAmount") int pointAmount,Model model) {
         
         //ログインしているユーザーを取得
@@ -71,6 +68,6 @@ public class StudentPointController {
         studentDao.save(student);
 
         // 成功した場合
-        return "redirect:/pointsuccess";
+        return "redirect:/user/pointsuccess";
     }
 }
