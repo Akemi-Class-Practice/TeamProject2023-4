@@ -10,6 +10,7 @@ body {
     padding: 0;
     /* cursor: cell; */
     width: 100%;
+    height: 100vh;
 
 }
 
@@ -345,7 +346,7 @@ p {
     position: relative;
     z-index: -90;
     height: 100%;
-    top:33%;
+    top:60%;
     width: 100%;
 }
 
@@ -385,18 +386,14 @@ p {
 }
 
 
+/* ぐるぐる */
 
-
-
-
-
-
-
-
-.updated_window {
+.charge_window {
+    display: none;
     background-color: rgba(251, 238, 221, 0.2); 
     border: solid 4px #000000;
-    width: 43%;
+    padding: 7em;
+    width: 30%;
     min-width: 400px;
     height: 30%;
     position: fixed;
@@ -405,39 +402,25 @@ p {
     transform: translate(-50%,-50%);
     backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-    box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
-        -webkit-box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
+    /* box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px;
+        -webkit-box-shadow: rgba(255, 240, 156, 0.514) 0px 0px 50px 15px; */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
          box-sizing: border-box;
 
 }
-.window_bar{
-    background-color: rgba(251, 202, 90, 1); 
-    border-bottom: solid 4px #000000;
+
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
     position: absolute;
-<<<<<<< Updated upstream:team-EC/src/main/resources/static/css/userMypageAndPoint.css
-    top: 0;
-    height: 51px;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-         box-sizing: border-box;
-    
-}
-.updated_text{
-    color: rgba(26, 26, 26, 1); /* 使用不透明度为 1 的 rgba 值来设置字体颜色 */
-    width: 80%;
-    text-align: center;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 500;
-    font-size: 22pt;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-=======
     width: 64px;
     height: 64px;
     margin: 8px;
@@ -464,4 +447,3 @@ p {
     }
   }
   
->>>>>>> Stashed changes:team-EC/src/main/resources/static/css/user-mypage-and-point.css
