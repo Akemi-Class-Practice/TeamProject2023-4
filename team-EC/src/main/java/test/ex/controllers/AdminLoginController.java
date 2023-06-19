@@ -24,12 +24,12 @@ public class AdminLoginController {
 	// ログイン画面の表示-----------------------------------------------------
 	@GetMapping("/admin/login")
 	public String getLoginPage() {
-		return "adminLogin.html";
+		return "admin-login.html";
 	}
 
 	// ログイン処理-----------------------------------------------------------------------------------
 
-	@PostMapping("/admin/login/process")
+	@PostMapping("/admin/login")
 	public String login(@RequestParam String email, @RequestParam String password, Model model) {
 		// adminServiceクラスのfindByEmailAndPasswordメソッドを使用して、該当するユーザー情報を取得する。
 		AdminEntity adminEntity = adminService.selectByEmailAndPassword(email, password);

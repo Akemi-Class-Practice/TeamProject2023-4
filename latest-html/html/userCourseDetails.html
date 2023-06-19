@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>userCourseDetails</title>
-    <link rel="stylesheet" href="/EC/css/userCourseDetails.css">
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/userCourseDetails.css">
+    <link rel="stylesheet" href="/css/userFooterHeader.css">
 
     
    
@@ -18,10 +22,10 @@
    
 </head>
 
-<body>
+<body class="flex-direction-column justify-content-space-between">
     <header>
-        <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
+            <!-- logo -->
             <a href="">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
@@ -55,7 +59,7 @@
                     </svg>
                 </div>
             </a>
-
+    
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
@@ -68,7 +72,7 @@
                         <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
                             <defs>
                                 <style>
-
+    
                                 </style>
                             </defs>
                             <g id="_講座一覧画面">
@@ -81,71 +85,69 @@
                         </svg>
                     </a>
                 </div>
-                <div class="Sign-button">
-                    <button class="green-background circle-radius submit-button font-color-cream "
+                <div class="My-page-header">
+                    <button class="green-background circle-radius submit-button-header font-color-cream "
+                        id="MyPageButton"><span>MY PAGE</span></button>
+                </div>
+                <div class="Sign-button-header">
+                    <button class="green-background circle-radius submit-button-header font-color-cream "
                         id="SignButton"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
     </header>
+    
+    <a th:href="@{/student/lesson/list}" class="return">＜戻る</a>
 
+    <!-- 这里不应该用div class="main"，main是一个类似于<section></section>或者<header></header>一样用来区分部分的
+    所以这里应该用<main></main> -->
+    <div class="main"> <!--用法错误-->
+        <!-- main部分需要增加的属性：位于整个页面水平居中。 -->
 
-
-
-
-
-    <a href="#" class="return">＜戻る</a>
-
-
-
-    <div class="main">
-
-       
-        <form action="">
             <div class="main-image">
-                <div class="image" src="image"></div>
-                <h1 class="image-title">講座タイトル、Creating Custom Course --ssssssssssssss-</h1>
+                <!-- 要想让图片的大小不受上传的图片大小限制，图片外面需要增加一个框架，在这里我把框架叫做course-detail-img-preview,
+                通过设置这个框架的大小，同时css里面制定overflow:hidden属性，可以使得图片超出的部分被裁切。
+                子元素的img的height设置成100%他就会扩展成父元素同等高度。  -->
+                <div id="course-detail-img-preview">  <!--增加的部分-->
+					 <img th:src="@{'/images/' + ${lessonList.imageName}}"  alt="SVG Image" class="image">
+				</div>
+                <h1 class="image-title"  th:text="${lessonList.lessonName}">仮置きタイトル</h1> <!-- 講座タイトル -->
             </div>
 
             <div class="cost-button">
-                <span class="cost">29,000円</span>
-                <br>
-                <button class="buy"><a href="">購入</a></button>
-            </div>
-
-            
-            <div class="name">
-            <div class="svg-pink">
-                <img class="svg-image" src="/EC/sourceImg/ball_pink.svg" alt="SVG Image">
-              </div>
+                <span class="cost" th:text="${lessonList.lessonFee}">Pt</span>   <!--講座の値段 -->
+                <br>　<!--如果使用弹性布局写好这一段应该可以删掉-->
               
-                <p class="teacher">講師：</p>
-                <p id="name">ノリノリ</p>
+
+                <form class = "set-price" method="post" th:action="@{/add/cart}">
+					<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}"> <!--这个是从后台复制的代码  不需要动到或者删掉，是隐藏在画面里的用来调用课程id的-->
+                	<button  type = "submit" class="buy">購入</button>
+                </form>    
             </div>
 
+            <!-- 上面把 讲座图片，购买按钮+pt数给分成了三个段落，并且之间毫无关系，就会裂开
+            正确思路https://www.pinterest.co.uk/pin/534169205816756635 -->
+           
+
+
+
+          
             <div class="content">
                 <span>1. 講座説明テキスト</span>
                 <br>
-                <p>
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                    講座詳細テキスト講座詳細テキスト講座詳細テキスト講座詳細テキスト
-                </p>
+                <p th:text="${lessonList.lessonDetail}"></p>
                 <span>2. 講座説明テキスト</span>
                 <br>
                 <p></p>
             </div>
-        </form>
     </div>
 
-  <!-- フッター-->
-  <footer class="green-background" id="footerFrame">
-    <div class="footer-container  justify-content-space-between">
 
-        <div class="justify-content-space-between flex-direction-column" id="footerLeftContainer">
+ <!-- フッター-->
+ <footer class="green-background userFooter " id="userFooterFrame">
+    <div class="footer-container  justify-content-space-between">
+        <div class="justify-content-space-between flex-direction-column align-items-flex-end"
+            id="userFooterLeftContainer">
             <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 212.03 44.23">
                 <defs>
@@ -159,7 +161,7 @@
                         }
                     </style>
                 </defs>
-                <g id="_ユーザーログイン画面">
+                <g>
                     <path class="cls-cream"
                         d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64C7.55.26,7.81,0,8.13,0h28.25C36.76,0,36.96.26,36.89.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
                     <path class="cls-cream"
@@ -182,34 +184,11 @@
             </svg>
             <p>未経験からプロまでのITとビジネスを学び、成長させよう。</p>
         </div>
-
-        <div class="justify-content-space-around " id="footerRightContainer">
-
-            <div>
-                <h3>ACADEMY</h3>
-                <div class="justify-content-space-between  flex-direction-column" id="academy">
-                    <a href="">ダッシュボード</a>
-                    <a href="">講座一覧</a>
-                </div>
-            </div>
-
-            <div>
-                <h3>ABOUT</h3>
-                <div class="justify-content-space-between flex-direction-column" id="about">
-                    <p>運営会社</p>
-                    <p>採用情報</p>
-                    <p>お問い合わせ</p>
-                </div>
-            </div>
-        </div>
     </div>
 
-
-</footer>
-
-
     <!-- 著作権情報-->
-    <p class="last">@ 2023 Enskill. copyright</p>
+    <p class="copyright">@ 2023 Enskill. copyright</p>
+</footer>
 </body>
 
 </html>
