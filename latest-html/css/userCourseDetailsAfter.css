@@ -1,28 +1,14 @@
 body {
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    min-height: 600px;
-    /* 设置最小高度为 500 像素 */
-    min-width: 100%;
-    /* 设置最小宽度为 800 像素 */
-    background-color: #fbeedd;
-    min-height: 100vh;
-    background-image: url("/EC/sourceImg/grid_shallow_gray.svg");
-  }
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-color: #fbeedd;
+  background-image: url("/EC/sourceImg/grid_shallow_gray.svg");
+}
 
-  html {
-    font-size: 100%;
-    font-family: 'Noto Sans JP', sans-serif;
-  }
-  
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
- 
+html {
+  font-family: 'Noto Sans JP', sans-serif;
+}
 
 
 /*---------------------------------------------------------------------------------------------------
@@ -117,7 +103,7 @@ body {
   font-weight: 600;
 }
 
-.floating { 
+.floating {
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -127,9 +113,17 @@ body {
 }
 
 @keyframes floating {
-  0% { transform: translate(0,  0px); }
-  50%  { transform: translate(0, 15px); }
-  100%   { transform: translate(0, -0px); }   
+  0% {
+    transform: translate(0, 0px);
+  }
+
+  50% {
+    transform: translate(0, 15px);
+  }
+
+  100% {
+    transform: translate(0, -0px);
+  }
 }
 
 /* ----- header Bar------- */
@@ -184,119 +178,86 @@ header {
 
 
 
-  
-  .main {
-    flex: 1;
-    min-height: 100%;
-    margin-left: 12%;
-    margin-right: 12%;
-    margin-top: 2%;
-    font-family: 'Noto Sans', sans-serif;
-  
-  }
-  
-  
-  .return {
-    text-decoration: none;
-    color: #eb6106;
-    display: inline-block;
-    padding-top: 3%;
-    padding-left: 7%;
-    margin-bottom: 5px;
-    position: relative;
-  
-  }
-  
-  .return::after {
-    content: '';
-    position: absolute;
-    margin-left: -23%;
-    bottom: -5px;
-    /* 下划线的位置调整为文本下方一定距离 */
-    width: 23%;
-    height: 2px;
-    background-color: #eb6106;
-  }
-  
-  .main-image {
-    width: 700px;
-    min-height: 400px;
-    height: auto;
-    position: relative;
-  
-  }
-  
-  .image {
-    width: 700px;
-    height: 400px;
-    background-color: #fbeedd82;
-    border: #007c2f 3px solid;
-    position: relative;
-  }
-  
-  
-  .image-title {
-    word-wrap: break-word;
-    margin-top: 3px;
-    color: #007c2f;
-  }
-  
-  .cost-button {
-    position: absolute;
-  
-    left: 70%;
-    bottom: 18%;
-    transform: translate(50%, 50%);
-  
-  }
-  
-
-  
-  .svg-pink{
-    width:50px;
-    height: 50px;
-    float: left;
-    left: 0;
-    margin-right: 15px;
-  }
-  
-  .name {
-    color: #eb6106;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 600;
-    margin-left:0;
-    margin-bottom: 12%;
-    margin-top: 20px;
-  }
-  
-  .teacher {
-    float: left;
-    margin-right: 3px;
-  }
-  
-  #name {
-    float: left;
-  }
-  
-
-  .center{
-  margin-left: 10%;
-  margin-right: 10%;
-
-  }
-
-.content{
-    margin-top: 15%;
+main {
+  flex: 1;
+  margin: 0 auto;
+  width: 80%;
+  margin-top: 2%;
+  font-family: 'Noto Sans', sans-serif;
+  margin-bottom: 20%;
 }
-  
+
+.return-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5%;
+  padding-left: 6%;
+}
+
+.return {
+  text-decoration: none;
+  color: #eb6106;
+  padding-bottom: 1px;
+  border-bottom: 2px solid #eb6106;
+
+}
+
+
+.main-image {
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.image-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+#course-detail-img-preview {
+  width: 900px;
+  height: 500px;
+  flex: 1;
+  background-color: #fbeedd82;
+  border: #007c2f 3px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  height: 100%;
+}
+
+
+.text-area {
+  position: absolute;
+  margin: 0;
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+
+.image-title {
+  word-wrap: break-word;
+  color: #007c2f;
+
+}
+
+
+
 
 /* ----- footerBar ----- */
 .logo-horizontal-cream {
   width: 150px;
 }
 
+
+
 #footerFrame {
   position: relative;
+  z-index: 2;
   width: 100%;
   height: 300px;
   bottom: 0;
@@ -305,6 +266,7 @@ header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
 }
 
 .academy-container {
@@ -352,8 +314,10 @@ header {
   font-style: italic;
 }
 
+
+
+
 .copyright {
   color: #007c30;
   margin-left: 1%;
 }
-
