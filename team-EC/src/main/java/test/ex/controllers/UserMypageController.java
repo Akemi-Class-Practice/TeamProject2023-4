@@ -22,7 +22,7 @@ import test.ex.service.StudentService;
 
 //ユーザーからの入力を View から受け取り、それをもとに Model に指示を伝える処理 -------------------------------------------------------
 @Controller														// 画面遷移用のコントローラーに付与する
-public class StudentMypageController {
+public class UserMypageController {
 
 	@Autowired													// 自動でインスタンスの紐づけを行う
 	HttpSession session;										/* 同一のWebブラウザからの複数回のリクエストを、
@@ -35,7 +35,7 @@ public class StudentMypageController {
 	StudentService studentService;
 	
 	// マイページ画面の表示 -----------------------------------------------------------------------------------------------
-	@GetMapping("/student/lesson/mypage")						// HTTP GETリクエストに対する紐づけ
+	@GetMapping("/user/mypage")						// HTTP GETリクエストに対する紐づけ
 	public String getMypage(Model model) {
 
 		// セッションから現在のユーザー情報を取得し、nullだった場合はログイン画面に遷移させる
@@ -59,7 +59,7 @@ public class StudentMypageController {
 			model.addAttribute("point", studentEntity.getPoint());
 			model.addAttribute("student", student);
 			model.addAttribute("listbuy", listbuy);
-			return "userMypage.html";
+			return "user-mypage.html";
 		}
 	}
 }

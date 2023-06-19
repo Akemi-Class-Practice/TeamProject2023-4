@@ -20,7 +20,7 @@ public class AdminRegisterController {
 	// 新規登録画面の表示------------------------------------------
 	@GetMapping("/admin/register")
 	public String getRegisterPage() {
-		return "adminRegister.html";
+		return "admin-register.html";
 	}
 
 	// 保存処理------------------------------------------------------
@@ -33,11 +33,11 @@ public class AdminRegisterController {
 			//エラー表示フラグをfalse
 			model.addAttribute("error", false);
 			adminService.insert(username, password,email);
-			return "adminRegisterFinish.html";
+			return "admin-register-finish.html";
 		}else {
 			//あった場合エラーメッセージを出力
 			model.addAttribute("error", true);
-			return "adminRegister.html";
+			return "admin-register.html";
 		}
 	}
 }
