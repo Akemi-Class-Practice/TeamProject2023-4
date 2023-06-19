@@ -121,8 +121,8 @@
 		            
 			        <div class="cost-and-button">
 			            <div class="lesson-price" th:text="${lesson.lessonFee}+'Pt'"></div>
-			            <a th:href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}" class="buyers"><button class="buyers-button" type="button">購入者一覧</button></a>
-			            <a th:href="@{'/lesson/edit/' +${lesson.lessonId}}" class="more"><button class="more-button" type="button">More</button></a>
+			            <a th:href="@{'/admin/lesson/purchaser/list/' +${lesson.lessonId}}" class="buyers"><button class="buyers-button" type="button">購入者一覧</button></a>
+			            <a th:href="@{'/admin/lesson/edit/' +${lesson.lessonId}}" class="more"><button class="more-button" type="button">More</button></a>
 			        </div>
 		        </div>
 	    	</div>
