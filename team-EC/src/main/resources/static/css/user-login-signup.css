@@ -601,6 +601,12 @@ footer {
 	margin-left: 120px;
 	font-size: 16px;
 }
+.error-msg2{
+	text-align: center;
+	color: red;
+	font-size: 16px;
+	margin:15px;
+}
 
 
 
@@ -1415,6 +1421,13 @@ footer {
 	color: red;
 	margin-left: 120px;
 	font-size: 16px;
+}
+.error-msg2{
+	
+	text-align: center;
+	color: red;
+	font-size: 16px;
+	padding-bottom: 10px;
 }
 
 

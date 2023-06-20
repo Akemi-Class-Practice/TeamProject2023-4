@@ -107,8 +107,9 @@
 		</div>
 	</div>
 
-	<!-- <div class="untransparent_window_container"> -->
-	<form class="untransparent_window_container" method="post" th:action="@{/user/login}">
+	<div class="untransparent_window_container"> 
+		<form method="post" th:action="@{/user/login}">
+
 		<div class="flex-direction-column align-items-center justify-content-space-between user-login-form ">
 			<div class="space-between"></div>
 			<input class="input-bar user-login-input-bar circle-radius green-background " type="email" id="studentEmail"
@@ -120,10 +121,10 @@
 		<!-- ここで遷移先を入力 -->
 		<input class="green-background user-lg-btn" type="submit" value="ログイン">
 		<a th:href="@{/user/password/reset}" class="cream-background user-login-fgtpsw">パスワード忘れた?</a>
-		<p th:if="${error == true}" class="error-msg">E-mailまたはパスワードが間違っています</p>
-	</form>
+		<p th:if="${error == true}" class="error-msg2">E-mailまたはパスワードが間違っています</p>
+		</form>
 
-	<!-- </div> -->
+	</div>
 
 
 
