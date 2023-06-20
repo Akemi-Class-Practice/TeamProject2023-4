@@ -24,7 +24,7 @@ public class UserPasswordResetController {
 	@GetMapping("/user/password/reset")
 	public String getResetPage(Model model) {
 		model.addAttribute("error", false);
-		return "userAccountReset.html";
+		return "user-password-reset.html";
 	}
 	
 	// パスワード変更完了画面の表示-----------------------------------------------------
