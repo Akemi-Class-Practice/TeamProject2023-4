@@ -595,6 +595,14 @@ footer {
 .confirmation-box input:active {
     background-color: #dbb4ba;
 }
+.error-msg{
+	text-align: center;
+	color: red;
+	margin-left: 120px;
+	font-size: 16px;
+}
+
+
 
 /* ---------UserRegisterFinish------ */
 #user-rgs-container {
