@@ -182,7 +182,7 @@ p {
     background-repeat: no-repeat, no-repeat;
     background-size: cover, cover;
     background-blend-mode: normal, normal;
-    z-index: -100;
+    z-index: -600;
 }
 
 /* main container 真ん中に置く用*/
@@ -272,7 +272,7 @@ p {
 
 }
 
-#horizontal-line-block {
+.horizontal-line-block {
     background-color: #000000;
     width: 60rem;
     height: 2px;
@@ -280,32 +280,32 @@ p {
     margin-top: 30px;
 }
 
-#lessonName {
+.lessonName {
     font-weight: 500;
     font-size: 20px;
 }
 
-#img-preview {
+.img-preview {
     height: 100px;
     width: 100px;
     overflow: hidden;
 }
 
-#img-preview img {
+.img-preview img {
     height: 100px;
     object-fit: cover;
 }
 
-#purchase-value-daytime {
+.purchase-value-daytime {
     margin-left: 12px;
 }
 
-#purchase-value-point {
+.purchase-value-point {
     font-size: 20px;
     margin-left: 30px;
 }
 
-#day-point .space-holder {
+.day-point .space-holder {
     height: 20px;
 }
 
@@ -447,12 +447,21 @@ p {
     }
   }
   
-#purchase-history-container-label{
-    margin-bottom: 50px;
+/* COURSES APPLY PAGE */
+#apply-completed-box a{
+    margin: 10%;
+    font-size: 21pt;
+    font-weight: 500;
 }
-#courses-purchase-history-container {
-    width: 70vw;
+#apply-completed-box a:hover{
+    color: #ff516e;
+    cursor: pointer;
 }
-#history-container{
-    width: 100%;
+#apply-completed-title h1{
+    font-size: 29pt;
+    margin: 1em;
+}
+#apply-completed-title p{
+    font-size: 9pt;
+    margin: 5em;
 }

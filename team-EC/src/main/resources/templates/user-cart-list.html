@@ -3,10 +3,17 @@
 
 <head>
 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>userCartList</title>
+
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/user-cart-list.css}">
     <link rel="stylesheet" th:href="@{/css/user-footer-header.css}">
-    <link rel="stylesheet" th:href="@{/css/reset.css}">
+
+    <!-- fontlink -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,90 +22,170 @@
 
 </head>
 
-<body>
-    <!-- SVG追加-->
-    <div class="svg">
-        <div class="svg-logo">
-            <img class="svg-image" th:src="@{/sourceImg/admin_web_logo.svg}" alt="SVG Image">
-        </div>
+<body class="flex-direction-column justify-content-space-between">
 
 
-    </div>
-
-    <!-- ヘッダーのボダン-->
     <header>
-        <div class="buttons">
-            <a th:href="@{/user/lesson/list}" class="head-course">Courses</a>
 
-            <a th:href="@{/user/cart}" class="head-cart"><img th:src="@{/sourceImg/cart_logo.svg}" alt="SVG Icon" class="svg-cart"> </a>
-            <a th:href="@{/user/login}" class="head-login"><span>Login</span></a>
+        <div class="justify-content-space-between" id="headerBar">
+            <!-- logo -->
+			<a href="">
+                <div class="logo-horizontal-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
+                        <defs>
+                            <style>
+                                .cls-yellow {
+                                    fill: #ff9f2c;
+                                }
+                            </style>
+                        </defs>
+                        <g id="_管理者レジスター">
+                            <path
+                                d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64c.06-.38.32-.64.64-.64h28.25c.38,0,.58.26.51.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
+                            <path
+                                d="m41.55.64c.06-.38.32-.64.7-.64h10.99c.51,0,.83.19.96.64l6.33,22.18h.25l3.9-22.18c.06-.38.32-.64.7-.64h10.42c.32,0,.58.26.51.64l-7.48,42.19c-.06.38-.32.64-.7.64h-11.12c-.38,0-.7-.19-.83-.64l-6.26-22.18h-.32l-3.9,22.18c-.06.38-.32.64-.7.64h-10.36c-.38,0-.64-.26-.58-.64L41.55.64Z" />
+                            <path
+                                d="m73.38,39.25c-.26-.19-.26-.64.06-.96l5.69-5.82c.25-.26.64-.32,1.02-.06,3.58,2.24,6.39,3.2,9.72,3.2,2.04,0,3.32-.89,3.32-1.85,0-.64-.51-1.09-2.94-1.34l-3.39-.38c-5.75-.64-9.27-3.39-9.27-8.12,0-7.67,5.88-12.53,15.53-12.53,5.88,0,10.67,1.85,13.29,4.15.26.19.19.64-.13.96l-5.18,5.5c-.32.32-.64.38-.96.19-2.24-1.41-4.86-2.43-8.18-2.43-1.85,0-2.94.77-2.94,1.6,0,.64.45,1.15,2.49,1.34l3.32.38c7.29.77,10.04,3.9,10.04,8.18,0,7.73-6.33,12.98-16.75,12.98-6.65,0-11.57-2.17-14.77-4.99Z" />
+                            <path
+                                d="m126.37,43.46c-.45,0-.7-.19-.83-.64l-3.07-11.7-1.79,2.17-1.66,9.52c-.06.38-.32.64-.7.64h-10.99c-.32,0-.58-.26-.51-.64L114.1.64c.06-.38.32-.64.64-.64h11.06c.38,0,.64.26.58.64l-3.52,20.2,6.78-8.12c.38-.45.77-.58,1.28-.58h11.06c.45,0,.58.32.32.64l-10.23,10.99,6.07,19.05c.13.32,0,.64-.38.64h-11.38Z" />
+                            <path
+                                d="m141.58,43.46c-.32,0-.58-.26-.51-.64l5.31-30.04c.06-.38.38-.64.7-.64h11.12c.38,0,.58.26.51.64l-5.3,30.04c-.06.38-.32.64-.7.64h-11.12Zm6.07-34.52c-.38,0-.58-.25-.51-.64l1.34-7.67c.06-.38.32-.64.7-.64h11.12c.38,0,.58.26.51.64l-1.34,7.67c-.06.38-.32.64-.7.64h-11.12Z" />
+                            <path
+                                d="m169.96,43.85c-8.95,0-10.99-3.58-9.59-11.89l5.69-31.32c.06-.38.32-.64.64-.64h11.12c.38,0,.64.26.58.64l-5.43,29.79c-.38,2.3.13,3.26,1.92,3.26h1.21c.32,0,.58.25.51.64l-1.6,8.88c-.06.38-.38.64-.7.64h-4.35Z" />
+                            <path
+                                d="m190.35,43.85c-8.95,0-10.99-3.58-9.59-11.89l5.69-31.32c.06-.38.32-.64.64-.64h11.12c.38,0,.64.26.58.64l-5.43,29.79c-.38,2.3.13,3.26,1.92,3.26h1.21c.32,0,.58.25.51.64l-1.6,8.88c-.06.38-.38.64-.7.64h-4.35Z" />
+                            <path
+                                d="m200.83,32.92c.06-.38.32-.64.7-.64h9.91c.38,0,.64.26.58.64l-1.73,9.91c-.06.38-.32.64-.7.64h-9.84c-.38,0-.64-.26-.58-.64l1.66-9.91Z" />
+                            <path class="cls-yellow"
+                                d="m6.65,19.85l5.3-.33c4.97-.31,9.34-3.38,11.33-7.94l2.12-4.87.33,5.3c.31,4.97,3.38,9.34,7.94,11.33l4.87,2.12-5.3.33c-4.97.31-9.34,3.38-11.33,7.94l-2.12,4.87-.33-5.3c-.31-4.97-3.38-9.34-7.94-11.33l-4.87-2.12Z" />
+                        </g>
+                    </svg>
+                </div>
+			</a>
+            <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
+                <div class="header-courses">
+                    <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
+                    <a th:href="@{/user/lesson/list}" class="text-decoration-none font-color-green font-weight-600" id="coursesButton">COURSES</a>
+                </div>
+                <div class="cart-icon">
+                    <!-- ↓ここでカート一覧画面（購入前）を入力 -->
+                    <a th:href="@{/user/cart/list}">
+                        <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
+  
+                            <g id="_講座一覧画面">
+                                <path
+                                    d="m69.67,46H20.17l3.02-5.96c.06-.11.1-.23.13-.34.24-.14.44-.32.6-.54h43.57l5.37-27.46H16.43L12.9,0,1.9.25C.83.27-.02,1.16,0,2.23c.02,1.07.92,1.9,1.98,1.9l8.05-.18,10.19,33.72c-.2.16-.37.37-.49.62l-4.45,8.78c-.3.6-.28,1.32.08,1.89.35.58.98.93,1.65.93h52.66c1.07,0,1.94-.87,1.94-1.94s-.87-1.94-1.94-1.94Z" />
+                                <path
+                                    d="m30.34,52.23c-2.54,0-4.59,2.06-4.59,4.59s2.06,4.59,4.59,4.59,4.59-2.06,4.59-4.59-2.06-4.59-4.59-4.59Z" />
+                                <circle cx="57.84" cy="56.82" r="4.59" />
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div class="My-page-header">
+                    <a th:href="@{/user/mypage}" class="green-background circle-radius submit-button-header font-color-cream " id="MyPageButton"><span>MY PAGE</span></a>
+                </div>
+                <div class="Sign-button-header">
+                    <a th:href="@{/user/logout}" class="green-background circle-radius submit-button-header font-color-cream " id="SignButton"><span>SIGN OUT</span></a>
+                </div>
+            </div>
 
         </div>
     </header>
 
+
+
     <!-- リスト（内容）-->
     <div class="main">
 
-		<div th:if="${cartList == null or cartList.size() == 0}" class="nothing">
-	        	<p>現在カートが空いています。</p>
-	    </div>
+        <div th:if="${cartList == null or cartList.size() == 0}" class="nothing">
+            <p>現在カートが空いています。</p>
+        </div>
 
         <div class="list" th:each="cart:${cartList}">
-            <img class="lecture-image" th:src="@{'/images/' + ${cart.imageName}}" alt="Lecture Image">
+            <div id="img-preview">
+                <img class="lecture-image" th:src="@{'/images/' + ${cart.imageName}}" alt="Lecture Image">
+            </div>
 
             <div class="lecture-title">
                 <h4 th:text="${cart.lessonName}"></h4>
             </div>
 
-            <div class="lecture-price" th:text="${cart.lessonFee} + 'Pt'" ></div>
+            <div class="lecture-price" th:text="${cart.lessonFee} + 'Pt'"></div>
 
-          <div class="lecture-delete">
-				<form method="post" th:action="@{/user/cart/delete}">
-					<input type="hidden" name="lessonName" th:value="${cart.lessonName}">
-					<input type="image" th:src="@{/sourceImg/trashbin_icon.svg}" alt="SVG image" class="list-trashbin">
+
+            <div class="lecture-delete">
+                <form method="post" th:action="@{/user/cart/delete}">
+                    <input type="hidden" name="lessonName" th:value="${cart.lessonName}">
+                    <input type="image" th:src="@{/sourceImg/trashbin_icon.svg}" alt="SVG image" class="list-trashbin">
+
                 </form>
             </div>
         </div>
 
-        
+
 
         <!-- 合計金額や買い物を続く、戻るボダン-->
         <h2 class="total">
-            <span class="total-label" th:if="${cartList == null or cartList.size() != 0}" >合計：</span>
-            <span id="total-amount" th:if="${cartList == null or cartList.size() != 0}"></span>
+            <span class="total-label" th:if="${cartList != null and cartList.size() != 0}">合計：</span>
+            <span id="total-amount" th:if="${cartList != null and cartList.size() != 0}"></span>
         </h2>
 
         <div class="finally-button">
             <a th:href="@{/user/lesson/list}" class="continue">＜買い物を続ける</a>
-
-            <a th:href="@{/user/confirmation}" th:if="${cartList == null or cartList.size() != 0}" class="into">購入手続き</a>
-
-        </div>
+            <a th:href="@{/user/confirmation}" th:if="${cartList != null and cartList.size() != 0}"class="into">購入手続き</a>
+   		</div>
 
     </div>
 
-    <!-- フッター-->
-    <footer>
-        <div class="footer-logo">
-            <img class="svg-image" th:src="@{/sourceImg/user_web_logo.svg}" alt="SVG Image">
-        </div>
-        <p class="footer-p">未経験からプロまでのITとビジネスを学び、成長させよう。</p>
 
-        <div class="footer-academy">
-            <h3>ACADEMY</h3>
-            <p class="academy-p"><a href="#">ダッシュボード</a></p>
-            <p class="academy-p"><a th:href="@{/student/lesson/list}">講座一覧</a></p>
+    <!-- フッター-->
+    <footer class="green-background userFooter " id="userFooterFrame">
+        <div class="footer-container  justify-content-space-between">
+            <div class="justify-content-space-between flex-direction-column align-items-flex-end"
+                id="userFooterLeftContainer">
+                <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 212.03 44.23">
+                    <defs>
+                        <style>
+                            .cls-yellow {
+                                fill: #ff9f2c;
+                            }
+
+                            .cls-cream {
+                                fill: #fbeedd;
+                            }
+                        </style>
+                    </defs>
+                    <g>
+                        <path class="cls-cream"
+                            d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64C7.55.26,7.81,0,8.13,0h28.25C36.76,0,36.96.26,36.89.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
+                        <path class="cls-cream"
+                            d="m41.55.64C41.62.26,41.87,0,42.26,0h10.99C53.76,0,54.08.19,54.21.64l6.33,22.18h.25l3.9-22.18C64.76.26,65.01,0,65.4,0h10.42C76.13,0,76.39.26,76.33.64l-7.48,42.19c-.06.38-.32.64-.7.64h-11.12c-.38,0-.7-.19-.83-.64l-6.26-22.18h-.32s-3.9,22.18-3.9,22.18c-.06.38-.32.64-.7.64h-10.36c-.38,0-.64-.26-.58-.64L41.55.64Z" />
+                        <path class="cls-cream"
+                            d="m73.38,39.25c-.26-.19-.26-.64.06-.96l5.69-5.82c.25-.26.64-.32,1.02-.06,3.58,2.24,6.39,3.2,9.72,3.2,2.04,0,3.32-.89,3.32-1.85,0-.64-.51-1.09-2.94-1.34l-3.39-.38c-5.75-.64-9.27-3.39-9.27-8.12s5.88-12.53,15.53-12.53c5.88,0,10.67,1.85,13.29,4.15.26.19.19.64-.13.96l-5.18,5.5c-.32.32-.64.38-.96.19-2.24-1.41-4.86-2.43-8.18-2.43-1.85,0-2.94.77-2.94,1.6s.45,1.15,2.49,1.34l3.32.38c7.29.77,10.04,3.9,10.04,8.18,0,7.73-6.33,12.98-16.75,12.98-6.65,0-11.57-2.17-14.77-4.99Z" />
+                        <path class="cls-cream"
+                            d="m126.37,43.46c-.45,0-.7-.19-.83-.64l-3.07-11.7-1.79,2.17-1.66,9.52c-.06.38-.32.64-.7.64h-10.99c-.32,0-.58-.26-.51-.64L114.1.64C114.16.26,114.42,0,114.74,0h11.06C126.18,0,126.44.26,126.37.64l-3.52,20.2,6.78-8.12c.38-.45.77-.58,1.28-.58h11.06c.45,0,.58.32.32.64l-10.23,10.99,6.07,19.05c.13.32,0,.64-.38.64h-11.38Z" />
+                        <path class="cls-cream"
+                            d="m141.58,43.46c-.32,0-.58-.26-.51-.64l5.31-30.04c.06-.38.38-.64.7-.64h11.12c.38,0,.58.26.51.64l-5.3,30.04c-.06.38-.32.64-.7.64h-11.12Zm6.07-34.52c-.38,0-.58-.25-.51-.64l1.34-7.67C148.55.26,148.81,0,149.19,0h11.12C160.69,0,160.89.26,160.82.64l-1.34,7.67c-.06.38-.32.64-.7.64h-11.12Z" />
+                        <path class="cls-cream"
+                            d="m169.96,43.85c-8.95,0-10.99-3.58-9.59-11.89l5.69-31.32C166.13.26,166.38,0,166.7,0h11.12c.38,0,.64.26.58.64l-5.43,29.79c-.38,2.3.13,3.26,1.92,3.26h1.21c.32,0,.58.25.51.64l-1.6,8.88c-.06.38-.38.64-.7.64h-4.35Z" />
+                        <path class="cls-cream"
+                            d="m190.35,43.85c-8.95,0-10.99-3.58-9.59-11.89l5.69-31.32C186.51.26,186.77,0,187.09,0h11.12C198.59,0,198.85.26,198.79.64l-5.43,29.79c-.38,2.3.13,3.26,1.92,3.26h1.21c.32,0,.58.25.51.64l-1.6,8.88c-.06.38-.38.64-.7.64h-4.35Z" />
+                        <path class="cls-cream"
+                            d="m200.83,32.92c.06-.38.32-.64.7-.64h9.91c.38,0,.64.26.58.64l-1.73,9.91c-.06.38-.32.64-.7.64h-9.84c-.38,0-.64-.26-.58-.64l1.66-9.91Z" />
+                        <path class="cls-yellow"
+                            d="m6.65,19.85l5.3-.33c4.97-.31,9.34-3.38,11.33-7.94l2.12-4.87.33,5.3c.31,4.97,3.38,9.34,7.94,11.33l4.87,2.12-5.3.33c-4.97.31-9.34,3.38-11.33,7.94l-2.12,4.87-.33-5.3c-.31-4.97-3.38-9.34-7.94-11.33l-4.87-2.12Z" />
+                    </g>
+                </svg>
+                <p>未経験からプロまでのITとビジネスを学び、成長させよう。</p>
+            </div>
         </div>
-        <div class="footer-about">
-            <h3>ABOUT</h3>
-            <p class="about-p">運営会社</p>
-            <p class="aboout-p">採用情報</p>
-            <p class="about-p">お問い合わせ</p>
-        </div>
+
+        <!-- 著作権情報-->
+        <p class="copyright">@ 2023 Enskill. copyright</p>
     </footer>
 
-    <!-- 著作権情報-->
-    <p class="last">@ 2023 Enskill. copyright</p>
 </body>
 
 
