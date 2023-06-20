@@ -178,7 +178,7 @@
     
 }
 .updated_text{
-    color: rgba(26, 26, 26, 1); /* 使用不透明度为 1 的 rgba 值来设置字体颜色 */
+    color: rgba(26, 26, 26, 1); /* 使用不透明度? 1 的 rgba ?来?置字体?色 */
     width: 80%;
     text-align: center;
     font-family: 'Noto Sans JP', sans-serif;
@@ -302,7 +302,7 @@ a:visited{
 
 .light-box::after {
     pointer-events: none;                            
-    content: "";                                    /* 设置伪元素的内容为空 */
+    content: "";                                    /* ?置?元素的内容?空 */
     position: absolute;                             
     top: 120%;                                      
     left: 0;                                       
@@ -311,7 +311,7 @@ a:visited{
     background-color: var(--glow-spread-color);     
     filter: blur(2em);                              
     opacity: .7;                                    
-    transform: perspective(1.5em) rotateX(35deg) scale(1, .6); /* 设置伪元素的 3D 变换效果 */
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6); /* ?置?元素的 3D ??效果 */
 }
 
 .light-box:hover {
