@@ -37,7 +37,7 @@ public class AdminLoginController {
 			// 入力されたメールアドレスまたはパスワードが存在しなかった場合
 			//// errorをtrueにする（HTML側でエラーメッセージを出力するため）
 			model.addAttribute("error", true);
-			return "adminLogin.html";
+			return "admin-login.html";
 		} else {
 			// 入力されたメールアドレスまたはパスワードが存在した場合
 			// adminEntityの内容をsessionに保存する
