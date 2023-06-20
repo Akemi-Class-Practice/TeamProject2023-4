@@ -1,0 +1,349 @@
+/* base css */
+
+html {
+    font-size: 75%;
+    display: block;
+}
+
+body {
+    margin: 0 auto;
+    background-image: url(/sourceImg/grid_shallow_gray.svg);
+    background-color: #fbeedd;
+    background-size: 100%;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: #ff516e;
+}
+
+::-moz-selection {
+    background: #ff516e;
+}
+
+p {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/* ---- 共通css ----- */
+.border4px {
+    border: #000000 4px solid;
+}
+
+.justify-content-space-around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.justify-content-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.justify-content-center {
+    display: flex;
+    justify-content: center;
+}
+.justify-content-end{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.align-items-center {
+    display: flex;
+    align-items: center;
+}
+
+.align-items-flex-end {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-direction-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.green-background {
+    background-color: #0f8524;
+}
+
+.cream-background {
+    background-color: #fbeedd;
+}
+
+.circle-radius {
+    border-radius: 30em;
+}
+
+.font-color-cream {
+    color: #fbeedd;
+}
+
+.font-color-green {
+    color: #007c30;
+}
+
+.font-color-orange {
+    color: #ff6128;
+}
+
+.font-color-black {
+    color: #000000;
+}
+
+.submit-button {
+    border: 4px solid #000000;
+    font-size: 2.3em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 800;
+}
+
+.submit-button:hover {
+    background-color: #ff6128;
+    transition: all 0.3s;
+    cursor: default;
+
+}
+
+.label {
+    font-weight: 600;
+}
+
+/* ---------- */
+
+main{
+    position: relative;
+}
+.main-container {
+    margin-top: 10vh;
+    width: 80vw;
+    color: #007c2f;
+    font-weight: bold;
+    font-family: 'Noto Sans', sans-serif;
+
+}
+
+#returnButton {
+    position: fixed;
+    top: 10%;
+    left: 30px;
+    font-size: 1vw;
+    font-weight: 600;
+}
+
+#returnButton::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 15px;
+    width:70%;
+    height: 3px;
+    background-color: #ff6128
+}
+
+
+
+
+.content-title {
+    border-bottom: 3px solid #007c2f;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.form-container {
+    overflow: auto;
+
+}
+
+
+.file-input {
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 5vh;
+}
+
+
+#upload-input {
+    display: none;
+}
+
+#preview-container {
+    position: relative;
+    width: 450px;
+    height: 300px;
+    border: 1px solid #007c2f;
+    margin-left: 20px;
+    float: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #007c2f;
+}
+
+#placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffff;
+    font-size: 18px;
+}
+
+#preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#title-input-container label ,#price-input-container label, #lesson-details-container label{
+    margin-top: 20px;
+    font-size: 15pt;
+    color:#eb6106;
+    border-left: #eb6106 5px solid;
+    padding-left: 5px;
+}
+#title-input-container input{
+    margin-top: 10px;
+    color: #007c2f;
+    width: 80%;
+    font-weight: bold;
+    font-size: 0.5cm;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #eb6106;
+    outline: none;
+}
+
+#title-input-container input::placeholder ,#price-input-container input::placeholder {
+    opacity: 40%;
+}
+
+#input-price {
+    width: 40%;
+    padding: 3px;
+    margin-top: 10px;
+    background-color: #eb6106;
+    border: #007c2f 2px solid;
+    color: #fff;
+    border-radius: 30px;
+    text-align: right;
+    font-style: italic;
+}
+
+.lesson-content {
+    position: relative;
+    padding-top: 60px;
+}
+
+#text-area-container {
+    margin-top: 30px;
+    position: relative;
+    height: auto;
+}
+.decor-div {
+    width: 100%;
+    height: 20px;
+    border: 3px solid #007c2f;
+    background-color: #fbeedd;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+#text-area-container textarea{
+    height: 50vh;
+    width: 100%;
+    background-color: #fbeedd;
+    border: 3px solid #007c2f;
+    resize: none;
+    text-align:justify;
+    outline: none;
+    font-size: 15pt;
+    color: #007c2f;
+    padding: 20px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#button-area-container{
+    position: relative;
+    width: 100%;
+}
+
+#lesson-regist-button {
+
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 30px;
+    border: 3px solid black;
+    border-radius: 30px;
+    background-color: #007c2f;
+    color: #fff;
+    text-align: center;
+    font-size: 0.8cm;
+    box-shadow: 0px 5px 0px #000;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+
+}
+
+
+.last {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #007c2f;
+    font-size: 10px;
+    padding-left: 6%;
+    padding-bottom: 4px;
+}
+
+
+.delete, .ok {
+    text-decoration: none;
+    color: #fff;
+}
+
+#delete {
+    background-color: #e84367;
+}
+
+#ok {
+    float: right;
+}
+#lesson-deleted-button {
+    position: relative;
+    bottom: 120px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 30px;
+    border: 3px solid black;
+    border-radius: 30px;
+    background-color: #e84367;
+    color: #fff;
+    text-align: center;
+    font-size: 0.8cm;
+    box-shadow: 0px 5px 0px #000;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+
+}
