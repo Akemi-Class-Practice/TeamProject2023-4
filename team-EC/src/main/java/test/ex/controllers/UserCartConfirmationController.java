@@ -79,7 +79,7 @@ public class UserCartConfirmationController {
 	//階層へ遷移用
     @GetMapping("/user/completed")
     public String completed(){
-        return "user-application-completed.html　";
+        return "user-application-completed.html";
     }
     
     //講座購入処理

@@ -11,9 +11,12 @@
     CSSファイルはこの二つ行です。両方もコメントインにしてください。 -->
     <!-- <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
     <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}"> -->
-    
-    <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
-    <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}">
+
+
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/user-mypage-and-point.css}">
+    <link rel="stylesheet" th:href="@{/css/user-footer-header.css}">
+
     <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,10 +27,10 @@
 
 </head>
 
-<body>
+<body class="flex-direction-column justify-content-space-between">
     <header>
-        <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
+            <!-- logo -->
             <a href="">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
@@ -70,7 +73,9 @@
                 </div>
                 <div class="cart-icon">
                     <!-- ↓ここでカート一覧画面（購入前）を入力 -->
-                    <a th:href="@{/student/cart}">
+
+                    <a th:href="@{/user/cart/list}">
+
                         <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
                             <defs>
                                 <style>
@@ -88,8 +93,10 @@
                     </a>
                 </div>
                 <div class="Sign-button-header">
-                    <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="SignButton" onclick="location.href = '/student/logout'"><span>SIGN OUT</span></button>
+
+
+                    <a th:href="@{/user/logout}"  class="green-background circle-radius submit-button-header font-color-cream " id="SignButton"><span>SIGN OUT</span></a>
+
                 </div>
             </div>
         </div>
@@ -106,7 +113,7 @@
                     <p>My</p>
                     <p>Page</p>
                 </div>
-                <svg class="floating "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275.44 275.44">
+                <svg class="floating " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275.44 275.44">
                     <defs>
                         <style>
                             .cls-fbca5a {
@@ -120,7 +127,6 @@
                 </svg>
             </div>
             <div class="green-background" id="mypage-back-green">
-
             </div>
         </div>
     </div>
@@ -132,8 +138,7 @@
                 id="userBox">
                 <div>
                     <!-- leftpart -->
-                    <div class="flex-direction-column justify-content-center align-items-flex-end"
-                        id="my-page-username-box">
+                    <div class="flex-direction-column justify-content-center align-items-flex-end" id="my-page-username-box">
                         <!-- for the name -->
                         <!-- flex-direction-column　 -->
                         <p id="nameLabel">お名前</p>
@@ -155,16 +160,16 @@
                         <div>
                             <!-- BACKEND MESSAGE: -->
                             <!-- ここでパスワードを獲得する↓ -->
-                            <span class="userMyPagePassword" type="password" id="userMyPagePassword"
-                                name="password" th:text = "${student.studentPassword}"></span>
+                            <span class="userMyPagePassword" type="password" id="userMyPagePassword"name="password" th:text = "${student.studentPassword}"></span>
                             <ion-icon name="eye-outline" id="eye-outline" width="1.2em"></ion-icon>
                             <ion-icon name="eye-off-outline" id="eye-off-outline" class="hidden"
                                 width="1.2em"></ion-icon>
                             <div>
                                 <!-- BACKEND MESSAGE: -->
                                 <!-- ここでパスワードを変更画面にする↓ -->
-                                <a th:href="@{/password/reset}" class="font-color-green text-decoration-none"
-                                    id="password-change">パスワードを変更する</a>
+
+                                <a th:href="@{/user/password/reset}" class="font-color-green text-decoration-none" id="password-change">パスワードを変更する</a>
+
                             </div>
                         </div>
                     </div>
@@ -179,8 +184,9 @@
                         <div>
                             <!-- BACKEND MESSAGE: -->
                             <!-- ここでポイントをチャージ画面に遷移する↓ -->
-                            <a th:href="@{/point}" class="font-color-green text-decoration-none"
-                                id="point-charge">ポイントをチャージする</a>
+
+                            <a th:href="@{/user/point}" class="font-color-green text-decoration-none" id="point-charge">ポイントをチャージする</a>
+
                         </div>
                     </div>
                 </div>
@@ -196,27 +202,25 @@
                 <!-- 一覧リストはここから -->
                 <div class="flex-direction-column" th:each="lesson:${listbuy}">
                     <!-- just a black line ↓ -->
-                    <div class="horizontal-line-block"></div>
+                    <div id="horizontal-line-block"></div>
 
                     <div class="flex-direction-row justify-content-space-around align-items-center">
-                        <div class="img-preview">
+                        <div id="img-preview">
                             <!-- BACKEND MESSAGE:
-                                    この下の一行目はただの効果を見る仮置き、コメントアウトして、二行目に変換してください -->
-                            <!--<img src="https://i.pinimg.com/564x/bf/58/93/bf5893db0ede755dcd1ff33d278334ab.jpg">-->
-                                <img  th:src="@{/images/{items}(items=${lesson.imageName})}">
+                                    この下の一行目はただの効果を見る仮置き、コメントアウトして、二行目に変換してください 
+                            <img src="https://i.pinimg.com/564x/bf/58/93/bf5893db0ede755dcd1ff33d278334ab.jpg">-->
+                            <img  th:src="@{/images/{items}(items=${lesson.imageName})}">
                         </div>
                         <!-- BACKEND MESSAGE:
                                     この下の一行目の中身はただの効果を見る仮置き -->
-                        <span class="label">講座名:</span>
-                        <p class="font-color-black lessonName" th:text="${lesson.lessonName}"></p>
+                        <p class="font-color-black" id="lessonName" th:text="${lesson.lessonName}"></p>
 
-                        <div class="flex-direction-column align-items-flex-end justify-content-space-between day-point">
+                        <div class="flex-direction-column align-items-flex-end justify-content-space-between " id="day-point">
                             <div>
                                 <span class="label">購入日時:</span>
                                 <!-- BACKEND MESSAGE:
                                     この下の一行目の中身はただの効果を見る仮置き -->
-                                <span class="purchase-value-daytime">
-                                    <!--2023/06/13-->
+                                <span id="purchase-value-daytime">
                                     <p>[[${#temporals.format(lesson.transactionDate, 'yyyy/MM/dd')}]]</p>
                                 </span>
                             </div>
@@ -225,13 +229,15 @@
                                 <span class="label">決済ポイント:</span>
                                 <!-- BACKEND MESSAGE:
                                     この下の一行目の中身はただの効果を見る仮置き -->
-                                <span class="purchase-value-point" th:text="${lesson.lessonFee}"></span><span>pt</span>
+                                <span id="purchase-value-point"
+                                    th:text="${lesson.lessonFee}"></span><span>pt</span>
                             </div>
                         </div>
 
                     </div>
 
                 </div>
+                
                 
             </div>
         </section>
@@ -240,10 +246,9 @@
     </main>
 
     <!-- フッター-->
-    <footer class="green-background" id="userFooterFrame">
+    <footer class="green-background userFooter " id="userFooterFrame" >
         <div class="footer-container  justify-content-space-between">
-
-            <div class="justify-content-space-between flex-direction-column" id="footerLeftContainer">
+            <div class="justify-content-space-between flex-direction-column align-items-flex-end" id="userFooterLeftContainer">
                 <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 212.03 44.23">
                     <defs>
@@ -251,13 +256,13 @@
                             .cls-yellow {
                                 fill: #ff9f2c;
                             }
-
+    
                             .cls-cream {
                                 fill: #fbeedd;
                             }
                         </style>
                     </defs>
-                    <g id="_ユーザーログイン画面">
+                    <g >
                         <path class="cls-cream"
                             d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64C7.55.26,7.81,0,8.13,0h28.25C36.76,0,36.96.26,36.89.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
                         <path class="cls-cream"
@@ -280,33 +285,13 @@
                 </svg>
                 <p>未経験からプロまでのITとビジネスを学び、成長させよう。</p>
             </div>
-
-            <div class="justify-content-space-around " id="footerRightContainer">
-
-                <div>
-                    <h3>ACADEMY</h3>
-                    <div class="justify-content-space-between  flex-direction-column" id="academy">
-                        <a href="">ダッシュボード</a>
-                        <a href="">講座一覧</a>
-                    </div>
-                </div>
-
-                <div>
-                    <h3>ABOUT</h3>
-                    <div class="justify-content-space-between flex-direction-column" id="about">
-                        <p>運営会社</p>
-                        <p>採用情報</p>
-                        <p>お問い合わせ</p>
-                    </div>
-                </div>
-            </div>
         </div>
-
+    
         <!-- 著作権情報-->
-
+        <p class="copyright">@ 2023 Enskill. copyright</p>
     </footer>
+    
 
-    <p class="copyright">@ 2023 Enskill. copyright</p>
 
     <!-- フッターはここまでコピーする↑ -->
 
