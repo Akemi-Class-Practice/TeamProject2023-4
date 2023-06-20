@@ -5,18 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin-corse-management</title>
-    <link rel="stylesheet" th:href="@{/css/admin-corse-management.css}">
-    <link rel = "stylesheet" th:href="@{/css/bg-svg.css}">   
-    <link rel = "stylesheet" th:href="@{/css/admin-footer-header.css}">
+    <title>購入者管理</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/admin-corse-management.css">
+    <link rel="stylesheet" href="/css/bg-svg.css">
+    <link rel="stylesheet" href="/css/admin-footer-header.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
+        rel="stylesheet">
 
 </head>
 
-<body>
+<body class="flex-direction-column justify-content-space-between">
     <header>
-        <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
-            <a href="">
+            <!-- logo -->
+            <a th:href="@{/admin/lesson/list}">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
                         <defs>
@@ -56,55 +63,163 @@
                     <a th:href="@{/admin/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
                         id="coursesButton">COURSES</a>
                 </div>
-                <div class="cart-icon">
-                    <!-- ↓ここでカート一覧画面（購入前）を入力 -->
-                    <a href="">
-                        <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
-                            <defs>
-                                <style>
 
-                                </style>
-                            </defs>
-                            <g id="_講座一覧画面">
-                                <path
-                                    d="m69.67,46H20.17l3.02-5.96c.06-.11.1-.23.13-.34.24-.14.44-.32.6-.54h43.57l5.37-27.46H16.43L12.9,0,1.9.25C.83.27-.02,1.16,0,2.23c.02,1.07.92,1.9,1.98,1.9l8.05-.18,10.19,33.72c-.2.16-.37.37-.49.62l-4.45,8.78c-.3.6-.28,1.32.08,1.89.35.58.98.93,1.65.93h52.66c1.07,0,1.94-.87,1.94-1.94s-.87-1.94-1.94-1.94Z" />
-                                <path
-                                    d="m30.34,52.23c-2.54,0-4.59,2.06-4.59,4.59s2.06,4.59,4.59,4.59,4.59-2.06,4.59-4.59-2.06-4.59-4.59-4.59Z" />
-                                <circle cx="57.84" cy="56.82" r="4.59" />
-                            </g>
-                        </svg>
-                    </a>
-                </div>
                 <div class="Sign-button-header">
-                    <a th:href="@{/admin/logout}" class="green-background circle-radius submit-button-header font-color-cream" id="SignButton"><span>SIGN OUT</span></a>
+                    <button class="green-background circle-radius submit-button-header font-color-cream "
+                        id="SignButton" onclick="location.href = '/admin/login'"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
     </header>
-
     <!-- 背景にの画像、背景の壁に貼ってある紙など。 -->
     <div class="bg_pic">
         <div class="background_pic" id="graduation">
-            <img th:src="@{/sourceImg/bgpic__lesson_update.svg}" alt="graduation picture" />
+            <img src="/sourceImg/bgpic__lesson_update.svg" alt="graduation picture" />
         </div>
         <div class="background_pic_green" id="green_half_x">
         </div>
         <div class="paper_on_wall">
             <div id="paper1">
-                <img th:src="@{/sourceImg/paper1.svg}" alt="a paper looks like tags on the wall">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160.28 246.51">
+                    <defs>
+                        <style>
+                            .cls-cream-black-stroke {
+                                fill: #fbeedd;
+                                stroke: #000;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5.67px;
+                            }
+                        </style>
+                    </defs>
+                    <g>
+                        <rect class="cls-cream-black-stroke" x="2.83" y="10.09" width="154.62" height="233.58" />
+                        <rect x="16.69" width="12.66" height="27.62" />
+                    </g>
+                </svg>
             </div>
             <div id="paper2">
-                <img th:src="@{/sourceImg/paper2.svg}" alt="a paper looks like tags on the wall">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.71 151.23">
+                    <defs>
+                        <style>
+                            .cls-cream-black-stroke {
+                                fill: #fbeedd;
+                                stroke: #000;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5.67px;
+                            }
+                        </style>
+                    </defs>
+                    <g>
+                        <rect class="cls-cream-black-stroke" x="2.83" y="13.81" width="94.04" height="134.59" />
+                        <rect x="43.53" width="12.66" height="27.62" />
+                    </g>
+                </svg>
             </div>
             <div id="paper3">
-                <img th:src="@{/sourceImg/paper3.svg}" alt="a paper looks like tags on the wall">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 209.78 278.05">
+                    <defs>
+                        <style>
+                            .cls-cream-black-stroke {
+                                fill: #fbeedd;
+                                stroke: #000;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5.67px;
+                            }
+                        </style>
+                    </defs>
+                    <g>
+                        <rect class="cls-cream-black-stroke" x="2.83" y="13.81" width="204.11" height="261.41" />
+                        <rect x="98.56" width="12.66" height="27.62" />
+                    </g>
+                </svg>
             </div>
             <div id="paper4">
-                <img th:src="@{/sourceImg/paper4.svg}" alt="a paper looks like tags on the wall">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 204.8 264.52">
+                    <defs>
+                        <style>
+                            .cls-cream-black-stroke {
+                                fill: #fbeedd;
+                                stroke: #000;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5.67px;
+                            }
+                        </style>
+                    </defs>
+                    <g>
+                        <rect class="cls-cream-black-stroke" x="2.83" y="13.81" width="199.13" height="247.88" />
+                        <rect x="163.77" width="12.66" height="27.62" />
+                    </g>
+                </svg>
             </div>
         </div>
         <div class="lamp">
-            <img th:src="@{/sourceImg/lamp.svg}" alt="a lamp on the green table">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.12 250.3">
+                <defs>
+                    <style>
+                        .cls-green {
+                            fill: #007c2f;
+                        }
+
+                        .cls-cream {
+                            fill: #fbeedd;
+                        }
+
+                        .cls-black {
+                            fill: #1a1a1a;
+                        }
+                    </style>
+                </defs>
+                <g>
+                    <path class="cls-green"
+                        d="m10.96,57.07c0,8.28,6.71,14.98,14.98,14.98s14.98-6.71,14.98-14.98-6.71-14.98-14.98-14.98-14.98,6.71-14.98,14.98Z" />
+                    <path class="cls-black"
+                        d="m25.94,72.05c-8.25,0-14.98-6.73-14.98-14.98s6.73-14.98,14.98-14.98,14.98,6.73,14.98,14.98-6.73,14.98-14.98,14.98Zm0-26.75c-6.48,0-11.76,5.28-11.76,11.76s5.28,11.76,11.76,11.76,11.76-5.28,11.76-11.76-5.28-11.76-11.76-11.76Z" />
+                    <path class="cls-cream"
+                        d="m109.44,15.38l3.22,5.58c.89,1.54.36,3.52-1.18,4.4l-13.95,8.06c-1.53.89-3.52.36-4.4-1.18l-3.22-5.58c-.89-1.54-.36-3.52,1.18-4.4l13.95-8.06c1.53-.89,3.52-.36,4.4,1.18Z" />
+                    <path class="cls-black"
+                        d="m95.92,33.86c-1.11,0-2.2-.59-2.8-1.62l-3.22-5.58c-.89-1.54-.36-3.52,1.18-4.4l13.95-8.06c1.53-.89,3.52-.36,4.4,1.18l3.22,5.58c.44.75.56,1.61.33,2.45s-.76,1.52-1.51,1.95l-13.95,8.06c-.5.29-1.06.42-1.6.44h0Zm10.72-16.87l-13.95,8.06,3.22,5.58,13.95-8.06s-3.22-5.58-3.22-5.58Z" />
+                    <path class="cls-cream" d="m137.96,111.39l-11.16,6.44-43.02-74.51,11.16-6.44,43.02,74.51Z" />
+                    <path class="cls-black"
+                        d="m126.8,117.83l-43.02-74.51,11.16-6.44,43.02,74.51-11.16,6.44Zm-38.62-73.33l39.8,68.93,5.58-3.22-39.8-68.93-5.58,3.22Z" />
+                    <path class="cls-cream" d="m137.96,133.55l-43.02,74.51-11.16-6.44,43.02-74.51,11.16,6.45Z" />
+                    <path class="cls-black"
+                        d="m94.94,208.06l-11.16-6.44,43.02-74.51,11.16,6.44-43.02,74.51Zm-6.76-7.62l5.58,3.22,39.8-68.93-5.58-3.22-39.8,68.93Z" />
+                    <path class="cls-green"
+                        d="m80.72,195.52c10.76,0,19.5,8.73,19.5,19.5v15.79c0,10.76-8.73,19.5-19.5,19.5s-19.5-8.73-19.5-19.5v-15.79c0-10.76,8.73-19.5,19.5-19.5Z" />
+                    <path class="cls-black"
+                        d="m80.72,250.3c-10.76,0-19.5-8.73-19.5-19.5v-15.79c0-10.76,8.73-19.5,19.5-19.5s19.5,8.73,19.5,19.5v15.79c0,10.76-8.73,19.5-19.5,19.5Zm0-51.56c-8.96,0-16.27,7.31-16.27,16.27v15.79c0,8.96,7.31,16.27,16.27,16.27s16.27-7.31,16.27-16.27v-15.79c0-8.96-7.31-16.27-16.27-16.27Z" />
+                    <path class="cls-green"
+                        d="m100.91,23.96c3.61,6.25,1.45,14.23-4.78,17.83l-5.11,2.95c-6.25,3.61-14.23,1.45-17.83-4.78-3.62-6.21-1.47-14.22,4.78-17.83l5.11-2.95c6.22-3.59,14.23-1.45,17.83,4.78Z" />
+                    <path class="cls-black"
+                        d="m84.54,46.51c-4.5,0-8.9-2.34-11.32-6.52-1.74-3.01-2.21-6.54-1.3-9.93s3.02-6.17,6.06-7.93l5.11-2.95c6.22-3.59,14.23-1.45,17.83,4.78,1.74,3.01,2.21,6.54,1.3,9.93-.91,3.39-3.05,6.19-6.09,7.95l-5.11,2.95c-2.04,1.18-4.28,1.73-6.48,1.73h0Zm5.06-25.84c-1.67,0-3.37.42-4.9,1.31l-5.11,2.95c-4.69,2.71-6.3,8.74-3.6,13.43,2.71,4.69,8.74,6.3,13.43,3.6l5.11-2.95c2.29-1.32,3.89-3.44,4.59-5.96s.32-5.17-1-7.46c-1.82-3.15-5.13-4.89-8.52-4.9Z" />
+                    <path class="cls-cream"
+                        d="m25.46,228.71h110.2c1.77,0,3.22,1.45,3.22,3.22v10.63H22.23v-10.63c0-1.77,1.45-3.22,3.22-3.22Z" />
+                    <path class="cls-black"
+                        d="m135.66,242.57H25.46c-1.77,0-3.22-1.45-3.22-3.22v-7.41c0-1.77,1.45-3.22,3.22-3.22h110.2c1.77,0,3.22,1.45,3.22,3.22v7.41c0,1.77-1.45,3.22-3.22,3.22Zm-110.2-10.63v7.41h110.2v-7.41H25.46Z" />
+                    <path class="cls-green"
+                        d="m3.22,239.35h154.67c1.77,0,3.22,1.45,3.22,3.22v4.51c0,1.77-1.45,3.22-3.22,3.22H3.22c-1.77,0-3.22-1.45-3.22-3.22v-4.51c0-1.77,1.45-3.22,3.22-3.22Z" />
+                    <path class="cls-black"
+                        d="m157.9,250.3H3.22c-1.77,0-3.22-1.45-3.22-3.22v-4.51c0-1.77,1.45-3.22,3.22-3.22h154.67c1.77,0,3.22,1.45,3.22,3.22v4.51c0,1.77-1.45,3.22-3.22,3.22ZM3.22,242.57v4.51h154.67v-4.51H3.22Z" />
+                    <path class="cls-cream"
+                        d="m73.47,215.5c0,4.09,3.32,7.41,7.41,7.41s7.41-3.32,7.41-7.41-3.32-7.41-7.41-7.41-7.41,3.32-7.41,7.41Z" />
+                    <path class="cls-black"
+                        d="m80.88,222.91c-4.09,0-7.41-3.32-7.41-7.41s3.32-7.41,7.41-7.41,7.41,3.32,7.41,7.41-3.32,7.41-7.41,7.41Zm0-11.6c-2.32,0-4.19,1.87-4.19,4.19s1.87,4.19,4.19,4.19,4.19-1.87,4.19-4.19-1.87-4.19-4.19-4.19Z" />
+                    <path class="cls-green"
+                        d="m120.84,120.76c0,9.43,7.65,17.08,17.08,17.08s17.08-7.65,17.08-17.08-7.65-17.08-17.08-17.08-17.08,7.65-17.08,17.08Z" />
+                    <path class="cls-black"
+                        d="m137.92,137.84c-9.41,0-17.08-7.67-17.08-17.08s7.67-17.08,17.08-17.08,17.08,7.67,17.08,17.08-7.67,17.08-17.08,17.08Zm0-30.93c-7.64,0-13.86,6.22-13.86,13.86s6.22,13.86,13.86,13.86,13.86-6.22,13.86-13.86-6.22-13.86-13.86-13.86Z" />
+                    <path class="cls-cream"
+                        d="m130.51,120.76c0,4.09,3.32,7.41,7.41,7.41s7.41-3.32,7.41-7.41-3.32-7.41-7.41-7.41-7.41,3.32-7.41,7.41Z" />
+                    <path class="cls-black"
+                        d="m137.92,128.18c-4.09,0-7.41-3.32-7.41-7.41s3.32-7.41,7.41-7.41,7.41,3.32,7.41,7.41-3.32,7.41-7.41,7.41Zm0-11.6c-2.32,0-4.19,1.87-4.19,4.19s1.87,4.19,4.19,4.19,4.19-1.87,4.19-4.19-1.87-4.19-4.19-4.19Z" />
+                    <path class="cls-cream"
+                        d="m56.92,101.4L4.32,10.29c.85-.57,1.72-1.1,2.6-1.61,3.1-1.79,6.37-3.27,9.74-4.4,3.27-1.11,6.67-1.84,10.1-2.3,3.37-.42,6.78-.49,10.19-.27,3.36.22,6.72.81,9.98,1.68,3.26.87,6.44,2.06,9.48,3.53,3.06,1.49,5.98,3.27,8.69,5.33,2.77,2.09,5.32,4.44,7.6,7.04,2.35,2.66,4.45,5.58,6.24,8.68s3.27,6.37,4.4,9.74c1.11,3.27,1.84,6.67,2.3,10.1.42,3.37.49,6.78.27,10.19-.22,3.36-.81,6.72-1.68,9.98-.87,3.26-2.06,6.44-3.53,9.48-1.49,3.06-3.27,5.98-5.33,8.69-2.09,2.77-4.44,5.32-7.04,7.6-2.66,2.35-5.58,4.45-8.68,6.24-.91.49-1.79.96-2.72,1.42h0Z" />
+                    <path class="cls-black"
+                        d="m57.55,99.26c.42-.24.85-.46,1.27-.7,3.01-1.74,5.82-3.77,8.41-6.05,2.5-2.22,4.78-4.69,6.81-7.35,1.98-2.63,3.7-5.45,5.15-8.41,1.43-2.95,2.58-6.03,3.43-9.2.85-3.17,1.39-6.41,1.63-9.68.22-3.29.14-6.59-.26-9.86-.43-3.32-1.17-6.59-2.22-9.77-1.09-3.24-2.52-6.43-4.26-9.45s-3.77-5.82-6.05-8.41c-2.22-2.5-4.69-4.78-7.35-6.81-2.63-1.98-5.45-3.7-8.41-5.15-2.95-1.43-6.03-2.58-9.2-3.43-3.17-.85-6.41-1.39-9.68-1.63-3.29-.22-6.59-.14-9.86.26-3.32.43-6.59,1.17-9.77,2.22-3.28,1.1-6.45,2.53-9.45,4.26-.42.24-.84.48-1.24.75,0,0,51.04,88.41,51.04,88.41Zm-1.26,4.26L2.18,9.81c1.28-.89,2.61-1.73,3.95-2.5,3.18-1.84,6.58-3.35,10.04-4.53,3.37-1.13,6.89-1.93,10.4-2.36,3.47-.44,6.98-.53,10.48-.28,3.45.24,6.91.81,10.27,1.74,3.35.9,6.62,2.13,9.76,3.63,3.15,1.53,6.14,3.37,8.93,5.48,2.84,2.15,5.47,4.58,7.83,7.24,2.43,2.73,4.57,5.73,6.43,8.94,1.85,3.21,3.35,6.58,4.53,10.04,1.13,3.37,1.93,6.89,2.36,10.4.44,3.47.53,6.98.28,10.48-.24,3.45-.84,6.92-1.74,10.27-.9,3.35-2.13,6.62-3.63,9.76-1.53,3.15-3.37,6.14-5.48,8.93-2.15,2.84-4.58,5.47-7.24,7.83-2.73,2.43-5.73,4.57-8.94,6.43-1.31.83-2.71,1.56-4.11,2.22Z" />
+                    <path class="cls-black" d="m10.31,7.76l2.79-1.61,51.72,89.58-2.79,1.61L10.31,7.76Z" />
+                </g>
+            </svg>
+
         </div>
     </div>
 
@@ -117,28 +232,34 @@
             <div>
                 <table>
                     <tr>
+                        <th>購入者ID</th>
                         <th>名前</th>
                         <th>メールアドレス</th>
                         <th>購入日時</th>
                     </tr>
-
+                    <tr>
+                        <td>購入者のidを表示</td>
+                        <td>名前を表示</td>
+                        <td>メールアドレスを表示</td>
+                        <td>購入日時を表示</td>
+                    </tr>
                     <tr th:each="purchaserList:${purchaserList}">
-
+                        <td th:text="${purchaserList.studentId}"></td>
                         <td th:text="${purchaserList.studentName}"></td>
                         <td th:text="${purchaserList.studentEmail}"></td>
                         <td th:text="${purchaserList.transactionDate}"></td>
                     </tr>
-                   
+
                 </table>
             </div>
         </section>
     </main>
 
     <!-- フッター-->
-    <footer class="green-background" id="userFooterFrame">
+    <footer class="green-background adminFooter " id="adminFooterFrame" style="position:static;">
         <div class="footer-container  justify-content-space-between">
-
-            <div class="justify-content-space-between flex-direction-column" id="footerLeftContainer">
+            <div class="justify-content-space-between flex-direction-column align-items-flex-end"
+                id="adminFooterLeftContainer">
                 <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 212.03 44.23">
                     <defs>
@@ -152,7 +273,7 @@
                             }
                         </style>
                     </defs>
-                    <g id="_ユーザーログイン画面">
+                    <g>
                         <path class="cls-cream"
                             d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64C7.55.26,7.81,0,8.13,0h28.25C36.76,0,36.96.26,36.89.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
                         <path class="cls-cream"
@@ -178,14 +299,9 @@
         </div>
 
         <!-- 著作権情報-->
-
+        <p class="copyright" style="position:static; margin-top: 4%;">@ 2023 Enskill. copyright</p>
     </footer>
-
-    <p class="copyright">@ 2023 Enskill. copyright</p>
 
 </body>
 
 </html>
-
-
-
