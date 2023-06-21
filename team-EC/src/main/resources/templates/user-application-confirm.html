@@ -21,11 +21,6 @@
 
     <!-- ヘッダーのボダン-->
     <header>
-
-        <div class="buttons">
-            <a th:href="@{/user/lesson/list}" class="head-course">Courses</a>
-
-
             <!-- logo -->
             <a href="">
                 <div class="logo-horizontal-black">
@@ -116,7 +111,7 @@
                 <h4 th:text="${lesson.lessonName}"></h4>
             </div>
 
-            <div class="lecture-price" th:text="${lesson.lessonFee} + '円'"></div>
+            <div class="lecture-price" th:text="${lesson.lessonFee} + 'Pt'"></div>
 
         </div>
 

@@ -3,7 +3,7 @@ function calculateTotal() {
     var total = 0;
 
     for (var i = 0; i < prices.length; i++) {
-        var price = parseFloat(prices[i].textContent.replace(',', '').replace('円', ''));
+        var price = parseFloat(prices[i].textContent.replace(',', '').replace('Pt', ''));
         total += price;
     }
 
@@ -12,7 +12,7 @@ function calculateTotal() {
 
 var totalAmountElement = document.getElementById('total-amount');
 var totalAmount = calculateTotal();
-totalAmountElement.textContent =  formatAmount(totalAmount) + '円';
+totalAmountElement.textContent =  formatAmount(totalAmount) + 'Pt';
 
 function formatAmount(amount) {
     return amount.toLocaleString();
