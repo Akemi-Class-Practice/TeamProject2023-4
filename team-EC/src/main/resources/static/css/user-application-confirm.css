@@ -81,7 +81,7 @@ body {
     overflow: auto;
     margin-left: 12%;
     margin-right: 12%;
-    margin-top: 5%;
+     margin-top: 10%;
     margin-bottom: 7%;
     color: #007c2f;
     font-weight: bold;
@@ -213,3 +213,10 @@ body {
     padding-left: 6%;
     padding-bottom: 4px;
   }
+  
+  .application-title {
+    font-size: 26pt;
+    position: fixed;
+    top:15%;
+  }
+  
