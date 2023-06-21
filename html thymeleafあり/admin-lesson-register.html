@@ -6,10 +6,10 @@
 
  <!-- thymeleafをここに書き換えました -->
     <link rel="stylesheet" th:href="@{/css/reset.css}">
-    <link rel="stylesheet" th:href="@{css/admin-lesson-register.css}">
-    <link rel="stylesheet" th:href="@{/css/adminFooterHeader.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-lesson-register.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-footer-header.css}">
 
-    <link rel="stylesheet" th:href="@{/css/adminLessonRegister.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-lesson-register.css}">
     <title>adminLessonRegister</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,8 +72,8 @@
                 <div class="Sign-button-header">
 
                     <!-- thymeleafをここに書き換えました -->
-                    <a th:href="@{/admin/logout}" class="green-background circle-radius submit-button-header font-color-cream "
-                    id="SignButton"><span>SIGN OUT</span></a>
+                    <button class="green-background circle-radius submit-button-header font-color-cream "
+                    id="SignButton" onclick="location.href = '/admin/logout'"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
