@@ -24,12 +24,12 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-
+/*
 footer {
     position: fixed;
     bottom: 10px;
     left: 10px;
-}
+}*/
 a {
 	color: #fbeedd;
 	text-decoration:none; 
@@ -49,6 +49,14 @@ a {
 	font-size: 16px;
   	text-align: center;
 }
+.error-message3{
+	color: red;
+	font-size: 16px;
+  	text-align: center;
+
+}
+
+
 
 /*レジスタ画面のポップアップ*/
 .container2{
@@ -180,7 +188,7 @@ a {
 }
 
 .green-background {
-    background-color: #0f8524;
+    background-color: #007c30;
 }
 
 .cream-background {
