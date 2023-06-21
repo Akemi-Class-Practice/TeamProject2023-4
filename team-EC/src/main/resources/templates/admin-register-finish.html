@@ -9,9 +9,9 @@
     <style>
         
     </style>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/admin-login-sign-up.css">
-    <link rel="stylesheet" href="/css/admin-footer-header.css">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-login-sign-up.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-footer-header.css}">
 
     <!-- fontlink UPdated -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +70,7 @@
                 
                 <div class="Sign-button-header">
                     <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="SignButton" onclick="location.href = '/admin/login'"><span>SIGN IN</span></button>
+                        id="SignButton" onclick="location.href = '/admin/logout'"><span>SIGN IN</span></button>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
         </div>
         
         <div class=" justify-content-space-around border-bottom" height="100vh">
-            <p class="regist-finish" >管理者登録完成。</p>
+            <p class="regist-finish" >管理者登録完了。</p>
         </div>
     </div>
 

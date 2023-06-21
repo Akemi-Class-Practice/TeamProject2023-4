@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>管理者登録</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/admin-login-sign-up.css">
-  <link rel="stylesheet" href="/css/admin-footer-header.css">
+  <link rel="stylesheet" th:href="@{/css/reset.css}">
+  <link rel="stylesheet" th:href="@{/css/admin-login-sign-up.css}">
+  <link rel="stylesheet" th:href="@{/css/admin-footer-header.css}">
 
   <!-- fontlink -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,7 +68,7 @@
 
         <div class="Sign-button-header">
           <button class="green-background circle-radius submit-button-header font-color-cream "
-            id="SignButton" onclick="location.href = '/admin/login'"><span>SIGN IN</span></button>
+            id="SignButton" onclick="location.href = '/admin/logout'"><span>SIGN IN</span></button>
         </div>
       </div>
     </div>
@@ -114,6 +114,8 @@
 
     </div>
   </form>
+
+  <p th:if="${error == true}" style="margin-top:32%;" class="error-messag">そのE-mailは既に使用されています</p>
 
   <!-- admin footer -->
 

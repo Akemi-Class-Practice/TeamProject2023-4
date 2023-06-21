@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>管理者登録</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/admin-login-sign-up.css">
-  <link rel="stylesheet" href="/css/admin-footer-header.css">
+  <link rel="stylesheet" th:href="@{/css/reset.css}">
+  <link rel="stylesheet" th:href="@{/css/admin-login-sign-up.css}">
+  <link rel="stylesheet" th:href="@{/css/admin-footer-header.css}">
   <!-- fontlink -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,8 +88,7 @@
       <input class="green-background circle-radius submit-button " type="submit" value="＞">
     </div>
   </form>
-  <!--
-  <p th:if="${error == true}" class="error-msg">E-mailまたはパスワードが間違っています</p>
+  <p th:if="${error == true}" class="error-messag">E-mailまたはパスワードが間違っています</p>
   <!-- 新規登録のアクションはここに入力 -->
   <div class="sign_up_container" id="button">
     <a th:href="@{/admin/register}">
