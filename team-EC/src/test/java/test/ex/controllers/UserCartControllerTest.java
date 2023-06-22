@@ -1,4 +1,4 @@
-package test.ex.Controllers;
+package test.ex.controllers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 
