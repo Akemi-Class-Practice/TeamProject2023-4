@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.http.HttpSession;
-
+import test.ex.models.entity.AdminEntity;
 import test.ex.models.entity.LessonEntity;
 
 import test.ex.service.LessonService;
@@ -38,9 +38,15 @@ public class AdminLessonEditController {
 
 	@GetMapping("/admin/lesson/edit/{lessonId}")
 	public String getlessonEditPage(@PathVariable Long lessonId, Model model) {
+		AdminEntity userList = (AdminEntity) session.getAttribute("admin");
 		// lessonIdから編集を行いたい講座情報を取得（HTML内で使用）
 		model.addAttribute("lessonList", lessonService.selectByLessonId(lessonId));
-		return "admin-lesson-edit.html";
+		//ログインしているか判定ログインしていなければログインページへ遷移
+		if(userList != null) {
+			return "admin-lesson-edit.html";
+		}else {
+			return "redirect:/admin/login";
+		}
 	}
 
 	// lesson内容の更新---------------------------------------------------------------------

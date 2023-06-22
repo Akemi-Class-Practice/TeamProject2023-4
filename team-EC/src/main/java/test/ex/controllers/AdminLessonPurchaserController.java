@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import jakarta.servlet.http.HttpSession;
 import test.ex.models.dao.AdminDao;
 import test.ex.models.dao.CoursePurchaserDao;
+import test.ex.models.entity.AdminEntity;
 import test.ex.service.LessonService;
 
 @Controller
@@ -26,8 +27,13 @@ public class AdminLessonPurchaserController {
 	public String getPurchaserList(@PathVariable Long lessonId,Model model) {
 		//該当講座の購入者一覧を取得
 		model.addAttribute("purchaserList",coursePurchaserDao.findByLessonId(lessonId));
-		
-		return "admin-course-management.html";
+		AdminEntity userList = (AdminEntity) session.getAttribute("admin");
+
+		if(userList != null) {
+			return "admin-course-management.html";
+		}else {
+			return "redirect:/admin/login";
+		}
 	}
 
 

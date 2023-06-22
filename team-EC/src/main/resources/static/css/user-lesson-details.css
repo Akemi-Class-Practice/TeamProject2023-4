@@ -166,6 +166,7 @@ main {
   grid-gap: 2em;
   grid-template-rows: auto auto;
   max-width: 80vw;
+
 }
 
 
@@ -173,6 +174,7 @@ main {
   align-self: start;
   grid-column: 1;
   grid-row: 1;
+
   border-radius: 1em;
   overflow: hidden;
   /* background-color: #007c30; */
@@ -199,6 +201,7 @@ main {
 #purchase-box #price {
   grid-column: 1;
   grid-row:5;
+
   align-self: end;
 }
 #purchase-box p{

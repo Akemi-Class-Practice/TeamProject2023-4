@@ -3,11 +3,11 @@
 
 <head>
     <!-- css -->
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/admin-lesson-register.css">
-    <link rel="stylesheet" href="/css/adminFooterHeader.css">
 
-
+ <!-- thymeleafをここに書き換えました -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/admin-lesson-register.css}">
+    <link rel="stylesheet" th:href="@{/css/adminFooterHeader.css}">
 
     <link rel="stylesheet" th:href="@{/css/adminLessonRegister.css}">
     <title>adminLessonRegister</title>
@@ -24,7 +24,9 @@
     <header>
         <div class="justify-content-space-between" id="headerBar">
             <!-- logo -->
-            <a href="">
+           
+            <!-- thymeleafをここに書き換えました -->
+            <a th:href="@{/admin/lesson/list}">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
                         <defs>
@@ -61,19 +63,24 @@
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
-                    <a href="" class="text-decoration-none font-color-green font-weight-600"
+
+                    <!-- thymeleafをここに書き換えました -->
+                    <a  th:href="@{/admin/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
                         id="coursesButton">COURSES</a>
                 </div>
 
                 <div class="Sign-button-header">
-                    <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="SignButton"><span>SIGN OUT</span></button>
+
+                    <!-- thymeleafをここに書き換えました -->
+                    <a th:href="@{/admin/logout}" class="green-background circle-radius submit-button-header font-color-cream "
+                    id="SignButton"><span>SIGN OUT</span></a>
                 </div>
             </div>
         </div>
     </header>
 
     <main class="justify-content-center align-items-center">
+         <!-- thymeleafをここに書き換えました -->
         <a th:href="@{/admin/lesson/list}" class="font-color-orange" id="returnButton">＜戻る</a>
 
         <div class="main-container">

@@ -86,8 +86,6 @@ html {
   transform: translateY(-50%);
 
 
-}
-
 
 
 /*---------------------------------------------------------------------------------------------------
@@ -307,6 +305,7 @@ main h1{
 .img-box img{
   object-fit: cover;
 }
+
 
 
 .lesson-detail-container{

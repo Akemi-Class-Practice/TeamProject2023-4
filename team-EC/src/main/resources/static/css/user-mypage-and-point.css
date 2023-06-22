@@ -446,3 +446,13 @@ p {
       transform: rotate(360deg);
     }
   }
+  
+#purchase-history-container-label{
+    margin-bottom: 50px;
+}
+#courses-purchase-history-container {
+    width: 70vw;
+}
+#history-container{
+    width: 100%;
+}
