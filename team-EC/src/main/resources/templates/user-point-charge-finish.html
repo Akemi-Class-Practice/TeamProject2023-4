@@ -9,9 +9,10 @@
 
     <!-- BACKEND MESSAGE:
         CSSファイルはこの二つ行です。 -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/user-mypage-and-point.css}">
     <link rel="stylesheet" th:href="@{/css/user-footer-header.css}">
-    <link rel="stylesheet" th:href="@{/css/reset.css}">
+
 
     <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +29,7 @@
 	<header>
 		<div class="justify-content-space-between" id="headerBar">
 			<!-- logo -->
-			<a href="">
+			<a th:href="@{/user/lesson/list}">
 				<div class="logo-horizontal-black">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
 						<defs>

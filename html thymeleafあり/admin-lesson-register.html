@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポイントチャージ画面</title>
+    <!-- css -->
 
-    <!-- BACKEND MESSAGE:
-        CSSファイルはこの二つ行です。 -->
-    <link rel="stylesheet" th:href="@{/css/userMypageAndPoint.css}">
-    <link rel="stylesheet" th:href="@{/css/userFooterHeader.css}">
-    <!-- fontlink -->
+ <!-- thymeleafをここに書き換えました -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-lesson-register.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-footer-header.css}">
+
+    <link rel="stylesheet" th:href="@{/css/admin-lesson-register.css}">
+    <title>adminLessonRegister</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
         rel="stylesheet">
-    <!-- fontlink^ -->
+
 </head>
 
 <body class="flex-direction-column justify-content-space-between">
-
     <header>
-        <!-- logo -->
         <div class="justify-content-space-between" id="headerBar">
-            <a href="">
+            <!-- logo -->
+           
+            <!-- thymeleafをここに書き換えました -->
+            <a th:href="@{/admin/lesson/list}">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
                         <defs>
@@ -62,76 +63,92 @@
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
-                    <a th:href="@{/student/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
+
+                    <!-- thymeleafをここに書き換えました -->
+                    <a  th:href="@{/admin/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
                         id="coursesButton">COURSES</a>
                 </div>
-                <div class="cart-icon">
-                    <!-- ↓ここでカート一覧画面（購入前）を入力 -->
-                    <a th:href="@{/student/cart}">
-                        <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
-                            <defs>
-                                <style>
 
-                                </style>
-                            </defs>
-                            <g id="_講座一覧画面">
-                                <path
-                                    d="m69.67,46H20.17l3.02-5.96c.06-.11.1-.23.13-.34.24-.14.44-.32.6-.54h43.57l5.37-27.46H16.43L12.9,0,1.9.25C.83.27-.02,1.16,0,2.23c.02,1.07.92,1.9,1.98,1.9l8.05-.18,10.19,33.72c-.2.16-.37.37-.49.62l-4.45,8.78c-.3.6-.28,1.32.08,1.89.35.58.98.93,1.65.93h52.66c1.07,0,1.94-.87,1.94-1.94s-.87-1.94-1.94-1.94Z" />
-                                <path
-                                    d="m30.34,52.23c-2.54,0-4.59,2.06-4.59,4.59s2.06,4.59,4.59,4.59,4.59-2.06,4.59-4.59-2.06-4.59-4.59-4.59Z" />
-                                <circle cx="57.84" cy="56.82" r="4.59" />
-                            </g>
-                        </svg>
-                    </a>
-                </div>
-                <div class="My-page-header">
-                    <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="MyPageButton"><span>MY PAGE</span></button>
-                </div>
                 <div class="Sign-button-header">
+
+                    <!-- thymeleafをここに書き換えました -->
                     <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="SignButton" onclick="location.href = '/student/logout'"><span>SIGN OUT</span></button>
+                    id="SignButton" onclick="location.href = '/admin/logout'"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
     </header>
-    <!-- 背景画像 -->
-    <div class="bg_pic_container">
-        <!-- BACKEND MESSAGE: 
-             背景画像は
-                multiple_background-cream-grid属性↓の入っております -->
-        <div class="multiple_background-cream-grid background_pic background_cream" id="gradient">
 
-            <div class="green-background" id="mypage-back-green">
+    <main class="justify-content-center align-items-center">
+         <!-- thymeleafをここに書き換えました -->
+        <a th:href="@{/admin/lesson/list}" class="font-color-orange" id="returnButton">＜戻る</a>
 
+        <div class="main-container">
+            <div class="content-title">
+                <h1 class="main-title">講座登録</h1>
+            </div>
+
+            <div class="form-container">
+                <form method="post" enctype="multipart/form-data" th:action="@{/lesson/register}">
+
+                    <!-- 上の部分 -->
+                    <div class="flex-direction-row justify-content-space-between">
+
+                        <div class="file-input" style="width: 50%;">
+                            <input type="file" id="upload-input" name="imageName"
+                                accept="image/png,image/jpeg,image/gif" required>
+                            <label for="upload-input">
+                                <div id="preview-container">
+                                    <span id="placeholder-text">クリックしてアップロード</span>
+                                    <img id="preview-image">
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="lesson-title flex-direction-column justify-content-end" style="width: 50%;">
+                            <div class="flex-direction-column" id="title-input-container">
+                                <label for="input-title">講座タイトル</label>
+                                <input class="input-title" id="input-title" type="text" placeholder="講座タイトルを入力"
+                                    name="lessonTitle" required>
+                            </div>
+
+                            <div class="lesson-title flex-direction-column justify-content-end lesson-cost"
+                                id="price-input-container">
+                                <label for="input-price">講座金額</label>
+                                <div>
+                                    <input type="number" min="0" class="input-cost" id="input-price"
+                                        placeholder="講座金額を入力" name="fee" required><span
+                                        style="margin-left: 3px; font-size: 15pt;">Pt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 下の部分 -->
+                    <div class="lesson-content">
+                        <div id="lesson-details-container">
+                            <label for="lesson-details-input">講座詳細</label>
+                            <div id="text-area-container">
+                                <div class="decor-div"></div>
+                                <textarea id="lesson-details-input" class="details" placeholder="講座内容テキスト"
+                                    name="content" required></textarea>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="last-button justify-content-end" id="button-area-container">
+                        <button id="lesson-regist-button" type="submit">
+                            登録
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-
-    <main class="main-container">
-        <div class="flex-direction-column justify-content-center">
-            <!-- 真ん中、垂直のcontainer -->
-            <div id="point-charge-title">
-                <!-- ポイントチャージタイトル -->
-                <h1 class="font-color-green">ポイントチャージ完了しました</h1>
-            </div>
-            
-            
-            <div>
-                <a th:href="@{/student/lesson/mypage}" class="font-color-green" style="font-size: 20px; font-weight: 500;" >マイページへ</a>
-            </div>
-        </div>
-        <!-- footerとの空間を作る -->
-        <div class="space-holder" style="height: 35em;"></div>
     </main>
-
-
-
-
     <!-- フッター-->
-    <footer class="green-background userFooter " id="userFooterFrame" >
+    <footer class="green-background adminFooter " id="adminFooterFrame" style="position: static;">
         <div class="footer-container  justify-content-space-between">
-            <div class="justify-content-space-between flex-direction-column align-items-flex-end" id="userFooterLeftContainer">
+            <div class="justify-content-space-between flex-direction-column align-items-flex-end"
+                id="adminFooterLeftContainer">
                 <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 212.03 44.23">
                     <defs>
@@ -145,7 +162,7 @@
                             }
                         </style>
                     </defs>
-                    <g >
+                    <g>
                         <path class="cls-cream"
                             d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64C7.55.26,7.81,0,8.13,0h28.25C36.76,0,36.96.26,36.89.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
                         <path class="cls-cream"
@@ -171,48 +188,49 @@
         </div>
     
         <!-- 著作権情報-->
-        <p class="copyright">@ 2023 Enskill. copyright</p>
+        <p class="copyright" style="position: static;">@ 2023 Enskill. copyright</p>
     </footer>
-
-    <!-- フッターはここまでコピーする↑ -->
-    <script>
-    // ぐるぐる動作
-    // BACKEND MESSAGE:
-    //2秒のあどに自動で消えますが、どうやって自動で遷移のがわかりません
-    const button500pt = document.getElementById('button-500pt');
-    const button1500pt = document.getElementById('button-1500pt');
-    const button3000pt = document.getElementById('button-3000pt');
-
-    const chargeWindow = document.querySelector('.charge_window');
-
-    button500pt.addEventListener('click', function() {
-    chargeWindow.style.display = 'block';  
-
-    setTimeout(function() {
-        chargeWindow.style.display = 'none'; 
-    }, 2000);
-});
-
-button1500pt.addEventListener('click', function() {
-    chargeWindow.style.display = 'block'; 
-
-    setTimeout(function() {
-        chargeWindow.style.display = 'none'; 
-    }, 2000);
-});
-
-
-button3000pt.addEventListener('click', function() {
-    chargeWindow.style.display = 'block'; 
-
-    setTimeout(function() {
-        chargeWindow.style.display = 'none'; 
-    }, 2000);
-});
-
-
-
-    </script>
 </body>
+
+
+
+
+<script>
+
+    // 获取文件选择输入框元素
+    var fileInput = document.getElementById('upload-input');
+
+    // 获取预览容器元素
+    var previewContainer = document.getElementById('preview-container');
+
+    // 获取预览图像元素
+    var previewImage = document.getElementById('preview-image');
+
+    // 获取占位文本元素
+    var placeholderText = document.getElementById('placeholder-text');
+
+    // 监听文件选择事件
+    fileInput.addEventListener('change', function (event) {
+        // 获取用户选择的文件
+        var file = event.target.files[0];
+
+        // 创建文件读取器
+        var reader = new FileReader();
+
+        // 监听文件读取完成事件
+        reader.onload = function (e) {
+            // 显示预览图像
+            previewImage.src = e.target.result;
+
+            // 隐藏占位文本
+            placeholderText.style.display = 'none';
+        };
+
+        // 读取文件内容
+        reader.readAsDataURL(file);
+    });
+
+
+</script>
 
 </html>

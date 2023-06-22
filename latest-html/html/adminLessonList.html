@@ -17,7 +17,8 @@
 
 </head>
 
-<body class="flex-direction-column justify-content-space-between">
+<body class="flex-direction-column justify-content-space-between align-items-center">
+
     <header>
         <div class="justify-content-space-between" id="headerBar">
             <!-- logo -->
@@ -71,124 +72,138 @@
     </header>
 
 
-    <!-- SVG -->
-
-
-    <div class="svg-green-circle">
-        <img class="svg-image" src="/EC/sourceImg/ball_green.svg" alt="SVG Image">
+    <!-- SVG background-->
+    <div id="svg-background">
+        <div id="svg-green-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.97 64.97">
+                <defs>
+                    <style>
+                        .cls-green {
+                            fill: #007c2f;
+                        }
+                    </style>
+                </defs>
+                <g>
+                    <circle class="cls-green" cx="32.48" cy="32.48" r="32.48" />
+                </g>
+            </svg>
+        </div>
+        <div id="svg-green-spiral">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335.87 207.35">
+                <defs>
+                    <style>
+                        .cls-green-spiral {
+                            fill: none;
+                            stroke: #007c2f;
+                            stroke-miterlimit: 10;
+                            stroke-width: 5.67px;
+                        }
+                    </style>
+                </defs>
+                <g>
+                    <ellipse class="cls-green-spiral" cx="178.1" cy="73.58" rx="50.57" ry="162.63"
+                        transform="translate(51.38 218.76) rotate(-71.33)" />
+                    <ellipse class="cls-green-spiral" cx="168.67" cy="101.5" rx="50.57" ry="162.63"
+                        transform="translate(18.52 228.8) rotate(-71.33)" />
+                    <ellipse class="cls-green-spiral" cx="157.77" cy="133.76" rx="50.57" ry="162.63"
+                        transform="translate(-19.46 240.41) rotate(-71.33)" />
+                </g>
+            </svg>
+        </div>
+        <div id="svg-yellow-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275.44 275.44">
+                <defs>
+                    <style>
+                        .cls-yellow {
+                            fill: #fbca5a;
+                        }
+                    </style>
+                </defs>
+                <g>
+                    <circle class="cls-yellow" cx="137.72" cy="137.72" r="137.72" />
+                </g>
+            </svg>
+        </div>
+        <div id="svg-orange-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173.66 173.66">
+                <defs>
+                    <style>
+                        .cls-orange {
+                            fill: #e87121;
+                        }
+                    </style>
+                </defs>
+                <g>
+                    <circle class="cls-orange" cx="86.83" cy="86.83" r="86.81" />
+                </g>
+            </svg>
+        </div>
     </div>
 
-    <div class="svg-green-spiral">
-        <img class="svg-image" src="/EC/sourceImg/spiral_green.svg" alt="SVG Image">
-    </div>
 
-
-    <div class="svg-yellow-circle">
-        <img class="svg-image" src="/EC/sourceImg/ball_yellow.svg" alt="SVG Image">
-    </div>
-
-    <div class="svg-orange-circle">
-        <img class="svg-image" src="/EC/sourceImg/ball_orange.svg" alt="SVG Image">
-    </div>
-
-
-
-
-    <!--新規講座追加ボタン-->
-    <a href="/EC/html/adminLessonRegister.html" class="add"><button class="add-button" type="button">+</button></a>
 
     <!-- リスト（内容）-->
-    <!-- リスト（サンプル）-->
-    <form action="">
-        <main>
-
-            <h1 class="list-title">講座一覧</h1>
-
-            <div class="lesson-list">
-                <div class="border-line-top">
-                    <div class="image-area">
-                        <img class="picture" src="/EC/image/flowers.jpg" alt="Lesson Image">
-                    </div>
-                    <div class="lesson-content">
-                        <h1 class="lesson-title">講座タイトル</h1>
-                        <p class="lesson-text">
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-
-                        </p>
-                        <div class="cost-and-button">
-                            <div class="lesson-price">60,000円</div>
-                            <a href="" class="buyers"><button class="buyers-button" type="button">購入者一覧</button></a>
-                            <a href="" class="more"><button class="more-button" type="button">More</button></a>
+    <main>
+        <!--新規講座追加ボタン-->
+        <a th:href="/EC/html/adminLessonRegister.html" class="border4px" id="add-button">+
+        </a>
+        <section id="admin-lesson-container">
+            <div class="flex-direction-column align-items-center">
+                <h1>講座一覧</h1>
+                <!-- 一覧リスト -->
+                <div th:each="lesson:${lessonList}" class="flex-direction-column lesson-list-container">
+                    <div class="horizontal-line-block"></div>
+                    <div class="lesson-contents-container flex-direction-row justify-content-space-between">
+                        <div class="img-box">
+                            <img src="https://i.pinimg.com/564x/bf/58/93/bf5893db0ede755dcd1ff33d278334ab.jpg">
+                            <!-- <img class="picture" th:src="@{'/images/' + ${lesson.imageName}}" alt="Lesson Image"> -->
+                        </div>
+                        <div class="lesson-detail-container" th:text="${lesson.lessonName}">
+                            <h2>講座タイトル</h2>
+                            <p class="lesson-detail-text font-color-green"  th:text="${lesson.lessonDetail}">
+                                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                            </p>
+                            <div class="price-purchaser-more justify-content-space-between">
+                                <p class="font-color-green" th:text="${lesson.lessonFee}+'Pt'"> 仮置き2000Pt </p>
+                                <a href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}" class="purchaser">購入者一覧</a>
+                                <a href="@{'/lesson/edit/' +${lesson.lessonId}}" class="border4px green-background circle-radius more-button">MORE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="lesson-list">
-                <div class="border-line-top">
-                    <div class="image-area">
-                        <img class="picture" src="/EC/image/flowers.jpg" alt="Lesson Image">
-                    </div>
-                    <div class="lesson-content">
-                        <h1 class="lesson-title">講座タイトル</h1>
-                        <p class="lesson-text">
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-
-                        </p>
-                        <div class="cost-and-button">
-                            <div class="lesson-price">60,000円</div>
-                            <a href="" class="buyers"><button class="buyers-button" type="button">購入者一覧</button></a>
-                            <a href="" class="more"><button class="more-button" type="button">More</button></a>
+                <div th:each="lesson:${lessonList}" class="flex-direction-column lesson-list-container">
+                    <div class="horizontal-line-block"></div>
+                    <div class="lesson-contents-container flex-direction-row justify-content-space-between">
+                        <div class="img-box">
+                            <img src="https://i.pinimg.com/564x/bf/58/93/bf5893db0ede755dcd1ff33d278334ab.jpg">
+                            <!-- <img class="picture" th:src="@{'/images/' + ${lesson.imageName}}" alt="Lesson Image"> -->
+                        </div>
+                        <div class="lesson-detail-container" th:text="${lesson.lessonName}">
+                            <h2>講座タイトル</h2>
+                            <p class="lesson-detail-text font-color-green"  th:text="${lesson.lessonDetail}">
+                                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                            </p>
+                            <div class="price-purchaser-more justify-content-space-between">
+                                <p class="font-color-green" th:text="${lesson.lessonFee}+'Pt'"> 仮置き2000Pt </p>
+                                <a href="@{'/lesson/purchaser/list/' +${lesson.lessonId}}" class="purchaser">購入者一覧</a>
+                                <a href="@{'/lesson/edit/' +${lesson.lessonId}}" class="border4px green-background circle-radius more-button">MORE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-
-
-            <div class="lesson-list">
-                <div class="border-line-top">
-                    <div class="image-area">
-                        <img class="picture" src="/EC/image/flowers.jpg" alt="Lesson Image">
-                    </div>
-                    <div class="lesson-content">
-                        <h1 class="lesson-title">講座タイトル</h1>
-                        <p class="lesson-text">
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-                            講座説明文テキスト講座説明文テキスト講座説明文テキスト講座説明文テキスト
-
-                        </p>
-                        <div class="cost-and-button">
-                            <div class="lesson-price">60,000円</div>
-                            <a href="" class="buyers"><button class="buyers-button" type="button">購入者一覧</button></a>
-                            <a href="" class="more"><button class="more-button" type="button">More</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </section>
 
 
 
 
-        </main>
+    </main>
 
-    </form>
     <!-- フッター-->
-    <footer class="green-background adminFooter " id="adminFooterFrame">
+    <footer class="green-background adminFooter " id="adminFooterFrame" style="position: relative;">
         <div class="footer-container  justify-content-space-between">
             <div class="justify-content-space-between flex-direction-column align-items-flex-end"
                 id="adminFooterLeftContainer">
