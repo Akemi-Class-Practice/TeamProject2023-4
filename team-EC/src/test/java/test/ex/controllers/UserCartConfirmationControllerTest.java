@@ -1,4 +1,6 @@
-package test.ex.Controllers;
+
+package test.ex.controllers;
+
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;

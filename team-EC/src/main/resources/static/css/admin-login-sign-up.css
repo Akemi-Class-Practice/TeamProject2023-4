@@ -26,6 +26,14 @@ p {
     margin-inline-end: 0px;
 }
 
+.error-messag {
+	text-align: center;
+	margin-top: 12%;
+    color: #f2a3a4;
+    font-weight: bold;
+}
+
+
 /* ---------- */
 
 /* -----左上のLOGO-------- */
@@ -62,6 +70,24 @@ p {
     position: fixed;
     top: 100px;
     left: 12px;
+}
+.logo-horizontal{
+    z-index: 2;
+    width: 150px;
+    transform-origin: left center;
+    position: fixed;
+    top: 10px;
+    left: 12px;
+}
+.cart-icon{
+    width: 30px;
+}
+ 
+.text-decoration-none{
+    text-decoration: none;
+}
+.font-weight-600{
+    font-weight: 600;
 }
 
 /* ------------------- */
@@ -173,6 +199,12 @@ p {
     flex-direction: column;
     justify-content: center;
 }
+.cart-icon .svg_element :hover {
+    fill:#ff6128;
+}
+.cart-icon .svg_element :active {
+    fill:#fbeedd;
+}
 
 /* ----------*/
 
@@ -211,6 +243,7 @@ form {
 
 .input-bar::placeholder {
     font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.7em;
     color: #0d621e;
     opacity: 0.5;
 }
@@ -247,11 +280,17 @@ form {
     cursor: default;
 
 }
+.font-color-cream{
+    color: #fbeedd;
+}
+.font-color-green{
+    color: #007c30;
+}
 
 .return_container {
     display: inline-block;
     position: fixed;
-    top: 65%;
+    top: 50%;
     right: 6%;
     width: 10%;
     min-width: 110px;
@@ -290,7 +329,7 @@ button {
 button::after {
     pointer-events: none;
     content: "";
-    /* 设置伪元素的内容为空 */
+    /* ?置?元素的内容?空 */
     position: absolute;
     top: 120%;
     left: 0;
@@ -300,7 +339,7 @@ button::after {
     filter: blur(2em);
     opacity: .7;
     transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
-    /* 设置伪元素的 3D 变换效果 */
+    /* ?置?元素的 3D ??效果 */
 }
 
 button:hover {
@@ -324,110 +363,28 @@ footer {
     left: 10px;
 }
 
-/* --------userLogin Page -------- */
-.untransparent_window_container {
-    background-color: rgba(251, 238, 221, 0.2);
-    border: solid 4px #000000;
-    width: 43%;
-    min-width: 400px;
-    height: 40%;
+
+/* REGISTER FINISH PAGE */
+.card {
+    width: 172px;
+    height: 254px;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    right: 10%;
+    bottom: 20%;
+    display: inline-block;
+    margin: 50px;
 }
-
-/* .user-login-form{
-    width: 8vw;
-} */
-.user-login-form .space-between {
-    height: 50px;
-}
-
-.user-login-input-bar {
-    height: 70px;
-    width: 75%;
-    border: #000000 solid 4px;
-}
-
-.user-lg-btn {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    border-left: #000000 4px solid;
-    border-top: #000000 4px solid;
-    height: 22%;
-    width: 60%;
-    font-size: 29pt;
-    color: #fbeedd;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 800;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-}
-
-.user-lg-btn:hover {
-    background-color: #ff6128;
-    transition: all 0.3s;
-    cursor: pointer;
-}
-
-.user-login-fgtpsw {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 16%;
-    height: auto;
-    border-right: #000000 4px solid;
-    border-top: #000000 4px solid;
-    font-size: 6pt;
-    padding: 5px;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 500;
-    color: #007c30;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.user-login-fgtpsw:hover {
-    color: #ff516e;
-    cursor: pointer;
-
-}
-
-.none-display {
+.card .img-top {
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.card:hover .img-top {
+    display: inline;
 }
 
-.new-acc-door {
-    position: fixed;
-    bottom: -10px;
-    right: 100px;
-    cursor: grabbing;
-}
-
-.new-acc-door:hover~.door-handle {
-    transform-origin: left center;
-    transform: rotate(45deg);
-    cursor: grabbing;
-}
-
-.door-handle {
-    position: fixed;
-    bottom: 140px;
-    right: 230px;
-    transition: transform 0.3s ease-in-out;
-    cursor: grabbing;
-}
 
 .regist-finish {
     position: fixed;
@@ -444,12 +401,12 @@ footer {
     display: flex; 
     justify-content: space-around;
 }
-
-/**エラーメッセージ用　後ほど修正お願い致します。　外野**/
-.error-msg{
-    color:red;
-    width:40%;
-    padding-top:150px;
-    font-size:50px;
-    margin:0 auto;
+.justify-content-space-between{
+    display: flex;
+    justify-content: space-between;
 }
+.align-items-center{
+    display: flex;
+    align-items: center;
+}
+

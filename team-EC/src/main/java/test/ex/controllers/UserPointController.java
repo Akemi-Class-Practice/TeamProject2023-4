@@ -25,7 +25,7 @@ public class UserPointController {
     }
 
 	//階層へ遷移用 
-    @GetMapping("/user/pointsuccess")
+    @GetMapping("/user/point/success")
     public String fix(Model model) {
     	//セッションからユーザーの情報を取得
         StudentEntity userList = (StudentEntity) session.getAttribute("student");
@@ -35,7 +35,7 @@ public class UserPointController {
         //モデルに持っているポイントの情報を追加
         model.addAttribute("point", student.getPoint());
         //ユーザーのポイントチャージ画面に遷移
-        return "user-point-charge.html";
+        return "user-point-charge-finish.html";
     }
     
     //階層へ遷移用 今現在のポイント取得
@@ -76,6 +76,6 @@ public class UserPointController {
         studentDao.save(student);
 
         // 成功した場合
-        return "redirect:/user/pointsuccess";
+        return "redirect:/user/point/success";
     }
 }

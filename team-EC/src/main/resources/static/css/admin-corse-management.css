@@ -5,7 +5,11 @@
     padding-top: 100px;
     padding-bottom: 50px;
 }
-  
+ 
+main{
+    height: 100vh;
+} 
+   
 /* tableのスタイル */
 table{
     width: 70%;
@@ -13,6 +17,8 @@ table{
     letter-spacing: 1px;
     background-color: rgba(255,248,230,0.7);
     border: 3px black solid; 
+    font-family: 'Noto Sans JP', sans-serif;
+
 }
 table th{
     font-weight: bolder;

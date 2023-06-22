@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,15 +10,13 @@
     <link rel="stylesheet" href="/css/userCourseDetails.css">
     <link rel="stylesheet" href="/css/userFooterHeader.css">
 
-    
-   
     <!-- fontlink -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
         rel="stylesheet">
-   
+
 </head>
 
 <body class="flex-direction-column justify-content-space-between">
@@ -59,7 +56,7 @@
                     </svg>
                 </div>
             </a>
-    
+
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
@@ -72,7 +69,7 @@
                         <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
                             <defs>
                                 <style>
-    
+
                                 </style>
                             </defs>
                             <g id="_講座一覧画面">
@@ -96,99 +93,119 @@
             </div>
         </div>
     </header>
-    
-    <a th:href="@{/student/lesson/list}" class="return">＜戻る</a>
 
-    <!-- 这里不应该用div class="main"，main是一个类似于<section></section>或者<header></header>一样用来区分部分的
-    所以这里应该用<main></main> -->
-    <div class="main"> <!--用法错误-->
-        <!-- main部分需要增加的属性：位于整个页面水平居中。 -->
+    <a th:href="" class="font-color-orange" id="returnButton">＜戻る</a>
 
-            <div class="main-image">
-                <!-- 要想让图片的大小不受上传的图片大小限制，图片外面需要增加一个框架，在这里我把框架叫做course-detail-img-preview,
-                通过设置这个框架的大小，同时css里面制定overflow:hidden属性，可以使得图片超出的部分被裁切。
-                子元素的img的height设置成100%他就会扩展成父元素同等高度。  -->
-                <div id="course-detail-img-preview">  <!--增加的部分-->
-					 <img th:src="@{'/images/' + ${lessonList.imageName}}"  alt="SVG Image" class="image">
-				</div>
-                <h1 class="image-title"  th:text="${lessonList.lessonName}">仮置きタイトル</h1> <!-- 講座タイトル -->
+    <main class="flex-direction-column align-items-center" style="width: 80vw;">
+
+        <div class="wrapper">
+            <div id="img-box">
+                <img src="https://i.pinimg.com/564x/8e/81/6d/8e816df507303470464b35d4bdc4c73d.jpg">
+                <!-- <img src="https://i.pinimg.com/736x/d5/93/ee/d593ee1a7af763dd09ba2e922a66ab23.jpg"> -->
             </div>
 
-            <div class="cost-button">
-                <span class="cost" th:text="${lessonList.lessonFee}">Pt</span>   <!--講座の値段 -->
-                <br>　<!--如果使用弹性布局写好这一段应该可以删掉-->
-              
-
-                <form class = "set-price" method="post" th:action="@{/add/cart}">
-					<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}"> <!--这个是从后台复制的代码  不需要动到或者删掉，是隐藏在画面里的用来调用课程id的-->
-                	<button  type = "submit" class="buy">購入</button>
-                </form>    
+            <div id="purchase-box">
+                <p id="price" th:text="${lessonList.lessonFee}"> 12901 PT</p>
+                <input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
+                <form method="post" th:action="@{/user/cart/add}">
+                    <button id="purchase-button" type="submit">購入</button>
+                </form>
             </div>
-
-            <!-- 上面把 讲座图片，购买按钮+pt数给分成了三个段落，并且之间毫无关系，就会裂开
-            正确思路https://www.pinterest.co.uk/pin/534169205816756635 -->
-           
-
-
-
-          
-            <div class="content">
-                <span>1. 講座説明テキスト</span>
-                <br>
-                <p th:text="${lessonList.lessonDetail}"></p>
-                <span>2. 講座説明テキスト</span>
-                <br>
-                <p></p>
+            <div id="lesson-title">
+                <h2 class="font-color-green" th:text="${lessonList.lessonName}">
+                    タイトルです、よろしくお願いします。
+                </h2>
             </div>
-    </div>
-
-
- <!-- フッター-->
- <footer class="green-background userFooter " id="userFooterFrame">
-    <div class="footer-container  justify-content-space-between">
-        <div class="justify-content-space-between flex-direction-column align-items-flex-end"
-            id="userFooterLeftContainer">
-            <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 212.03 44.23">
-                <defs>
-                    <style>
-                        .cls-yellow {
-                            fill: #ff9f2c;
-                        }
-
-                        .cls-cream {
-                            fill: #fbeedd;
-                        }
-                    </style>
-                </defs>
-                <g>
-                    <path class="cls-cream"
-                        d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64C7.55.26,7.81,0,8.13,0h28.25C36.76,0,36.96.26,36.89.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
-                    <path class="cls-cream"
-                        d="m41.55.64C41.62.26,41.87,0,42.26,0h10.99C53.76,0,54.08.19,54.21.64l6.33,22.18h.25l3.9-22.18C64.76.26,65.01,0,65.4,0h10.42C76.13,0,76.39.26,76.33.64l-7.48,42.19c-.06.38-.32.64-.7.64h-11.12c-.38,0-.7-.19-.83-.64l-6.26-22.18h-.32s-3.9,22.18-3.9,22.18c-.06.38-.32.64-.7.64h-10.36c-.38,0-.64-.26-.58-.64L41.55.64Z" />
-                    <path class="cls-cream"
-                        d="m73.38,39.25c-.26-.19-.26-.64.06-.96l5.69-5.82c.25-.26.64-.32,1.02-.06,3.58,2.24,6.39,3.2,9.72,3.2,2.04,0,3.32-.89,3.32-1.85,0-.64-.51-1.09-2.94-1.34l-3.39-.38c-5.75-.64-9.27-3.39-9.27-8.12s5.88-12.53,15.53-12.53c5.88,0,10.67,1.85,13.29,4.15.26.19.19.64-.13.96l-5.18,5.5c-.32.32-.64.38-.96.19-2.24-1.41-4.86-2.43-8.18-2.43-1.85,0-2.94.77-2.94,1.6s.45,1.15,2.49,1.34l3.32.38c7.29.77,10.04,3.9,10.04,8.18,0,7.73-6.33,12.98-16.75,12.98-6.65,0-11.57-2.17-14.77-4.99Z" />
-                    <path class="cls-cream"
-                        d="m126.37,43.46c-.45,0-.7-.19-.83-.64l-3.07-11.7-1.79,2.17-1.66,9.52c-.06.38-.32.64-.7.64h-10.99c-.32,0-.58-.26-.51-.64L114.1.64C114.16.26,114.42,0,114.74,0h11.06C126.18,0,126.44.26,126.37.64l-3.52,20.2,6.78-8.12c.38-.45.77-.58,1.28-.58h11.06c.45,0,.58.32.32.64l-10.23,10.99,6.07,19.05c.13.32,0,.64-.38.64h-11.38Z" />
-                    <path class="cls-cream"
-                        d="m141.58,43.46c-.32,0-.58-.26-.51-.64l5.31-30.04c.06-.38.38-.64.7-.64h11.12c.38,0,.58.26.51.64l-5.3,30.04c-.06.38-.32.64-.7.64h-11.12Zm6.07-34.52c-.38,0-.58-.25-.51-.64l1.34-7.67C148.55.26,148.81,0,149.19,0h11.12C160.69,0,160.89.26,160.82.64l-1.34,7.67c-.06.38-.32.64-.7.64h-11.12Z" />
-                    <path class="cls-cream"
-                        d="m169.96,43.85c-8.95,0-10.99-3.58-9.59-11.89l5.69-31.32C166.13.26,166.38,0,166.7,0h11.12c.38,0,.64.26.58.64l-5.43,29.79c-.38,2.3.13,3.26,1.92,3.26h1.21c.32,0,.58.25.51.64l-1.6,8.88c-.06.38-.38.64-.7.64h-4.35Z" />
-                    <path class="cls-cream"
-                        d="m190.35,43.85c-8.95,0-10.99-3.58-9.59-11.89l5.69-31.32C186.51.26,186.77,0,187.09,0h11.12C198.59,0,198.85.26,198.79.64l-5.43,29.79c-.38,2.3.13,3.26,1.92,3.26h1.21c.32,0,.58.25.51.64l-1.6,8.88c-.06.38-.38.64-.7.64h-4.35Z" />
-                    <path class="cls-cream"
-                        d="m200.83,32.92c.06-.38.32-.64.7-.64h9.91c.38,0,.64.26.58.64l-1.73,9.91c-.06.38-.32.64-.7.64h-9.84c-.38,0-.64-.26-.58-.64l1.66-9.91Z" />
-                    <path class="cls-yellow"
-                        d="m6.65,19.85l5.3-.33c4.97-.31,9.34-3.38,11.33-7.94l2.12-4.87.33,5.3c.31,4.97,3.38,9.34,7.94,11.33l4.87,2.12-5.3.33c-4.97.31-9.34,3.38-11.33,7.94l-2.12,4.87-.33-5.3c-.31-4.97-3.38-9.34-7.94-11.33l-4.87-2.12Z" />
-                </g>
-            </svg>
-            <p>未経験からプロまでのITとビジネスを学び、成長させよう。</p>
         </div>
-    </div>
 
-    <!-- 著作権情報-->
-    <p class="copyright">@ 2023 Enskill. copyright</p>
-</footer>
+        <div id="lessonDetail">
+            <p th:text="${lessonList.lessonDetail}">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt reprehenderit sint,
+                doloribus natus mollitia maiores atque cum iusto repellat. Repellendus tenetur minus autem,
+                culpa cumque deserunt officiis, hic amet fugit totam non animi ut dolor iure libero nam velit
+                consequuntur beatae est error porro vero, repudiandae ducimus ea? Iure, eum quam eveniet animi tempora
+                natus corporis eligendi, quos amet incidunt et accusantium architecto eos, facere atque quis magni
+                quisquam voluptas odio exercitationem? Tempore totam vitae labore sunt officiis, quidem perspiciatis,
+                rem fugit voluptates in dignissimos eveniet eius! Beatae, magnam in!
+
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat consequuntur obcaecati, dolores
+                accusantium fugiat soluta tenetur cum sunt reiciendis hic, quibusdam voluptates ut eius minus dolorem,
+                iure deleniti dignissimos architecto. Dolorem, est dolorum! Aspernatur perspiciatis iure vero vel
+                officiis nostrum hic labore assumenda fuga perferendis magni ex cumque est, rem nemo laborum dignissimos
+                libero illum adipisci. Dolorum maiores laborum nobis itaque, nostrum rerum aut vel sit odit! Placeat
+                iste neque quasi quam sunt magnam recusandae praesentium mollitia saepe delectus voluptates, blanditiis,
+                culpa rerum a autem voluptatum. Suscipit consequatur eius ipsam illum facere mollitia soluta deleniti
+                quod laudantium qui enim ducimus commodi fuga esse placeat quaerat vero necessitatibus error deserunt
+                vel molestias totam, quos officia! Autem eius porro modi amet fugiat aut dignissimos velit pariatur
+                ipsam et ad, voluptatem illo beatae in magnam corrupti sunt rerum obcaecati voluptatum eos doloremque
+                dolor impedit corporis. Earum consectetur iusto debitis vel magnam rem doloremque, autem ab tempora,
+                dolorum possimus incidunt assumenda eius sunt! Amet possimus voluptas placeat numquam delectus quo animi
+                magnam doloribus nemo sequi, rerum architecto sit illum non aperiam officiis qui sunt totam impedit,
+                explicabo exercitationem inventore. Dignissimos voluptatem unde iure, laudantium nihil cumque vel
+                aperiam corporis voluptatum adipisci hic sit atque necessitatibus tenetur est nam soluta. Fugiat, sed.
+                Molestiae ad maiores alias dolor magnam qui porro sapiente eveniet impedit debitis magni, dicta, fugiat
+                quas. Possimus voluptates blanditiis sunt architecto assumenda aut, quisquam deleniti nisi, nobis
+                exercitationem facere a quos dolor vitae mollitia iusto adipisci sit necessitatibus est. Nihil ipsam
+                ratione dolorum cupiditate vitae excepturi deserunt odio natus fugiat sit sint, quidem voluptatem,
+                provident voluptatum. Iure suscipit inventore tenetur earum commodi atque fugit voluptate qui vitae,
+                maiores obcaecati consequatur, ipsa quis omnis aspernatur culpa dignissimos nesciunt neque consequuntur.
+                Vitae quaerat cumque saepe, repudiandae assumenda adipisci architecto doloremque laboriosam quam odit
+                tempore? Veniam?
+            </p>
+        </div>
+
+
+
+
+    </main>
+
+
+    <!-- フッター-->
+    <footer class="green-background userFooter " id="userFooterFrame" style="position: static;">
+        <div class="footer-container  justify-content-space-between">
+            <div class="justify-content-space-between flex-direction-column align-items-flex-end"
+                id="userFooterLeftContainer">
+                <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 212.03 44.23">
+                    <defs>
+                        <style>
+                            .cls-yellow {
+                                fill: #ff9f2c;
+                            }
+
+                            .cls-cream {
+                                fill: #fbeedd;
+                            }
+                        </style>
+                    </defs>
+                    <g>
+                        <path class="cls-cream"
+                            d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64C7.55.26,7.81,0,8.13,0h28.25C36.76,0,36.96.26,36.89.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
+                        <path class="cls-cream"
+                            d="m41.55.64C41.62.26,41.87,0,42.26,0h10.99C53.76,0,54.08.19,54.21.64l6.33,22.18h.25l3.9-22.18C64.76.26,65.01,0,65.4,0h10.42C76.13,0,76.39.26,76.33.64l-7.48,42.19c-.06.38-.32.64-.7.64h-11.12c-.38,0-.7-.19-.83-.64l-6.26-22.18h-.32s-3.9,22.18-3.9,22.18c-.06.38-.32.64-.7.64h-10.36c-.38,0-.64-.26-.58-.64L41.55.64Z" />
+                        <path class="cls-cream"
+                            d="m73.38,39.25c-.26-.19-.26-.64.06-.96l5.69-5.82c.25-.26.64-.32,1.02-.06,3.58,2.24,6.39,3.2,9.72,3.2,2.04,0,3.32-.89,3.32-1.85,0-.64-.51-1.09-2.94-1.34l-3.39-.38c-5.75-.64-9.27-3.39-9.27-8.12s5.88-12.53,15.53-12.53c5.88,0,10.67,1.85,13.29,4.15.26.19.19.64-.13.96l-5.18,5.5c-.32.32-.64.38-.96.19-2.24-1.41-4.86-2.43-8.18-2.43-1.85,0-2.94.77-2.94,1.6s.45,1.15,2.49,1.34l3.32.38c7.29.77,10.04,3.9,10.04,8.18,0,7.73-6.33,12.98-16.75,12.98-6.65,0-11.57-2.17-14.77-4.99Z" />
+                        <path class="cls-cream"
+                            d="m126.37,43.46c-.45,0-.7-.19-.83-.64l-3.07-11.7-1.79,2.17-1.66,9.52c-.06.38-.32.64-.7.64h-10.99c-.32,0-.58-.26-.51-.64L114.1.64C114.16.26,114.42,0,114.74,0h11.06C126.18,0,126.44.26,126.37.64l-3.52,20.2,6.78-8.12c.38-.45.77-.58,1.28-.58h11.06c.45,0,.58.32.32.64l-10.23,10.99,6.07,19.05c.13.32,0,.64-.38.64h-11.38Z" />
+                        <path class="cls-cream"
+                            d="m141.58,43.46c-.32,0-.58-.26-.51-.64l5.31-30.04c.06-.38.38-.64.7-.64h11.12c.38,0,.58.26.51.64l-5.3,30.04c-.06.38-.32.64-.7.64h-11.12Zm6.07-34.52c-.38,0-.58-.25-.51-.64l1.34-7.67C148.55.26,148.81,0,149.19,0h11.12C160.69,0,160.89.26,160.82.64l-1.34,7.67c-.06.38-.32.64-.7.64h-11.12Z" />
+                        <path class="cls-cream"
+                            d="m169.96,43.85c-8.95,0-10.99-3.58-9.59-11.89l5.69-31.32C166.13.26,166.38,0,166.7,0h11.12c.38,0,.64.26.58.64l-5.43,29.79c-.38,2.3.13,3.26,1.92,3.26h1.21c.32,0,.58.25.51.64l-1.6,8.88c-.06.38-.38.64-.7.64h-4.35Z" />
+                        <path class="cls-cream"
+                            d="m190.35,43.85c-8.95,0-10.99-3.58-9.59-11.89l5.69-31.32C186.51.26,186.77,0,187.09,0h11.12C198.59,0,198.85.26,198.79.64l-5.43,29.79c-.38,2.3.13,3.26,1.92,3.26h1.21c.32,0,.58.25.51.64l-1.6,8.88c-.06.38-.38.64-.7.64h-4.35Z" />
+                        <path class="cls-cream"
+                            d="m200.83,32.92c.06-.38.32-.64.7-.64h9.91c.38,0,.64.26.58.64l-1.73,9.91c-.06.38-.32.64-.7.64h-9.84c-.38,0-.64-.26-.58-.64l1.66-9.91Z" />
+                        <path class="cls-yellow"
+                            d="m6.65,19.85l5.3-.33c4.97-.31,9.34-3.38,11.33-7.94l2.12-4.87.33,5.3c.31,4.97,3.38,9.34,7.94,11.33l4.87,2.12-5.3.33c-4.97.31-9.34,3.38-11.33,7.94l-2.12,4.87-.33-5.3c-.31-4.97-3.38-9.34-7.94-11.33l-4.87-2.12Z" />
+                    </g>
+                </svg>
+                <p>未経験からプロまでのITとビジネスを学び、成長させよう。</p>
+            </div>
+        </div>
+
+        <!-- 著作権情報-->
+        <p class="copyright" style="position: static; margin-top: 70px;">@ 2023 Enskill. copyright</p>
+    </footer>
 </body>
 
 </html>
