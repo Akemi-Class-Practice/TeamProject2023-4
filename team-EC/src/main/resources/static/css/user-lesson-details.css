@@ -162,15 +162,19 @@ main {
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 2em;
-  width: auto;;
+  grid-template-rows: auto auto;
+  max-width: 80vw;
+
 }
 
 
 #img-box {
   align-self: start;
-  grid-column: 1/30;
-  grid-row: 1/20;
+  grid-column: 1;
+  grid-row: 1;
+
   border-radius: 1em;
   overflow: hidden;
   /* background-color: #007c30; */
@@ -178,25 +182,26 @@ main {
 
 #img-box img {
   border-radius: 1em;
-  width: 600px;
+  width: 40vw;
   height: 100%;
   object-fit: cover;
 }
 
 
 #purchase-box {
-  justify-self: end;
-  grid-column: 30/50;
-  grid-row: 1/20;
+  justify-self:end;
+  grid-column: 2;
+  grid-row:1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: repeat(6,1fr);
   margin-bottom: 30px;
 }
 
 #purchase-box #price {
-  grid-column: 3/4;
-  grid-row:5/6;
+  grid-column: 1;
+  grid-row:5;
+
   align-self: end;
 }
 #purchase-box p{
@@ -206,7 +211,7 @@ main {
   font-size: 20pt;
 }
 #purchase-box form{
-  grid-column: 2/4;
+  grid-column: 1;
   grid-row:6;
   align-self: center;
 }
@@ -225,9 +230,10 @@ main {
 }
 
 #lesson-title {
-  grid-column: 1/30;
-  grid-row: 20/25;
+  grid-column: 1;
+  grid-row: 2;
 }
+
 #lesson-title h2{
   font-size:23pt;
 }
@@ -235,6 +241,7 @@ main {
 #lessonDetail{
   font-size: 16pt;
   text-align: justify;
+  margin-top: 3vh;
   margin-bottom: 30px;
   width: 70vw;
   align-self: center;
