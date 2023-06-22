@@ -25,7 +25,7 @@ import test.ex.models.entity.StudentEntity;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UserCartControllerTest {
+public class UserCartControllerTest2{
 
     @Autowired
     private WebApplicationContext context;
