@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>userCourseDetails-after</title>
+    <!-- thymeleafをここに書き換えました -->
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/userCourseDetails.css">
-    <link rel="stylesheet" href="/css/userFooterHeader.css">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-lesson-register.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-footer-header.css}">
+	<title>adminLessonEdit</title>
 
-    <!-- fontlink -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
-        rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap"
+		rel="stylesheet">
 
 </head>
 
@@ -23,7 +21,9 @@
     <header>
         <div class="justify-content-space-between" id="headerBar">
             <!-- logo -->
-            <a href="">
+
+            <!-- thymeleafをここに書き換えました -->
+            <a th:href="@{/admin/lesson/list}">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
                         <defs>
@@ -59,105 +59,101 @@
 
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
-                    <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
-                    <a href="" class="text-decoration-none font-color-green font-weight-600"
+                    <!-- ↓ここで講座コース一覧画面を入力 -->
+                    
+            <!-- thymeleafをここに書き換えました -->
+                    <a  th:href="@{/admin/lesson/list}" class="text-decoration-none font-color-green font-weight-600"
                         id="coursesButton">COURSES</a>
                 </div>
-                <div class="cart-icon">
-                    <!-- ↓ここでカート一覧画面（購入前）を入力 -->
-                    <a href="">
-                        <svg class="svg_element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 61.42">
-                            <defs>
-                                <style>
 
-                                </style>
-                            </defs>
-                            <g id="_講座一覧画面">
-                                <path
-                                    d="m69.67,46H20.17l3.02-5.96c.06-.11.1-.23.13-.34.24-.14.44-.32.6-.54h43.57l5.37-27.46H16.43L12.9,0,1.9.25C.83.27-.02,1.16,0,2.23c.02,1.07.92,1.9,1.98,1.9l8.05-.18,10.19,33.72c-.2.16-.37.37-.49.62l-4.45,8.78c-.3.6-.28,1.32.08,1.89.35.58.98.93,1.65.93h52.66c1.07,0,1.94-.87,1.94-1.94s-.87-1.94-1.94-1.94Z" />
-                                <path
-                                    d="m30.34,52.23c-2.54,0-4.59,2.06-4.59,4.59s2.06,4.59,4.59,4.59,4.59-2.06,4.59-4.59-2.06-4.59-4.59-4.59Z" />
-                                <circle cx="57.84" cy="56.82" r="4.59" />
-                            </g>
-                        </svg>
-                    </a>
-                </div>
-                <div class="My-page-header">
-                    <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="MyPageButton"><span>MY PAGE</span></button>
-                </div>
                 <div class="Sign-button-header">
-                    <button class="green-background circle-radius submit-button-header font-color-cream "
-                        id="SignButton"><span>SIGN OUT</span></button>
+                    
+            <!-- thymeleafをここに書き換えました -->
+            <button class="green-background circle-radius submit-button-header font-color-cream "
+            id="SignButton" onclick="location.href = '/admin/logout'"><span>SIGN OUT</span></button>
                 </div>
             </div>
         </div>
     </header>
 
-    <a th:href="" class="font-color-orange" id="returnButton">＜戻る</a>
+    <main class="justify-content-center align-items-center">
+        
+            <!-- thymeleafをここに書き換えました -->
+        <a th:href="@{/admin/lesson/list}" class="font-color-orange" id="returnButton">＜戻る</a>
 
-    <main class="flex-direction-column align-items-center" style="width: 80vw;">
-
-        <div class="wrapper">
-            <div id="img-box">
-                <!-- <img src="https://i.pinimg.com/564x/8e/81/6d/8e816df507303470464b35d4bdc4c73d.jpg"> -->
-                <img src="https://i.pinimg.com/736x/d5/93/ee/d593ee1a7af763dd09ba2e922a66ab23.jpg">
+        <div class="main-container">
+            <div class="content-title">
+                <h1 class="main-title">講座登録</h1>
             </div>
 
-            <div id="lesson-title">
-                <h2 class="font-color-green" th:text="${lessonList.lessonName}">
-                    タイトルです、よろしくお願いします。
-                </h2>
+            <div class="form-container">
+                <form method="post" enctype="multipart/form-data" th:action="@{/admin/lesson/edit}">
+
+                    <!-- 上の部分 -->
+                    <div class="flex-direction-row justify-content-space-between">
+
+                        <div class="file-input" style="width: 50%;">
+                            <input type="file" id="upload-input" name="imageName"
+                                accept="image/png,image/jpeg,image/gif" required>
+                            <label for="upload-input">
+                                <div id="preview-container">
+                                    <span id="placeholder-text">クリックしてアップロード</span>
+                                    <img id="preview-image">
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="lesson-title flex-direction-column justify-content-end" style="width: 50%;">
+                            <div class="flex-direction-column" id="title-input-container">
+                                <label for="input-title">講座タイトル</label>
+                                <input class="input-title" id="input-title" type="text" placeholder="講座タイトルを入力"
+                                    name="lessonTitle" th:value="${lessonList.lessonName}" required>
+                            </div>
+
+                            <div class="lesson-title flex-direction-column justify-content-end lesson-cost"
+                                id="price-input-container">
+                                <label for="input-price">講座金額</label>
+                                <div>
+                                    <input type="number" min="0" class="input-cost" id="input-price"
+                                        placeholder="講座金額を入力" name="fee" th:value="${lessonList.lessonFee}" required><span
+                                        style="margin-left: 3px; font-size: 15pt;">Pt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 下の部分 -->
+                    <div class="lesson-content">
+                        <div id="lesson-details-container">
+                            <label for="lesson-details-input">講座詳細</label>
+                            <div id="text-area-container">
+                                <div class="decor-div"></div>
+                                <textarea id="lesson-details-input" class="details" placeholder="講座内容テキスト"
+                                    name="content" th:text="${lessonList.lessonDetail}" required></textarea>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="last-button justify-content-end" id="button-area-container">
+						<button id="lesson-regist-button">
+                            編集
+                        </button>
+                    </div>
+                </form>
+
+				<form method="post" th:action="@{/admin/lesson/delete}">
+					<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
+					<button class="button" id="lesson-deleted-button">
+						講座削除
+					</button>
+				</form>
             </div>
         </div>
-
-        <div id="lessonDetail">
-            <p th:text="${lessonList.lessonDetail}">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt reprehenderit sint,
-                doloribus natus mollitia maiores atque cum iusto repellat. Repellendus tenetur minus autem,
-                culpa cumque deserunt officiis, hic amet fugit totam non animi ut dolor iure libero nam velit
-                consequuntur beatae est error porro vero, repudiandae ducimus ea? Iure, eum quam eveniet animi tempora
-                natus corporis eligendi, quos amet incidunt et accusantium architecto eos, facere atque quis magni
-                quisquam voluptas odio exercitationem? Tempore totam vitae labore sunt officiis, quidem perspiciatis,
-                rem fugit voluptates in dignissimos eveniet eius! Beatae, magnam in!
-
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat consequuntur obcaecati, dolores
-                accusantium fugiat soluta tenetur cum sunt reiciendis hic, quibusdam voluptates ut eius minus dolorem,
-                iure deleniti dignissimos architecto. Dolorem, est dolorum! Aspernatur perspiciatis iure vero vel
-                officiis nostrum hic labore assumenda fuga perferendis magni ex cumque est, rem nemo laborum dignissimos
-                libero illum adipisci. Dolorum maiores laborum nobis itaque, nostrum rerum aut vel sit odit! Placeat
-                iste neque quasi quam sunt magnam recusandae praesentium mollitia saepe delectus voluptates, blanditiis,
-                culpa rerum a autem voluptatum. Suscipit consequatur eius ipsam illum facere mollitia soluta deleniti
-                quod laudantium qui enim ducimus commodi fuga esse placeat quaerat vero necessitatibus error deserunt
-                vel molestias totam, quos officia! Autem eius porro modi amet fugiat aut dignissimos velit pariatur
-                ipsam et ad, voluptatem illo beatae in magnam corrupti sunt rerum obcaecati voluptatum eos doloremque
-                dolor impedit corporis. Earum consectetur iusto debitis vel magnam rem doloremque, autem ab tempora,
-                dolorum possimus incidunt assumenda eius sunt! Amet possimus voluptas placeat numquam delectus quo animi
-                magnam doloribus nemo sequi, rerum architecto sit illum non aperiam officiis qui sunt totam impedit,
-                explicabo exercitationem inventore. Dignissimos voluptatem unde iure, laudantium nihil cumque vel
-                aperiam corporis voluptatum adipisci hic sit atque necessitatibus tenetur est nam soluta. Fugiat, sed.
-                Molestiae ad maiores alias dolor magnam qui porro sapiente eveniet impedit debitis magni, dicta, fugiat
-                quas. Possimus voluptates blanditiis sunt architecto assumenda aut, quisquam deleniti nisi, nobis
-                exercitationem facere a quos dolor vitae mollitia iusto adipisci sit necessitatibus est. Nihil ipsam
-                ratione dolorum cupiditate vitae excepturi deserunt odio natus fugiat sit sint, quidem voluptatem,
-                provident voluptatum. Iure suscipit inventore tenetur earum commodi atque fugit voluptate qui vitae,
-                maiores obcaecati consequatur, ipsa quis omnis aspernatur culpa dignissimos nesciunt neque consequuntur.
-                Vitae quaerat cumque saepe, repudiandae assumenda adipisci architecto doloremque laboriosam quam odit
-                tempore? Veniam?
-            </p>
-        </div>
-
-
-
-
     </main>
-
-
     <!-- フッター-->
-    <footer class="green-background userFooter " id="userFooterFrame" style="position: static;">
+    <footer class="green-background adminFooter " id="adminFooterFrame" style="position: static;">
         <div class="footer-container  justify-content-space-between">
             <div class="justify-content-space-between flex-direction-column align-items-flex-end"
-                id="userFooterLeftContainer">
+                id="adminFooterLeftContainer">
                 <svg class="logo-horizontal-cream" id="footerLeftLogo" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 212.03 44.23">
                     <defs>
@@ -165,7 +161,7 @@
                             .cls-yellow {
                                 fill: #ff9f2c;
                             }
-
+    
                             .cls-cream {
                                 fill: #fbeedd;
                             }
@@ -195,10 +191,51 @@
                 <p>未経験からプロまでのITとビジネスを学び、成長させよう。</p>
             </div>
         </div>
-
+    
         <!-- 著作権情報-->
-        <p class="copyright" style="position: static; margin-top: 70px;">@ 2023 Enskill. copyright</p>
+        <p class="copyright" style="position: static;">@ 2023 Enskill. copyright</p>
     </footer>
 </body>
+
+
+
+
+<script>
+
+    // 获取文件选择输入框元素
+    var fileInput = document.getElementById('upload-input');
+
+    // 获取预览容器元素
+    var previewContainer = document.getElementById('preview-container');
+
+    // 获取预览图像元素
+    var previewImage = document.getElementById('preview-image');
+
+    // 获取占位文本元素
+    var placeholderText = document.getElementById('placeholder-text');
+
+    // 监听文件选择事件
+    fileInput.addEventListener('change', function (event) {
+        // 获取用户选择的文件
+        var file = event.target.files[0];
+
+        // 创建文件读取器
+        var reader = new FileReader();
+
+        // 监听文件读取完成事件
+        reader.onload = function (e) {
+            // 显示预览图像
+            previewImage.src = e.target.result;
+
+            // 隐藏占位文本
+            placeholderText.style.display = 'none';
+        };
+
+        // 读取文件内容
+        reader.readAsDataURL(file);
+    });
+
+
+</script>
 
 </html>
