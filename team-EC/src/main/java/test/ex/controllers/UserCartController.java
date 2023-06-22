@@ -52,19 +52,6 @@ public class UserCartController {
 	@PostMapping("/user/cart/delete")
 	public String deleteCart(@RequestParam String lessonName) {
 		
-		//配列内の該当箇所を削除
-//		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
-//		Iterator<LessonEntity>ite = cartList.iterator();	//ぜんか
-//		int idx = 0;
-//		while(ite.hasNext()) {		//次の行を見る
-//			LessonEntity entity = ite.next();
-//			if(entity.getLessonName().equals(lessonName)) {
-//				break;
-//			}
-//			idx++;
-//		}
-//		cartList.remove(idx);
-		
 		int idx = -1;	//初期値代入
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 		LessonEntity foundEntity =null;
