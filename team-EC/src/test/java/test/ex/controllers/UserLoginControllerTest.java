@@ -1,25 +1,31 @@
-package test.ex.controllers;
+package test.ex.Controllers;
 
-import static org.mockito.ArgumentMatchers.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import jakarta.servlet.http.HttpSession;
 import test.ex.models.entity.StudentEntity;
 import test.ex.service.StudentService;
-
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -33,127 +39,165 @@ public class UserLoginControllerTest {
 
     @Mock
     private HttpSession session;
-
-    @Test
-    // ログイン画面の表示をテストする
-    public void testGetLoginPage() throws Exception {
-        mockMvc.perform(get("/user/login"))
-                .andExpect(view().name("user-login.html"));  // 表示するビューの名前が"user-login.html"であることを検証
-    }
     
-    @Test
-    //正しいユーザーメール(melon@melon)＆正しいユーザパスワード(123)を入力してテスト
-    public void testLogin_Successful() throws Exception {
-        // モックの戻り値を設定
-        StudentEntity studentEntity = new StudentEntity();
-        when(studentService.selectByEmailAndPassword(eq("melon@melon"), eq("123")))
-                .thenReturn(studentEntity);
+    // オブジェクトのセットアップとモックの設定 ----------------------------------------------------------
+    @BeforeEach
+    public void prepareData() {
+        // StudentEntityオブジェクトを作成する
+        StudentEntity studentEntity = new StudentEntity("melon@melon", "123");
 
-        // リクエストを作成して実行し、リダイレクト先のurlを/user/lesson/listかどうかをテスト
-        RequestBuilder request = post("/user/login")
+        // selectByEmailAndPasswordメソッドに引数"melon@melon"と"123"が与えられた場合にstudentEntityを返すように設定する
+        when(studentService.selectByEmailAndPassword(eq("melon@melon"), eq("123"))).thenReturn(studentEntity);
+
+        // 他のパラメータのモックの設定
+        when(studentService.selectByEmailAndPassword(eq("melon@123"), eq("123"))).thenReturn(null);
+        when(studentService.selectByEmailAndPassword(eq(""), eq("123"))).thenReturn(null);
+        when(studentService.selectByEmailAndPassword(eq("melon@melon"), eq("1111"))).thenReturn(null);
+        when(studentService.selectByEmailAndPassword(eq("melon@melon"), eq(""))).thenReturn(null);
+        when(studentService.selectByEmailAndPassword(eq(""), eq(""))).thenReturn(null);
+        when(studentService.selectByEmailAndPassword(eq("melon@123"), eq("123aaa"))).thenReturn(null);
+    }
+
+    // ログインページの取得を検証する --------------------------------------------------------------------------------------------------
+    @Test
+    public void accessLoginPage_Succeed() throws Exception {
+        // リクエストを作成して実行し、ビュー名が"user-login"であることを検証する
+    	RequestBuilder request = MockMvcRequestBuilders.get("/user/login");
+        mockMvc.perform(request).andExpect(view().name("user-login.html"));
+    }
+
+    // 正常なログインの成功を検証する（正しいユーザーメールとパスワードが提供された場合にログインが成功し、リダイレクトが正しく行われる）
+    @Test
+    public void testLogin_Successful() throws Exception {
+        // リクエストを作成して実行し、リダイレクト先のURLが"/user/lesson/list"であることを検証する
+        RequestBuilder request =MockMvcRequestBuilders.post("/user/login")
                 .param("email", "melon@melon")
                 .param("password", "123");
 
-        mockMvc.perform(request)
-                .andExpect(redirectedUrl("/user/lesson/list"));
-    }
+    
+     		MvcResult result = mockMvc.perform(request).andExpect(redirectedUrl("/user/lesson/list")).andReturn();
+     		
+     		// セッションを取得する
+     		HttpSession session = result.getRequest().getSession();
+     		
+     		// セッションからログインユーザーエンティティを取得する
+     		StudentEntity loggedInUser = (StudentEntity)session.getAttribute("student");
+     		assertNotNull(loggedInUser);										
+     		assertEquals("melon@melon", loggedInUser.getStudentEmail());					
+     		assertEquals("123", loggedInUser.getStudentPassword());			
+     	}
 
-
+    // 間違ったユーザーメール("melon@123")と正しいユーザーパスワード("123")を入力してログインボタンを押下
     @Test
-    // 間違ったユーザーメール(melon@123)＆正しいユーザパスワード(123)を入力してテスト
-    public void testLogin_Failed_InvalidEmail() throws Exception {
-        // モックの戻り値を設定
-        when(studentService.selectByEmailAndPassword(any(), any())).thenReturn(null);
-
-        // リクエストを作成して実行し、エラー状態を検証
+    public void testLogin_wrongEmail() throws Exception {
+        // リクエストを作成して実行し、ステータスが成功であることを検証する
         RequestBuilder request = post("/user/login")
                 .param("email", "melon@123")
                 .param("password", "123");
 
         mockMvc.perform(request)
-                .andExpect(status().isOk())
-                .andExpect(view().name("user-login.html"))
-                .andExpect(model().attribute("error", true));
-    }
-    
-    @Test
-    // ユーザーメールが空白&正しいユーザパスワード(123)に入力してテスト
-    public void testLogin_Failed_EmptyEmail() throws Exception {
-        // モックの戻り値を設定
-        when(studentService.selectByEmailAndPassword(any(), any())).thenReturn(null);
+        .andExpect(status().isOk())
+        .andExpect(view().name("user-login.html"));
+     // セッションを取得する
+     		HttpSession session = mockMvc.perform(MockMvcRequestBuilders.get("/user/login")).andReturn().getRequest().getSession();
 
-        // リクエストを作成して実行し、エラー状態を検証
+     		// セッションからログインユーザーエンティティを取得する
+     		StudentEntity loggedInUser = (StudentEntity) session.getAttribute("student");
+     		assertNull(loggedInUser);			// ログインユーザーエンティティがnullであることを検証する
+     	}
+
+    // ユーザーメールが空白で正しいユーザーパスワード("123")を入力してログインボタンを押下
+    @Test
+    public void testLogin_NullEmail() throws Exception {
+        // リクエストを作成して実行し、ステータスが成功であることを検証する
         RequestBuilder request = post("/user/login")
                 .param("email", "")
                 .param("password", "123");
 
         mockMvc.perform(request)
-                .andExpect(view().name("user-login.html"))
-                .andExpect(model().attribute("error", true));
-    }
-    
-    @Test
-    // 正しいユーザーメール(melon@melon)&間違ったユーザーパスワード(1111)を入力してテスト
-    public void testLogin_Failed_InvalidPassword() throws Exception {
-        // モックの戻り値を設定
-        when(studentService.selectByEmailAndPassword(any(), any())).thenReturn(null);
+        .andExpect(status().isOk())
+        .andExpect(view().name("user-login.html"));
+     // セッションを取得する
+     		HttpSession session = mockMvc.perform(MockMvcRequestBuilders.get("/user/login")).andReturn().getRequest().getSession();
 
-        // リクエストを作成して実行し、エラー状態を検証
+     		// セッションからログインユーザーエンティティを取得する
+     		StudentEntity loggedInUser = (StudentEntity) session.getAttribute("student");
+     		assertNull(loggedInUser);			// ログインユーザーエンティティがnullであることを検証する
+     	}
+
+    // 正しいユーザーメール("melon@melon")と間違ったユーザーパスワード("1111")を入力してログインボタンを押下
+    @Test
+    public void testLogin_wrongPasswordl() throws Exception {
+        // リクエストを作成して実行し、ステータスが成功であることを検証する
         RequestBuilder request = post("/user/login")
                 .param("email", "melon@melon")
                 .param("password", "1111");
 
         mockMvc.perform(request)
-                .andExpect(view().name("user-login.html"))
-                .andExpect(model().attribute("error", true));
-    }
-    
-    @Test
-    // 正しいユーザーメール(melon@melon)&パスワードが空白の状態のテスト
-    public void testLogin_Failed_EmptyEmailAndPassword() throws Exception {
-        // モックの戻り値を設定
-        when(studentService.selectByEmailAndPassword(any(), any())).thenReturn(null);
+        .andExpect(status().isOk())
+        .andExpect(view().name("user-login.html"));
+     // セッションを取得する
+     		HttpSession session = mockMvc.perform(MockMvcRequestBuilders.get("/user/login")).andReturn().getRequest().getSession();
 
-        // リクエストを作成して実行し、エラー状態を検証
+     		// セッションからログインユーザーエンティティを取得する
+     		StudentEntity loggedInUser = (StudentEntity) session.getAttribute("student");
+     		assertNull(loggedInUser);			// ログインユーザーエンティティがnullであることを検証する
+     	}
+
+    // 正しいユーザーメール("melon@melon")とパスワードが空白の状態でログインボタンを押下
+    @Test
+    public void testLogin_NullPassword() throws Exception {
+        // リクエストを作成して実行し、ステータスが成功であることを検証する
+        RequestBuilder request = post("/user/login")
+                .param("email", "melon@melon")
+                .param("password", "");
+
+        mockMvc.perform(request)
+        .andExpect(status().isOk())
+        .andExpect(view().name("user-login.html"));
+     // セッションを取得する
+     		HttpSession session = mockMvc.perform(MockMvcRequestBuilders.get("/user/login")).andReturn().getRequest().getSession();
+
+     		// セッションからログインユーザーエンティティを取得する
+     		StudentEntity loggedInUser = (StudentEntity) session.getAttribute("student");
+     		assertNull(loggedInUser);				// ログインユーザーエンティティがnullであることを検証する
+     	}
+
+    // ユーザーメールとパスワードが空白の状態でログインボタンを押下
+    @Test
+    public void testLogin_NullEmailAndNullPassword() throws Exception {
+        // リクエストを作成して実行し、ステータスが成功であることを検証する
         RequestBuilder request = post("/user/login")
                 .param("email", "")
                 .param("password", "");
 
         mockMvc.perform(request)
-                .andExpect(view().name("user-login.html"))
-                .andExpect(model().attribute("error", true));
-    }
-    
-    
+        .andExpect(status().isOk())
+        .andExpect(view().name("user-login.html"));
+     // セッションを取得する
+     		HttpSession session = mockMvc.perform(MockMvcRequestBuilders.get("/user/login")).andReturn().getRequest().getSession();
+
+     		// セッションからログインユーザーエンティティを取得する
+     		StudentEntity loggedInUser = (StudentEntity) session.getAttribute("student");
+     		assertNull(loggedInUser);				// ログインユーザーエンティティがnullであることを検証する
+     	}
+
+    // 正しいユーザーメール("melon@123")と間違ったユーザーパスワード("123aaa")を入力してログインボタンを押下
     @Test
-    // ユーザーメール&パスワードが空白の状態でログインボタン押下ユーザーメールとパスワードが空白でテスト
-    public void testLogin_Failed_EmptyEmailAndEmptyPassword() throws Exception {
-        // モックの戻り値を設定
-        when(studentService.selectByEmailAndPassword(any(), any())).thenReturn(null);
-
-        // リクエストを作成して実行し、エラー状態を検証
-        RequestBuilder request = post("/user/login")
-                .param("email", "")
-                .param("password", "");
-
-        mockMvc.perform(request)
-                .andExpect(model().attribute("error", true));
-    }
-    
-    
-    @Test
-    // 間違ったユーザーメール(melon@123)&間違ったユーザーパスワード(123aaa)でログインボタンを押下テスト
-    public void testLogin_Failed_InvalidEmailAndInvalidPassword() throws Exception {
-        // モックの戻り値を設定
-        when(studentService.selectByEmailAndPassword(any(), any())).thenReturn(null);
-
-        // リクエストを作成して実行し、エラー状態を検証
+    public void testLogin_wrongEmailAndPassword() throws Exception {
+        // リクエストを作成して実行し、ステータスが成功であることを検証する
         RequestBuilder request = post("/user/login")
                 .param("email", "melon@123")
                 .param("password", "123aaa");
 
         mockMvc.perform(request)
-                .andExpect(view().name("user-login.html"))
-                .andExpect(model().attribute("error", true));
-    }
+        .andExpect(status().isOk())
+        .andExpect(view().name("user-login.html"));
+     // セッションを取得する
+     		HttpSession session = mockMvc.perform(MockMvcRequestBuilders.get("/user/login")).andReturn().getRequest().getSession();
+
+     		// セッションからログインユーザーエンティティを取得する
+     		StudentEntity loggedInUser = (StudentEntity) session.getAttribute("student");
+     		assertNull(loggedInUser);				// ログインユーザーエンティティがnullであることを検証する
+     	}
 }
