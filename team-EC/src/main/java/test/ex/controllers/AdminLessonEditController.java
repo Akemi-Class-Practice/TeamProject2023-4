@@ -48,6 +48,17 @@ public class AdminLessonEditController {
 			return "redirect:/admin/login";
 		}
 	}
+	
+	@GetMapping("/admin/lesson/edit/finish")
+	public String getlessonEditFinishPage() {
+			return "admin-lesson-edit-finish.html";
+	}
+	
+	@GetMapping("/admin/lesson/deleted")
+	public String getlessonDeleted() {
+		return "admin-lesson-deleted.html";
+	}
+
 
 	// lesson内容の更新---------------------------------------------------------------------
 
@@ -80,10 +91,12 @@ public class AdminLessonEditController {
 
 
 
-		return "admin-lesson-edit-finish.html";
+		return "redirect:/admin/lesson/edit/finish";
 
 
 	}
+	
+	
 	@Transactional
 	@PostMapping("/admin/lesson/delete")
 	public String lessonDelete(@RequestParam Long lessonId) {
@@ -94,7 +107,7 @@ public class AdminLessonEditController {
 		
 		//2.lessonテーブルの該当講座履歴を削除
 		lessonService.delete(lessonId);
-		return "admin-lesson-deleted.html";
+		return "redirect:/admin/lesson/deleted";
 		
 	}
 
