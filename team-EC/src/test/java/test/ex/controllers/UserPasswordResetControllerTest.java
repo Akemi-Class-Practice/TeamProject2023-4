@@ -1,4 +1,4 @@
-package test.ex.Controllers;
+package test.ex.controllers;
 
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyLong;
