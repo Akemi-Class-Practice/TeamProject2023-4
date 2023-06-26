@@ -6,11 +6,11 @@
 
 - 参考記事
 
-  - SpringBootのControllerとServiceの関係 : https://dkssksk.com/springbootcontrollerservice/
+  - SpringBootのControllerとServiceの関係 : https://onl.bz/XebDj9N
 
-  - Spring Boot + JPAで複合主キーのテーブルを扱う方法 : https://medium-company.com/springboot-jpa-%E8%A4%87%E5%90%88%E4%B8%BB%E3%82%AD%E3%83%BC/
+  - Spring Boot + JPAで複合主キーのテーブルを扱う方法 : https://onl.bz/sLNYh62
+  
+  - マッピングについて : https://onl.bz/jKYZwz2
 
-  - マッピングについて : https://b1san-blog.com/post/spring/spring-jpa-mapping/
-
-  - @QueryとnativeQuery = trueについて : https://qiita.com/rennnosuke/items/2d3a06ac5a755c656d4b
+  - @QueryとnativeQuery = trueについて : https://onl.bz/S4w2WqC
 
