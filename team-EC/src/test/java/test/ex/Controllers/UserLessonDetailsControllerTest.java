@@ -1,4 +1,4 @@
-package test.ex.Controllers;
+package test.ex.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -75,7 +75,6 @@ public class UserLessonDetailsControllerTest {
 		// LessonEntity オブジェクトとして lesson を作成し、lessonId に 603Lを格納する。 
 		LessonEntity lesson = new LessonEntity();
 		lesson.setLessonId(603L);
-		lesson.setLessonName("aaaa");
 
 		// モックの動作設定(引数に603Lを渡すと、上で作成した lessonオブジェクトを返すように設定されている。)
 		when(lessonService.selectByLessonId(603L)).thenReturn(lesson);	
@@ -161,7 +160,7 @@ public class UserLessonDetailsControllerTest {
 		
         ///user/cart/addにPOSTリクエストを送信
 		mockMvc.perform(MockMvcRequestBuilders.post("/user/cart/add")
-		.param("lessonId", "1")													// パラメータとしてlessonId(603)を指定
+		.param("lessonId", "603")												// パラメータとしてlessonId(603)を指定
 		.session(session))														// セッションに有効なセッション属性が設定されていることを検証
 		
 		.andExpect(status().is3xxRedirection())									// レスポンスのHTTPステータスコードが3xxのリダイレクトであることを検証
