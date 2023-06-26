@@ -44,22 +44,19 @@ public class AdminLessonRegisterController {
 	
 	@PostMapping("/admin/lesson/register")
 	public String LessonRegister(@RequestParam String lessonTitle,
-							   @RequestParam String content,
-							   @RequestParam int fee,
-							   @RequestParam("imageName") MultipartFile imageName, Model model) {
+							     @RequestParam String content,
+							     @RequestParam int fee,
+							     @RequestParam("imageName") MultipartFile imageName, Model model) {
 
 		// ログイン中のユーザ情報を取得
 		AdminEntity userList = (AdminEntity) session.getAttribute("admin");
 		Long admin_id = userList.getAdminId();
-		
-
 
 		
-		
-			// 画像ファイル名を取得
-			String fileName = imageName.getOriginalFilename();
+		// 画像ファイル名を取得
+		String fileName = imageName.getOriginalFilename();
 	
-			try {
+		try {
 				// 保存先の指定
 				File lessonFile = new File("./images/" + fileName);
 				// バイナリデータの取得
@@ -70,15 +67,14 @@ public class AdminLessonRegisterController {
 				out.write(bytes);
 				// バッファを閉じることで書き出しを正常終了
 				out.close();
-			} catch (Exception e) {
+		} catch (Exception e) {
 				e.printStackTrace();
-			}
+		}
 	
-			// 保存処理
-			lessonService.insert(lessonTitle,content,fee,fileName, admin_id);
-			return "admin-lesson-register-finish.html";
+		// 保存処理
+		lessonService.insert(lessonTitle,content,fee,fileName, admin_id);
+		return "admin-lesson-register-finish.html";
 		
-
 	}
 
 }
