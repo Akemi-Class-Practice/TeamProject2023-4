@@ -120,7 +120,7 @@
         <!-- 合計金額や買い物を続く、戻るボダン-->
         <h2 class="total">
             <span class="total-label">合計：</span>
-            <span id="total-amount"></span>
+            <span id="total-amount" th:text="${totalPoint} + Pt"></span>
         </h2>
 
         <!--pointが不足している場合のエラーメッセージ-->
