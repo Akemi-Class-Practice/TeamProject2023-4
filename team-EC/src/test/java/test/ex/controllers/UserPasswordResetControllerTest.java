@@ -41,21 +41,27 @@ public class UserPasswordResetControllerTest {
     @MockBean
     private StudentService studentService;
 
+    //テスト中にセッション属性を設定するために使用
     @Autowired
     private HttpSession session;
 
     // オブジェクトのセットアップとモックの設定 ----------------------------------------------------------
     @BeforeEach
     public void prepareData(){
+        // テストデータの準備
         StudentEntity studentEntity = new StudentEntity("test","testPassword","testKeyword","test@example.com");
 
+        // studentServiceのselectByEmailAndKeywordメソッドが特定のパラメータに対してどのような結果を返すかをモックする
         when(studentService.selectByEmailAndKeyword(eq("test@example.com"),eq("testKeyword"))).thenReturn(studentEntity);
 
         when(studentService.selectByEmailAndKeyword(eq("wrong@example.com"),eq("testKeyword"))).thenReturn(null);
         when(studentService.selectByEmailAndKeyword(eq("test@example.com"),eq("wrongKeyword"))).thenReturn(null);
 
     }
-    //ページに遷移できる
+
+    // テストメソッド -----------------------------------------------------------------------
+
+    // リセットページにアクセスできることを検証する
     @Test
     public void testGetResetPage() throws Exception {
         mockMvc.perform(get("/user/password/reset"))
@@ -64,7 +70,7 @@ public class UserPasswordResetControllerTest {
                 .andExpect(model().attribute("error", false));
     }
 
-    //ページに遷移できる
+    // パスワード完了ページにアクセスできることを検証する
     @Test
     public void testGetPasswordCompletedPage() throws Exception {
         mockMvc.perform(get("/user/password/completed"))
@@ -72,10 +78,13 @@ public class UserPasswordResetControllerTest {
                 .andExpect(view().name("user-password-completed.html"));
     }
 
+
+    // 有効なデータを使用してパスワードリセットができることを検証する
     //mailとkeyword両方当たる
     @Test
     public void testPasswordReset_WithValidData() throws Exception {
         // Prepare test data
+        //生徒情報を作成
         StudentEntity studentEntity = new StudentEntity();
         studentEntity.setStudentId(1L);
         studentEntity.setStudentName("John Doe");
@@ -83,6 +92,7 @@ public class UserPasswordResetControllerTest {
 
         when(studentService.selectByEmailAndKeyword(anyString(), anyString())).thenReturn(studentEntity);
 
+        // リクエストパラメータの設定
         mockMvc.perform(post("/user/password/reset")
                         .param("keyword", "testKeyword")
                         .param("email", "test@example.com")
@@ -91,6 +101,7 @@ public class UserPasswordResetControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/user/password/completed"));
 
+        // studentServiceのupdateメソッドが特定のパラメータで呼び出されたことを検証
         verify(studentService, times(1)).update(eq(1L), eq("John Doe"), eq("newPassword"), eq("testKeyword"), eq("test@example.com"), eq(100));
     }
 
@@ -99,22 +110,26 @@ public class UserPasswordResetControllerTest {
     public void testPasswordReset_WithInvalidData_KeywordMismatch() throws Exception{
 
         // リクエストを作成して実行し、ステータスが成功であることを検証する
+        //テスト用のリクエストを作成し、パスワードリセットのエンドポイントにPOSTリクエストを送信します。リクエストパラメータには、キーワードの不一致を示す"wrongKeyword"が含まれています。
         RequestBuilder request = post("/user/password/reset")
                 .param("keyword", "wrongKeyword")
                 .param("email", "test@example.com")
                 .param("password", "newPassword")
                 .param("password2", "newPassword");
 
+        //リクエストが成功し、ビューの名前が"user-password-reset.html"であることを検証します。
         mockMvc.perform(request)
                 .andExpect(view().name("user-password-reset.html"));
 
+        //テスト用のセッションを取得し、その中から"testName"という名前の属性を取得します。この属性は、パスワードリセット中にセッションに設定されたものです。
         HttpSession session = mockMvc.perform(MockMvcRequestBuilders.get("/user/password/reset"))
                 .andReturn()
                 .getRequest().getSession();
 
+        //取得した"testName"の属性がnullであることを検証します。つまり、パスワードリセットが失敗したため、studentEntityがセッションに設定されていないことを確認します。
         StudentEntity studentEntity = (StudentEntity) session.getAttribute("testName");
         assertNull(studentEntity);
-
+        //verifyメソッドを使用して、studentServiceのupdateメソッドが呼び出されなかったことを検証します。パスワードリセットが失敗したため、更新処理は行われないはずです。
         verify(studentService, never()).update(anyLong(), anyString(), anyString(), anyString(), anyString(), anyInt());
     }
 
@@ -123,22 +138,27 @@ public class UserPasswordResetControllerTest {
     @Test
     public void testPasswordReset_WithInvalidData_EmailMismatch() throws Exception{
 
+        //RequestBuilderを使用してテスト用のリクエストを作成します。
         RequestBuilder request = post("/user/password/reset")
                 .param("keyword", "testKeyword")
                 .param("email", "wrong@example.com")
                 .param("password", "newPassword")
                 .param("password2", "newPassword");
 
+        //mockMvc.performで作成したリクエストを実行します。
         mockMvc.perform(request)
                 .andExpect(view().name("user-password-reset.html"));
 
+        // セッションからstudentEntityを取得して検証
         HttpSession session = mockMvc.perform(MockMvcRequestBuilders.get("/user/password/reset"))
                 .andReturn()
                 .getRequest().getSession();
 
+        //取得した"testName"の属性がnullであることを検証します。つまり、パスワードリセットが失敗したため、studentEntityがセッションに設定されていないことを確認します。
         StudentEntity studentEntity = (StudentEntity) session.getAttribute("testName");
         assertNull(studentEntity);
 
+        //verifyメソッドを使用して、studentServiceのupdateメソッドが呼び出されなかったことを検証します。パスワードリセットが失敗したため、更新処理は行われないはずです。
         verify(studentService, never()).update(anyLong(), anyString(), anyString(), anyString(), anyString(), anyInt());
     }
 
@@ -157,11 +177,14 @@ public class UserPasswordResetControllerTest {
                         .param("email", "test@example.com")
                         .param("password", "newPassword")
                         .param("password2", "differentPassword"))
+                // ステータスが正常であることを検証
                 .andExpect(status().isOk())
                 .andExpect(view().name("user-password-reset.html"))
+                // モデル属性"error"がtrueであることを検証
                 .andExpect(model().attribute("error", true))
                 .andExpect(model().attribute("errorMessage", "パスワードが一致していません"));
 
+        //verifyメソッドを使用して、studentServiceのupdateメソッドが呼び出されなかったことを検証します。パスワードリセットが失敗したため、更新処理は行われないはずです。
         verify(studentService, never()).update(anyLong(), anyString(), anyString(), anyString(), anyString(), anyInt());
     }
 }
