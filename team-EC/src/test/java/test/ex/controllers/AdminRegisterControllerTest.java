@@ -48,7 +48,7 @@ public class AdminRegisterControllerTest {
     
     // 新規登録画面の表示をテスト---------------------------------------------------------------------------------------------------
     @Test
-    public void testGetUserRegisterPage() throws Exception {
+    public void testGetAdminRegisterPage() throws Exception {
         // /admin/registerへのgetリクエストの作成
         RequestBuilder request = MockMvcRequestBuilders.get("/admin/register");
 
@@ -59,7 +59,7 @@ public class AdminRegisterControllerTest {
     
     // 新規登録完了画面の表示をテスト----------------------------------------------------------------------------------------------
     @Test
-    public void testGetUserRegisterFinishPage() throws Exception {
+    public void testGetAdminRegisterFinishPage() throws Exception {
         // /admin/register/finishへのgetリクエストの作成
         RequestBuilder request = MockMvcRequestBuilders.get("/admin/register/finish");
 
@@ -104,7 +104,7 @@ public class AdminRegisterControllerTest {
     
     @Test
     // パスワードが空白の場合を検証する----------------------------------------------------------------------------------------------
-    public void testRegister_NullStudentPassword() throws Exception {
+    public void testRegister_NullAdminPassword() throws Exception {
         // リクエストの作成
         RequestBuilder request = MockMvcRequestBuilders.post("/admin/register")
                 .param("username", "banana")
@@ -122,13 +122,13 @@ public class AdminRegisterControllerTest {
     }
     
     @Test
-    // ユーザー名が空白の場合を検証する----------------------------------------------------------------------------------------------
-    public void testRegister_NullStudentName() throws Exception {
+    // E-mailが空白の場合を検証する----------------------------------------------------------------------------------------------
+    public void testRegister_NullEmail() throws Exception {
         // リクエストの作成
         RequestBuilder request = MockMvcRequestBuilders.post("/admin/register")
-                .param("username", "")
-                .param("password", "1234")
-                .param("email", "yes@yes");
+                .param("username", "apple")
+                .param("password", "123")
+                .param("email", "");
 
         // ビュー名が"admin-register.html"であることを検証
         mockMvc.perform(request)
@@ -136,8 +136,44 @@ public class AdminRegisterControllerTest {
                .andExpect(model().attribute("error", true));
   
           // adminServiceのinsertメソッドが指定された引数で一回も呼び出さないことを検証する
-        verify(adminService, never()).insert(eq(""), eq("1234"), eq("yes@yes"));
+        verify(adminService, never()).insert(eq("apple"), eq("1234"), eq(""));
 
+    }
+    @Test
+    // Nameが空白の場合を検証する----------------------------------------------------------------------------------------------
+    public void testRegister_NullName() throws Exception {
+    	// リクエストの作成
+    	RequestBuilder request = MockMvcRequestBuilders.post("/admin/register")
+    			.param("username", "")
+    			.param("password", "123")
+    			.param("email", "apple@apple");
+    	
+    	// ビュー名が"admin-register.html"であることを検証
+    	mockMvc.perform(request)
+    	.andExpect(view().name("admin-register.html"))
+    	.andExpect(model().attribute("error", true));
+    	
+    	// adminServiceのinsertメソッドが指定された引数で一回も呼び出さないことを検証する
+    	verify(adminService, never()).insert(eq(""), eq("123"), eq("apple@apple"));
+    	
+    }
+    @Test
+    //すべてが空白の場合を検証する----------------------------------------------------------------------------------------------
+    public void testRegister_AllNull() throws Exception {
+    	// リクエストの作成
+    	RequestBuilder request = MockMvcRequestBuilders.post("/admin/register")
+    			.param("username", "")
+    			.param("password", "")
+    			.param("email", "");
+    	
+    	// ビュー名が"admin-register.html"であることを検証
+    	mockMvc.perform(request)
+    	.andExpect(view().name("admin-register.html"))
+    	.andExpect(model().attribute("error", true));
+    	
+    	// adminServiceのinsertメソッドが指定された引数で一回も呼び出さないことを検証する
+    	verify(adminService, never()).insert(eq(""), eq(""), eq(""));
+    	
     }
     
 
