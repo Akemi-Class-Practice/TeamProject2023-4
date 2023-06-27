@@ -21,4 +21,4 @@
   
 - ユーザー側
 
-    - 講座一覧画面 : https://1drv.ms/x/s!AiGjC0-uYvFDgVKhYa-QkEOuH5tqa
+    - 講座一覧画面 : https://1drv.ms/x/s!AiGjC0-uYvFDgVKhYa-QkEOuH5tq
