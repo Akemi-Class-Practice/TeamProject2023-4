@@ -162,11 +162,9 @@ main {
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 2em;
   grid-template-rows: auto auto;
+  grid-gap: 2em;
   max-width: 80vw;
-
 }
 
 
@@ -174,7 +172,6 @@ main {
   align-self: start;
   grid-column: 1;
   grid-row: 1;
-
   border-radius: 1em;
   overflow: hidden;
   /* background-color: #007c30; */
@@ -201,7 +198,6 @@ main {
 #purchase-box #price {
   grid-column: 1;
   grid-row:5;
-
   align-self: end;
 }
 #purchase-box p{

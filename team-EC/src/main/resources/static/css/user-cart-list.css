@@ -294,6 +294,7 @@ header {
 #img-preview {
   height: 100px;
   width: 100px;
+  margin-right: 10%;
   overflow: hidden;
 }
 
