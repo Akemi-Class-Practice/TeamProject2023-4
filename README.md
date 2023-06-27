@@ -21,7 +21,7 @@
   
 - ユーザー側
 
-    - 講座一覧 : &emsp;&emsp; https://x.gd/FEGg3
+    - 講座一覧 : &emsp;&emsp;&emsp; https://x.gd/FEGg3
     - 講座詳細情報 : &emsp; https://x.gd/cjcKa
     - パスワードリセット画面：　https://docs.google.com/spreadsheets/d/1bsbWmAiWX8a3tmet1oepxHmnPwXbVprH06RZ9AtzOGk/edit?usp=sharing
 
