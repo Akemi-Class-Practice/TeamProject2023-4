@@ -6,7 +6,7 @@
 
 - 参考記事
 
-  - SpringBootのControllerとServiceの関係 : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; https://onl.bz/XebDj9N
+  - SpringBootのControllerとServiceの関係 : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; https://x.gd/gfcum
 
   - Spring Boot + JPAで複合主キーのテーブルを扱う方法 : &emsp; https://onl.bz/sLNYh62
   
