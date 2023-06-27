@@ -34,7 +34,7 @@
   - 講座一覧 : &emsp;&emsp;&emsp; https://x.gd/ygrm0
   - 講座詳細情報 : &emsp; https://x.gd/0Z8nE
 
-## README編集の際に良かったら
+## README 編集の際に良かったら
 
 - スペースの空け方 : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; https://x.gd/DczDD
 - URL の短縮サイト : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; https://x.gd/
