@@ -12,5 +12,5 @@
   
   - マッピングについて : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; https://onl.bz/jKYZwz2
 
-  - @QueryとnativeQuery = trueについて : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; https://onl.bz/S4w2WqC
+  - @QueryとnativeQuery = trueについて : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; https://onl.bz/S4w2WqC
 
