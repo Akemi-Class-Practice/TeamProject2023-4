@@ -33,3 +33,8 @@
 
   - 講座一覧 : &emsp;&emsp;&emsp; https://x.gd/ygrm0
   - 講座詳細情報 : &emsp; https://x.gd/0Z8nE
+
+## README編集の際に良かったら
+
+- スペースの開け方 : https://x.gd/DczDD
+- URL の短縮サイト : https://x.gd/
