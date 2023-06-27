@@ -31,5 +31,5 @@
   
 - ユーザー側
 
-  - 講座一覧 : https://x.gd/ygrm0
-  - 講座詳細情報 : https://x.gd/0Z8nE
+  - 講座一覧 : &emsp;&emsp;&emsp; https://x.gd/ygrm0
+  - 講座詳細情報 : &emsp; https://x.gd/0Z8nE
