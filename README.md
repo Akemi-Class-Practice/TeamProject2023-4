@@ -17,8 +17,10 @@
 ## 単体テスト仕様書
 
 - 管理者側
-
+    -講座登録画面：　https://docs.google.com/spreadsheets/d/1bsbWmAiWX8a3tmet1oepxHmnPwXbVprH06RZ9AtzOGk/edit?usp=sharing
   
 - ユーザー側
 
     - 講座一覧画面 : https://1drv.ms/x/s!AiGjC0-uYvFDgVKhYa-QkEOuH5tq
+    - パスワードリセット画面：　https://docs.google.com/spreadsheets/d/1bsbWmAiWX8a3tmet1oepxHmnPwXbVprH06RZ9AtzOGk/edit?usp=sharing
+      
