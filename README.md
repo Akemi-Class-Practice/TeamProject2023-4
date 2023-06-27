@@ -8,7 +8,7 @@
 
   - SpringBootのControllerとServiceの関係 : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; https://x.gd/gfcum
 
-  - Spring Boot + JPAで複合主キーのテーブルを扱う方法 : &emsp; https://onl.bz/sLNYh62
+  - Spring Boot + JPAで複合主キーのテーブルを扱う方法 : &emsp; https://x.gd/uu3uJ
   
   - マッピングについて : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; https://onl.bz/jKYZwz2
 
