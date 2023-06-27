@@ -22,6 +22,7 @@
 - ユーザー側
 
     - 講座一覧 : https://1drv.ms/x/s!AiGjC0-uYvFDgVKhYa-QkEOuH5tq?e=aLeWsI
+    - 講座詳細情報 : https://1drv.ms/x/s!AiGjC0-uYvFDgVV0EwKCIyuQfMYC?e=KbmKeu
     - パスワードリセット画面：　https://docs.google.com/spreadsheets/d/1bsbWmAiWX8a3tmet1oepxHmnPwXbVprH06RZ9AtzOGk/edit?usp=sharing
 
 ## 単体テストコード & ソース
