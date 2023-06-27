@@ -32,4 +32,4 @@
 - ユーザー側
 
   - 講座一覧 : https://x.gd/ygrm0
-  - 講座詳細情報 : https://1drv.ms/x/s!AiGjC0-uYvFDgVf2ogWVGq4cHV-r?e=qygMlH
+  - 講座詳細情報 : https://x.gd/0Z8nE
