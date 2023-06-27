@@ -18,10 +18,11 @@
 
 <body class="flex-direction-column justify-content-space-between multiple_background-cream-grid">
 
+    <!-- user header -->
     <header>
         <div class="justify-content-space-between" id="headerBar">
             <!-- logo -->
-            <a href="">
+ 			<a th:href="@{/user/lesson/list}">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
                         <defs>
@@ -31,7 +32,7 @@
                                 }
                             </style>
                         </defs>
-                        <g>
+                        <g id="_管理者レジスター">
                             <path
                                 d="m14.65,32.34c0,.26.06.38.32.38h15.6c.38,0,.58.26.51.64l-1.66,9.46c-.06.38-.32.64-.7.64H.52c-.32,0-.58-.26-.51-.64L7.49.64c.06-.38.32-.64.64-.64h28.25c.38,0,.58.26.51.64l-1.73,9.46c-.06.38-.32.64-.64.64h-15.72c-.19,0-.38.13-.38.38l-3.77,21.22Z" />
                             <path
@@ -70,7 +71,7 @@
 
                                 </style>
                             </defs>
-                            <g>
+                            <g id="_講座一覧画面">
                                 <path
                                     d="m69.67,46H20.17l3.02-5.96c.06-.11.1-.23.13-.34.24-.14.44-.32.6-.54h43.57l5.37-27.46H16.43L12.9,0,1.9.25C.83.27-.02,1.16,0,2.23c.02,1.07.92,1.9,1.98,1.9l8.05-.18,10.19,33.72c-.2.16-.37.37-.49.62l-4.45,8.78c-.3.6-.28,1.32.08,1.89.35.58.98.93,1.65.93h52.66c1.07,0,1.94-.87,1.94-1.94s-.87-1.94-1.94-1.94Z" />
                                 <path
@@ -80,11 +81,17 @@
                         </svg>
                     </a>
                 </div>
+
                 <div class="My-page-header">
-                    <a th:href="@{/user/mypage}" class="green-background circle-radius submit-button-header font-color-cream " id="MyPageButton"><span>MY PAGE</span></a>
+                    <a th:href="@{/user/mypage}"
+                        class="green-background circle-radius submit-button-header font-color-cream"
+                        id="MyPageButton"><span>My Page</span></a>
                 </div>
+
                 <div class="Sign-button-header">
-                    <a th:href="@{/user/logout}" class="green-background circle-radius submit-button-header font-color-cream " id="SignButton"><span>SIGN OUT</span></a>
+                    <a th:href="@{/user/logout}"
+                        class="green-background circle-radius submit-button-header font-color-cream"
+                        id="SignButton"><span>SIGN OUT</span></a>
                 </div>
             </div>
         </div>
