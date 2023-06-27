@@ -36,6 +36,6 @@
 
 ## README編集の際に良かったら
 
-- スペースの空け方 : &emsp;&emsp;&emsp;&emsp; https://x.gd/DczDD
-- URL の短縮サイト : &emsp;&emsp;&emsp;&emsp; https://x.gd/
+- スペースの空け方 : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; https://x.gd/DczDD
+- URL の短縮サイト : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; https://x.gd/
   - 使い方と危険性について : &emsp; https://x.gd/3zdTa
