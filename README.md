@@ -38,4 +38,4 @@
 
 - スペースの空け方 : &emsp; https://x.gd/DczDD
 - URL の短縮サイト : &emsp; https://x.gd/
-  - URL 短縮の使い方と危険性について : &emsp; https://x.gd/3zdTa
+  - 使い方と危険性について : &emsp; https://x.gd/3zdTa
