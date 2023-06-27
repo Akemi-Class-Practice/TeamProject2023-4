@@ -12,7 +12,7 @@
   
   - マッピングについて : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; https://x.gd/9VX0L
 
-  - @QueryとnativeQuery = trueについて : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp; https://onl.bz/S4w2WqC
+  - @QueryとnativeQuery = trueについて : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp; https://x.gd/0B9u2
 
 ## 単体テスト仕様書
 
