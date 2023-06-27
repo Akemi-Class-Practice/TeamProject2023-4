@@ -14,3 +14,11 @@
 
   - @QueryとnativeQuery = trueについて : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp; https://onl.bz/S4w2WqC
 
+## 単体テスト仕様書
+
+- 管理者側
+
+  
+- ユーザー側
+
+    - 講座一覧画面 : https://1drv.ms/x/s!AiGjC0-uYvFDgVKhYa-QkEOuH5tq
