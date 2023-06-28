@@ -17,10 +17,9 @@
 ## 単体テスト仕様書
 
 - 管理者側
-    -講座登録画面：　https://x.gd/HZPp9
-    -講座購入者一覧：https://tinyurl.com/2b69dgb8
-    -ログアウト機能：https://tinyurl.com/2382othn
-    -
+    - 講座登録画面：　https://x.gd/HZPp9
+    - 講座購入者一覧：https://tinyurl.com/2b69dgb8
+    - ログアウト機能：https://tinyurl.com/2382othn
   
 - ユーザー側
     - ユーザー登録、ログイン：　https://x.gd/TLwAW
