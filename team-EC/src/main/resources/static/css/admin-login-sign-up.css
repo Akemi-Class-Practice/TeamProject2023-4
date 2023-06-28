@@ -28,9 +28,10 @@ p {
 
 .error-messag {
 	text-align: center;
-	margin-top: 12%;
+    margin-top: 31%;
     color: #f2a3a4;
     font-weight: bold;
+    font-size: 30px;
 }
 
 
