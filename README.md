@@ -22,10 +22,10 @@
     - ログアウト機能：https://tinyurl.com/2382othn
   
 - ユーザー側
-    - ユーザー登録、ログイン :https://x.gd/TLwAW
+    - ユーザー登録、ログイン : https://x.gd/TLwAW
     - 講座一覧 :&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; https://x.gd/FEGg3
     - 講座詳細情報 :&emsp;&emsp;&emsp;&emsp;https://x.gd/cjcKa
-    - パスワードリセット画面 :https://x.gd/bOfw2
+    - パスワードリセット画面 : https://x.gd/bOfw2
     - カート一覧 : &emsp;&emsp;&emsp;&emsp;&emsp;  https://tinyurl.com/23anrv66
     - 申し込み内容確認 : &emsp;&emsp;&emsp;&emsp;&emsp; https://tinyurl.com/26lq2txm
     - ログアウト機能 :&emsp;&emsp;&emsp;&emsp;&emsp;  https://tinyurl.com/25rn5oly
