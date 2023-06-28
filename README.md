@@ -22,7 +22,7 @@
     - ログアウト機能：https://tinyurl.com/2382othn
   
 - ユーザー側
-    - ユーザー登録、ログイン：&emsp;&emsp;&emsp;&emsp;&emsp; https://x.gd/TLwAW
+    - ユーザー登録、ログイン：https://x.gd/TLwAW
     - 講座一覧 :&emsp;&emsp;&emsp;&emsp;&emsp; https://x.gd/FEGg3
     - 講座詳細情報 :&emsp;&emsp;&emsp;&emsp;&emsp; https://x.gd/cjcKa
     - パスワードリセット画面 :&emsp;&emsp;&emsp;&emsp;&emsp;  https://x.gd/bOfw2
