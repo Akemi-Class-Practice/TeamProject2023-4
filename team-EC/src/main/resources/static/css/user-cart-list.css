@@ -207,6 +207,8 @@ header {
   flex-direction: column; 
 }
 
+
+
 .list {
   display: flex;
   align-items: center;
@@ -214,6 +216,11 @@ header {
   padding-bottom: 1.5%;
   border-top: 2px solid #007c2f;
 }
+.list-title {
+    font-size: 26pt;
+    position: fixed;
+    top:15%;
+  }
 
 
 .lecture-title {
@@ -294,6 +301,7 @@ header {
 #img-preview {
   height: 100px;
   width: 100px;
+  margin-right: 10%;
   overflow: hidden;
 }
 

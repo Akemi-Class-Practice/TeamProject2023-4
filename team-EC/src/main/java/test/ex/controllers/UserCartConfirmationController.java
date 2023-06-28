@@ -62,7 +62,6 @@ public class UserCartConfirmationController {
     @GetMapping("/user/confirmation")
     public String cartConfim(Model model){
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");		
-		
 
         //合計ポイントを計算
         int totalPoint = 0;
@@ -95,7 +94,6 @@ public class UserCartConfirmationController {
     	//データベースから最新のユーザー情報を取得
     	StudentEntity studentEntity = StudentService.selectByStudentId(loggedInUserId);
 
-    	
     	//持っているポイントを格納
 		int studentPoint = studentEntity.getPoint();
 		
@@ -103,28 +101,8 @@ public class UserCartConfirmationController {
 		ArrayList<LessonEntity> cartList = (ArrayList<LessonEntity>) session.getAttribute("cart");
 		model.addAttribute("cartList",cartList);
 
-
-
 		// 学生のIDと講座のIDのペアを取得
 		List<BuyingCartCheckEntity> studentIdAndLessonIds = buyingHistoryDao2.findStudentIdAndLessonIdByStudentId(loggedInUserId);
-
-		//カート側の取得   //コメントアウトは複数購入済みが含まれた場合
-	//List<String>exist = new ArrayList<>();
-	for(LessonEntity lessons :cartList ) {
-    	Long lessonId = lessons.getLessonId();
-    	for(BuyingCartCheckEntity pair : studentIdAndLessonIds) {
-    		Long pairLessonId = pair.getLessonId();
-    		if(lessonId.equals(pairLessonId) ) {
-    			//exist.add(lessons.getLessonName());
-    			 model.addAttribute("purchasedLessonIds", true);
-    			 model.addAttribute("message", lessons.getLessonName()+"は既に購入済みです");
-
-    			 return "user-application-confirm.html"; 
-
-    		}
-    	}
-	}
-
 
 		//カートの合計ポイントを取得   
         int totalPoint = 0;
@@ -137,12 +115,28 @@ public class UserCartConfirmationController {
 	    if (studentPoint < totalPoint) {
 	    	//insufficientPointsのポップアップは後ほど制作
 	        model.addAttribute("insufficientPoints", true);
+	        model.addAttribute("totalPoint", totalPoint);
 	        return "user-application-confirm.html"; // とりあえず今の画面にとどまる
 	    }else {
 			//自分が持っているポイントからカートの合計金額を引く
 			studentPoint -= totalPoint;
 	    }
-
+		
+	//カート側の取得   //コメントアウトは複数購入済みが含まれた場合
+	//List<String>exist = new ArrayList<>();
+	for(LessonEntity lessons :cartList ) {
+    	Long lessonId = lessons.getLessonId();
+    	for(BuyingCartCheckEntity pair : studentIdAndLessonIds) {
+    		Long pairLessonId = pair.getLessonId();
+    		if(lessonId.equals(pairLessonId) ) {
+    			//exist.add(lessons.getLessonName());
+    			 model.addAttribute("purchasedLessonIds", true);
+    			 model.addAttribute("message", lessons.getLessonName()+"は既に購入済みです");
+    			 model.addAttribute("totalPoint", totalPoint);
+    			 return "user-application-confirm.html"; 
+    		}
+    	}
+	}
 		//講座購入後のポイントをstudentデータベースに保存
 		userList.setPoint(studentPoint);
 		studentService.update(userList.getStudentId(), userList.getStudentName(), userList.getStudentPassword(), userList.getKeyword(), userList.getStudentEmail(), studentPoint);
@@ -184,6 +178,4 @@ public class UserCartConfirmationController {
 	// 成功した場合
     return "redirect:/user/completed";
     }
-
-
 }    

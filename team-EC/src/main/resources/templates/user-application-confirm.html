@@ -19,10 +19,11 @@
 
 <body class="flex-direction-column justify-content-space-between">
 
-    <!-- ヘッダーのボダン-->
+    <!-- user header -->
     <header>
+        <div class="justify-content-space-between" id="headerBar">
             <!-- logo -->
-            <a href="">
+ 			<a th:href="@{/user/lesson/list}">
                 <div class="logo-horizontal-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.03 44.23">
                         <defs>
@@ -56,8 +57,6 @@
                 </div>
             </a>
 
-
-
             <div class="justify-content-space-around align-items-center" id="headerBarRightPart">
                 <div class="header-courses">
                     <!-- ↓ここで講座コース一覧画面（購入前）を入力 -->
@@ -71,7 +70,6 @@
                             <defs>
                                 <style>
 
-
                                 </style>
                             </defs>
                             <g id="_講座一覧画面">
@@ -84,12 +82,16 @@
                         </svg>
                     </a>
                 </div>
+
                 <div class="My-page-header">
-                    <a th:href="@{/user/mypage}" class="green-background circle-radius submit-button-header font-color-cream "
-                        id="MyPageButton"><span>MY PAGE</span></a>
+                    <a th:href="@{/user/mypage}"
+                        class="green-background circle-radius submit-button-header font-color-cream"
+                        id="MyPageButton"><span>My Page</span></a>
                 </div>
+
                 <div class="Sign-button-header">
-                    <a th:href="@{/user/logout}" class="green-background circle-radius submit-button-header font-color-cream "
+                    <a th:href="@{/user/logout}"
+                        class="green-background circle-radius submit-button-header font-color-cream"
                         id="SignButton"><span>SIGN OUT</span></a>
                 </div>
             </div>
@@ -120,7 +122,7 @@
         <!-- 合計金額や買い物を続く、戻るボダン-->
         <h2 class="total">
             <span class="total-label">合計：</span>
-            <span id="total-amount"></span>
+            <span id="total-amount" th:text="${totalPoint} + Pt"></span>
         </h2>
 
         <!--pointが不足している場合のエラーメッセージ-->

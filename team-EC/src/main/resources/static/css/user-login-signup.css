@@ -195,7 +195,7 @@ a {
 
 .input-bar {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     font-family: 'Noto Sans JP', sans-serif;
     /* color:#262626; */
     font-weight: 500;
@@ -341,9 +341,9 @@ a {
     bottom: 0;
     border-left: #000000 4px solid;
     border-top: #000000 4px solid;
-    height: 22%;
+    height: 50px;
     width: 60%;
-    font-size: 29pt;
+    font-size: 19pt;
     color: #fbeedd;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 800;

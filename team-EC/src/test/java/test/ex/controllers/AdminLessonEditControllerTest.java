@@ -74,6 +74,7 @@ public class AdminLessonEditControllerTest {
 		@Test
 		public void testGetLessonEditPage() throws Exception {
 			LessonEntity lesson = new LessonEntity();
+			//仮の講座情報を作成
 			lesson.setLessonId(1L);;
 			lesson.setLessonName("Test");;
 			lesson.setLessonDetail("test");
@@ -84,6 +85,7 @@ public class AdminLessonEditControllerTest {
 			RequestBuilder request = MockMvcRequestBuilders.get("/admin/lesson/edit/{lessonId}", 1L)
 					.session(session);
 			mockMvc.perform(request)
+			//admin-lesson-edit.htmlが表示されているか確認
 			.andExpect(view().name("admin-lesson-edit.html"))
 			.andExpect(model().attribute("lessonList",lesson));
 		}
@@ -93,6 +95,7 @@ public class AdminLessonEditControllerTest {
 		public void testgetlessonEditFinishPage() throws Exception {
 			// テスト実行
 			RequestBuilder request = MockMvcRequestBuilders.get("/admin/lesson/edit/finish");
+			//admin-lesson-edit-finish.htmlが表示されているか確認
 			mockMvc.perform(request).andExpect(view().name("admin-lesson-edit-finish.html"));
 
 		}
