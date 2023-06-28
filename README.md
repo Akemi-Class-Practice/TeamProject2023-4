@@ -18,13 +18,18 @@
 
 - 管理者側
     -講座登録画面：　https://x.gd/HZPp9
+    -講座購入者一覧：https://tinyurl.com/2b69dgb8
+    -ログアウト機能：https://tinyurl.com/2382othn
+    -
   
 - ユーザー側
     - ユーザー登録、ログイン：　https://x.gd/TLwAW
     - 講座一覧 : &emsp;&emsp;&emsp; https://x.gd/FEGg3
     - 講座詳細情報 : &emsp; https://x.gd/cjcKa
     - パスワードリセット画面：　https://x.gd/bOfw2
-    - ログアウト機能: https://tinyurl.com/25rn5oly
+    - カート一覧：　https://tinyurl.com/23anrv66
+    - 申し込み内容確認：　https://tinyurl.com/26lq2txm
+    - ログアウト機能： https://tinyurl.com/25rn5oly
 
 ## 単体テストコード & ソース
 
