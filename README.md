@@ -24,7 +24,7 @@
     - 講座一覧 : &emsp;&emsp;&emsp; https://x.gd/FEGg3
     - 講座詳細情報 : &emsp; https://x.gd/cjcKa
     - パスワードリセット画面：　https://x.gd/bOfw2
-    - ログアウト機能: https://docs.google.com/spreadsheets/d/1GIyFoopaPgpZJT3dCFtZZy0PfEUH98_j/edit?usp=sharing&ouid=103141989362816675035&rtpof=true&sd=true
+    - ログアウト機能: https://tinyurl.com/25rn5oly
 
 ## 単体テストコード & ソース
 
