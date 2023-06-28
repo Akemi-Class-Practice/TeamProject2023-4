@@ -45,7 +45,7 @@
     - 講座購入者一覧 :&emsp;&emsp;&emsp; https://tinyurl.com/2ag4zzfp
       
 - ユーザー側
-　  - カート一覧 :&emsp;&emsp;&emsp; https://tinyurl.com/23swvfbz
+    - カート一覧 :&emsp;&emsp;&emsp; https://tinyurl.com/23swvfbz
     - 申し込み内容確認 :&emsp;&emsp;&emsp;https://tinyurl.com/28xlhezs
     - 申し込み手続き完了 :&emsp;&emsp;&emsp; https://tinyurl.com/2ygm8c87
     
