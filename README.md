@@ -38,17 +38,6 @@
 
   - 講座一覧 : &emsp;&emsp;&emsp; https://x.gd/ygrm0
   - 講座詳細情報 : &emsp; https://x.gd/0Z8nE
-  - 
-## 結合テスト仕様書
-
-- 管理者側
-    - 講座購入者一覧 :&emsp;&emsp;&emsp; https://tinyurl.com/2ag4zzfp
-      
-- ユーザー側
-    - カート一覧 :&emsp;&emsp;&emsp; https://tinyurl.com/23swvfbz
-    - 申し込み内容確認 :&emsp;&emsp;&emsp;https://tinyurl.com/28xlhezs
-    - 申し込み手続き完了 :&emsp;&emsp;&emsp; https://tinyurl.com/2ygm8c87
-    
 
 ## README 編集の際に良かったら
 
