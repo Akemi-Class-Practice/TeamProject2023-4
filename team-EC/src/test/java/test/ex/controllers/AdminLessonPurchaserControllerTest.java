@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 
@@ -14,6 +15,8 @@ import test.ex.models.dao.CoursePurchaserDao;
 import test.ex.models.entity.AdminEntity;
 import test.ex.models.entity.CoursePurchaserEntity;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -23,7 +26,7 @@ import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class AdminLessonPurchaserControllerTest {
+public class AdminLessonPurchaserControllerTest{
 
     @Autowired
     private MockMvc mockMvc;
@@ -36,30 +39,37 @@ public class AdminLessonPurchaserControllerTest {
 
     @BeforeEach
     public void perpareData() {
-        // HttpSessionのモック設定
-        AdminEntity adminEntity = new AdminEntity();
-        adminEntity.setAdminId(1L);
-        session.setAttribute("admin", adminEntity);
+
     }
 
     // ユーザーがログインしていない状態でアドミン購入者一覧ページに遷移できるか確認
     @Test
     public void testGetAdminLessonBuyControllerWithoutLoggedInUser() throws Exception {
+    	//指定したURlに遷移
         mockMvc.perform(MockMvcRequestBuilders.get("/admin/lesson/purchaser/list/{lessonId}", 123L))
-                .andExpect(status().is3xxRedirection())
+                // リダイレクト先のURLが"/admin/login"であることを検証
                 .andExpect(redirectedUrl("/admin/login"));
     }
 
-    // ユーザーがログインしている状態でアドミン購入者一覧ページに遷移できるか確認/////未完成
+    // ユーザーがログインしている状態でアドミン購入者一覧ページに遷移できるか確認
     @Test
-    public void testGetAdminLessonBuyControllerWithLoggedInUser() throws Exception {
-        // CoursePurchaserDaoのモック設定
-        List<CoursePurchaserEntity> mockList = new ArrayList<>();
-        when(coursePurchaserDao.findByLessonId(123L)).thenReturn(mockList);
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/admin/lesson/purchaser/list/{lessonId}", 123L))
+    public void testGetPurchaserListWithLoggedInAdmin() throws Exception {        
+        // ログイン済みのアドミンユーザーを作成
+        AdminEntity loggedInAdmin = new AdminEntity();
+        
+        //指定されたURLにGETリクエストを送信
+       mockMvc.perform(MockMvcRequestBuilders.get("/admin/lesson/purchaser/list/{lessonId}", 123L)
+                
+        		//セッションにadminを追加
+        		.sessionAttr("admin", loggedInAdmin))
+       
+       			//レスポンスのステータスコードが200であることを検証
                 .andExpect(status().isOk())
-                .andExpect(view().name("admin-course-management.html"))
-                .andExpect(model().attributeExists("purchaserList"));
+                
+            	// モデルに指定の属性が存在することを検証
+                .andExpect(model().attributeExists("purchaserList"))
+                
+                // ビューの名前が指定されたものであることを検証
+                .andExpect(view().name("admin-course-management.html"));
     }
 }
