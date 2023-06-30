@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="course-decision.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    <title>TeamProject</title>
+</head>
+<body>
+    <!--idやclassはご自由にお付けください。
+    コメントは該当する作業が終わった際に消してくださると助かります。-->
+    <header>
+        <h1>お申込み内容確認</h1>
+        <!--ナビゲーションバー(数によって<li>の増減はお願いします。)-->
+        <nav>
+            <!--cssでlist-style:noneを使用して(・)は消してください。-->
+            <ul>
+                <li><a href = "#"></a></li>
+                <li><a href = "#"></a></li>
+                <li><a href = "#"></a></li>
+                <li><a href = "#"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--あくまで、見栄えの作成の為に簡易的に作りました。
+        th,listへの置き換えの際は該当箇所を適宜変更してください-->
+    <main>
+        <section id = "cart" class = "wrapper">
+            <h2 class = "section-title"><div>講座</div></h2>
+            <div class = "content">
+                <img src="../img/demo画面.png" alt loading = "lazy" width = "150" height = "150">
+                <div class = "text">
+                    <p class = "course-title">
+                        講座ID : 00000001
+                    </p>
+                    <h1>WEB DESIGN初級</h1>
+                    <div class = "set-price">
+                        ￥21.000
+                        <button>
+                        </button>
+                    </div>
+                </div>
+                <img src="../img/demo画面.png" alt="テキストテキストテキスト">
+                <div class = "text">
+                    <p class = "course-title">
+                        講座ID : 00000002
+                    </p>
+                    <h1>JAVA 入門</h1>
+                    <div class = "set-price">
+                        ￥21.000
+                        <button>
+                        </button>
+                    </div>
+                </div>
+                <div class = "total">
+                    <h2 class = "subtotal">小計</h2>
+                    <div>￥42.0000</div>
+                </div>
+            </div>
+            <div class = "select-button">
+                <a href="" class="btn_1">戻る</a>
+                <a href="" class="btn_2">確定</a>
+            </div>
+        </section>
+    </main>
+
+    <!--実際のmainコードは以下のようになると思います。(blogからの引用なので参考程度に) -->
+    <!--
+        <div class="article-list-flex">
+            <article class="all-view-article" th:each="blog:${blogList}">
+
+                <a th:href="@{/user/blog/details/{blogId}#article(blogId=${blog.blogId})}"class="all-view-colum">
+                    <img th:src="@{/blog-img/{items}(items=${blog.blogImage})}">
+                    <div class="colum-box">
+                        <p th:text=" ${blog.blogTitle}"></p>    // ここが講座名に
+                    </div>
+                    <div class="all-view-category">
+                        <p th:text=" ${blog.categoryName}"></p> // ここが講座金額に
+                    </div>
+                </a>
+            </article>
+        </div>
+    -->
+
+    <footer>
+        <!--コピーライトの表記が決まり次第記入お願いします。-->
+        <p>&copy;</p>
+    </footer>
+</body>
+</html>
