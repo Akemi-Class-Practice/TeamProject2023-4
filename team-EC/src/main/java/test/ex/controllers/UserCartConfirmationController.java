@@ -176,6 +176,6 @@ public class UserCartConfirmationController {
 			transactionItemDao.save(transactionItem);
 		}			
 	// 成功した場合
-    return "redirect:/user/completed";
+		return "redirect:/user/completed";
     }
 }    
