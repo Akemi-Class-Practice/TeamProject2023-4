@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fbeedd;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+          
+}
+
+.background {
+    z-index: -1;
+}
+
+.buttons {
+    display: flex;
+    margin-top: -2.8%;
+  
+}
+
+.head-course {
+    text-decoration: none;
+    color: #007c2f;
+    font-weight: bold;
+    margin-right: 30px;
+    margin-top: 70px;
+    margin-left: 1150px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.head-cart {
+    background-image: url("cart-icon.png");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    margin-right: 60px;
+}
+
+.svg-cart {
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.head-login {
+    background-color: #007c2f;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-top: 60px;
+    margin-left: 10px;
+    font-family: 'Noto Sans', sans-serif;
+
+  }
+
+.svg-logo {
+    position: absolute; /* 将SVG图像设置为绝对定位 */
+    top: 0; /* 将SVG图像置于顶部 */
+    left: 0; /* 将SVG图像置于左侧 */
+    width: 200px; /* 设置SVG图像的宽度 */
+    height: 200px; /* 设置SVG图像的高度 */
+  }
+ 
+  .svg-kirakira {
+    position: absolute; /* 将SVG图像设置为绝对定位 */
+    top: 75px; /* 将SVG图像置于顶部 */
+    left: 1000px; /* 将SVG图像置于左侧 */
+    width: 200px; /* 设置SVG图像的宽度 */
+    height: 200px; /* 设置SVG图像的高度 */
+  }
+ 
+  .svg-star {
+    position: absolute; /* 将SVG图像设置为绝对定位 */
+    top: 500px; /* 将SVG图像置于顶部 */
+    left: 150px; /* 将SVG图像置于左侧 */
+    width: 60px; /* 设置SVG图像的宽度 */
+    height: 60px; /* 设置SVG图像的高度 */
+  }
+ 
+
+
+.container {
+    text-align: center;
+    margin: 150px auto;
+    padding: 20px;
+    background-color: #fbeedd;
+    border: 5px solid #000000;
+    width: 600px;
+    height: 300px;
+    box-shadow: 0 2px 4px #005320(0, 0, 0, 0.1);
+    margin-bottom: -160px;
+    z-index: 2; /* 设置更高的 z-index 值 */
+}
+
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+button {
+    /* 变量 */
+    --button_radius: 30px; /* 按钮的圆角半径 */
+    --button_color: #e8e8e8; /* 按钮的背景颜色 */
+    --button_outline_color: #000000; /* 按钮的边框颜色 */
+    font-size: 17px; /* 按钮的字体大小 */
+    font-weight: bold; /* 按钮的字体粗细 */
+    border: none; /* 去除按钮边框 */
+    border-radius: var(--button_radius); /* 设置按钮的圆角半径 */
+    background: var(--button_outline_color); /* 设置按钮的背景颜色 */
+    box-shadow: 0 2px 4px rgba(201, 16, 16, 0.2); /* 添加阴影效果 */
+    text-align: center;
+    margin-left: 660px;
+    margin-bottom: 300px;
+    
+    
+}
+
+button a{
+    text-decoration: none;
+}
+
+#returnBtn {
+    display: block; /* 将按钮元素设置为块级元素 */
+    box-sizing: border-box; /* 设置盒模型为 border-box */
+    border: 2px solid var(--button_outline_color); /* 设置按钮的边框样式和颜色 */
+    border-radius: var(--button_radius); /* 设置按钮的圆角半径 */
+    padding: 0.75em 1.5em; /* 设置按钮的内边距 */
+    background: var(--button_color); /* 设置按钮的背景颜色 */
+    color: var(--button_outline_color); /* 设置按钮的文本颜色 */
+    transform: translateY(-0.2em); /* 设置按钮向上移动的初始位置 */
+    transition: transform 0.1s ease; /* 添加按钮动画效果 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+}
+
+#returnBtn:hover {
+    /* 鼠标悬停时向上移动按钮 */
+    transform: translateY(-0.33em);
+}
+
+#returnBtn:active {
+    /* 按下按钮时向下移动按钮 */
+    transform: translateY(0);
+}
+
+
+  
+footer {
+    background-color: #007c2f;
+    padding-bottom: 10vh;
+    position: relative;
+    /* 将定位属性改为相对定位 */
+    bottom: 0;
+    /* 将页脚固定在底部 */
+    width: 100%;
+  }
+  
+  
+  .footer-logo {
+    padding-top: 4%;
+    padding-left: 5%;
+    left: 2%;
+    width: 10%;
+    height: 10%;
+  }
+  
+  .footer-p {
+    color: #ffff;
+    padding-left: 5%;
+    width: 40%;
+  }
+  
+  .footer-academy {
+    padding-left: 60%;
+    margin-top: -65px;
+    color: #ffff;
+    font-family: 'Noto Sans', sans-serif;  
+  }
+  
+  .footer-academy a {
+    text-decoration: none;
+    color: #ffff;
+  }
+  
+  .footer-about {
+    padding-left: 80%;
+    margin-top: -133px;
+    color: #ffff;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .last {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #007c2f;
+    font-size: 10px;
+    margin-left: 6%;
+    padding-bottom: 4px;
+  }

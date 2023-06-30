@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/user-Mypage.css">
+    <link rel="stylesheet" href="../css/point-reset.css">
+
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section>
+            <div>
+                <h1>マイページ</h1>
+            </div>
+            <table>
+                <tr>
+                    <th>お名前</th>
+                    <td>名前を表示
+                        <!-- ログアウトへ遷移 見栄えわるかったら消してもいいです -->
+                        <br>
+                        <a th:href="@">ログアウトへ</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td>メールアドレスを表示</td>
+                </tr>
+                <tr>
+                    <th>パスワード</th>
+                    <td>パスワードを表示（例*****)
+                        <br>
+                        <a th:href="@">パスワード変更画面へ</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>保有ポイント</th>
+                    <td>保有ポイントを表示（例300Pt)</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <div>
+                <h2>講座購入履歴</h2>
+            </div>
+
+            <div class="history">
+                <div class="history-container">
+                    <div class="history-wrapper">
+                        <img src="../img/java.png">
+                    </div>
+                    <div class="history-wrapper">
+                        <table class="history-table">
+                            <tr>
+                                <td class="history-label">講座名</td>
+                                <td class="history-value">講座名を表示</td>
+                            </tr>
+                            <tr>
+                                <td class="history-label">購入日時</td>
+                                <td class="history-value">購入した日時を表示</td>
+                            </tr>
+                            <tr>
+                                <td class="history-label">料金</td>
+                                <td class="history-value">料金を表示</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history">
+                <div class="history-container">
+                    <div class="history-wrapper">
+                        <img src="../img/java.png">
+                    </div>
+                    <div class="history-wrapper">
+                        <table class="history-table">
+                            <tr>
+                                <td class="history-label">講座名</td>
+                                <td class="history-value">Javaまるわかり</td>
+                            </tr>
+                            <tr>
+                                <td class="history-label">購入日時</td>
+                                <td class="history-value">2024/2/2</td>
+                            </tr>
+                            <tr>
+                                <td class="history-label">料金</td>
+                                <td class="history-value">1200Pt</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </section>
+
+
+
+
+
+
+
+    </main>
+
+
+</body>
+
+</html>

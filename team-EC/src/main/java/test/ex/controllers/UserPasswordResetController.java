@@ -40,14 +40,15 @@ public class UserPasswordResetController {
 		// studentServiceクラスのfindByEmailAndkeywordメソッドを使用して、該当するユーザー情報を取得する。
 		StudentEntity studentEntity = studentService.selectByEmailAndKeyword(email, keyword);
 		if (studentEntity == null) {
-            //model.addAttribute("error", true);
-            //model.addAttribute("errorMessage", "入力していない内容があります");
+			//メールアドレスまたはキーワードがまちがっていた場合
+	            model.addAttribute("error", true);
+	            model.addAttribute("errorMessage", "E-mailまたはキーワードが間違っています");
 			return "user-password-reset.html";
 		} else {
 	        if (!password.equals(password2)) {
 	            // パスワードとパスワード確認が一致しない場合
-	            model.addAttribute("error", true);
-	            model.addAttribute("errorMessage", "パスワードが一致していません");
+	            model.addAttribute("error2", true);
+	            model.addAttribute("errorMessage2", "パスワードが一致していません");
 	            return "user-password-reset.html";
 	        }
 
