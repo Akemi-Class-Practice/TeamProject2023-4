@@ -143,6 +143,8 @@ main #title-p{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-gap:6em;
+  margin-bottom: 10vh;
+  margin-top: 5vh;
 
 }
 
