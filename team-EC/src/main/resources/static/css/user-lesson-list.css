@@ -12,13 +12,6 @@ html {
   font-family: 'Noto Sans JP', sans-serif;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 
 /*---------------------------------------------------------------------------------------------------
 /* ---- 共通css ----- */
@@ -185,7 +178,7 @@ main #title-p{
 }
 .nested-title h3{
   font-weight: 500;
-  font-family: 'Noto Sans JP' sans-serif;
+  font-family: 'Noto Sans JP',sans-serif;
   font-size: 24px;
   color: #007c30;
 }
